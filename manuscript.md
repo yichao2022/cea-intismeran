@@ -160,3 +160,11 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 | Total QALYs | 6.72 | 12.54 | 5.83 |
 | Total Cost | $862,286 | $1,821,435 | $959,150 |
 | ICER | — | — | **$164,630/QALY** |
+---
+
+## Figures
+
+- **Figure 1:** Weibull-modeled RFS and OS curves, with 5-year data points from KEYNOTE-942 → `output/fig1_survival.png`
+- **Figure 2:** Cost-effectiveness acceptability curve → `output/fig2_ceac.png`
+- **Figure 3:** Tornado diagram, one-way sensitivity analysis → `output/fig3_tornado.png`
+- **Figure 4:** Cost-effectiveness plane (1,000 PSA iterations) → `output/fig4_ce_plane.png`
