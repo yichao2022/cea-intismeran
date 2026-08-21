@@ -21,7 +21,8 @@ Utility sources:
 
 import numpy as np
 from dataclasses import dataclass, field
-from typing import Tuple, Optional
+from typing import Tuple, Optional, List
+from scipy.optimize import least_squares
 
 
 # ── Survival distributions ──────────────────────────────────────────────────
@@ -46,12 +47,21 @@ class ModelParams:
     """Base-case model inputs. Replace with literature values as available."""
 
     # ── Clinical (KEYNOTE-942 / INTerpath-001) ──
+    # KM curve data points from Fig 1, Khattak et al. JCO 2026 (landmark points)
+    # 5-year (60-month) values used for Weibull anchoring; full curves at 18/24/36/48m
     rfs_5yr_combo: float = 0.688       # 5-year RFS, combo arm
     rfs_5yr_pembro: float = 0.491      # 5-year RFS, pembro alone
-    rfs_hr: float = 0.51               # HR for RFS (95% CI 0.294-0.887)
+    rfs_hr: float = 0.510              # HR for RFS (95% CI 0.294-0.887)
     dmfs_hr: float = 0.411             # HR for DMFS (95% CI 0.200-0.843)
     os_5yr_combo: float = 0.922        # 5-year OS, combo (exploratory)
     os_5yr_pembro: float = 0.713       # 5-year OS, pembro alone
+    # Landmark data for reference/validation (months since randomization)
+    rfs_landmark_t: List[float] = field(default_factory=lambda: [18, 24, 36, 48, 60])
+    rfs_landmark_combo: List[float] = field(default_factory=lambda: [0.804, 0.783, 0.738, 0.724, 0.688])
+    rfs_landmark_pembro: List[float] = field(default_factory=lambda: [0.622, 0.600, 0.556, 0.491, 0.491])
+    os_landmark_t: List[float] = field(default_factory=lambda: [18, 24, 36, 48, 60])
+    os_landmark_combo: List[float] = field(default_factory=lambda: [0.960, 0.960, 0.938, 0.922, 0.922])
+    os_landmark_pembro: List[float] = field(default_factory=lambda: [0.934, 0.934, 0.856, 0.856, 0.713])
 
     # ── Costs (USD, 2026) ──
     # Keytruda 400mg q6w × 9 doses: $24,544/dose (GoodRx May 2026)
@@ -82,21 +92,18 @@ class ModelParams:
     rfs_scale_pembro: float = field(init=False)
     os_scale_combo: float = field(init=False)
     os_scale_pembro: float = field(init=False)
-    weibull_shape: float = 1.2          # ponytail: fixed; estimate from KM digitization
+    weibull_shape: float = 1.2
 
     def __post_init__(self):
+        # Fit Weibull to 5-year survival rates
         self.rfs_scale_combo, _ = fit_weibull_from_survrate(
-            5.0, self.rfs_5yr_combo, self.weibull_shape
-        )
+            5.0, self.rfs_5yr_combo, self.weibull_shape)
         self.rfs_scale_pembro, _ = fit_weibull_from_survrate(
-            5.0, self.rfs_5yr_pembro, self.weibull_shape
-        )
+            5.0, self.rfs_5yr_pembro, self.weibull_shape)
         self.os_scale_combo, _ = fit_weibull_from_survrate(
-            5.0, self.os_5yr_combo, self.weibull_shape
-        )
+            5.0, self.os_5yr_combo, self.weibull_shape)
         self.os_scale_pembro, _ = fit_weibull_from_survrate(
-            5.0, self.os_5yr_pembro, self.weibull_shape
-        )
+            5.0, self.os_5yr_pembro, self.weibull_shape)
 
 
 def sample_psa_params(n: int = 1000, seed: int = 42) -> list:
