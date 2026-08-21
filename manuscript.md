@@ -168,3 +168,13 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 - **Figure 2:** Cost-effectiveness acceptability curve → `output/fig2_ceac.png`
 - **Figure 3:** Tornado diagram, one-way sensitivity analysis → `output/fig3_tornado.png`
 - **Figure 4:** Cost-effectiveness plane (1,000 PSA iterations) → `output/fig4_ce_plane.png`
+
+---
+
+## Value-Based Pricing
+
+The base case analysis assumes an intismeran acquisition cost of $200,000 per course, based on analyst estimates. To inform value-based pricing, we performed a threshold analysis solving for the intismeran price that would yield an ICER of $150,000/QALY.
+
+At a $200,000 price, the ICER is $164,630/QALY. The price required to achieve an ICER of $150,000/QALY is **$113,281 per course** (approximately $114,000)—a pricing gap of approximately $87,000 from the analyst estimate. Even at a zero acquisition cost, the ICER floor is $130,812/QALY due to residual costs (pembrolizumab, AE management, administration) in the combination arm, meaning the $100,000/QALY threshold is not achievable within any positive price range.
+
+The ICER is approximately linear in acquisition cost over the range $100,000–$300,000 (Table 4), reflecting the dominant contribution of drug cost to the incremental cost difference.
