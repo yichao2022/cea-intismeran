@@ -57,7 +57,7 @@ Clinical efficacy data were derived from the 5-year follow-up of the Phase 2b KE
 - DMFS HR: 0.411 (95% CI 0.200-0.843)
 - 5-year OS: 92.2% vs 71.3% (exploratory, HR 0.47; 95% CI 0.17-1.35)
 
-Survival probabilities at 18, 24, 36, 48, and 60 months were extracted from the published Kaplan-Meier curves (Figure 1, Khattak et al. 2026). For each arm, log-normal distribution parameters were calibrated to the observed survival probabilities via nonlinear least squares — separately for OS and for the conditional ratios r_DM(t) = DMFS(t)/OS(t) and r_LR(t) = RFS(t)/DMFS(t). This ratio-constrained approach guarantees that the three survival curves are structurally consistent over the entire time horizon [11,13]. All fitted values are reported in Table S2 (Supplementary Materials).
+Survival probabilities at 18, 24, 36, 48, and 60 months were extracted from the published Kaplan-Meier curves (Figure 1, Khattak et al. 2026). Parametric survival models were fitted via weighted nonlinear least squares, following standard methodological guidance [15-17]. Model selection compared five candidate distributions (exponential, Weibull, log-normal, log-logistic, generalized gamma) for each of three underlying survival components (OS, r_DM = DMFS/OS, r_LR = RFS/DMFS) using AIC, as recommended by NICE DSU TSD 14 [15]. The log-normal distribution was selected as the base case, consistent with the ratio-constrained structure RFS ≤ DMFS ≤ OS [11,13]. All fitted values are reported in Table S2 (Supplementary Materials).
 
 ### 2.3 Costs
 
@@ -229,7 +229,10 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 [11] Bensimon AG, Zhou ZY, Jenkins M, et al. Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage III melanoma in the United States. J Med Econ 2019;22(10):981-993.
 [12] Johnston KM, et al. Pharmacoeconomics 2021;39:241-253.
 [13] Zhang S, Bensimon AG, Xu R, et al. Cost-effectiveness analysis of pembrolizumab as an adjuvant treatment of resected stage IIB or IIC melanoma in the United States. Adv Ther 2023;40:3038-3055.
-[14] Mclean A, van Hest N. An exploratory cost-effectiveness analysis of cancer vaccines in combination with current immune checkpoint inhibitors vs immune checkpoint inhibitor monotherapy: a case study for V940 in high-risk stage 3 melanoma in the US. Value Health 2024;27(12):S2 (EE354).
+[14] Mclean A, van Hest N.
+[15] Latimer N. NICE DSU Technical Support Document 14: Survival analysis for economic evaluations alongside clinical trials — extrapolation with patient-level data. Sheffield: NICE Decision Support Unit; 2011 (updated 2013).
+[16] Latimer NR. Survival analysis for economic evaluations alongside clinical trials — extrapolation with patient-level data: inconsistencies, limitations, and a practical guide. Med Decis Making 2013;33(6):743-754.
+[17] Ishak KJ, Kreif N, Benedict A, Muszbek N. Overview of parametric survival analysis for health-economic applications. Pharmacoeconomics 2013;31(8):663-675. An exploratory cost-effectiveness analysis of cancer vaccines in combination with current immune checkpoint inhibitors vs immune checkpoint inhibitor monotherapy: a case study for V940 in high-risk stage 3 melanoma in the US. Value Health 2024;27(12):S2 (EE354).
 
 ## Tables
 
