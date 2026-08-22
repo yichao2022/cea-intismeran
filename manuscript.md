@@ -128,7 +128,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 ### 3.4 Probabilistic and Deterministic Uncertainty
 
-Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 2). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. In terms of the cost-effectiveness plane (Figure 4), the preponderance of iterations fell in the northeast quadrant (higher cost, higher QALY), with a mean ICER of $51,574 and a 95% uncertainty interval from $4,863 to $138,462.
+Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 1). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. In terms of the cost-effectiveness plane (Figure 2), the preponderance of iterations fell in the northeast quadrant (higher cost, higher QALY), with a mean ICER of $51,574 and a 95% uncertainty interval from $4,863 to $138,462.
 
 **Deterministic sensitivity analysis.** One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, followed by the DM monthly cost and the intismeran price. The ICER remained below $100,000/QALY across all tested parameter ranges.
 
@@ -149,6 +149,8 @@ Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantifie
 ---
 
 ### 3.6 Value-Based Price Thresholds
+
+Figure 4 presents the Price–ICER curve. The ICER is a linear function of the intismeran acquisition price, crossing the $100,000/QALY threshold at $429,077 per course and the $150,000/QALY threshold at $616,455 per course. At the estimated price of $200,000, the ICER of $39,105/QALY is well below both thresholds.
 
 The value-based acquisition price of intismeran was estimated by identifying the price at which the ICER reaches conventional willingness-to-pay thresholds. At the estimated acquisition cost of $200,000 per course, the ICER was $39,105/QALY. The value-based price at a $100,000/QALY threshold was $429,077 per course, meaning the ICER remains below $100,000/QALY even at more than twice the current estimated price. At a $150,000/QALY threshold, the value-based price was $616,455 per course.
 
