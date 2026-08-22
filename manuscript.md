@@ -111,15 +111,32 @@ The incremental QALY gain of 3.76 was driven almost entirely by additional time 
 | **Total QALYs** | **11.10** | **7.35** | **3.76** |
 
 
-### 3.3 Probabilistic Sensitivity Analysis
+### 3.3 Survival Extrapolation and External Validation
+
+Survival extrapolation was validated along two dimensions: internal structural consistency of the PSM framework, and external calibration of the pembrolizumab arm against published adjuvant melanoma evidence.
+
+**Structural consistency.** Over 480 monthly cycles, no violations of the constraint RFS ≤ DMFS ≤ OS were observed. All health-state probabilities remained non-negative, and the sum of state probabilities was within 10⁻¹² of unity at every cycle. The general population mortality hazard floor, applied from 60 months onward, ensures that the model's long-term survival does not exceed age- and sex-matched US life-table survival at any time point. At 30 years, the model projects combo OS of 21.5% and pembro OS of 10.9%, both below the general-population survival floor of approximately 35%.
+
+**External validation.** The pembrolizumab-alone arm predictions were compared against long-term adjuvant melanoma evidence (Table 3). At 5 years, the model predicted RFS of 40.2%, DMFS of 53.5%, and OS of 74.1%, consistent with the KEYNOTE-942 observed data (RFS 49.1%, DMFS 65.4%, OS 71.3%). At 7 years, the model predicted RFS of 31.7% and OS of 63.8%. The lower RFS relative to KEYNOTE-054 (7-year RFS 50%) reflects the higher-risk population enrolled in KEYNOTE-942 (stage IIIB–IV including resected stage IV, vs stage IIIA–C in KEYNOTE-054). The model's pembrolizumab arm is therefore conservative for the intismeran treatment effect. No external long-term data exist for the combination arm (first-in-class therapy); conservative scenarios (waning of treatment effect, no direct OS benefit; Section 3.6) provide lower-bound estimates of cost-effectiveness.
+
+| Outcome | Model | KEYNOTE-054 | CheckMate 238 |
+|:---|:---:|:---:|:---:|
+| 5-year RFS | 40.2% | 49.1% (observed) | — |
+| 5-year DMFS | 53.5% | 65.4% (observed) | — |
+| 5-year OS | 74.1% | 71.3% (observed) | 76% (nivolumab) |
+| 7-year RFS | 31.7% | 50% (46–55%) | — |
+| 7-year DMFS | 44.6% | 54% (50–59%) | — |
+| 7-year OS | 63.8% | — | ~70% (nivolumab) |
+
+### 3.4 Probabilistic Sensitivity Analysis
 
 Over 1,000 PSA iterations (828/1000 valid), the mean ICER was $51,574 (median $45,724; 95% CI $4,863 to $138,462; Table 3; Figure 4). At the $100,000/QALY threshold, the probability of cost-effectiveness was 93.7%; at $150,000/QALY it was 98.2% (Figure 2).
 
-### 3.4 Deterministic Sensitivity Analysis
+### 3.5 Deterministic Sensitivity Analysis
 
 One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, followed by the DM monthly cost and the intismeran price. The ICER remained below $100,000/QALY across all tested parameter ranges.
 
-### 3.5 Scenario Analyses
+### 3.6 Scenario Analyses
 
 **Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $12,496/QALY. At $300,000 per course, the ICER increased to $65,714/QALY. At $500,000 per course, the ICER was $118,932/QALY.
 
