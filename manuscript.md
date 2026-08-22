@@ -93,7 +93,7 @@ Over 1,000 PSA iterations, the mean ICER was $165,409 (median $162,353; 95% CI $
 
 This study provides the first economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIB-IV melanoma. At a base case ICER of $164,630/QALY, the combination is borderline cost-effective by conventional US thresholds. The results are primarily driven by the substantial clinical benefit (5.83 incremental QALYs) and the high cost of the individualized therapy.
 
-The ICER of $164,630/QALY is comparable to other novel cancer therapies at launch. For context, pembrolizumab was estimated at $157,000-$194,000/QALY in early adjuvant melanoma analyses [16], and CAR-T therapies have been associated with ICERs exceeding $200,000/QALY [17]. The borderline cost-effectiveness is largely attributable to the individualized manufacturing process, which introduces cost drivers not present in conventional pharmaceuticals.
+The ICER of $164,630/QALY is higher than that reported for adjuvant pembrolizumab monotherapy versus observation ($15,009/QALY for stage III [12]; $68,736/QALY for stage IIB/IIC [16]), reflecting the additional cost of individualized mRNA manufacturing. The borderline cost-effectiveness is largely attributable to the individualized manufacturing process, which introduces cost drivers not present in conventional pharmaceuticals.
 
 ### 4.1 Implications for Pricing and Access
 
@@ -122,11 +122,11 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 [9] Keytruda.com. Cost Information, March 2026. GoodRx, May 2026.
 [10] Jefferies Equity Research. Moderna Initiation, 2026.
 [11] Schwarze K, et al. Eur J Hum Genet 2020;28:1322-1331.
-[12] Bensimon AG, et al. J Med Econ 2019;22:1051-1061.
+[12] Bensimon AG, Zhou ZY, Jenkins M, et al. Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage III melanoma in the United States. J Med Econ 2019;22(10):981-993.
 [13] Johnston KM, et al. Pharmacoeconomics 2021;39:241-253.
-[14] Bensimon AG, et al. J Med Econ 2019;22:1051-1061.
+[14] Bensimon AG, Zhou ZY, Jenkins M, et al. Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage III melanoma in the United States. J Med Econ 2019;22(10):981-993.
 [15] Masaquel C, et al. Value Health 2018;21:S108.
-[16] Wang J, et al. JAMA Dermatol 2021;157:179-186.
+[16] Zhang S, Bensimon AG, Xu R, et al. Cost-effectiveness analysis of pembrolizumab as an adjuvant treatment of resected stage IIB or IIC melanoma in the United States. Adv Ther 2023;40:3038-3055.
 [17] Lin JK, et al. J Natl Cancer Inst 2019;111:256-263.
 
 ---
