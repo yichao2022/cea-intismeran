@@ -87,15 +87,39 @@ Scenario analyses examined: (1) the impact of intismeran pricing at $100,000 and
 
 In the base case analysis (Table 2), intismeran plus pembrolizumab generated an additional 4.42 life-years (14.71 vs 10.29 life-years) and 3.76 additional QALYs (11.10 vs 7.34 QALYs) at an incremental lifetime cost of $146,961 ($860,118 vs $713,157), resulting in an ICER of **$39,105 per QALY gained**.
 
-### 3.2 Probabilistic Sensitivity Analysis
+
+### 3.2 Cost and QALY Decomposition
+
+The $200,000 acquisition cost of intismeran was substantially offset by lower lifetime distant-metastasis management costs. The combination arm had $82,734 lower DM management costs (combo $342,542 vs pembro $425,276), reflecting the reduced incidence of distant recurrence (DMFS HR 0.411). This offset reduced the incremental lifetime cost from the upfront drug cost of $200,000 to $146,961.
+
+The incremental QALY gain of 3.76 was driven almost entirely by additional time in the recurrence-free state (3.83 RF QALYs gained), which more than compensated for slightly fewer DM-state QALYs (-0.32).
+
+| Component | Combo | Pembro | Incremental |
+|:---|:---:|:---:|:---:|
+| **Costs** | | | |
+| Intismeran | $200,000 | $0 | $200,000 |
+| Pembrolizumab | $217,888 | $217,888 | $0 |
+| Sequencing | $1,000 | $0 | $1,000 |
+| Administration/AE | $15,493 | $493 | $15,000 |
+| LR management | $83,196 | $69,500 | $13,696 |
+| DM management | $342,542 | $425,276 | -$82,734 |
+| **Total cost** | **$860,118** | **$713,157** | **$146,961** |
+| **QALYs** | | | |
+| RF state | 8.32 | 4.49 | 3.83 |
+| LR state | 1.48 | 1.24 | 0.24 |
+| DM state | 1.31 | 1.62 | -0.32 |
+| **Total QALYs** | **11.10** | **7.35** | **3.76** |
+
+
+### 3.3 Probabilistic Sensitivity Analysis
 
 Over 1,000 PSA iterations (828/1000 valid), the mean ICER was $51,574 (median $45,724; 95% CI $4,863 to $138,462; Table 3; Figure 4). At the $100,000/QALY threshold, the probability of cost-effectiveness was 93.7%; at $150,000/QALY it was 98.2% (Figure 2).
 
-### 3.3 Deterministic Sensitivity Analysis
+### 3.4 Deterministic Sensitivity Analysis
 
 One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, followed by the DM monthly cost and the intismeran price. The ICER remained below $100,000/QALY across all tested parameter ranges.
 
-### 3.4 Scenario Analyses
+### 3.5 Scenario Analyses
 
 **Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $12,496/QALY. At $300,000 per course, the ICER increased to $65,714/QALY. At $500,000 per course, the ICER was $118,932/QALY.
 
