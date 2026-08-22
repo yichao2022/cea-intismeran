@@ -145,8 +145,6 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 
 ## 5. Declarations
 
-**Funding:** This study was conducted without external funding.
-
 **Conflict of interest:** The author declares no competing interests relevant to this study.
 
 **Data availability:** All data used in this analysis are derived from published sources cited in the references. The model code is available at https://github.com/yichao2022/cea-intismeran.
