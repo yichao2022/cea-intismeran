@@ -23,6 +23,14 @@ text = re.sub(r'-\s*\*\*Figure\s+(\d+)[:\*]?\s*(.*?)\s*→\s*`([^`]+)`', extract
 text = re.sub(r"\n## Figures\n", "\n", text)
 text = re.sub(r"\n## Tables\n", "\n", text)
 
+# 2b. References: separate each [n] entry into its own paragraph
+refs_match = re.search(r'\n## References\n\n(.*?)(\n## |\Z)', text, re.DOTALL)
+if refs_match:
+    refs_block = refs_match.group(1)
+    lines = [l.strip() for l in refs_block.split('\n') if l.strip()]
+    refs_block_new = '\n\n'.join(lines)
+    text = text[:refs_match.start(1)] + refs_block_new + text[refs_match.end(1):]
+
 # 3. Tables: extract, embed at first citation
 tables = {}
 table_pat = re.compile(r'### (Table \d+\..*?)\n(.*?)(?=\n### |\n---\n|\Z)', re.DOTALL)
@@ -111,6 +119,25 @@ for i, p in enumerate(paras):
         p.paragraph_format.line_spacing = 1.0
         p.paragraph_format.space_after = Pt(0)
         p.paragraph_format.space_before = Pt(0)
+
+# Table borders: apply to all tables
+from docx.oxml import OxmlElement
+for table in doc.tables:
+    tbl_pr = table._tbl.find(qn('w:tblPr'))
+    if tbl_pr is None:
+        tbl_pr = OxmlElement('w:tblPr')
+        table._tbl.insert(0, tbl_pr)
+    for old in tbl_pr.findall(qn('w:tblBorders')):
+        tbl_pr.remove(old)
+    tbl_borders = OxmlElement('w:tblBorders')
+    for border_name in ['top', 'left', 'bottom', 'right', 'insideH', 'insideV']:
+        el = OxmlElement(f'w:{border_name}')
+        el.set(qn('w:val'), 'single')
+        el.set(qn('w:sz'), '4')
+        el.set(qn('w:space'), '0')
+        el.set(qn('w:color'), '000000')
+        tbl_borders.append(el)
+    tbl_pr.append(tbl_borders)
 
 doc.save("output/manuscript.docx")
 print(f"Done -> output/manuscript.docx ({len(figures)} figs, {len(tables)} tables)")
