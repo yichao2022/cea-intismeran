@@ -115,7 +115,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 **Structural consistency.** Over 480 monthly cycles, no violations of the constraint RFS ≤ DMFS ≤ OS were observed. All health-state probabilities remained non-negative, and the sum of state probabilities was within 10⁻¹² of unity at every cycle. The general population mortality hazard floor, applied from 60 months onward, ensures that the model's long-term survival does not exceed age- and sex-matched US life-table survival at any time point. At 30 years, the model projects combo OS of 21.5% and pembro OS of 10.9%, both below the general-population survival floor of approximately 35%.
 
-**External validation.** The pembrolizumab-alone arm predictions were compared against long-term adjuvant melanoma evidence (Table 3). At 5 years, the model predicted RFS of 40.2%, DMFS of 53.5%, and OS of 74.1%, consistent with the KEYNOTE-942 observed data (RFS 49.1%, DMFS 65.4%, OS 71.3%). At 7 years, the model predicted RFS of 31.7% and OS of 63.8%. The lower RFS relative to KEYNOTE-054 (7-year RFS 50%) reflects the higher-risk population enrolled in KEYNOTE-942 (stage IIIB–IV including resected stage IV, vs stage IIIA–C in KEYNOTE-054). The model's pembrolizumab arm is therefore conservative for the intismeran treatment effect. No external long-term data exist for the combination arm (first-in-class therapy); conservative scenarios (waning of treatment effect, no direct OS benefit; Section 3.6) provide lower-bound estimates of cost-effectiveness.
+**External validation.** The pembrolizumab-alone arm predictions were compared against long-term adjuvant melanoma evidence (Supplementary Table S6). At 5 years, the model predicted RFS of 40.2%, DMFS of 53.5%, and OS of 74.1%, consistent with the KEYNOTE-942 observed data (RFS 49.1%, DMFS 65.4%, OS 71.3%). At 7 years, the model predicted RFS of 31.7% and OS of 63.8%. The lower RFS relative to KEYNOTE-054 (7-year RFS 50%) reflects the higher-risk population enrolled in KEYNOTE-942 (stage IIIB–IV including resected stage IV, vs stage IIIA–C in KEYNOTE-054). The model's pembrolizumab arm is therefore conservative for the intismeran treatment effect. No external long-term data exist for the combination arm (first-in-class therapy); conservative scenarios (waning of treatment effect, no direct OS benefit; Section 3.6) provide lower-bound estimates of cost-effectiveness.
 
 | Outcome | Model | KEYNOTE-054 | CheckMate 238 |
 |:---|:---:|:---:|:---:|
@@ -128,7 +128,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 ### 3.4 Probabilistic and Deterministic Uncertainty
 
-Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 1). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. In terms of the cost-effectiveness plane (Figure 2), the preponderance of iterations fell in the northeast quadrant (higher cost, higher QALY), with a mean ICER of $51,574 and a 95% uncertainty interval from $4,863 to $138,462.
+Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 2). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. The mean ICER was $51,574 (95% CI $4,863 to $138,462), with most iterations in the northeast quadrant of the cost-effectiveness plane (Supplementary Figure S7).
 
 **Deterministic sensitivity analysis.** One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, followed by the DM monthly cost and the intismeran price. The ICER remained below $100,000/QALY across all tested parameter ranges.
 
@@ -256,7 +256,7 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 | Discount rate | 3% | Standard |
 | Time horizon | 40 years | Lifetime |
 
-### Table 2. Base Case Results
+### Table 2. Base-Case Results and Decomposition
 | | Pembrolizumab | Combo | Incremental |
 |---|:---:|:---:|:---:|
 | Total QALYs | 7.34 | 11.10 | 3.76 |
@@ -279,7 +279,7 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 | P(CE) at $150K/QALY | 98.2% |
 
 
-### Table 4. Scenario Analyses
+### Table 4. Scenario and Value-Based Price Thresholds
 | Scenario | ΔCost | ΔQALY | ICER | NMB @ $150K |
 |:---|:---:|:---:|:---:|:---:|
 | **Base case** | | | | |
@@ -307,4 +307,5 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 - **Figure 1:** Log-normal model RFS and OS curves, with 5-year data points from KEYNOTE-942 → `output/fig1_survival.png`
 - **Figure 2:** Cost-effectiveness acceptability curve → `output/fig2_ceac.png`
 - **Figure 3:** Tornado diagram, one-way sensitivity analysis → `output/fig3_tornado.png`
-- **Figure 4:** Cost-effectiveness plane (1,000 PSA iterations) → `output/fig4_ce_plane.png`
+- **Figure 4:** Price–ICER curve and value-based pricing → `output/fig4_price_icer.png`
+- **Supplementary Figure S7:** Cost-effectiveness plane (1,000 PSA iterations) → `output/fig4_ce_plane.png`
