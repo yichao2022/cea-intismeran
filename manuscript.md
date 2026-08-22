@@ -264,19 +264,25 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 
 
 ### Table 4. Scenario Analyses
-| Scenario | ICER |
-|:---|:---:|
-| Base case (GP-constrained) | $39,105 |
-| Intismeran $100,000 | $12,496 |
-| Intismeran $300,000 | $65,714 |
-| Intismeran $500,000 | $118,932 |
-| 0% discount rate | $31,092 |
-| 5% discount rate | $47,814 |
-| Weibull OS | $54,921 |
-| Waning v2 (hazard convergence, 5→10y) | $105,360 |
-| No direct OS benefit | Dominant |
-| 10-year horizon | $74,945 |
-| 20-year horizon | $39,734 |
+| Scenario | ΔCost | ΔQALY | ICER | NMB @ $150K |
+|:---|:---:|:---:|:---:|:---:|
+| **Base case** | | | | |
+| GP-constrained | $146,961 | 3.76 | $39,105 | $416,757 |
+| **Pricing** | | | | |
+| $100K/course | $46,961 | 3.76 | $12,496 | $516,757 |
+| $300K/course | $246,961 | 3.76 | $65,714 | $316,757 |
+| $500K/course | $446,961 | 3.76 | $118,932 | $116,757 |
+| **Alternative assumptions** | | | | |
+| Weibull OS | $293,679 | 5.35 | $54,921 | $508,411 |
+| Discount rate 0% | $183,728 | 5.91 | $31,092 | $702,636 |
+| Discount rate 5% | $136,896 | 2.86 | $47,814 | $292,571 |
+| 10-year horizon | $95,573 | 1.28 | $74,945 | $95,714 |
+| 20-year horizon | $115,739 | 2.91 | $39,734 | $321,191 |
+| GP utilities | $146,961 | 3.59 | $40,970 | $391,092 |
+| **Treatment-effect persistence** | | | | |
+| Recurrence-effect waning (v1) | $38,544 | 1.87 | $20,591 | $242,242 |
+| Full hazard waning (v2, 5→10y) | $224,317 | 2.13 | $105,360 | $95,042 |
+| No direct OS benefit | −$14,562 | 0.50 | −$29,379 | $88,915 |
 
 ---
 
