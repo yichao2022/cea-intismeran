@@ -170,19 +170,23 @@ The value-based acquisition price of intismeran was estimated by identifying the
 
 ## 4. Discussion
 
-This study provides an updated early economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIIB-IV melanoma, following the positive Phase 3 INTerpath-001 readout. At a base case ICER of $39,105/QALY, the combination is cost-effective by conventional US thresholds. The results are driven by the substantial clinical benefit (3.76 incremental QALYs) and the cost offsets from reduced recurrence and disease progression.
+### 4.1 Principal Findings
 
-### 4.1 Comparison with Published Literature
+This early economic evaluation demonstrates that intismeran plus pembrolizumab is likely cost-effective for adjuvant treatment of resected stage IIIB--IV melanoma at conventional US willingness-to-pay thresholds. The base case ICER of $39,105/QALY, the 3.76 QALY gain, and the 93.7% probability of cost-effectiveness at $100,000/QALY (98.2% at $150,000/QALY) all support this conclusion.
+
+The economic value of the combination is generated through two complementary mechanisms. First, intismeran prolongs recurrence-free survival, which translates almost entirely into additional quality-adjusted life in the recurrence-free health state: 3.83 of the 3.76 total incremental QALYs accrue in the RF state. Second, the substantial reduction in distant metastasis (DMFS HR 0.411) converts into downstream cost offsets: the $200,000 acquisition cost of intismeran was partially offset by $82,734 lower lifetime distant-metastasis management costs (combo $342,542 vs pembro $425,276), so that the incremental lifetime cost of $146,961 was substantially below the upfront drug cost. This decomposition matters for interpretation: the ICER is not low because the intervention is inexpensive, but because the incremental expenditure is coupled to a large gain in recurrence-free quality-adjusted survival and to partial avoidance of the high cost of metastatic disease. The result is driven by the clinical efficacy signal from the mature 5-year KEYNOTE-942 data rather than by favorable pricing assumptions.
+
+### 4.2 Comparison with Published Literature
 
 The ICER of $39,105/QALY is lower than that reported for adjuvant pembrolizumab monotherapy versus observation ($15,009/QALY for stage III [11]; $68,736/QALY for stage IIB/IIC [13]), reflecting the larger absolute QALY gain from the intismeran combination. The incremental RFS benefit of intismeran (HR 0.51 vs pembrolizumab alone) is comparable in magnitude to the benefit of pembrolizumab versus observation, and the downstream cost savings from prevented recurrence partially offset the upfront cost of individualized manufacturing.
 
 A prior exploratory CEA of V940 plus pembrolizumab, presented at ISPOR Europe 2024 [14], used a similar 4-state PSM structure but assumed V940 pricing at the same list price as pembrolizumab and applied KEYNOTE-942 hazard ratios to pembrolizumab survival curves from the KEYNOTE-054 trial. That analysis found cost-effectiveness to be achievable if V940 were priced similarly to pembrolizumab, but did not incorporate the mature 5-year KEYNOTE-942 data or the Phase 3 INTerpath-001 readout. Our analysis extends this prior work by using the actual 5-year KM curves from KEYNOTE-942, incorporating the Phase 3 positive result for framing, and conducting a value-based pricing analysis anchored to the analyst-estimated $200,000 per course.
 
-### 4.2 Value-Based Pricing
+### 4.3 Value-Based Pricing
 
 The threshold analysis revealed that the ICER remains below $100,000/QALY at intismeran prices up to approximately $428,851/course, reflecting the large absolute QALY differential (3.76) created by the combination's survival benefit. This finding, while striking, must be interpreted in the context of the immature OS data (only 7 events per arm in KEYNOTE-942) and the consequent sensitivity of long-term extrapolation.
 
-### 4.3 Limitations
+### 4.4 Limitations
 
 This analysis has several limitations. First, the Phase 3 INTerpath-001 trial has reported only topline results; specific HR estimates have not yet been disclosed. Our base case uses the Phase 2b KEYNOTE-942 5-year data, which may differ from the final Phase 3 results. The positive Phase 3 readout provides directional validation but does not yet contribute numeric inputs to the model. We plan to update this analysis once the full INTerpath-001 results are published.
 
