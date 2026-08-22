@@ -198,7 +198,13 @@ Finally, the choice of parametric distribution, while important, is secondary to
 
 The threshold analysis revealed that the ICER remains below $100,000/QALY at intismeran prices up to approximately $428,851/course, reflecting the large absolute QALY differential (3.76) created by the combination's survival benefit. This finding, while striking, must be interpreted in the context of the immature OS data (only 7 events per arm in KEYNOTE-942) and the consequent sensitivity of long-term extrapolation.
 
-### 4.5 Limitations
+### 4.5 Manufacturing and Pricing Considerations
+
+The base case analysis assumes an intismeran acquisition price of $200,000 per course, consistent with Jefferies analyst estimates published in 2026. While individualized production requirements — including tumor sequencing, mRNA synthesis, lipid nanoparticle formulation, and quality assurance for each batch — may contribute to acquisition-price pressure and limit the conventional economies of scale achievable with fixed-composition drugs, production cost and commercial price are distinct quantities. The $200,000 estimate reflects the expected market price at launch, not the manufacturer's cost of goods sold.
+
+Several factors may reduce future production costs. Whole-exome sequencing costs continue to decline [10], mRNA platform manufacturing is becoming increasingly standardized, and automation of the synthesis and formulation pipeline could reduce per-batch costs. As the addressable patient population expands beyond adjuvant melanoma to other tumor types, manufacturing scale may further lower unit costs. However, whether these technical efficiencies will translate into lower acquisition prices for payers is uncertain. Pricing decisions for novel therapies are influenced by clinical value, competitive dynamics, and reimbursement negotiations, not solely by production economics. The value-based price analysis (Section 3.6) provides a framework for assessing the price the combination can sustain while remaining cost-effective, independent of the underlying cost structure.
+
+### 4.6 Limitations
 
 This analysis has several limitations. First, the Phase 3 INTerpath-001 trial has reported only topline results; specific HR estimates have not yet been disclosed. Our base case uses the Phase 2b KEYNOTE-942 5-year data, which may differ from the final Phase 3 results. The positive Phase 3 readout provides directional validation but does not yet contribute numeric inputs to the model. We plan to update this analysis once the full INTerpath-001 results are published.
 
@@ -212,7 +218,7 @@ Fifth, indirect costs and productivity losses were not considered, which may und
 
 Finally, this analysis is specific to the resected stage IIIB-IV population of KEYNOTE-942, from which all quantitative efficacy inputs were derived. The Phase 3 INTerpath-001 trial enrolled a broader stage IIB-IV population; generalizability of our findings to stage IIB/IIC melanoma remains uncertain until subgroup or numerical Phase 3 data become available.
 
-### 4.6 Conclusion
+### 4.7 Conclusion
 
 Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant melanoma and is cost-effective by conventional US thresholds at the estimated acquisition cost of $200,000 per course. The large QALY gain from the combination partially offsets the upfront cost of individualized therapy.
 
