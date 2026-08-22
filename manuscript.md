@@ -8,7 +8,7 @@
 
 **Methods:** A four-state partitioned survival model (recurrence-free → locoregional recurrence → distant metastasis → death) was developed with a lifetime horizon (40 years) and 3% annual discounting. Clinical efficacy data were derived from the 5-year follow-up of the Phase 2b KEYNOTE-942 trial. Parametric survival functions (log-normal) were calibrated to RFS, DMFS, and OS survival probabilities at 18, 24, 36, 48, and 60 months, with the ratio-constrained structure RFS ≤ DMFS ≤ OS ensuring internal consistency. Health state utilities were derived from published melanoma EQ-5D literature (RF 0.83, LR 0.64, DM 0.55). Sensitivity analyses included probabilistic sensitivity analysis (1,000 iterations), deterministic sensitivity analysis, and scenario analyses.
 
-**Results:** In the base case, intismeran plus pembrolizumab yielded 11.10 QALYs at a cost of $860,118, compared with 7.34 QALYs at $713,157 for pembrolizumab alone. The incremental cost-effectiveness ratio was $39,105/QALY gained. At a willingness-to-pay threshold of $150,000/QALY, the probability of cost-effectiveness was 98.2% (93.7% at $100,000/QALY). Results were robust across a wide range of sensitivity analyses.
+**Results:** In the base case, intismeran plus pembrolizumab yielded 11.10 QALYs at a cost of $860,118, compared with 7.34 QALYs at $713,157 for pembrolizumab alone. The incremental cost-effectiveness ratio was $39,105/QALY gained. At willingness-to-pay thresholds of $100,000 and $150,000/QALY [23], the probability of cost-effectiveness was 93.7% and 98.2%, respectively. Results were robust across a wide range of sensitivity analyses.
 
 **Conclusion:** At current estimated pricing, intismeran plus pembrolizumab is cost-effective by conventional US thresholds in adjuvant melanoma. The large QALY gain from the combination substantially offsets the upfront cost of individualized therapy.
 
@@ -224,6 +224,8 @@ Intismeran plus pembrolizumab provides clinical benefit in adjuvant melanoma and
 ## 5. Declarations
 
 **Conflict of interest:** The author declares no competing interests relevant to this study.
+
+**Reporting:** This study adheres to the Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) [26] (Supplementary Checklist).
 
 **Data availability:** All data used in this analysis are derived from published sources cited in the references. The model code is available at https://github.com/yichao2022/cea-intismeran.
 
