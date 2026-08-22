@@ -1,4 +1,4 @@
-# Cost-Effectiveness of Intismeran Autogene Plus Pembrolizumab Versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIB-IV Melanoma
+# Cost-Effectiveness of Intismeran Autogene Plus Pembrolizumab Versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB-IV Melanoma
 
 ## Key Points for Decision Makers
 
@@ -12,9 +12,9 @@
 
 ## Abstract
 
-**Background:** On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, establishing intismeran autogene (mRNA-4157/V940) plus pembrolizumab as the first mRNA-based individualized neoantigen therapy (INT) to succeed in a late-stage trial. Intismeran plus pembrolizumab significantly improved recurrence-free survival (RFS) and distant metastasis-free survival (DMFS) versus pembrolizumab alone in patients with completely resected stage IIB-IV melanoma. However, the economic value of this novel combination remains unknown.
+**Background:** On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, establishing intismeran autogene (mRNA-4157/V940) plus pembrolizumab as the first mRNA-based individualized neoantigen therapy (INT) to succeed in a late-stage trial. Intismeran plus pembrolizumab significantly improved recurrence-free survival (RFS) and distant metastasis-free survival (DMFS) versus pembrolizumab alone in patients with completely resected stage IIIB-IV melanoma. However, the economic value of this novel combination remains unknown.
 
-**Objective:** To estimate the cost-effectiveness of intismeran plus pembrolizumab versus pembrolizumab alone as adjuvant therapy for resected stage IIB-IV melanoma from a US payer perspective.
+**Objective:** To estimate the cost-effectiveness of intismeran plus pembrolizumab versus pembrolizumab alone as adjuvant therapy for resected stage IIIB-IV melanoma from a US payer perspective.
 
 **Methods:** A three-state partitioned survival model (DFS → metastatic disease → death) was developed with a lifetime horizon (40 years) and 3% annual discounting. Clinical efficacy data were derived from the 5-year follow-up of the Phase 2b KEYNOTE-942 trial (RFS HR=0.51; 95% CI 0.294-0.887; 5-year RFS 68.8% vs 49.1%). Drug costs were based on published wholesale acquisition costs (Keytruda $24,544/q6w dose; intismeran estimated at $200,000/course per analyst reports). Health state utilities were derived from published melanoma EQ-5D literature (DFS 0.83, metastatic 0.65). Sensitivity analyses included probabilistic sensitivity analysis (1,000 iterations), deterministic sensitivity analysis, and scenario analyses.
 
@@ -34,9 +34,9 @@ On August 19, 2026, Merck and Moderna announced positive topline results from th
 
 Individualized neoantigen therapies (INTs) represent a fundamentally different cost structure from conventional pharmaceuticals. Each dose requires tumor sequencing, neoantigen prediction by AI, individualized mRNA synthesis, and quality control — a production pipeline that scales per patient rather than per batch. Current industry estimates suggest personalized mRNA cancer vaccines may cost $100,000–$300,000 per patient [7], with Jefferies analysts estimating approximately $200,000 per course [10], but these are supply-side estimates, not value-based prices.
 
-The clinical foundation for this analysis comes from the 5-year follow-up of the Phase 2b KEYNOTE-942 trial (NCT03897881), which randomized 157 patients 2:1 to intismeran plus pembrolizumab versus pembrolizumab alone [6]. At a median follow-up of 60.3 months, the combination demonstrated a 49% reduction in the risk of recurrence or death (HR=0.51; 95% CI 0.294-0.887) and a 59% reduction in the risk of distant metastasis (HR=0.411; 95% CI 0.200-0.843). Five-year RFS was 68.8% versus 49.1%, and 5-year OS was 92.2% versus 71.3% (exploratory endpoint). These data, together with the positive Phase 3 readout, provide the clinical basis for an early economic evaluation.
+The clinical foundation for this analysis comes from the 5-year follow-up of the Phase 2b KEYNOTE-942 trial (NCT03897881), which randomized 157 patients 2:1 to intismeran plus pembrolizumab versus pembrolizumab alone [6]. KEYNOTE-942 enrolled patients with resected stage IIIB–IV cutaneous melanoma, whereas the Phase 3 INTerpath-001 trial enrolled a broader stage IIB–IV population [5]. At a median follow-up of 60.3 months, the combination demonstrated a 49% reduction in the risk of recurrence or death (HR=0.51; 95% CI 0.294-0.887) and a 59% reduction in the risk of distant metastasis (HR=0.411; 95% CI 0.200-0.843). Five-year RFS was 68.8% versus 49.1%, and 5-year OS was 92.2% versus 71.3% (exploratory endpoint). These data, together with the positive Phase 3 readout, provide the clinical basis for an early economic evaluation.
 
-The aim of this study was to estimate the cost-effectiveness of intismeran plus pembrolizumab versus pembrolizumab alone as adjuvant therapy for patients with completely resected stage IIB-IV melanoma from a US payer perspective, and to derive the value-based price that would align with commonly cited willingness-to-pay thresholds.
+The aim of this study was to estimate the cost-effectiveness of intismeran plus pembrolizumab versus pembrolizumab alone as adjuvant therapy for patients with completely resected stage IIIB-IV melanoma from a US payer perspective, and to derive the value-based price that would align with commonly cited willingness-to-pay thresholds.
 
 ---
 
@@ -105,7 +105,7 @@ One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the c
 
 ## 4. Discussion
 
-This study provides the first economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIB-IV melanoma. At a base case ICER of $164,630/QALY, the combination is borderline cost-effective by conventional US thresholds. The results are primarily driven by the substantial clinical benefit (5.83 incremental QALYs) and the high cost of the individualized therapy.
+This study provides the first economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIIB-IV melanoma. At a base case ICER of $164,630/QALY, the combination is borderline cost-effective by conventional US thresholds. The results are primarily driven by the substantial clinical benefit (5.83 incremental QALYs) and the high cost of the individualized therapy.
 
 ### 4.1 Comparison with Published Literature
 
@@ -130,6 +130,8 @@ Third, overall survival data from KEYNOTE-942 remain exploratory (only 7 events 
 Fourth, the Weibull survival extrapolation, while standard for oncology CEAs, may not fully capture the plateau effect observed with immunotherapy. We plan to update this analysis with flexible parametric models (Royston-Parmar splines) and mixture-cure models once individual patient-level data become available.
 
 Fifth, indirect costs and productivity losses were not considered, which may underestimate the societal value of preventing recurrence, particularly in a working-age population.
+
+Finally, this analysis is specific to the resected stage IIIB-IV population of KEYNOTE-942, from which all quantitative efficacy inputs were derived. The Phase 3 INTerpath-001 trial enrolled a broader stage IIB-IV population; generalizability of our findings to stage IIB/IIC melanoma remains uncertain until subgroup or numerical Phase 3 data become available. We therefore refrain from extrapolating the Phase 2b effect to stage IIB/IIC in the base case, and note that any such extrapolation should await confirmation from the Phase 3 data.
 
 ### 4.4 Conclusion
 

@@ -1,7 +1,7 @@
 """
 cea_intismeran/model.py
 Partitioned Survival Model for Intismeran + Keytruda vs Keytruda alone
-in adjuvant melanoma (Stage IIB-IV, completely resected).
+in adjuvant melanoma (Stage IIIB-IV, completely resected).
 
 Reference: KEYNOTE-942/mRNA-4157-P201 5-year follow-up (2026 ASCO)
           INTerpath-001 Phase 3 top-line (Merck 2026-08-19)
