@@ -2,13 +2,13 @@
 
 ## Key Points for Decision Makers
 
-**Why this matters:** Intismeran autogene is the first individualized mRNA cancer therapy to succeed in a Phase 3 trial. Its pricing and reimbursement are under active discussion, but no economic evidence has been available to inform these decisions.
+**Why this matters:** Intismeran autogene is the first individualized mRNA cancer therapy to succeed in a Phase 3 trial. Its pricing and reimbursement are under active discussion. This study provides an updated early economic evaluation following the positive Phase 3 readout, incorporating the mature 5-year KEYNOTE-942 data.
 
 **What this study found:** At the analyst-estimated acquisition cost of $200,000 per course, the combination yielded an ICER of approximately $24,000/QALY versus pembrolizumab alone, driven by a large incremental QALY gain (7.22) from the substantial RFS and OS benefit observed in KEYNOTE-942.
 
 **What this means for pricing:** The ICER remained below $100,000/QALY even at intismeran prices exceeding $5 million, reflecting the large absolute QALY gain and cost offsets from reduced recurrence.
 
-**Study perspective:** This early economic evaluation provides the first evidence base for pricing negotiations as intismeran moves toward regulatory approval.
+**Study perspective:** This updated early economic evaluation provides a post-Phase 3 evidence base for pricing negotiations as intismeran moves toward regulatory approval.
 
 ## Abstract
 
@@ -115,11 +115,13 @@ One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the c
 
 ## 4. Discussion
 
-This study provides the first economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIIB-IV melanoma. At a base case ICER of $24,317/QALY, the combination is highly cost-effective by conventional US thresholds. The results are driven by the substantial clinical benefit (7.22 incremental QALYs) and the cost offsets from reduced recurrence and disease progression.
+This study provides an updated early economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIIB-IV melanoma, following the positive Phase 3 INTerpath-001 readout. At a base case ICER of $24,317/QALY, the combination is highly cost-effective by conventional US thresholds. The results are driven by the substantial clinical benefit (7.22 incremental QALYs) and the cost offsets from reduced recurrence and disease progression.
 
 ### 4.1 Comparison with Published Literature
 
 The ICER of $24,317/QALY is lower than that reported for adjuvant pembrolizumab monotherapy versus observation ($15,009/QALY for stage III [12]; $68,736/QALY for stage IIB/IIC [16]), reflecting the larger absolute QALY gain from the intismeran combination. The incremental RFS benefit of intismeran (HR 0.51 vs pembrolizumab alone) is comparable in magnitude to the benefit of pembrolizumab versus observation, and the downstream cost savings from prevented recurrence substantially offset the upfront cost of individualized manufacturing.
+
+A prior exploratory CEA of V940 plus pembrolizumab, presented at ISPOR Europe 2024 [17], used a similar 4-state PSM structure but assumed V940 pricing at the same list price as pembrolizumab and applied KEYNOTE-942 hazard ratios to pembrolizumab survival curves from the KEYNOTE-054 trial. That analysis found cost-effectiveness to be achievable if V940 were priced similarly to pembrolizumab, but did not incorporate the mature 5-year KEYNOTE-942 data or the Phase 3 INTerpath-001 readout. Our analysis extends this prior work by using the actual 5-year KM curves from KEYNOTE-942, incorporating the Phase 3 positive result for framing, and conducting a value-based pricing analysis anchored to the analyst-estimated $200,000 per course.
 
 ### 4.2 Value-Based Pricing
 
@@ -177,7 +179,7 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 [14] Bensimon AG, Zhou ZY, Jenkins M, et al. Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage III melanoma in the United States. J Med Econ 2019;22(10):981-993.
 [15] Masaquel C, et al. Value Health 2018;21:S108.
 [16] Zhang S, Bensimon AG, Xu R, et al. Cost-effectiveness analysis of pembrolizumab as an adjuvant treatment of resected stage IIB or IIC melanoma in the United States. Adv Ther 2023;40:3038-3055.
-[17] Lin JK, et al. J Natl Cancer Inst 2019;111:256-263.
+[17] Mclean A, van Hest N. An exploratory cost-effectiveness analysis of cancer vaccines in combination with current immune checkpoint inhibitors vs immune checkpoint inhibitor monotherapy: a case study for V940 in high-risk stage 3 melanoma in the US. Value Health 2024;27(12):S2 (EE354).
 
 ---
 
