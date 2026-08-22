@@ -111,7 +111,7 @@ The incremental QALY gain of 3.76 was driven almost entirely by additional time 
 | **Total QALYs** | **11.10** | **7.35** | **3.76** |
 
 
-### 3.3 Survival Extrapolation and External Validation
+### 3.3 External and Structural Validation
 
 Survival extrapolation was validated along two dimensions: internal structural consistency of the PSM framework, and external calibration of the pembrolizumab arm against published adjuvant melanoma evidence.
 
@@ -128,7 +128,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 | 7-year DMFS | 44.6% | 54% (50–59%) | — |
 | 7-year OS | 63.8% | — | ~70% (nivolumab) |
 
-### 3.4 Probabilistic Sensitivity Analysis
+### 3.4 Probabilistic and Deterministic Uncertainty
 
 Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 2). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. In terms of the cost-effectiveness plane (Figure 4), the preponderance of iterations fell in the northeast quadrant (higher cost, higher QALY), with a mean ICER of $51,574 and a 95% uncertainty interval from $4,863 to $138,462.
 
@@ -149,9 +149,7 @@ The value-based acquisition price of intismeran was estimated by identifying the
 | $429,077 | $375,937 | 3.76 | $100,000 |
 | $616,455 | $563,315 | 3.76 | $150,000 |
 
-### 3.5 Deterministic Sensitivity Analysis
 
-One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, followed by the DM monthly cost and the intismeran price. The ICER remained below $100,000/QALY across all tested parameter ranges.
 
 ### 3.6 Scenario Analyses
 
