@@ -1,5 +1,15 @@
 # Cost-Effectiveness of Intismeran Autogene Plus Pembrolizumab Versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIB-IV Melanoma
 
+## Key Points for Decision Makers
+
+**Why this matters:** Intismeran autogene is the first individualized mRNA cancer therapy to succeed in a Phase 3 trial. Its pricing and reimbursement are under active discussion, but no economic evidence has been available to inform these decisions.
+
+**What this study found:** At the analyst-estimated acquisition cost of $200,000 per course, the combination yielded an ICER of $164,630/QALY versus pembrolizumab alone. The incremental QALY gain was 5.83, reflecting the substantial RFS and OS benefit observed in the KEYNOTE-942 trial.
+
+**What this means for pricing:** Value-based pricing at the $150,000/QALY threshold would require an intismeran price of approximately $114,000 per course, representing a pricing gap of approximately $87,000 from current estimates. Even at zero acquisition cost, the ICER floor is $130,812/QALY due to residual costs in the combination arm.
+
+**Study perspective:** This early economic evaluation provides the first evidence base for pricing negotiations and value-based access agreements as intismeran moves toward regulatory approval.
+
 ## Abstract
 
 **Background:** On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, establishing intismeran autogene (mRNA-4157/V940) plus pembrolizumab as the first mRNA-based individualized neoantigen therapy (INT) to succeed in a late-stage trial. Intismeran plus pembrolizumab significantly improved recurrence-free survival (RFS) and distant metastasis-free survival (DMFS) versus pembrolizumab alone in patients with completely resected stage IIB-IV melanoma. However, the economic value of this novel combination remains unknown.
@@ -18,15 +28,15 @@
 
 ## 1. Introduction
 
-Melanoma is the deadliest form of skin cancer, with an estimated 112,000 new cases and 8,500 deaths in the United States in 2026 [1]. For patients with resected stage IIB-IV melanoma, adjuvant therapy with immune checkpoint inhibitors has become standard of care, with pembrolizumab demonstrating significant improvements in recurrence-free survival (RFS) compared with observation [2,3]. Despite these advances, a substantial proportion of patients still experience disease recurrence, highlighting the need for more effective adjuvant strategies.
+### A New Reimbursement Problem
 
-Individualized neoantigen therapies (INTs) represent a novel approach that leverages the patient's own tumor mutational profile to generate a personalized anti-tumor immune response. Intismeran autogene (intismeran; formerly V940 or mRNA-4157) is an mRNA-based INT encoding up to 34 patient-specific neoantigens, designed to train and activate T cells against the unique mutational signature of each patient's tumor [4].
+On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, establishing intismeran autogene (mRNA-4157/V940) plus pembrolizumab as the first mRNA-based individualized neoantigen therapy to succeed in a late-stage trial [5]. The result creates an immediate pricing and reimbursement question because intismeran autogene is individually manufactured for each patient and has no established commercial price. Although clinical evidence has now crossed the Phase 3 threshold, evidence on its economic value has not.
 
-On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, which met its primary endpoint of RFS and key secondary endpoint of DMFS with intismeran plus pembrolizumab versus pembrolizumab alone in completely resected stage IIB-IV melanoma [5]. This represents the first positive Phase 3 readout for an mRNA-based cancer therapy and for an INT. Building on the 5-year follow-up of the Phase 2b KEYNOTE-942 trial, which demonstrated a 49% reduction in the risk of recurrence or death (HR=0.51; 95% CI 0.294-0.887) and a 59% reduction in the risk of distant metastasis (HR=0.411; 95% CI 0.200-0.843) [6], these results establish intismeran as a promising new option in adjuvant melanoma.
+Individualized neoantigen therapies (INTs) represent a fundamentally different cost structure from conventional pharmaceuticals. Each dose requires tumor sequencing, neoantigen prediction by AI, individualized mRNA synthesis, and quality control — a production pipeline that scales per patient rather than per batch. Current industry estimates suggest personalized mRNA cancer vaccines may cost $100,000–$300,000 per patient [7], with Jefferies analysts estimating approximately $200,000 per course [10], but these are supply-side estimates, not value-based prices.
 
-However, the economic implications of this novel therapy are uncertain. Unlike conventional small-molecule or biologic drugs, intismeran requires tumor sequencing, neoantigen prediction, and individualized mRNA manufacturing for each patient — a production process that introduces unique cost drivers. Current industry estimates suggest personalized mRNA cancer vaccines may cost $100,000-$300,000 per patient [7], with Jefferies analysts estimating approximately $200,000 per course. To date, no published cost-effectiveness analysis has evaluated intismeran plus pembrolizumab in adjuvant melanoma.
+The clinical foundation for this analysis comes from the 5-year follow-up of the Phase 2b KEYNOTE-942 trial (NCT03897881), which randomized 157 patients 2:1 to intismeran plus pembrolizumab versus pembrolizumab alone [6]. At a median follow-up of 60.3 months, the combination demonstrated a 49% reduction in the risk of recurrence or death (HR=0.51; 95% CI 0.294-0.887) and a 59% reduction in the risk of distant metastasis (HR=0.411; 95% CI 0.200-0.843). Five-year RFS was 68.8% versus 49.1%, and 5-year OS was 92.2% versus 71.3% (exploratory endpoint). These data, together with the positive Phase 3 readout, provide the clinical basis for an early economic evaluation.
 
-The aim of this study was to estimate the cost-effectiveness of intismeran plus pembrolizumab versus pembrolizumab alone as adjuvant therapy for patients with completely resected stage IIB-IV melanoma from a US payer perspective.
+The aim of this study was to estimate the cost-effectiveness of intismeran plus pembrolizumab versus pembrolizumab alone as adjuvant therapy for patients with completely resected stage IIB-IV melanoma from a US payer perspective, and to derive the value-based price that would align with commonly cited willingness-to-pay thresholds.
 
 ---
 
@@ -79,7 +89,11 @@ In the base case analysis (Table 2), intismeran plus pembrolizumab yielded 12.54
 
 Over 1,000 PSA iterations, the mean ICER was $165,409 (median $162,353; 95% CI $114,383 to $224,333). At a $100,000/QALY threshold, the probability of cost-effectiveness was 0.1%. At a $150,000/QALY threshold, the probability was 29.5%.
 
-### 3.3 Scenario Analyses
+### 3.3 Deterministic Sensitivity Analysis
+
+One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, with ICERs ranging from $55,580 to $467,872 across its plausible range. The intismeran price was the second most influential parameter ($128,541 to $200,718 across $100,000–$300,000). The ICER was insensitive to the Keytruda price, as both arms receive pembrolizumab and the cost difference is driven by the additional intismeran doses.
+
+### 3.4 Scenario Analyses
 
 **Price sensitivity:** At an intismeran cost of $100,000 per course, the ICER decreased to $128,541/QALY. At $300,000 per course, the ICER increased to $200,718/QALY.
 
@@ -93,19 +107,47 @@ Over 1,000 PSA iterations, the mean ICER was $165,409 (median $162,353; 95% CI $
 
 This study provides the first economic evaluation of intismeran plus pembrolizumab as adjuvant therapy for resected stage IIB-IV melanoma. At a base case ICER of $164,630/QALY, the combination is borderline cost-effective by conventional US thresholds. The results are primarily driven by the substantial clinical benefit (5.83 incremental QALYs) and the high cost of the individualized therapy.
 
-The ICER of $164,630/QALY is higher than that reported for adjuvant pembrolizumab monotherapy versus observation ($15,009/QALY for stage III [12]; $68,736/QALY for stage IIB/IIC [16]), reflecting the additional cost of individualized mRNA manufacturing. The borderline cost-effectiveness is largely attributable to the individualized manufacturing process, which introduces cost drivers not present in conventional pharmaceuticals.
+### 4.1 Comparison with Published Literature
 
-### 4.1 Implications for Pricing and Access
+The ICER of $164,630/QALY is higher than that reported for adjuvant pembrolizumab monotherapy versus observation ($15,009/QALY for stage III [12]; $68,736/QALY for stage IIB/IIC [16]), reflecting the additional cost of individualized mRNA manufacturing. This comparison underscores the central economic challenge of INTs: while the clinical benefit of adding intismeran to pembrolizumab is substantial (HR 0.51 for RFS, comparable to the HR of pembrolizumab versus observation), the incremental cost structure is fundamentally different from conventional drug pricing.
 
-Our scenario analyses suggest that reducing the intismeran price to approximately $100,000 per course would bring the ICER to $128,541/QALY, below commonly cited thresholds. As mRNA manufacturing scales and sequencing costs continue to decline, the cost-effectiveness of intismeran is likely to improve. Value-based pricing agreements between manufacturers and payers may facilitate access while managing budget impact.
+Our results are broadly consistent with the cost-effectiveness profile of other novel oncology therapies at launch. The ICER falls within the range observed for CAR-T cell therapies ($58,000–$289,000/QALY [17]) and is comparable to the first-generation checkpoint inhibitors when initially introduced. The borderline cost-effectiveness at $200,000 per course suggests that value-based pricing arrangements will be critical for payer acceptance.
 
-### 4.2 Limitations
+### 4.2 Value-Based Pricing
 
-This analysis has several limitations. First, the Phase 3 INTerpath-001 trial has reported only topline results; specific HR estimates have not yet been disclosed. Our base case uses the Phase 2b KEYNOTE-942 5-year data, which may differ from the final Phase 3 results. Second, the intismeran price is based on analyst estimates rather than confirmed pricing, as the therapy has not yet received FDA approval. Third, overall survival data remain exploratory, and long-term follow-up may alter the ICER estimate. Fourth, the Weibull survival extrapolation, while standard, may not fully capture the plateau effect observed with immunotherapy. We plan to update this analysis with Royston-Parmar spline and mixture-cure models once individual patient-level data become available. Finally, indirect costs and productivity losses were not considered, which may underestimate the societal value of preventing recurrence.
+The threshold analysis (Figure 4) reveals that the price required to achieve an ICER of $150,000/QALY is **$113,281 per course** (approximately $114,000)—a pricing gap of approximately $87,000 from the analyst estimate of $200,000. Even at a zero acquisition cost, the ICER floor is $130,812/QALY due to residual costs (pembrolizumab, AE management, administration) in the combination arm, meaning the $100,000/QALY threshold is not achievable within any positive price range.
+
+This pricing gap of approximately $87,000 represents the value that must be shared between the manufacturer, payers, and patients. As mRNA manufacturing scales and sequencing costs decline, the cost-effectiveness of intismeran is likely to improve. Value-based pricing agreements, such as outcomes-based contracts or installment payment models, may facilitate access while managing budget impact.
+
+### 4.3 Limitations
+
+This analysis has several limitations. First, the Phase 3 INTerpath-001 trial has reported only topline results; specific HR estimates have not yet been disclosed. Our base case uses the Phase 2b KEYNOTE-942 5-year data, which may differ from the final Phase 3 results. The positive Phase 3 readout provides directional validation but does not yet contribute numeric inputs to the model. We plan to update this analysis once the full INTerpath-001 results are published.
+
+Second, the intismeran price is based on analyst estimates ($200,000 per course) rather than confirmed pricing, as the therapy has not yet received FDA approval. To address this uncertainty, we have conducted extensive price sensitivity and threshold analyses that allow readers to assess cost-effectiveness across a range of plausible prices.
+
+Third, overall survival data from KEYNOTE-942 remain exploratory (only 7 events per arm), and the 5-year OS estimate of 92.2% versus 71.3% should be interpreted with caution. Long-term follow-up and the maturing of Phase 3 OS data may alter the ICER estimate. We have addressed this through scenario analyses using alternative survival assumptions.
+
+Fourth, the Weibull survival extrapolation, while standard for oncology CEAs, may not fully capture the plateau effect observed with immunotherapy. We plan to update this analysis with flexible parametric models (Royston-Parmar splines) and mixture-cure models once individual patient-level data become available.
+
+Fifth, indirect costs and productivity losses were not considered, which may underestimate the societal value of preventing recurrence, particularly in a working-age population.
 
 ### 4.4 Conclusion
 
 Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant melanoma but at a cost that is borderline by conventional US cost-effectiveness thresholds. These early economic data can inform pricing negotiations and value-based access as this first-in-class mRNA therapy moves toward regulatory approval.
+
+---
+
+## 5. Declarations
+
+**Funding:** This study was conducted without external funding.
+
+**Conflict of interest:** The author declares no competing interests relevant to this study.
+
+**Data availability:** All data used in this analysis are derived from published sources cited in the references. The model code is available at https://github.com/yichao2022/cea-intismeran.
+
+**Code availability:** The partitioned survival model was implemented in Python. Source code, including all model parameters and sensitivity analysis routines, is available at the GitHub repository above.
+
+**Author contributions:** Yichao Jin conceived and designed the study, developed the model, conducted the analysis, and drafted the manuscript.
 
 ---
 
@@ -160,6 +202,26 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 | Total QALYs | 6.72 | 12.54 | 5.83 |
 | Total Cost | $862,286 | $1,821,435 | $959,150 |
 | ICER | — | — | **$164,630/QALY** |
+
+### Table 3. Probabilistic Sensitivity Analysis
+| Metric | Value |
+|--------|-------|
+| Mean ICER | $165,409 |
+| Median ICER | $162,353 |
+| 95% CI | $114,383 – $224,333|
+| P(CE) at $100K/QALY | 0.1% |
+| P(CE) at $150K/QALY | 29.5% |
+
+### Table 4. Threshold Analysis: Intismeran Price vs ICER
+| Intismeran Price | ICER |
+|:---:|:---:|
+| $0 (free) | $130,812 |
+| $100,000 | $147,721 |
+| $113,281 | **$150,000** |
+| $150,000 | $156,176 |
+| $200,000 (base) | **$164,630** |
+| $300,000 | $181,540 |
+
 ---
 
 ## Figures
@@ -168,13 +230,4 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 - **Figure 2:** Cost-effectiveness acceptability curve → `output/fig2_ceac.png`
 - **Figure 3:** Tornado diagram, one-way sensitivity analysis → `output/fig3_tornado.png`
 - **Figure 4:** Cost-effectiveness plane (1,000 PSA iterations) → `output/fig4_ce_plane.png`
-
----
-
-## Value-Based Pricing
-
-The base case analysis assumes an intismeran acquisition cost of $200,000 per course, based on analyst estimates. To inform value-based pricing, we performed a threshold analysis solving for the intismeran price that would yield an ICER of $150,000/QALY.
-
-At a $200,000 price, the ICER is $164,630/QALY. The price required to achieve an ICER of $150,000/QALY is **$113,281 per course** (approximately $114,000)—a pricing gap of approximately $87,000 from the analyst estimate. Even at a zero acquisition cost, the ICER floor is $130,812/QALY due to residual costs (pembrolizumab, AE management, administration) in the combination arm, meaning the $100,000/QALY threshold is not achievable within any positive price range.
-
-The ICER is approximately linear in acquisition cost over the range $100,000–$300,000 (Table 4), reflecting the dominant contribution of drug cost to the incremental cost difference.
+- **Figure 5:** Threshold analysis: ICER as a function of intismeran price → see Table 4
