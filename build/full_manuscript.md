@@ -1,4 +1,24 @@
+---
+title: "Cost-Effectiveness of Intismeran Autogene Plus Pembrolizumab Versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB–IV Melanoma: An Updated Early Economic Evaluation"
+---
 
+**Author:** Yichao Jin, Ph.D.
+
+**Affiliation:** School of Economic, Political and Policy Sciences, University of Texas at Dallas, Richardson, TX, USA
+
+**Corresponding author:** Yichao Jin — Yichao.Jin@UTDallas.edu
+
+**ORCID:** 0009-0003-7667-5143
+
+**Funding:** This study was conducted without external funding.
+
+**Acknowledgments:** None.
+
+**Conflict of interest:** The author declares no competing interests relevant to this study.
+
+**Data and code availability:** All data used in this analysis are derived from published sources cited in the references. The model code is available at https://github.com/yichao2022/cea-intismeran.
+
+\newpage
 ## Abstract
 
 **Background:** On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, establishing intismeran autogene (mRNA-4157/V940) plus pembrolizumab as the first mRNA-based individualized neoantigen therapy (INT) to succeed in a late-stage trial. Intismeran plus pembrolizumab significantly improved recurrence-free survival (RFS) and distant metastasis-free survival (DMFS) versus pembrolizumab alone in patients with completely resected stage IIIB-IV melanoma. However, the economic value of this novel combination remains unknown.
