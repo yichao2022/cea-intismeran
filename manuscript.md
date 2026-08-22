@@ -130,7 +130,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 ### 3.4 Probabilistic Sensitivity Analysis
 
-Over 1,000 PSA iterations (828/1000 valid), the mean ICER was $51,574 (median $45,724; 95% CI $4,863 to $138,462; Table 3; Figure 4). At the $100,000/QALY threshold, the probability of cost-effectiveness was 93.7%; at $150,000/QALY it was 98.2% (Figure 2).
+Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 2). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. In terms of the cost-effectiveness plane (Figure 4), the preponderance of iterations fell in the northeast quadrant (higher cost, higher QALY), with a mean ICER of $51,574 and a 95% uncertainty interval from $4,863 to $138,462.
 
 ### 3.5 Deterministic Sensitivity Analysis
 
@@ -248,13 +248,20 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 | ICER | — | — | **$39,105/QALY** |
 
 ### Table 3. Probabilistic Sensitivity Analysis
-| Metric | Value |
-|--------|-------|
-| Mean ICER | $51,574 |
-| Median ICER | $45,724 |
-| 95% CI | $4,863 – $138,462 |
+| Metric | Mean | Median | 95% CI |
+|:---|:---:|:---:|:---:|
+| Incremental cost | $208,693 | $145,336 | $17,020 – $545,272 |
+| Incremental QALYs | 4.04 | 3.17 | 2.29 – 6.71 |
+| ICER | $51,574 | $45,724 | $4,863 – $138,462 |
+| NMB at $100K/QALY | $195,307 | — | — |
+| NMB at $150K/QALY | $397,307 | — | — |
+
+| CE probability | Value |
+|:---|:---:|
+| P(CE) at $50K/QALY | 56.2% |
 | P(CE) at $100K/QALY | 93.7% |
 | P(CE) at $150K/QALY | 98.2% |
+
 
 ### Table 4. Scenario Analyses
 | Scenario | ICER |
