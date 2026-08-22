@@ -232,7 +232,8 @@ Intismeran plus pembrolizumab provides substantial clinical benefit in adjuvant 
 [14] Mclean A, van Hest N.
 [15] Latimer N. NICE DSU Technical Support Document 14: Survival analysis for economic evaluations alongside clinical trials — extrapolation with patient-level data. Sheffield: NICE Decision Support Unit; 2011 (updated 2013).
 [16] Latimer NR. Survival analysis for economic evaluations alongside clinical trials — extrapolation with patient-level data: inconsistencies, limitations, and a practical guide. Med Decis Making 2013;33(6):743-754.
-[17] Ishak KJ, Kreif N, Benedict A, Muszbek N. Overview of parametric survival analysis for health-economic applications. Pharmacoeconomics 2013;31(8):663-675. An exploratory cost-effectiveness analysis of cancer vaccines in combination with current immune checkpoint inhibitors vs immune checkpoint inhibitor monotherapy: a case study for V940 in high-risk stage 3 melanoma in the US. Value Health 2024;27(12):S2 (EE354).
+[17] Ishak KJ, Kreif N, Benedict A, Muszbek N.
+[18] Arias E, Xu JQ. United States life tables, 2019. National Vital Statistics Reports 2022;70(19):1-59. Overview of parametric survival analysis for health-economic applications. Pharmacoeconomics 2013;31(8):663-675. An exploratory cost-effectiveness analysis of cancer vaccines in combination with current immune checkpoint inhibitors vs immune checkpoint inhibitor monotherapy: a case study for V940 in high-risk stage 3 melanoma in the US. Value Health 2024;27(12):S2 (EE354).
 
 ## Tables
 
