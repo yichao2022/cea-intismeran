@@ -87,7 +87,6 @@ Scenario analyses examined: (1) the impact of intismeran pricing at $100,000 and
 
 In the base case analysis (Table 2), intismeran plus pembrolizumab generated an additional 4.42 life-years (14.71 vs 10.29 life-years) and 3.76 additional QALYs (11.10 vs 7.34 QALYs) at an incremental lifetime cost of $146,961 ($860,118 vs $713,157), resulting in an ICER of **$39,105 per QALY gained**.
 
-
 ### 3.2 Cost and QALY Decomposition
 
 The $200,000 acquisition cost of intismeran was substantially offset by lower lifetime distant-metastasis management costs. The combination arm had $82,734 lower DM management costs (combo $342,542 vs pembro $425,276), reflecting the reduced incidence of distant recurrence (DMFS HR 0.411). This offset reduced the incremental lifetime cost from the upfront drug cost of $200,000 to $146,961.
@@ -110,7 +109,6 @@ The incremental QALY gain of 3.76 was driven almost entirely by additional time 
 | DM state | 1.31 | 1.62 | -0.32 |
 | **Total QALYs** | **11.10** | **7.35** | **3.76** |
 
-
 ### 3.3 External and Structural Validation
 
 Survival extrapolation was validated along two dimensions: internal structural consistency of the PSM framework, and external calibration of the pembrolizumab arm against published adjuvant melanoma evidence.
@@ -132,7 +130,25 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 Probabilistic sensitivity analysis (828 valid iterations out of 1,000) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $195,307 at the $100,000/QALY threshold and $397,307 at $150,000/QALY (Table 3; Figure 2). The probability that intismeran plus pembrolizumab is cost-effective was 56.2% at $50,000/QALY, 93.7% at $100,000/QALY, and 98.2% at $150,000/QALY. In terms of the cost-effectiveness plane (Figure 4), the preponderance of iterations fell in the northeast quadrant (higher cost, higher QALY), with a mean ICER of $51,574 and a 95% uncertainty interval from $4,863 to $138,462.
 
-### 3.7 Value-Based Pricing
+**Deterministic sensitivity analysis.** One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the combination arm as the most influential parameter, followed by the DM monthly cost and the intismeran price. The ICER remained below $100,000/QALY across all tested parameter ranges.
+
+### 3.5 Structural Scenario Analyses
+
+**Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $12,496/QALY. At $300,000 per course, the ICER increased to $65,714/QALY. At $500,000 per course, the ICER was $118,932/QALY.
+
+**Discount rate:** At 0% discounting, the ICER was $31,092/QALY. At 5%, it was $47,814/QALY.
+
+**Survival extrapolation:** Using Weibull instead of log-normal yielded an ICER of $54,921/QALY. With treatment-effect waning (hazard convergence, 5→10y), the ICER was $105,360/QALY.
+
+**General population mortality constraint:** Applying the age-matched US life table survival as a cap on OS yielded an ICER of $39,105/QALY.
+
+**Time horizon:** With a 10-year horizon, the ICER was $74,945/QALY. With a 20-year horizon, it was $39,734/QALY.**
+
+**No direct OS benefit:** Assuming no OS benefit (intismeran effect only through recurrence prevention) yielded a dominant result (−$29,379/QALY) — lower cost and higher QALY.
+
+---
+
+### 3.6 Value-Based Price Thresholds
 
 The value-based acquisition price of intismeran was estimated by identifying the price at which the ICER reaches conventional willingness-to-pay thresholds. At the estimated acquisition cost of $200,000 per course, the ICER was $39,105/QALY. The value-based price at a $100,000/QALY threshold was $429,077 per course, meaning the ICER remains below $100,000/QALY even at more than twice the current estimated price. At a $150,000/QALY threshold, the value-based price was $616,455 per course.
 
@@ -149,23 +165,6 @@ The value-based acquisition price of intismeran was estimated by identifying the
 | $429,077 | $375,937 | 3.76 | $100,000 |
 | $616,455 | $563,315 | 3.76 | $150,000 |
 
-
-
-### 3.6 Scenario Analyses
-
-**Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $12,496/QALY. At $300,000 per course, the ICER increased to $65,714/QALY. At $500,000 per course, the ICER was $118,932/QALY.
-
-**Discount rate:** At 0% discounting, the ICER was $31,092/QALY. At 5%, it was $47,814/QALY.
-
-**Survival extrapolation:** Using Weibull instead of log-normal yielded an ICER of $54,921/QALY. With treatment-effect waning (hazard convergence, 5→10y), the ICER was $105,360/QALY.
-
-**General population mortality constraint:** Applying the age-matched US life table survival as a cap on OS yielded an ICER of $39,105/QALY.
-
-**Time horizon:** With a 10-year horizon, the ICER was $74,945/QALY. With a 20-year horizon, it was $39,734/QALY.**
-
-**No direct OS benefit:** Assuming no OS benefit (intismeran effect only through recurrence prevention) yielded a dominant result (−$29,379/QALY) — lower cost and higher QALY.
-
----
 
 ## 4. Discussion
 
