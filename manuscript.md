@@ -1,15 +1,5 @@
 # Cost-Effectiveness of Intismeran Autogene Plus Pembrolizumab Versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB-IV Melanoma
 
-## Key Points for Decision Makers
-
-**Why this matters:** Intismeran autogene is the first individualized mRNA cancer therapy to succeed in a Phase 3 trial. Its pricing and reimbursement are under active discussion. This study provides an updated early economic evaluation following the positive Phase 3 readout, incorporating the mature 5-year KEYNOTE-942 data.
-
-**What this study found:** At the analyst-estimated acquisition cost of $200,000 per course, the combination yielded an ICER of approximately $52,000/QALY versus pembrolizumab alone, driven by a large incremental QALY gain (7.22) from the substantial RFS and OS benefit observed in KEYNOTE-942.
-
-**What this means for pricing:** The ICER remained below $100,000/QALY at intismeran prices up to approximately $547,000/course, reflecting the large absolute QALY gain and cost offsets from reduced recurrence.
-
-**Study perspective:** This updated early economic evaluation provides a post-Phase 3 evidence base for pricing negotiations as intismeran moves toward regulatory approval.
-
 ## Abstract
 
 **Background:** On August 19, 2026, Merck and Moderna announced positive topline results from the Phase 3 INTerpath-001 trial, establishing intismeran autogene (mRNA-4157/V940) plus pembrolizumab as the first mRNA-based individualized neoantigen therapy (INT) to succeed in a late-stage trial. Intismeran plus pembrolizumab significantly improved recurrence-free survival (RFS) and distant metastasis-free survival (DMFS) versus pembrolizumab alone in patients with completely resected stage IIIB-IV melanoma. However, the economic value of this novel combination remains unknown.
