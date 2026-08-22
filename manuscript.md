@@ -89,7 +89,7 @@ In the base case analysis (Table 2), intismeran plus pembrolizumab yielded 14.90
 
 ### 3.2 Probabilistic Sensitivity Analysis
 
-Over 1,000 PSA iterations, the mean ICER was $51,613 (median $51,134; 95% CI $39,675 to $66,391). At both the $100,000/QALY and $150,000/QALY thresholds, the probability of cost-effectiveness was 100%.
+Over 1,000 PSA iterations, the mean ICER was $51,613 (median $51,134; 95% CI $39,675 to $66,391; Table 3; Figure 4). At both the $100,000/QALY and $150,000/QALY thresholds, the probability of cost-effectiveness was 100% (Figure 2).
 
 ### 3.3 Deterministic Sensitivity Analysis
 
@@ -97,7 +97,7 @@ One-way sensitivity analysis (Figure 3) identified the 5-year RFS rate for the c
 
 ### 3.4 Scenario Analyses
 
-**Pricing:** At an intismeran cost of $100,000 per course, the ICER decreased to $37,896/QALY. At $300,000 per course, the ICER increased to $65,609/QALY. At $500,000 per course, the ICER was $93,323/QALY.
+**Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $37,896/QALY. At $300,000 per course, the ICER increased to $65,609/QALY. At $500,000 per course, the ICER was $93,323/QALY.
 
 **Discount rate:** At 0% discounting, the ICER was $52,097/QALY. At 5%, it was $54,518/QALY.
 
