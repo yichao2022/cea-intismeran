@@ -322,12 +322,12 @@ class CEAModel:
             total_qaly -= ae_disutility
 
             keytruda_cost = p.cost_keytruda_annual * disc[:12].sum() * p.cycle_length
-            intismeran_cost = p.cost_intismeran * disc[0] * p.cycle_length if arm_label == "combo" else 0
-            sequencing_cost = p.cost_sequencing * disc[0] * p.cycle_length if arm_label == "combo" else 0
+            intismeran_cost = p.cost_intismeran * disc[0] if arm_label == "combo" else 0
+            sequencing_cost = p.cost_sequencing * disc[0] if arm_label == "combo" else 0
             admin_cost = p.cost_admin_per_cycle * disc[:12].sum() * p.cycle_length
             lr_cost = np.sum(s["lr"] * p.cost_lr_monthly * 12 * p.cycle_length * disc)
             dm_cost = np.sum(s["dm"] * p.cost_dm_monthly * 12 * p.cycle_length * disc)
-            ae_cost = p.cost_ae_incremental * disc[0] * p.cycle_length if arm_label == "combo" else 0
+            ae_cost = p.cost_ae_incremental * disc[0] if arm_label == "combo" else 0
 
             total_cost = keytruda_cost + intismeran_cost + sequencing_cost + admin_cost + lr_cost + dm_cost + ae_cost
             results[arm_label] = {"qaly": total_qaly, "cost": total_cost, "states": s}

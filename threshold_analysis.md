@@ -1,20 +1,29 @@
 # Threshold Analysis Results
 
-## Value-based pricing at $150K/QALY threshold
-- Intismeran price to achieve ICER = $150,000/QALY: **$113,281/course** (~$114,000)
-- At Jefferies estimate ($200,000): ICER = $164,630/QALY
-- Pricing gap: **~$87,000** (from $200K to $113K)
+## Base Case
+- Intismeran at $200,000/course: ICER = **$51,753/QALY**
+- ΔQALY = 7.22, ΔCost = $373,487
 
-## Key price points
+## Price Points
+
 | Intismeran Price | ICER |
-|---|---:|
-| $0 (free) | $130,812/QALY |
-| $100,000 | $147,721/QALY |
-| $113,281 | $150,000/QALY |
-| $150,000 | $156,176/QALY |
-| $200,000 | $164,630/QALY |
-| $250,000 | $173,085/QALY |
-| $300,000 | $181,540/QALY |
+|:---|---:|
+| $200,000 (base) | $51,753/QALY |
+| $300,000 | $65,609/QALY |
+| $500,000 | $93,323/QALY |
+| $750,000 | $127,964/QALY |
+| $1,000,000 | $162,606/QALY |
+| $1,500,000 | $231,889/QALY |
+| $2,000,000 | $301,172/QALY |
 
-## Note
-Even at zero acquisition cost, ICER remains $130,812 due to residual costs (Keytruda, AE management) in the combination arm. The $100,000/QALY threshold is not achievable within any positive price range.
+## Value-Based Pricing
+
+| WTP Threshold | Maximum Intismeran Price |
+|:---|---:|
+| $50,000/QALY | $185,547/course |
+| $100,000/QALY | $546,875/course |
+| $150,000/QALY | $908,203/course |
+| $200,000/QALY | $1,269,531/course |
+
+## Interpretation
+At the Jefferies analyst estimate of $200,000/course, intismeran yields an ICER of $51,753/QALY, well below conventional US cost-effectiveness thresholds. The ICER remains below $100,000/QALY at prices up to approximately $547,000/course, providing substantial headroom for pricing negotiations.
