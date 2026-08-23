@@ -1,0 +1,58 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bensimon et~al.(2019)Bensimon, Zhou, Jenkins, et~al.]{bensimon2019}
+A.~G. Bensimon, Z.~Y. Zhou, M.~Jenkins, et~al.
+\newblock Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage iii melanoma in the united states.
+\newblock \emph{Journal of Medical Economics}, 22\penalty0 (10):\penalty0 981--993, 2019.
+
+\bibitem[Johnston et~al.(2021)]{johnston2021}
+K.~M. Johnston et~al.
+\newblock Health-state utility values in melanoma.
+\newblock \emph{PharmacoEconomics}, 39:\penalty0 241--253, 2021.
+
+\bibitem[Zhang et~al.(2023)Zhang, Bensimon, Xu, et~al.]{zhang2023}
+S.~Zhang, A.~G. Bensimon, R.~Xu, et~al.
+\newblock Cost-effectiveness analysis of pembrolizumab as an adjuvant treatment of resected stage iib or iic melanoma in the united states.
+\newblock \emph{Advances in Therapy}, 40:\penalty0 3038--3055, 2023.
+
+\bibitem[Khattak et~al.(2026)]{khattak2026}
+A.~Khattak et~al.
+\newblock Five-year follow-up of keynote-942: individualized neoantigen therapy plus pembrolizumab.
+\newblock \emph{Journal of Clinical Oncology}, 44:\penalty0 JCO2600835, 2026.
+
+\bibitem[Weber et~al.(2024)Weber, Carlino, Khattak, et~al.]{weber2024}
+J.~S. Weber, M.~S. Carlino, A.~Khattak, et~al.
+\newblock Individualised neoantigen therapy mrna-4157 (v940) plus pembrolizumab versus pembrolizumab monotherapy in resected melanoma (keynote-942): a randomised, phase 2b study.
+\newblock \emph{The Lancet}, 403\penalty0 (10421):\penalty0 632--644, 2024.
+
+\bibitem[Ascierto et~al.(2025)Ascierto, Del~Vecchio, Mandal\'a, et~al.]{ascierto2025}
+P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
+\newblock Final 9-year follow-up of adjuvant nivolumab versus ipilimumab in resected stage iiib--iv melanoma (checkmate 238).
+\newblock \emph{New England Journal of Medicine}, 393\penalty0 (22):\penalty0 2180--2192, 2025.
+
+\bibitem[Eggermont et~al.(2025)Eggermont, Robert, Ribas, Ascierto, et~al.]{eggermont2025}
+A.~M.~M. Eggermont, C.~Robert, A.~Ribas, P.~A. Ascierto, et~al.
+\newblock Seven-year analysis of adjuvant pembrolizumab versus placebo in resected stage iii melanoma (keynote-054).
+\newblock \emph{New England Journal of Medicine}, 393\penalty0 (10):\penalty0 940--951, 2025.
+
+\bibitem[Ascierto et~al.(2023)Ascierto, Del~Vecchio, Mandal\'a, et~al.]{ascierto2023}
+P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
+\newblock Adjuvant nivolumab versus ipilimumab in resected stage iii/iv melanoma: 5-year efficacy and biomarker results from checkmate 238.
+\newblock \emph{Clinical Cancer Research}, 29\penalty0 (17):\penalty0 3352--3361, 2023.
+
+\bibitem[Sanders et~al.(2016)Sanders, Neumann, Basu, et~al.]{sanders2016}
+G.~D. Sanders, P.~J. Neumann, A.~Basu, et~al.
+\newblock Recommendations for conduct, methodological practices, and reporting of cost-effectiveness analyses: Second panel on cost-effectiveness in health and medicine.
+\newblock \emph{JAMA}, 316\penalty0 (10):\penalty0 1093--1103, 2016.
+
+\bibitem[Neumann et~al.(2014)Neumann, Cohen, and Weinstein]{neumann2014}
+P.~J. Neumann, J.~T. Cohen, and M.~C. Weinstein.
+\newblock Updating cost-effectiveness --- the curious resilience of the \$50,000-per-qaly threshold.
+\newblock \emph{New England Journal of Medicine}, 371\penalty0 (9):\penalty0 796--797, 2014.
+
+\end{thebibliography}

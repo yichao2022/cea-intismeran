@@ -28,7 +28,7 @@ from scipy.stats import norm, multivariate_normal
 from model import ModelParams
 from rerun_primary import CEAModelV2
 
-N_VALID = 2000
+N_VALID = 6000
 SEED = 42
 
 # ── Fit all 6 survival curves with Jacobian covariance ──
@@ -208,12 +208,29 @@ np.savez("/tmp/figures/psa_v2_draws.npz",
          pce50=pce[50_000], pce100=pce[100_000], pce150=pce[150_000])
 print("Saved /tmp/figures/psa_v2_draws.npz")
 
+# Save comprehensive JSON
 summary = {
-    "n_valid": len(results), "n_draws": n_draws,
-    "dq_mean": dq.mean(), "dq_median": float(np.median(dq)),
-    "dc_mean": dc.mean(), "dc_median": float(np.median(dc)),
-    "pce50": pce[50_000], "pce100": pce[100_000], "pce150": pce[150_000],
-    "nmb100_mean": nmbs[100_000].mean(),
+    "n_draws": n_draws,
+    "n_valid": len(results),
+    "rejection_reasons": rejects,
+    "seed": SEED,
+    "dqaly": {"mean": float(dq.mean()), "median": float(np.median(dq)),
+              "ci95": [float(np.percentile(dq,2.5)), float(np.percentile(dq,97.5))]},
+    "dcost": {"mean": float(dc.mean()), "median": float(np.median(dc)),
+              "ci95": [float(np.percentile(dc,2.5)), float(np.percentile(dc,97.5))]},
+    "dly": {"mean": float(dly.mean()), "median": float(np.median(dly))},
+    "nmb": {f"${wtp:,}": {"mean": float(nmb.mean()), "p_positive": float(np.mean(nmb > 0))}
+            for wtp, nmb in nmbs.items()},
+    "pce": {f"${wtp:,}": float(p) for wtp, p in pce.items()},
     "frac_saving": float(np.mean((dc < 0) & (dq > 0))),
+    "frac_dominated": float(np.mean(dq < 0)),
+    "frac_dcost_neg": float(np.mean(dc < 0)),
+    "draws": [{"dq": float(dq[i]), "dc": float(dc[i]), "dly": float(dly[i])}
+              for i in range(len(dq))],
 }
-print("SUMMARY_JSON=" + json.dumps(summary))
+os.makedirs("output", exist_ok=True)
+with open("output/psa_v2_results.json", "w") as f:
+    json.dump({k: summary[k] for k in summary if k != "draws"}, f, indent=2)
+with open("output/psa_v2_draws.json", "w") as f:
+    json.dump(summary["draws"], f)
+print(f"Saved output/psa_v2_results.json + output/psa_v2_draws.json ({len(summary['draws'])} draws)")

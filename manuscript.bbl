@@ -1,0 +1,145 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Husereau et~al.(2022)Husereau, Drummond, Augustovski, et~al.]{husereau2022}
+D.~Husereau, M.~Drummond, F.~Augustovski, et~al.
+\newblock Consolidated health economic evaluation reporting standards 2022 (cheers 2022) statement: updated reporting guidance for health economic evaluations.
+\newblock \emph{Value in Health}, 25\penalty0 (1):\penalty0 3--9, 2022.
+
+\bibitem[Neumann et~al.(2014)Neumann, Cohen, and Weinstein]{neumann2014}
+P.~J. Neumann, J.~T. Cohen, and M.~C. Weinstein.
+\newblock Updating cost-effectiveness --- the curious resilience of the \$50,000-per-qaly threshold.
+\newblock \emph{New England Journal of Medicine}, 371\penalty0 (9):\penalty0 796--797, 2014.
+
+\bibitem[{Merck \& Moderna}(2026)]{merck2026}
+{Merck \& Moderna}.
+\newblock Press release: Phase 3 interpath-001 trial results, August 2026.
+\newblock Accessed 2026-08-19.
+
+\bibitem[Khattak et~al.(2026)]{khattak2026}
+A.~Khattak et~al.
+\newblock Five-year follow-up of keynote-942: individualized neoantigen therapy plus pembrolizumab.
+\newblock \emph{Journal of Clinical Oncology}, 44:\penalty0 JCO2600835, 2026.
+
+\bibitem[Ibragimova et~al.(2025)Ibragimova, Fedorov, Kirilenko, and Choynzonov]{ibragimova2025}
+A.~A. Ibragimova, A.~A. Fedorov, K.~M. Kirilenko, and E.~L. Choynzonov.
+\newblock mrna-based personalized cancer vaccines: opportunities, challenges and outcomes.
+\newblock \emph{Acta Naturae}, 17\penalty0 (4):\penalty0 17--29, 2025.
+
+\bibitem[Li et~al.(2026)Li, Jabbarzadeh~Kaboli, et~al.]{li2026}
+X.~Li, P.~Jabbarzadeh~Kaboli, et~al.
+\newblock Next-generation neoantigen mrna vaccines: immuno-engineering strategies for precision cancer immunotherapy.
+\newblock \emph{Cellular Oncology}, 49\penalty0 (2), 2026.
+
+\bibitem[{Jefferies Equity Research}(2026)]{jefferies2026}
+{Jefferies Equity Research}.
+\newblock Moderna initiation.
+\newblock Technical report, Jefferies, 2026.
+
+\bibitem[{Keytruda.com}(2026)]{keytruda2026}
+{Keytruda.com}.
+\newblock Cost information, March 2026.
+\newblock GoodRx, May 2026.
+
+\bibitem[Mclean and van Hest(2024)]{mclean2024}
+A.~Mclean and N.~van Hest.
+\newblock An exploratory cost-effectiveness analysis of cancer vaccines in combination with current immune checkpoint inhibitors vs immune checkpoint inhibitor monotherapy: a case study for v940 in high-risk stage 3 melanoma in the us.
+\newblock \emph{Value in Health}, 27\penalty0 (12):\penalty0 S2 (EE354), 2024.
+
+\bibitem[Woods et~al.(2017)Woods, Sideris, Palmer, Latimer, and Soares]{woods2017}
+B.~Woods, E.~Sideris, S.~Palmer, N.~Latimer, and M.~Soares.
+\newblock Nice dsu technical support document 19: Partitioned survival analysis for decision modelling in health care: A critical review.
+\newblock Technical report, National Institute for Health and Care Excellence, 2017.
+\newblock Available from: https://www.sheffield.ac.uk/nice-dsu/tsds/partitioned-survival-analysis.
+
+\bibitem[Zhang et~al.(2023)Zhang, Bensimon, Xu, et~al.]{zhang2023}
+S.~Zhang, A.~G. Bensimon, R.~Xu, et~al.
+\newblock Cost-effectiveness analysis of pembrolizumab as an adjuvant treatment of resected stage iib or iic melanoma in the united states.
+\newblock \emph{Advances in Therapy}, 40:\penalty0 3038--3055, 2023.
+
+\bibitem[Bensimon et~al.(2019)Bensimon, Zhou, Jenkins, et~al.]{bensimon2019}
+A.~G. Bensimon, Z.~Y. Zhou, M.~Jenkins, et~al.
+\newblock Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage iii melanoma in the united states.
+\newblock \emph{Journal of Medical Economics}, 22\penalty0 (10):\penalty0 981--993, 2019.
+
+\bibitem[Latimer(2011)]{latimer2011}
+N.~Latimer.
+\newblock Nice dsu technical support document 14: Survival analysis for economic evaluations alongside clinical trials — extrapolation with patient-level data.
+\newblock Technical report, National Institute for Health and Care Excellence, 2011.
+\newblock Updated March 2013. Available from: https://www.sheffield.ac.uk/nice-dsu/tsds/survival-analysis.
+
+\bibitem[Latimer(2013)]{latimer2013}
+N.~R. Latimer.
+\newblock Survival analysis for economic evaluations alongside clinical trials — extrapolation with patient-level data: inconsistencies, limitations, and a practical guide.
+\newblock \emph{Medical Decision Making}, 33\penalty0 (6):\penalty0 743--754, 2013.
+
+\bibitem[Ishak et~al.(2013)Ishak, Kreif, Benedict, and Muszbek]{ishak2013}
+K.~J. Ishak, N.~Kreif, A.~Benedict, and N.~Muszbek.
+\newblock Overview of parametric survival analysis for health-economic applications.
+\newblock \emph{PharmacoEconomics}, 31\penalty0 (8):\penalty0 663--675, 2013.
+
+\bibitem[Arias and Xu(2022)]{arias2022}
+E.~Arias and J.~Q. Xu.
+\newblock United states life tables, 2019.
+\newblock \emph{National Vital Statistics Reports}, 70\penalty0 (19):\penalty0 1--59, 2022.
+
+\bibitem[Schwarze et~al.(2020)]{schwarze2020}
+K.~Schwarze et~al.
+\newblock The complete costs of genome sequencing.
+\newblock \emph{European Journal of Human Genetics}, 28:\penalty0 1322--1331, 2020.
+
+\bibitem[{Centers for Medicare \& Medicaid Services}(2025)]{cms2025}
+{Centers for Medicare \& Medicaid Services}.
+\newblock Physician fee schedule, cy 2025: Cpt code 96365 (intravenous infusion, initial, up to 1 hour), 2025.
+\newblock Payment rate ~\$500 per cycle. Available from: https://www.cms.gov/medicare/payment/fee-schedules/physician.
+
+\bibitem[{Bureau of Labor Statistics}(2025)]{bls2025}
+{Bureau of Labor Statistics}.
+\newblock Consumer price index: Medical care component (cpi-u, series cuur0000sam), 2025.
+\newblock Accessed 2026. Available from: https://www.bls.gov/cpi/.
+
+\bibitem[Johnston et~al.(2021)]{johnston2021}
+K.~M. Johnston et~al.
+\newblock Health-state utility values in melanoma.
+\newblock \emph{PharmacoEconomics}, 39:\penalty0 241--253, 2021.
+
+\bibitem[Sanders et~al.(2016)Sanders, Neumann, Basu, et~al.]{sanders2016}
+G.~D. Sanders, P.~J. Neumann, A.~Basu, et~al.
+\newblock Recommendations for conduct, methodological practices, and reporting of cost-effectiveness analyses: Second panel on cost-effectiveness in health and medicine.
+\newblock \emph{JAMA}, 316\penalty0 (10):\penalty0 1093--1103, 2016.
+
+\bibitem[Briggs et~al.(2006)Briggs, Claxton, and Sculpher]{briggs2006}
+A.~Briggs, K.~Claxton, and M.~Sculpher.
+\newblock \emph{Decision Modelling for Health Economic Evaluation}.
+\newblock Oxford University Press, Oxford, 2006.
+
+\bibitem[Stinnett and Mullahy(1998)]{stinnett1998}
+A.~A. Stinnett and J.~Mullahy.
+\newblock Net health benefits: a new framework for the analysis of uncertainty in cost-effectiveness analysis.
+\newblock \emph{Medical Decision Making}, 18\penalty0 (2 Suppl):\penalty0 S68--S80, 1998.
+
+\bibitem[Fenwick et~al.(2004)Fenwick, O'Brien, and Briggs]{fenwick2004}
+E.~Fenwick, B.~J. O'Brien, and A.~Briggs.
+\newblock Cost-effectiveness acceptability curves --- facts, fallacies and frequently asked questions.
+\newblock \emph{Health Economics}, 13\penalty0 (5):\penalty0 405--415, 2004.
+
+\bibitem[Eggermont et~al.(2025)Eggermont, Robert, Ribas, Ascierto, et~al.]{eggermont2025}
+A.~M.~M. Eggermont, C.~Robert, A.~Ribas, P.~A. Ascierto, et~al.
+\newblock Seven-year analysis of adjuvant pembrolizumab versus placebo in resected stage iii melanoma (keynote-054).
+\newblock \emph{New England Journal of Medicine}, 393\penalty0 (10):\penalty0 940--951, 2025.
+
+\bibitem[Ascierto et~al.(2025)Ascierto, Del~Vecchio, Mandal\'a, et~al.]{ascierto2025}
+P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
+\newblock Final 9-year follow-up of adjuvant nivolumab versus ipilimumab in resected stage iiib--iv melanoma (checkmate 238).
+\newblock \emph{New England Journal of Medicine}, 393\penalty0 (22):\penalty0 2180--2192, 2025.
+
+\bibitem[Ascierto et~al.(2023)Ascierto, Del~Vecchio, Mandal\'a, et~al.]{ascierto2023}
+P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
+\newblock Adjuvant nivolumab versus ipilimumab in resected stage iii/iv melanoma: 5-year efficacy and biomarker results from checkmate 238.
+\newblock \emph{Clinical Cancer Research}, 29\penalty0 (17):\penalty0 3352--3361, 2023.
+
+\end{thebibliography}
