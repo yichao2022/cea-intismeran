@@ -122,6 +122,8 @@ Survival probabilities were extracted from the published Kaplan--Meier curves (F
 
 \noindent\textbf{Digitization method:} WebPlotDigitizer v4.7, manual extraction. The 60-month landmark values match the published 5-year ASCO 2026 update \cite{khattak2026}. At earlier time points, the 18-month RFS rates from the primary analysis \cite{weber2024} differ from digitized values by 1.4 pp (combo) and 0.2 pp (pembro), consistent with typical digitization error. The 5-year RFS 95\% CIs: combo 56.3--78.3\%, pembro 33.3--63.0\%.
 
+\input{provenance_table.tex}
+
 \subsection{Observed vs.\ Fitted Survival Curves}
 \label{sec:obs_vs_fitted}
 \begin{figure}[H]
@@ -217,7 +219,7 @@ A total of 4,096 distribution combinations were evaluated for structural validit
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent\textit{Distributions:} LN = log-normal, W = weibull, LLog = log-logistic, Exp = exponential. C/P = Combo/Pembro. All top-ranked combinations use log-normal OS for the combo arm, yielding OS40c = 71.1--76.3\%, which is substantially higher than GP survival at age 101 ($\approx$0\%). This motivated the GP mortality constraint.
+\noindent\textit{Distributions:} LN = log-normal, W = weibull, LLog = log-logistic, Exp = exponential. C/P = Combo/Pembro. All top-ranked combinations use log-normal OS for the combo arm, yielding OS40c = 71.1--76.3\% under unconstrained extrapolation, substantially higher than GP survival at age 101 ($\approx$0\%). This motivated the GP mortality hazard floor (Section~\ref{sec:gp_impl}), under which the constrained OS40c falls to 0.0\% for both arms.
 
 \subsection{Lifetime OS Extrapolation by Distribution}
 \label{sec:os_extrap}
@@ -234,7 +236,7 @@ A total of 4,096 distribution combinations were evaluated for structural validit
 
 \subsection{GP Mortality Implementation}
 \label{sec:gp_impl}
-The GP mortality constraint caps modeled OS at the age- and sex-matched US general population survival from month 60 onward.
+The GP mortality constraint applies a mortality hazard floor to modeled OS from month 60 onward.
 
 \textbf{Life table source:} US 2019 period life tables (Arias et al., NVSS).
 \textbf{Baseline age:} 61 years (KEYNOTE-942 median). \textbf{Sex weighting:} 64\% male, 36\% female.

@@ -34,9 +34,6 @@ comparisons = [
     ("7y RFS", "rfs", 7, None, "50% (46-55%)", "~44% (nivo)"),
     ("7y DMFS", "dmfs", 7, None, "54% (50-59%)", "~50% (nivo)"),
     ("7y OS", "os", 7, None, "NR", "~70% (nivo)"),
-    ("10y RFS", "rfs", 10, None, "~47% (extrap)", "~40% (nivo, est)"),
-    ("10y DMFS", "dmfs", 10, None, "~50% (extrap)", "~45% (nivo, est)"),
-    ("10y OS", "os", 10, None, "NR", "~65% (nivo, est)"),
 ]
 
 for label, curve, yr, kn054, cm238, _ in comparisons:
@@ -123,7 +120,7 @@ KEYNOTE-054/CheckMate 238), because KEYNOTE-942 enrolled a higher-risk
 population (stage IIIB-IV, all >1mm nodal metastasis). This means the
 model INFLATES the intismeran treatment effect (better baseline = worse
 pembro → larger combo benefit). This is addressed by:
-1. GP constraint (caps combo OS from 60 months)
+1. GP hazard floor (floors combo OS hazard at GP level from 60 months)
 2. Waning v2 (hazard convergence)
 3. No direct OS benefit (dominant even without OS gain)
 

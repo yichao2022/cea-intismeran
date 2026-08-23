@@ -46,14 +46,15 @@ with open('/tmp/life_table_surv.json') as f:
 def general_pop_surv(t_years: np.ndarray) -> np.ndarray:
     """Age-matched general population survival from age 59 (US 2019 Life Tables).
 
-    Returns survival probability at each year (interpolated to monthly).
+    Returns log-linear interpolated survival at requested years (floats allowed).
     """
-    year = np.floor(t_years).astype(int)
-    year = np.clip(year, 0, 42)
-    surv = np.array([_LT["survival_by_year"].get(str(y), _LT["survival_by_year"].get(y, 0.0))
-                      for y in year])
-    # Handle dict key format: some keys are int, some str
-    return surv
+    # Build annual survival array (year 0..42)
+    surv_year = np.array([_LT["survival_by_year"].get(str(y), 0.0) for y in range(0, 43)])
+    # Add year 43 as ~0 to bound interpolation beyond 42
+    x = np.arange(0, 43, dtype=float)
+    y = np.log(np.maximum(surv_year, 1e-12))
+    log_surv = np.interp(np.asarray(t_years, dtype=float), x, y)
+    return np.exp(log_surv)
 
 
 # ── Fitting ──
@@ -237,10 +238,25 @@ class CEAModel:
             sigma = getattr(self.p, f"os_sigma_{prefix}")
             os_val = lognorm_surv(mo, mu, sigma)
 
-        # General population mortality constraint
+        # General population mortality hazard floor (from 60 months)
         if self.p.constraint_general_pop:
             gp_surv = general_pop_surv(self.t)[:len(mo)]
-            os_val = np.minimum(os_val, gp_surv)
+            # Convert OS to hazard, floor at GP hazard, reconstruct
+            n = len(os_val)
+            h_model = np.zeros(n)
+            for i in range(n - 1):
+                h_model[i] = -np.log(max(os_val[i + 1] / max(os_val[i], 1e-12), 1e-12))
+            mask = np.arange(n) >= 60  # months
+            gp_h = np.zeros(n)
+            for i in range(n):
+                gp_h[i] = -np.log(max(gp_surv[min(i+1, len(gp_surv)-1)] / max(gp_surv[i], 1e-12), 1e-12))
+            h_final = np.where(mask, np.maximum(h_model, gp_h), h_model)
+            h_final[-1] = h_final[-2]
+            cum_h = np.cumsum(h_final)
+            os_val = np.exp(-cum_h)
+            # Ensure monotonic
+            for i in range(1, n):
+                os_val[i] = min(os_val[i], os_val[i-1])
 
         # Treatment-effect waning
         if self.p.treatment_waning and arm == "combo":
