@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -555,18 +555,18 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: D3B536F47755C70CA14A8D455822E09D;5318.
+(rerunfilecheck)             Checksum: 16155FCC529C02621E84A864FB3B1587;5323.
  ) 
 Here is how much of TeX's memory you used:
  14056 strings out of 469471
  221885 string characters out of 5467975
- 646647 words of memory out of 5000000
+ 646657 words of memory out of 5000000
  42432 multiletter control sequences out of 15000+600000
  674985 words of font info for 108 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  75i,10n,79p,2324b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on manuscript.pdf (24 pages, 618389 bytes).
+Output written on manuscript.pdf (24 pages, 596099 bytes).
 PDF statistics:
  419 PDF objects out of 1000 (max. 8388607)
  361 compressed objects within 4 object streams
