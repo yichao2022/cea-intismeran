@@ -142,6 +142,7 @@ class ModelParams:
     time_horizon_years: float = 40
     cycle_length: float = 1 / 12  # monthly
     constraint_general_pop: bool = False  # scenario: general population mortality cap
+    gp_floor_start_months: int = 60  # months after which GP floor applies
     treatment_waning: bool = False  # treatment effect waning after 5 years
     os_distribution: str = "lognormal"  # "lognormal" or "weibull"
 
@@ -246,7 +247,7 @@ class CEAModel:
             h_model = np.zeros(n)
             for i in range(n - 1):
                 h_model[i] = -np.log(max(os_val[i + 1] / max(os_val[i], 1e-12), 1e-12))
-            mask = np.arange(n) >= 60  # months
+            mask = np.arange(n) >= self.p.gp_floor_start_months  # months
             gp_h = np.zeros(n)
             for i in range(n):
                 gp_h[i] = -np.log(max(gp_surv[min(i+1, len(gp_surv)-1)] / max(gp_surv[i], 1e-12), 1e-12))

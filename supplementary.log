@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -663,37 +663,37 @@ Package pdftex.def Info: fig_s7_ce_plane.png  used on input line 524.
  [17
 
 
- <./fig_s6_psa_convergence.png>] [18 <./fig_s7_ce_plane.png>] [19]
-<fig_s8_price_threshold.png, id=412, 570.6921pt x 353.8821pt>
-File: fig_s8_price_threshold.png Graphic file (type png)
-<use fig_s8_price_threshold.png>
-Package pdftex.def Info: fig_s8_price_threshold.png  used on input line 609.
-(pdftex.def)             Requested size: 452.9679pt x 280.88132pt.
- [20
+ <./fig_s6_psa_convergence.png>] [18 <./fig_s7_ce_plane.png>] [19] [20
 
 
 ]
-Overfull \hbox (23.50993pt too wide) in paragraph at lines 620--621
+<fig_s8_price_threshold.png, id=417, 570.6921pt x 353.8821pt>
+File: fig_s8_price_threshold.png Graphic file (type png)
+<use fig_s8_price_threshold.png>
+Package pdftex.def Info: fig_s8_price_threshold.png  used on input line 611.
+(pdftex.def)             Requested size: 452.9679pt x 280.88132pt.
+
+Overfull \hbox (23.50993pt too wide) in paragraph at lines 622--623
 \OT1/cmr/m/n/10.95 Sil-i-con). The full code repos-i-tory is avail-able at []$\OT1/cmtt/m/n/10.95 https : / / github . com / yichao2022 / cea-[]intismeran$[]
  []
 
 [21 <./fig_s8_price_threshold.png>]
-Overfull \hbox (19.12386pt too wide) in paragraph at lines 646--647
+Overfull \hbox (19.12386pt too wide) in paragraph at lines 648--649
 []\OT1/cmr/bx/n/10.95 Reproducibility: \OT1/cmr/m/n/10.95 Run-ning \OT1/cmtt/m/n/10.95 python3 rerun[]primary.py \OT1/cmr/m/n/10.95 re-pro-duces base-case re-sults. \OT1/cmtt/m/n/10.95 python3
  []
 
 
-Overfull \hbox (9.02888pt too wide) in paragraph at lines 656--656
+Overfull \hbox (9.02888pt too wide) in paragraph at lines 658--658
 []|\OT1/cmr/bx/n/10.95 Reported| 
  []
 
 
-Underfull \hbox (badness 5161) in paragraph at lines 661--662
+Underfull \hbox (badness 5161) in paragraph at lines 663--664
 \OT1/cmr/m/n/10.95 anal-y-sis, not a pre-
  []
 
 
-Underfull \hbox (badness 7326) in paragraph at lines 680--680
+Underfull \hbox (badness 7326) in paragraph at lines 682--682
 []|\OT1/cmr/m/n/10.95 Not as-
  []
 
@@ -712,9 +712,9 @@ Here is how much of TeX's memory you used:
  50966 multiletter control sequences out of 15000+600000
  640586 words of font info for 83 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 84i,15n,104p,791b,808s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,104p,826b,808s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on supplementary.pdf (23 pages, 2240615 bytes).
+Output written on supplementary.pdf (23 pages, 2241232 bytes).
 PDF statistics:
  569 PDF objects out of 1000 (max. 8388607)
  449 compressed objects within 5 object streams

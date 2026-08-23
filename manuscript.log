@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -526,12 +526,12 @@ Overfull \hbox (2.95474pt too wide) in paragraph at lines 353--354
 \T1/ptm/m/n/12 Direct com-par-i-son of ICERs across ad-ju-vant melanoma cost-effectiveness stud-ies is not straight-
  []
 
-[19] [20] [21]
+[19] [20] [21] [22]
 Overfull \hbox (17.41731pt too wide) in paragraph at lines 377--378
 \T1/ptm/m/n/12 cited in the ref-er-ences. The model code is avail-able at []$\T1/pcr/m/n/12 https : / / github . com / yichao2022 /
  []
 
-[22] [23] (./manuscript.bbl [24] [25]) [26] (./manuscript.aux)
+[23] (./manuscript.bbl [24] [25]) [26] (./manuscript.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -542,13 +542,13 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 Here is how much of TeX's memory you used:
  14057 strings out of 469471
  221893 string characters out of 5467975
- 646657 words of memory out of 5000000
+ 647657 words of memory out of 5000000
  42431 multiletter control sequences out of 15000+600000
  674985 words of font info for 108 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  75i,10n,79p,3303b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on manuscript.pdf (26 pages, 595399 bytes).
+Output written on manuscript.pdf (26 pages, 596016 bytes).
 PDF statistics:
  428 PDF objects out of 1000 (max. 8388607)
  368 compressed objects within 4 object streams
