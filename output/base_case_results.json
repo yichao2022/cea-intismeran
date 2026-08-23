@@ -1,0 +1,27 @@
+{
+  "base_case": {
+    "combo": {
+      "qaly": 11.1,
+      "cost": 860118.0,
+      "ly": 14.71
+    },
+    "pembro": {
+      "qaly": 7.34,
+      "cost": 713157.0,
+      "ly": 10.29
+    },
+    "incremental": {
+      "dqaly": 3.76,
+      "dly": 4.42,
+      "dcost": 146961.0,
+      "icer": 39105,
+      "nmb_100k": 228851.0,
+      "nmb_150k": 416757.0
+    },
+    "precision": {
+      "dqaly_full": 3.758121,
+      "dcost_full": 146961.2188,
+      "icer_full": 39104.9707
+    }
+  }
+}
