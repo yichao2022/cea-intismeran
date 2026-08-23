@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -650,19 +650,6 @@ Overfull \hbox (35.17691pt too wide) in paragraph at lines 458--474
 
 
 ] [15] [16]
-
-! LaTeX Error: Unicode character Δ (U+0394)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.511 Mean Δ
-             QALY = 4.04 (95% CI 2.32--6.82), mean ΔCost = \$114,302 (95% C...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
 <fig_s6_psa_convergence.png, id=389, 722.7pt x 505.89pt>
 File: fig_s6_psa_convergence.png Graphic file (type png)
 <use fig_s6_psa_convergence.png>
@@ -673,66 +660,40 @@ File: fig_s7_ce_plane.png Graphic file (type png)
 <use fig_s7_ce_plane.png>
 Package pdftex.def Info: fig_s7_ce_plane.png  used on input line 524.
 (pdftex.def)             Requested size: 452.9679pt x 339.72418pt.
-
-! LaTeX Error: Unicode character Δ (U+0394)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.525 ...s were excluded based on the ICER value.}
-                                                  
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-! LaTeX Error: Unicode character Δ (U+0394)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.525 ...s were excluded based on the ICER value.}
-                                                  
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-[17
+ [17
 
 
  <./fig_s6_psa_convergence.png>] [18 <./fig_s7_ce_plane.png>] [19]
-<fig_s8_price_threshold.png, id=411, 570.6921pt x 353.8821pt>
+<fig_s8_price_threshold.png, id=412, 570.6921pt x 353.8821pt>
 File: fig_s8_price_threshold.png Graphic file (type png)
 <use fig_s8_price_threshold.png>
-Package pdftex.def Info: fig_s8_price_threshold.png  used on input line 606.
+Package pdftex.def Info: fig_s8_price_threshold.png  used on input line 609.
 (pdftex.def)             Requested size: 452.9679pt x 280.88132pt.
  [20
 
 
 ]
-Overfull \hbox (23.50993pt too wide) in paragraph at lines 617--618
+Overfull \hbox (23.50993pt too wide) in paragraph at lines 620--621
 \OT1/cmr/m/n/10.95 Sil-i-con). The full code repos-i-tory is avail-able at []$\OT1/cmtt/m/n/10.95 https : / / github . com / yichao2022 / cea-[]intismeran$[]
  []
 
 [21 <./fig_s8_price_threshold.png>]
-Overfull \hbox (19.12386pt too wide) in paragraph at lines 643--644
+Overfull \hbox (19.12386pt too wide) in paragraph at lines 646--647
 []\OT1/cmr/bx/n/10.95 Reproducibility: \OT1/cmr/m/n/10.95 Run-ning \OT1/cmtt/m/n/10.95 python3 rerun[]primary.py \OT1/cmr/m/n/10.95 re-pro-duces base-case re-sults. \OT1/cmtt/m/n/10.95 python3
  []
 
 
-Overfull \hbox (9.02888pt too wide) in paragraph at lines 653--653
+Overfull \hbox (9.02888pt too wide) in paragraph at lines 656--656
 []|\OT1/cmr/bx/n/10.95 Reported| 
  []
 
 
-Underfull \hbox (badness 5161) in paragraph at lines 658--659
+Underfull \hbox (badness 5161) in paragraph at lines 661--662
 \OT1/cmr/m/n/10.95 anal-y-sis, not a pre-
  []
 
 
-Underfull \hbox (badness 7326) in paragraph at lines 677--677
+Underfull \hbox (badness 7326) in paragraph at lines 680--680
 []|\OT1/cmr/m/n/10.95 Not as-
  []
 
@@ -745,18 +706,18 @@ Package rerunfilecheck Info: File `supplementary.out' has not changed.
 (rerunfilecheck)             Checksum: 330CB282DAA1D2F340889379D0D86214;7861.
  ) 
 Here is how much of TeX's memory you used:
- 22772 strings out of 469471
- 426537 string characters out of 5467975
- 844980 words of memory out of 5000000
- 50967 multiletter control sequences out of 15000+600000
+ 22771 strings out of 469471
+ 426532 string characters out of 5467975
+ 844981 words of memory out of 5000000
+ 50966 multiletter control sequences out of 15000+600000
  640586 words of font info for 83 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  84i,15n,104p,791b,808s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on supplementary.pdf (23 pages, 2239882 bytes).
+Output written on supplementary.pdf (23 pages, 2240615 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
+ 569 PDF objects out of 1000 (max. 8388607)
+ 449 compressed objects within 5 object streams
  100 named destinations out of 1000 (max. 500000)
  360 words of extra memory for PDF output out of 10000 (max. 10000000)
 
