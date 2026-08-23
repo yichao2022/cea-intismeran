@@ -478,7 +478,7 @@ OS $\mu$ pembro & 3.725 & 3.525 & 3.925 & 59,135--57,130 & \$30,496 \\
 \label{sec:psa}
 
 \subsubsection{PSA Implementation Details}
-PSA with 2,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$). Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 2,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
+PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$). Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
 
 \begin{landscape}
 \begin{table}[p]
@@ -508,13 +508,13 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \end{landscape}
 
 \subsubsection{PSA Results}
-Mean $\Delta$QALY = 4.03 (95\% CI 2.33--6.74), mean $\Delta$Cost = \$121,796 (95\% CI \$-610,346 to \$509,272). Mean NMB = \$281,051 at \$100K, \$482,475 at \$150K. P(CE) = 63.9\% at \$50K, 94.9\% at \$100K, 98.7\% at \$150K. No iterations were excluded based on the ICER value; 17.6\% of draws were cost-saving.
+Mean ΔQALY = 4.04 (95% CI 2.32--6.82), mean ΔCost = \$114,302 (95% CI \$-636,780 to \$505,244). Mean NMB = \$289,310 at \$100K, \$491,116 at \$150K. P(CE) = 63.3% at \$50K, 94.9% at \$100K, 98.5% at \$150K. No iterations were excluded based on the ICER value; 18.5% of draws were cost-saving; all 6,000 draws had ΔQALY > 0.
 
 \subsubsection{PSA Convergence}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s6_psa_convergence.png}
-\caption{PSA convergence across iteration counts (2,000 structurally valid iterations, 0 structural rejections, seed = 42). Cumulative means of $\Delta$QALY, $\Delta$Cost, NMB, and P(CE). Vertical dotted lines at 500, 1,000, and 2,000 iterations. Estimates stable from $\sim$500 iterations.}
+\caption{PSA convergence across iteration counts (6,000 structurally valid iterations, 0 structural rejections, seed = 42). Cumulative means of $\Delta$QALY, $\Delta$Cost, NMB, and P(CE). Vertical dotted lines at 500, 1,000, 2,000, and 4,000 iterations. Estimates stable from $\sim$500 iterations.}
 \label{fig:s6}
 \end{figure}
 
@@ -522,7 +522,7 @@ Mean $\Delta$QALY = 4.03 (95\% CI 2.33--6.74), mean $\Delta$Cost = \$121,796 (95
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s7_ce_plane.png}
-\caption{CE plane showing 2,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 17.6\% of iterations fall in the southeast quadrant (cost-saving). No iterations were excluded based on the ICER value.}
+\caption{CE plane showing 6,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 18.5\% of iterations fall in the southeast quadrant (cost-saving); all 6,000 iterations had positive ΔQALY. No iterations were excluded based on the ICER value.}
 \label{fig:s7}
 \end{figure}
 
