@@ -36,4 +36,4 @@
 \contentsline {subsection}{\numberline {10.2}ICER versus Acquisition Price}{21}{subsection.10.2}%
 \contentsline {section}{\numberline {11}Reproducibility and Reporting}{21}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Technical Reproducibility}{21}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}CHEERS 2022 Checklist}{22}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.2}CHEERS 2022 Checklist}{23}{subsection.11.2}%
