@@ -32,6 +32,11 @@ def weibull_surv(t: np.ndarray, scale: float, shape: float) -> np.ndarray:
     return np.exp(-(t / scale) ** shape)
 
 
+def loglogistic_surv(t: np.ndarray, shape: float, scale: float) -> np.ndarray:
+    """Log-logistic survival: S(t) = 1 / (1 + (t/scale)^shape)"""
+    return 1.0 / (1.0 + (np.maximum(t, 1e-6) / scale) ** shape)
+
+
 # ── General population survival ──
 
 with open('/tmp/life_table_surv.json') as f:
