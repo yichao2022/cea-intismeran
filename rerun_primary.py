@@ -96,8 +96,8 @@ class CEAModelV2(CEAModel):
         h_model = np.zeros(n)
         for i in range(n - 1):
             h_model[i] = -np.log(max(os_val[i + 1] / max(os_val[i], 1e-12), 1e-12))
-        # Apply floor from mo=60 (5 years)
-        mask = mo >= 60
+        # Apply floor from gp_floor_start_months (default 60)
+        mask = mo >= getattr(self.p, 'gp_floor_start_months', 60)
         gp_h = np.interp(np.arange(n), np.arange(480), LT_hazard_monthly)
         h_final = np.where(mask, np.maximum(h_model, gp_h), h_model)
         h_final[-1] = h_final[-2]  # last point
