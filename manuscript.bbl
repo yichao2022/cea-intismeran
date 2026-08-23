@@ -87,11 +87,6 @@ E.~Arias and J.~Q. Xu.
 \newblock United states life tables, 2019.
 \newblock \emph{National Vital Statistics Reports}, 70\penalty0 (19):\penalty0 1--59, 2022.
 
-\bibitem[Schwarze et~al.(2020)]{schwarze2020}
-K.~Schwarze et~al.
-\newblock The complete costs of genome sequencing.
-\newblock \emph{European Journal of Human Genetics}, 28:\penalty0 1322--1331, 2020.
-
 \bibitem[{Centers for Medicare \& Medicaid Services}(2025)]{cms2025}
 {Centers for Medicare \& Medicaid Services}.
 \newblock Physician fee schedule, cy 2025: Cpt code 96365 (intravenous infusion, initial, up to 1 hour), 2025.
@@ -141,5 +136,10 @@ P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
 P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
 \newblock Adjuvant nivolumab versus ipilimumab in resected stage iii/iv melanoma: 5-year efficacy and biomarker results from checkmate 238.
 \newblock \emph{Clinical Cancer Research}, 29\penalty0 (17):\penalty0 3352--3361, 2023.
+
+\bibitem[Schwarze et~al.(2020)]{schwarze2020}
+K.~Schwarze et~al.
+\newblock The complete costs of genome sequencing.
+\newblock \emph{European Journal of Human Genetics}, 28:\penalty0 1322--1331, 2020.
 
 \end{thebibliography}
