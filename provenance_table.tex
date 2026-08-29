@@ -13,12 +13,22 @@ Table~\ref{tab:provenance} summarizes the provenance of all clinical inputs used
     \item \textbf{Topline only:} The source reports a statistically significant result but the numerical hazard ratio or landmark survival probabilities have not yet been disclosed.
 \end{itemize}
 
-\begin{table}[H]
-\centering
-\caption{Clinical Input Provenance}
-\label{tab:provenance}
 \small
-\begin{tabular}{lp{4.5cm}ccp{3.5cm}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{5cm}p{2.2cm}p{2.4cm}p{4cm}}
+\caption{Clinical Input Provenance}\\
+\label{tab:provenance}\\
+\toprule
+\textbf{Input} & \textbf{Value} & \textbf{Evidence} & \textbf{Source} \\
+& & \textbf{Status} & \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Input} & \textbf{Value} & \textbf{Evidence} & \textbf{Source} \\
+& & \textbf{Status} & \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
 \toprule
 \textbf{Input} & \textbf{Value} & \textbf{Evidence} & \textbf{Source} \\
 & & \textbf{Status} & \\
@@ -95,5 +105,5 @@ Table~\ref{tab:provenance} summarizes the provenance of all clinical inputs used
 \quad 20-year OS, pembro (GP-constrained) & 7.8\% & Modeled & GP hazard floor \\
 \quad 40-year OS, combo (GP-constrained) & 0.0\% & Modeled & GP hazard floor \\
 \bottomrule
-\end{tabular}
-\end{table}
+\bottomrule
+\end{longtable}
