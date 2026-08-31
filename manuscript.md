@@ -174,7 +174,7 @@ The deterministic threshold price of intismeran was estimated by identifying the
 
 This early economic evaluation demonstrates that intismeran plus pembrolizumab is likely cost-effective for adjuvant treatment of resected stage IIIB--IV melanoma at conventional US willingness-to-pay thresholds. The base case ICER of $39,105/QALY, the 3.76 QALY gain, and the 94.9% probability of cost-effectiveness at $100,000/QALY (98.7% at $150,000/QALY) all support this conclusion.
 
-The economic value of the combination is generated through two complementary mechanisms described in detail below (Section 4.2): extended recurrence-free quality-adjusted survival and downstream cost offsets from avoided distant metastasis. The ICER is notably lower than the $75,206 from the prior exploratory analysis [14] (Section 4.5), reflecting the combined effect of mature clinical data and a structurally more conservative modelling framework.
+The economic value of the combination is generated through two complementary mechanisms described in detail below (Section 4.2): extended recurrence-free quality-adjusted survival and downstream cost offsets from avoided distant metastasis. The ICER is notably lower than the $75,206 from the prior exploratory analysis [14] (Section 4.5), reflecting the combined effect of mature clinical data and a structurally constrained modelling framework.
 
 ### 4.2 Economic Drivers and Cost Offsets
 
