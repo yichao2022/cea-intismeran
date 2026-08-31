@@ -107,7 +107,7 @@ This study presents an updated early economic evaluation of intismeran plus pemb
 
 \subsection{Model Structure}
 
-A partitioned survival model (PSM) was developed in Python with four mutually exclusive health states: recurrence-free (RF), locoregional recurrence (LR), distant metastasis (DM), and death, following the structure of prior melanoma cost-effectiveness models and standard PSM methodology \cite{woods2017,zhang2023,bensimon2019}. Patients enter the model in the RF state and transition through LR and/or DM states based on parametric survival functions:
+A partitioned survival model (PSM) was developed in Python with four mutually exclusive health states: recurrence-free (RF), locoregional recurrence (LR), distant metastasis (DM), and death, following the structure of prior melanoma cost-effectiveness models and standard PSM methodology \cite{woods2017,zhang2023,bensimon2019,gye2024}. Patients enter the model in the RF state and transition through LR and/or DM states based on parametric survival functions:
 \begin{align*}
 \text{RF}(t) &= \text{RFS}(t) \\
 \text{LR}(t) &= \text{DMFS}(t) - \text{RFS}(t) \\
