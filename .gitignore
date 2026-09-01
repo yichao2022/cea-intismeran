@@ -7,3 +7,17 @@ venv/
 .ipynb_checkpoints/
 data/*.csv
 !data/*.md
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+*.toc
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
