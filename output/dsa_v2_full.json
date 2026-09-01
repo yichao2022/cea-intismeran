@@ -1,0 +1,116 @@
+{
+  "base_icer": 49841,
+  "wtp": 150000,
+  "t11_rows": [
+    {
+      "param": "UTIL_RF",
+      "base": "0.83",
+      "low_lbl": "0.80",
+      "high_lbl": "0.86",
+      "lo_icer": "51,431",
+      "hi_icer": "48,346",
+      "lo_nmb": "622,423",
+      "hi_nmb": "682,864",
+      "change_nmb": "60,441"
+    },
+    {
+      "param": "UTIL_LR",
+      "base": "0.64",
+      "low_lbl": "0.61",
+      "high_lbl": "0.67",
+      "lo_icer": "50,082",
+      "hi_icer": "49,601",
+      "lo_nmb": "647,927",
+      "hi_nmb": "657,359",
+      "change_nmb": "9,431"
+    },
+    {
+      "param": "UTIL_DM",
+      "base": "0.55",
+      "low_lbl": "0.52",
+      "high_lbl": "0.58",
+      "lo_icer": "49,954",
+      "hi_icer": "49,728",
+      "lo_nmb": "650,423",
+      "hi_nmb": "654,863",
+      "change_nmb": "4,440"
+    },
+    {
+      "param": "cost_keytruda_annual",
+      "base": "$220,896",
+      "low_lbl": "$176,717",
+      "high_lbl": "$265,075",
+      "lo_icer": "49,841",
+      "hi_icer": "49,841",
+      "lo_nmb": "652,643",
+      "hi_nmb": "652,643",
+      "change_nmb": "0"
+    },
+    {
+      "param": "cost_intismeran",
+      "base": "$200,000",
+      "low_lbl": "$160,000",
+      "high_lbl": "$240,000",
+      "lo_icer": "43,702",
+      "hi_icer": "55,979",
+      "lo_nmb": "692,643",
+      "hi_nmb": "612,643",
+      "change_nmb": "80,000"
+    },
+    {
+      "param": "cost_lr_monthly",
+      "base": "$3,000",
+      "low_lbl": "$2,400",
+      "high_lbl": "$3,600",
+      "lo_icer": "48,683",
+      "hi_icer": "50,999",
+      "lo_nmb": "660,188",
+      "hi_nmb": "645,098",
+      "change_nmb": "15,090"
+    },
+    {
+      "param": "cost_dm_monthly",
+      "base": "$12,000",
+      "low_lbl": "$9,600",
+      "high_lbl": "$14,400",
+      "lo_icer": "47,660",
+      "hi_icer": "52,021",
+      "lo_nmb": "666,851",
+      "hi_nmb": "638,435",
+      "change_nmb": "28,416"
+    },
+    {
+      "param": "discount_rate",
+      "base": "3%",
+      "low_lbl": "0%",
+      "high_lbl": "5%",
+      "lo_icer": "49,330",
+      "hi_icer": "53,363",
+      "lo_nmb": "1,233,503",
+      "hi_nmb": "434,691",
+      "change_nmb": "798,812"
+    },
+    {
+      "param": "OS mu combo",
+      "base": "8.268",
+      "low_lbl": "-40%",
+      "high_lbl": "+40%",
+      "lo_icer": "51,465",
+      "hi_icer": "49,690",
+      "lo_nmb": "131,833",
+      "hi_nmb": "759,457",
+      "change_nmb": "627,624"
+    },
+    {
+      "param": "OS mu pembro",
+      "base": "3.725",
+      "low_lbl": "-20%",
+      "high_lbl": "+20%",
+      "lo_icer": "60,695",
+      "hi_icer": "Dominant",
+      "lo_nmb": "900,567",
+      "hi_nmb": "406,519",
+      "change_nmb": "494,048"
+    }
+  ]
+}
