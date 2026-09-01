@@ -321,8 +321,9 @@ Intismeran plus pembrolizumab provides clinical benefit in adjuvant melanoma and
 | 10-year horizon | $97,868 | 1.34 | $73,233 | $102,591 |
 | 20-year horizon | $147,215 | 3.52 | $41,785 | $381,256 |
 | **Treatment-effect persistence** | | | | |
-| Treatment-effect waning (5→10y hazard convergence) | $249,355 | 2.39 | $104,247 | $109,439 |
-| No direct OS benefit | −$22,543 | 0.52 | −$43,589 | $100,121 |
+| Recurrence convergence (5→8y) | $39,862 | 2.09 | $19,055 | $273,926 |
+| Hazard convergence (5→10y) | $249,355 | 2.39 | $104,247 | $109,439 |
+| No direct OS benefit | −$22,543 | 0.52 | Dominant | $100,121 |
 
 ---
 
