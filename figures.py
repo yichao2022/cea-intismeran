@@ -1,12 +1,15 @@
 """
 Generate figures for CEA manuscript.
-Uses current CEAModel API.
+Uses current CEAModelV2 API.
 """
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from model import ModelParams, CEAModel, run_psa
+import contextlib
+import io
+from model import ModelParams
+from rerun_primary import CEAModelV2
 
 plt.rcParams.update({
     "font.family": "sans-serif", "font.size": 11,
@@ -19,7 +22,7 @@ C = {"combo": "#2166ac", "pembro": "#b2182b"}
 # ── 1. Survival Curves ──
 def plot_survival():
     params = ModelParams()
-    model = CEAModel(params)
+    model = CEAModelV2(params)
     sur = model._survival()
     t = model.t
 
@@ -50,30 +53,40 @@ def plot_survival():
 
 # ── 2. CEAC ──
 def plot_ceac():
-    from scipy.stats import gamma, norm
-    rng = np.random.default_rng(42)
-    icers = []
-    for _ in range(1000):
-        pp = ModelParams()
-        for attr, val in [("cost_keytruda_annual", 220_896), ("cost_intismeran", 200_000),
-                          ("cost_lr_monthly", 3_000), ("cost_dm_monthly", 12_000)]:
-            setattr(pp, attr, rng.gamma(25, val/25))
-        for attr, val in [("util_rf", 0.83), ("util_lr", 0.64), ("util_dm", 0.55)]:
-            setattr(pp, attr, np.clip(rng.normal(val, 0.03), 0, 1))
-        pp.os_mu_combo += rng.normal(0, 0.1)
-        pp.os_mu_pembro += rng.normal(0, 0.1)
-        r = CEAModel(pp).run()
-        dc = r["combo"]["cost"] - r["pembro"]["cost"]
-        dq = r["combo"]["qaly"] - r["pembro"]["qaly"]
-        if dq > 0: icers.append(dc/dq)
-    icers = np.array(icers)
+    # Read canonical PSA draws (6000 iterations) to ensure consistency with manuscript text
+    import json
+    try:
+        draws = np.load("psa_v2_draws.npz")
+        dq = draws["dq"]
+        dc = draws["dc"]
+        icers = dc[dq > 0] / dq[dq > 0]
+    except FileNotFoundError:
+        from scipy.stats import gamma, norm
+        rng = np.random.default_rng(42)
+        icers_list = []
+        for _ in range(6000):
+            pp = ModelParams()
+            for attr, val in [("cost_keytruda_annual", 220_896), ("cost_intismeran", 200_000),
+                              ("cost_lr_monthly", 3_000), ("cost_dm_monthly", 12_000)]:
+                setattr(pp, attr, rng.gamma(25, val/25))
+            for attr, val in [("util_rf", 0.83), ("util_lr", 0.64), ("util_dm", 0.55)]:
+                setattr(pp, attr, np.clip(rng.normal(val, 0.03), 0, 1))
+            pp.os_mu_combo += rng.normal(0, 0.1)
+            pp.os_mu_pembro += rng.normal(0, 0.1)
+            with contextlib.redirect_stdout(io.StringIO()):
+                r = CEAModelV2(pp).run()
+            dc = r["combo"]["cost"] - r["pembro"]["cost"]
+            dq = r["combo"]["qaly"] - r["pembro"]["qaly"]
+            if dq > 0: icers_list.append(dc/dq)
+        icers = np.array(icers_list)
+
     thresholds = np.arange(0, 400_001, 10_000)
     prob_ce = [np.mean(icers <= t) for t in thresholds]
 
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.plot(thresholds / 1000, prob_ce, color="#2166ac", lw=2)
-    ax.axvline(100, color="gray", ls="--", lw=1, label="$100K/QALY$")
-    ax.axvline(150, color="gray", ls=":", lw=1, label="$150K/QALY$")
+    ax.axvline(100, color="gray", ls="--", lw=1, label="$100K/QALY")
+    ax.axvline(150, color="gray", ls=":", lw=1, label="$150K/QALY")
     ax.set_xlabel("Willingness-to-Pay Threshold ($1000s/QALY)")
     ax.set_ylabel("Probability Cost-Effective")
     ax.set_title("Cost-Effectiveness Acceptability Curve")
@@ -84,8 +97,8 @@ def plot_ceac():
 
 # ── 3. Tornado ──
 def plot_tornado():
-    params = ModelParams()
-    base = CEAModel(params).run()
+    params = ModelParams(constraint_general_pop=True)
+    base = CEAModelV2(params).run()
     base_icer = (base["combo"]["cost"] - base["pembro"]["cost"]) / (base["combo"]["qaly"] - base["pembro"]["qaly"])
 
     tornado = {}
@@ -99,7 +112,7 @@ def plot_tornado():
     ]:
         icers = []
         for factor in [low, high]:
-            pp = ModelParams()
+            pp = ModelParams(constraint_general_pop=True)
             if name == "rfs_combo":
                 # Perturb RFS by adjusting mu
                 pp.os_mu_combo += np.log(1/factor) if factor < 1 else np.log(factor)
@@ -111,7 +124,7 @@ def plot_tornado():
                 pp.util_rf = np.clip(0.83 * factor, 0, 1)
             elif name == "discount_rate":
                 pp.discount_rate = factor
-            r = CEAModel(pp).run()
+            r = CEAModelV2(pp).run()
             icer = (r["combo"]["cost"] - r["pembro"]["cost"]) / (r["combo"]["qaly"] - r["pembro"]["qaly"])
             icers.append(icer)
         tornado[label] = (base_icer - icers[0], icers[1] - base_icer)
@@ -147,7 +160,7 @@ def plot_ce_plane():
             setattr(pp, attr, np.clip(rng.normal(val, 0.03), 0, 1))
         pp.os_mu_combo += rng.normal(0, 0.1)
         pp.os_mu_pembro += rng.normal(0, 0.1)
-        r = CEAModel(pp).run()
+        r = CEAModelV2(pp).run()
         dc = r["combo"]["cost"] - r["pembro"]["cost"]
         dq = r["combo"]["qaly"] - r["pembro"]["qaly"]
         if dq > 0:
