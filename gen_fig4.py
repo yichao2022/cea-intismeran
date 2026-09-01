@@ -15,7 +15,7 @@ def icer_at_price(price):
     dq = r["combo"]["qaly"] - r["pembro"]["qaly"]
     return dc, dq, dc / dq
 
-prices = np.linspace(0, 800_000, 161)
+prices = np.linspace(0, 900_000, 181)
 icers = np.array([icer_at_price(pr)[2] for pr in prices])
 
 fig, ax = plt.subplots(figsize=(8, 5.4))
@@ -42,9 +42,9 @@ for x, label, ls, c, lx, ly in vlines:
 
 ax.set_xlabel("Intismeran acquisition price (US$000/course)", fontsize=11)
 ax.set_ylabel("ICER (US$/QALY)", fontsize=11)
-ax.set_xlim(0, 800)
+ax.set_xlim(0, 900)
 ax.set_ylim(0, 540_000)
-ax.set_xticks(np.arange(0, 801, 100))
+ax.set_xticks(np.arange(0, 901, 100))
 ax.yaxis.set_major_formatter(lambda x, pos: f"{x/1000:.0f}K" if x else "0")
 ax.grid(alpha=0.25, linewidth=0.5)
 plt.tight_layout()
