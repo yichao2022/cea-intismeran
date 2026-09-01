@@ -218,6 +218,6 @@ if __name__ == "__main__":
     print(f"\n{'='*90}")
     print("COMPARISON")
     print(f"{'='*90}")
-    print(f"Base case:              ΔQALY=3.76 ΔCost=$146,961 ICER=$39,105")
+    print(f"Base case:              ΔQALY=6.52 ΔCost=$324,765 ICER=$49,841")
     print(f"Waning v2 (5-10y):      ΔQALY={r1['dq']:.2f} ΔCost=${r1['dc']:,.0f} ICER=${r1['icer']:,.0f}")
     print(f"Waning v2 (5-15y):      ΔQALY={r2['dq']:.2f} ΔCost=${r2['dc']:,.0f} ICER=${r2['icer']:,.0f}")

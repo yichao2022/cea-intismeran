@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  23 AUG 2026 17:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  1 SEP 2026 02:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,8 +443,8 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [1
 
 {/Users/cary/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/cary/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-Overfull \hbox (0.12459pt too wide) in paragraph at lines 69--70
-\T1/ptm/m/n/12 was $39,105/QALY gained. At willingness-to-pay thresh-olds of $100,000 and $150,000/QALY
+Overfull \hbox (1.57668pt too wide) in paragraph at lines 69--70
+\T1/ptm/m/n/12 was $49,841/QALY gained. At willingness-to-pay thresh-olds of $100,000 and $150,000/QALY,
  []
 
 
@@ -466,106 +466,85 @@ Overfull \hbox (15.43503pt too wide) in paragraph at lines 98--99
  []
 
 [3] [4] [5]
-<fig1_survival.png, id=182, 1004.553pt x 445.665pt>
+<fig1_survival.png, id=180, 1004.553pt x 445.665pt>
 File: fig1_survival.png Graphic file (type png)
 <use fig1_survival.png>
-Package pdftex.def Info: fig1_survival.png  used on input line 128.
+Package pdftex.def Info: fig1_survival.png  used on input line 129.
 (pdftex.def)             Requested size: 452.9679pt x 200.95541pt.
  [6 <./fig1_survival.png>] [7] [8] [9] [10]
-! Undefined control sequence.
-l.232 ...ns showed positive QALY gains (\DeltaQALY
-                                                   > 0), and 18.5\% of itera...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.232 ...tions showed net cost savings (\DeltaCost
-                                                   < 0, \DeltaQALY > 0). No ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.232 ... cost savings (\DeltaCost < 0, \DeltaQALY
-                                                   > 0). No iterations were ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Overfull \hbox (7.63638pt too wide) in paragraph at lines 234--235
+\T1/ptm/m/n/12 93.4% at $100,000/QALY and 98.4% at $150,000/QALY. Fig-ure []2[] presents the cost-effectiveness
+ []
 
 [11]
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 242.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.243 I
-       ncremental QALYs & 4.04      & 3.85      & 2.32\textendash6.82 \\
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-<fig2_ceac.png, id=265, 578.16pt x 361.35pt>
+<fig2_ceac.png, id=269, 578.16pt x 361.35pt>
 File: fig2_ceac.png Graphic file (type png)
 <use fig2_ceac.png>
-Package pdftex.def Info: fig2_ceac.png  used on input line 252.
+Package pdftex.def Info: fig2_ceac.png  used on input line 254.
 (pdftex.def)             Requested size: 452.9679pt x 283.10349pt.
-<fig3_tornado.png, id=267, 714.9912pt x 424.4658pt>
+ [12 <./fig2_ceac.png>]
+<fig3_tornado.png, id=279, 714.9912pt x 424.4658pt>
 File: fig3_tornado.png Graphic file (type png)
 <use fig3_tornado.png>
 Package pdftex.def Info: fig3_tornado.png  used on input line 265.
 (pdftex.def)             Requested size: 452.9679pt x 268.91748pt.
-[12 <./fig2_ceac.png>]
-<fig4_price_icer.png, id=277, 578.16pt x 390.258pt>
+ [13 <./fig3_tornado.png>]
+<fig4_price_icer.png, id=289, 578.16pt x 390.258pt>
 File: fig4_price_icer.png Graphic file (type png)
 <use fig4_price_icer.png>
-Package pdftex.def Info: fig4_price_icer.png  used on input line 272.
+Package pdftex.def Info: fig4_price_icer.png  used on input line 312.
 (pdftex.def)             Requested size: 452.9679pt x 305.75175pt.
- [13 <./fig3_tornado.png>] [14 <./fig4_price_icer.png>] [15] [16] [17]
-Overfull \hbox (0.1482pt too wide) in paragraph at lines 347--348
+ [14] [15 <./fig4_price_icer.png>]
+Overfull \hbox (18.31941pt too wide) in paragraph at lines 324--325
+[]\T1/ptm/m/n/12 The eco-nomic value of the com-bi-na-tion is gen-er-ated pri-mar-ily through ex-tended recurrence-
+ []
+
+
+Overfull \hbox (2.53603pt too wide) in paragraph at lines 328--329
+\T1/ptm/m/n/12 The in-cre-men-tal $324,765 life-time cost of in-tismeran plus pem-brolizumab ex-ceeds the $200,000
+ []
+
+
+Overfull \hbox (6.50673pt too wide) in paragraph at lines 328--329
+\T1/ptm/m/n/12 tially longer and thus ac-cu-mu-late more time in the locoregional-recurrence and distant-metastasis
+ []
+
+[16] [17]
+Overfull \hbox (0.1482pt too wide) in paragraph at lines 346--347
 \T1/ptm/m/n/12 When the com-bi-na-tion's recurrence-related haz-ard is al-lowed to con-verge to the pem-brolizumab
  []
 
-[18]
-Overfull \hbox (2.95474pt too wide) in paragraph at lines 353--354
+
+Overfull \hbox (2.95474pt too wide) in paragraph at lines 352--353
 \T1/ptm/m/n/12 Direct com-par-i-son of ICERs across ad-ju-vant melanoma cost-effectiveness stud-ies is not straight-
  []
 
-[19] [20] [21]
-Overfull \hbox (17.41731pt too wide) in paragraph at lines 377--378
+[18] [19] [20] [21]
+Overfull \hbox (17.41731pt too wide) in paragraph at lines 376--377
 \T1/ptm/m/n/12 cited in the ref-er-ences. The model code is avail-able at []$\T1/pcr/m/n/12 https : / / github . com / yichao2022 /
  []
 
-[22] [23] (./manuscript.bbl [24] [25]) [26] (./manuscript.aux)
+[22] (./manuscript.bbl [23] [24]) [25] (./manuscript.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 16155FCC529C02621E84A864FB3B1587;5323.
+(rerunfilecheck)             Checksum: 74A64E01E6CCA32DAFFC660411ABA07E;5386.
  ) 
 Here is how much of TeX's memory you used:
- 14057 strings out of 469471
- 221893 string characters out of 5467975
- 647657 words of memory out of 5000000
- 42431 multiletter control sequences out of 15000+600000
- 674985 words of font info for 108 fonts, out of 8000000 for 9000
+ 14062 strings out of 469471
+ 221967 string characters out of 5467975
+ 646660 words of memory out of 5000000
+ 42437 multiletter control sequences out of 15000+600000
+ 675299 words of font info for 109 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 75i,10n,79p,3472b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,3503b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on manuscript.pdf (26 pages, 597653 bytes).
+Output written on manuscript.pdf (25 pages, 593467 bytes).
 PDF statistics:
- 428 PDF objects out of 1000 (max. 8388607)
- 368 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
+ 429 PDF objects out of 1000 (max. 8388607)
+ 370 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
  253 words of extra memory for PDF output out of 10000 (max. 10000000)
 

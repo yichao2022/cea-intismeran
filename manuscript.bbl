@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,11 +9,6 @@
 D.~Husereau, M.~Drummond, F.~Augustovski, et~al.
 \newblock Consolidated health economic evaluation reporting standards 2022 (cheers 2022) statement: updated reporting guidance for health economic evaluations.
 \newblock \emph{Value in Health}, 25\penalty0 (1):\penalty0 3--9, 2022.
-
-\bibitem[Neumann et~al.(2014)Neumann, Cohen, and Weinstein]{neumann2014}
-P.~J. Neumann, J.~T. Cohen, and M.~C. Weinstein.
-\newblock Updating cost-effectiveness --- the curious resilience of the \$50,000-per-qaly threshold.
-\newblock \emph{New England Journal of Medicine}, 371\penalty0 (9):\penalty0 796--797, 2014.
 
 \bibitem[{Merck \& Moderna}(2026)]{merck2026}
 {Merck \& Moderna}.
@@ -40,10 +35,10 @@ X.~Li, P.~Jabbarzadeh~Kaboli, et~al.
 \newblock Moderna initiation.
 \newblock Technical report, Jefferies, 2026.
 
-\bibitem[{Keytruda.com}(2026)]{keytruda2026}
-{Keytruda.com}.
-\newblock Cost information, March 2026.
-\newblock GoodRx, May 2026.
+\bibitem[{Merck Sharp \& Dohme LLC}(2026)]{keytruda2026}
+{Merck Sharp \& Dohme LLC}.
+\newblock Keytruda{\textsuperscript{\textregistered}} (pembrolizumab): Wholesale acquisition cost, March 2026.
+\newblock Available from: \url{https://www.keytruda.com/financial-support/}.
 
 \bibitem[Mclean and van Hest(2024)]{mclean2024}
 A.~Mclean and N.~van Hest.
@@ -65,6 +60,12 @@ S.~Zhang, A.~G. Bensimon, R.~Xu, et~al.
 A.~G. Bensimon, Z.~Y. Zhou, M.~Jenkins, et~al.
 \newblock Cost-effectiveness of pembrolizumab for the adjuvant treatment of resected high-risk stage iii melanoma in the united states.
 \newblock \emph{Journal of Medical Economics}, 22\penalty0 (10):\penalty0 981--993, 2019.
+
+\bibitem[Gye et~al.(2024)Gye, De~Abreu~Lourenco, and Goodall]{gye2024}
+Amy Gye, Richard De~Abreu~Lourenco, and Stephen Goodall.
+\newblock Different models, same results: Considerations when choosing between approaches to model cost effectiveness of chimeric-antigen receptor {T}-cell therapy versus standard of care.
+\newblock \emph{PharmacoEconomics}, 42\penalty0 (12):\penalty0 1359--1371, 2024.
+\newblock \doi{10.1007/s40273-024-01430-7}.
 
 \bibitem[Latimer(2011)]{latimer2011}
 N.~Latimer.
@@ -107,6 +108,11 @@ G.~D. Sanders, P.~J. Neumann, A.~Basu, et~al.
 \newblock Recommendations for conduct, methodological practices, and reporting of cost-effectiveness analyses: Second panel on cost-effectiveness in health and medicine.
 \newblock \emph{JAMA}, 316\penalty0 (10):\penalty0 1093--1103, 2016.
 
+\bibitem[Neumann et~al.(2014)Neumann, Cohen, and Weinstein]{neumann2014}
+P.~J. Neumann, J.~T. Cohen, and M.~C. Weinstein.
+\newblock Updating cost-effectiveness --- the curious resilience of the \$50,000-per-qaly threshold.
+\newblock \emph{New England Journal of Medicine}, 371\penalty0 (9):\penalty0 796--797, 2014.
+
 \bibitem[Briggs et~al.(2006)Briggs, Claxton, and Sculpher]{briggs2006}
 A.~Briggs, K.~Claxton, and M.~Sculpher.
 \newblock \emph{Decision Modelling for Health Economic Evaluation}.
@@ -122,15 +128,17 @@ E.~Fenwick, B.~J. O'Brien, and A.~Briggs.
 \newblock Cost-effectiveness acceptability curves --- facts, fallacies and frequently asked questions.
 \newblock \emph{Health Economics}, 13\penalty0 (5):\penalty0 405--415, 2004.
 
-\bibitem[Eggermont et~al.(2025)Eggermont, Robert, Ribas, Ascierto, et~al.]{eggermont2025}
-A.~M.~M. Eggermont, C.~Robert, A.~Ribas, P.~A. Ascierto, et~al.
-\newblock Seven-year analysis of adjuvant pembrolizumab versus placebo in resected stage iii melanoma (keynote-054).
-\newblock \emph{New England Journal of Medicine}, 393\penalty0 (10):\penalty0 940--951, 2025.
+\bibitem[Eggermont et~al.(2024)Eggermont, Kicinski, Blank, et~al.]{eggermont2025}
+A.~M.~M. Eggermont, M.~Kicinski, C.~U. Blank, et~al.
+\newblock Seven-year analysis of adjuvant pembrolizumab versus placebo in stage iii melanoma in the eortc1325 / keynote-054 trial.
+\newblock \emph{European Journal of Cancer}, 211:\penalty0 114327, 2024.
+\newblock \doi{10.1016/j.ejca.2024.114327}.
 
-\bibitem[Ascierto et~al.(2025)Ascierto, Del~Vecchio, Mandal\'a, et~al.]{ascierto2025}
-P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.
-\newblock Final 9-year follow-up of adjuvant nivolumab versus ipilimumab in resected stage iiib--iv melanoma (checkmate 238).
-\newblock \emph{New England Journal of Medicine}, 393\penalty0 (22):\penalty0 2180--2192, 2025.
+\bibitem[Ascierto et~al.(2026)Ascierto, Del~Vecchio, Merelli, et~al.]{ascierto2025}
+P.~A. Ascierto, M.~Del~Vecchio, B.~Merelli, et~al.
+\newblock Nivolumab for resected stage iii or iv melanoma at 9 years.
+\newblock \emph{New England Journal of Medicine}, 394\penalty0 (4):\penalty0 333--342, 2026.
+\newblock \doi{10.1056/NEJMoa2504966}.
 
 \bibitem[Ascierto et~al.(2023)Ascierto, Del~Vecchio, Mandal\'a, et~al.]{ascierto2023}
 P.~A. Ascierto, M.~Del~Vecchio, M.~Mandal\'a, et~al.

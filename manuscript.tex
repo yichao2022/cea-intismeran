@@ -66,9 +66,9 @@
 
 \textbf{Methods:} A four-state partitioned survival model (recurrence-free $\rightarrow$ locoregional recurrence $\rightarrow$ distant metastasis $\rightarrow$ death) was developed with a lifetime horizon (40 years) and 3\% annual discounting. Clinical efficacy data were derived from the 5-year follow-up of the Phase 2b KEYNOTE-942 trial. Parametric survival functions (log-normal) were calibrated to RFS and OS survival probabilities at 18, 24, 36, 48, and 60 months and DMFS probabilities at 18, 24, 36, and 48 months, with the ratio-constrained structure RFS $\leq$ DMFS $\leq$ OS ensuring internal consistency. Health state utilities were derived from published melanoma EQ-5D literature (RF 0.83, LR 0.64, DM 0.55). Sensitivity analyses included probabilistic sensitivity analysis (6,000 iterations), deterministic sensitivity analysis, and scenario analyses.
 
-\textbf{Results:} In the base case, with general population mortality constraint applied from 60 months, intismeran plus pembrolizumab yielded 11.10 QALYs at a cost of \$860,118, compared with 7.34 QALYs at \$713,157 for pembrolizumab alone. The incremental cost-effectiveness ratio was \$39,105/QALY gained. At willingness-to-pay thresholds of \$100,000 and \$150,000/QALY \cite{neumann2014}, the probability of cost-effectiveness was 94.9\% and 98.5\%, respectively. The deterministic threshold price was approximately \$429,000 per course at \$100,000/QALY and \$616,000 per course at \$150,000/QALY, indicating that the ICER remains below these thresholds at more than twice the assumed acquisition price. Results were robust across a wide range of sensitivity analyses.
+\textbf{Results:} In the base case, with general population mortality constraint applied from 60 months, intismeran plus pembrolizumab yielded 14.16 QALYs at a cost of \$1,070,705, compared with 7.65 QALYs at \$745,939 for pembrolizumab alone. The incremental cost-effectiveness ratio was \$49,841/QALY gained. At willingness-to-pay thresholds of \$100,000 and \$150,000/QALY, the probability of cost-effectiveness was 93.4\% and 98.4\%, respectively. The deterministic threshold price was approximately \$527,000 per course at \$100,000/QALY and \$852,000 per course at \$150,000/QALY, indicating that the ICER remains below these thresholds at more than twice the assumed acquisition price. Results were robust across a wide range of sensitivity analyses.
 
-\textbf{Conclusion:} At an assumed acquisition price of \$200,000 per course, intismeran plus pembrolizumab was projected to be cost-effective under conventional US thresholds. Health gains from prolonged recurrence-free survival, together with lower downstream metastatic-disease costs, contributed to the favorable economic result.
+\textbf{Conclusion:} At an assumed acquisition price of \$200,000 per course, intismeran plus pembrolizumab was projected to be cost-effective under conventional US thresholds. Health gains from prolonged recurrence-free survival were the primary driver of clinical benefit, with the favorable economic result reflecting the large quality-adjusted survival gain relative to the incremental cost.
 
 \vspace{0.25\baselineskip}
 \textbf{Keywords:} cost-effectiveness analysis, intismeran, mRNA-4157, V940, melanoma, pembrolizumab, Keytruda, individualized neoantigen therapy, partitioned survival model
@@ -122,6 +122,7 @@ RFS and OS survival probabilities were extracted at 18, 24, 36, 48, and 60 month
 
 \subsection{External Validation}
 Model predictions for the pembrolizumab-alone arm were externally validated against the KEYNOTE-054 and CheckMate 238 trials (Section~3.3).
+Figure~\ref{fig:survival} illustrates the fitted RFS, DMFS, and OS trajectories for both treatment arms together with the observed KEYNOTE-942 landmark data used for calibration.
 
 \begin{figure}[H]
 \centering
@@ -160,13 +161,14 @@ Intismeran course cost & \$200,000       & Jefferies \cite{jefferies2026} \\
 \end{tabular}
 \end{table}
 
+
 \subsection{Utilities}
 
 Health state utilities were derived from published EQ-5D literature in melanoma populations. The base case utilities were: RF 0.83, LR 0.64, and DM 0.55 \cite{bensimon2019, johnston2021, zhang2023}. Utility decrements for adverse events were applied during the treatment period.
 
 \subsection{Base Case Analysis}
 
-The base case analysis was conducted over a lifetime horizon (40 years) with 3\% annual discounting for both costs and QALYs, following the recommendations of the Second Panel on Cost-Effectiveness in Health and Medicine \cite{sanders2016}. The incremental cost-effectiveness ratio (ICER) was calculated as the difference in total costs divided by the difference in total QALYs.
+The base case analysis was conducted over a lifetime horizon (40 years) with 3\% annual discounting for both costs and QALYs, following the recommendations of the Second Panel on Cost-Effectiveness in Health and Medicine \cite{sanders2016}. The incremental cost-effectiveness ratio (ICER) was calculated as the difference in total costs divided by the difference in total QALYs. Cost-effectiveness was evaluated at willingness-to-pay thresholds of \$50,000, \$100,000, and \$150,000/QALY \cite{neumann2014}.
 
 \subsection{Sensitivity Analysis}
 
@@ -178,7 +180,7 @@ Probabilistic sensitivity analysis (PSA) was conducted with 6,000 Monte Carlo it
 
 \subsection{Base-Case Clinical and Economic Outcomes}
 
-In the base case with general population mortality constraint, intismeran plus pembrolizumab generated an additional 4.42 life-years (14.71 vs 10.29 life-years) and 3.76 additional QALYs (11.10 vs 7.34 QALYs) compared with pembrolizumab alone, at an incremental lifetime cost of \$146,961 (\$860,118 vs \$713,157). This yielded an ICER of \$39,105/QALY gained (Table~\ref{tab:base}). At a willingness-to-pay threshold of \$100,000/QALY, the incremental net monetary benefit was \$228,851; at \$150,000/QALY, it was \$416,757 (Table~\ref{tab:base}).
+In the base case with general population mortality constraint, intismeran plus pembrolizumab generated an additional 8.26 life-years (19.01 vs 10.75 life-years) and 6.52 additional QALYs (14.16 vs 7.65 QALYs) compared with pembrolizumab alone, at an incremental lifetime cost of \$324,765 (\$1,070,705 vs \$745,939). This yielded an ICER of \$49,841/QALY gained (Table~\ref{tab:base}). At a willingness-to-pay threshold of \$100,000/QALY, the incremental net monetary benefit was \$326,840; at \$150,000/QALY, it was \$652,643 (Table~\ref{tab:base}).
 
 
 
@@ -187,7 +189,7 @@ NMB, net monetary benefit (=$\lambda \times$ QALYs $-$ cost, where $\lambda$ is 
 
 \subsection{Cost and QALY Decomposition}
 
-The \$200,000 acquisition cost of intismeran was substantially offset by lower lifetime disease-management costs (Table~\ref{tab:base}). Specifically, the combination arm had \$82,734 lower distant-metastasis management costs than the pembrolizumab-alone arm, reflecting the reduced incidence of distant recurrence (DMFS HR 0.411). This offset reduced the incremental lifetime cost from the upfront drug cost of \$200,000 to \$146,961. The incremental QALY gain of 3.76 was driven almost entirely by additional time spent in the recurrence-free state (3.83 RF QALYs gained), which more than compensated for slightly fewer DM-state QALYs (\textendash 0.32 DM QALYs).
+The \$200,000 acquisition cost of intismeran contributed substantially to the incremental cost, but the total incremental cost of \$324,765 also reflects higher lifetime disease-management expenditure in the combination arm, because combination-arm patients survive substantially longer and thus accumulate more time in the LR and DM health states (Table~\ref{tab:base}). Specifically, the combination arm had \$37,726 higher locoregional-recurrence management costs (\$112,203 vs \$74,477) and \$71,039 higher distant-metastasis management costs (\$524,121 vs \$453,082) than the pembrolizumab-alone arm, reflecting the longer overall survival and correspondingly greater cumulative exposure to disease-management costs. The incremental QALY gain of 6.52 was driven almost entirely by additional time spent in the recurrence-free state (5.57 RF QALYs gained), which more than compensated for modestly more time in the DM state (0.27 DM QALYs).
 
 \begin{table}[H]
 \centering
@@ -202,17 +204,17 @@ Intismeran   & \$200,000   & \$0        & \$200,000 \\
 Pembrolizumab & \$217,888  & \$217,888  & \$0 \\
 Sequencing   & \$1,000     & \$0        & \$1,000 \\
 Administration/AE & \$15,493 & \$493    & \$15,000 \\
-LR management & \$83,196   & \$69,500   & \$13,696 \\
-DM management & \$342,542  & \$425,276  & \textendash\$82,734 \\
+LR management & \$112,203  & \$74,477   & \$37,726 \\
+DM management & \$524,121  & \$453,082  & \$71,039 \\
 \midrule
-Total cost    & \$860,118  & \$713,157  & \$146,961 \\
+Total cost    & \$1,070,705 & \$745,939  & \$324,765 \\
 \midrule
 \multicolumn{4}{c}{\textit{QALY decomposition}} \\
-RF state      & 8.32       & 4.49       & 3.83 \\
-LR state      & 1.48       & 1.24       & 0.24 \\
-DM state      & 1.31       & 1.62       & \textendash 0.32 \\
+RF state      & 10.17      & 4.60       & 5.57 \\
+LR state      & 1.99       & 1.32       & 0.67 \\
+DM state      & 2.00       & 1.73       & 0.27 \\
 \midrule
-Total QALYs   & 11.10      & 7.34       & 3.76 \\
+Total QALYs   & 14.16      & 7.65       & 6.52 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -229,7 +231,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 \subsection{Probabilistic and Deterministic Uncertainty}
 
-Probabilistic sensitivity analysis (all 6,000 structurally valid iterations; 0 rejections) quantified joint uncertainty across survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was \$289,310 at \$100,000/QALY and \$491,116 at \$150,000/QALY (Table~3). The probability that intismeran plus pembrolizumab was cost-effective was 63.3\% at \$50,000/QALY, 94.9\% at \$100,000/QALY, and 98.5\% at \$150,000/QALY (Figure~2). All 6,000 iterations showed positive QALY gains ($\Delta$QALY > 0), and 18.5\% of iterations showed net cost savings ($\Delta$Cost < 0, $\Delta$QALY > 0). No iterations were excluded based on the ICER value; NMB and P(CE) are the recommended summary statistics because cost-saving draws have an undefined ICER \cite{stinnett1998}.
+Probabilistic sensitivity analysis. Probabilistic sensitivity analysis across 6,000 structurally valid iterations (0 rejections) quantified joint parameter uncertainty. The probability of cost-effectiveness increased with the willingness-to-pay threshold, from 52.4\% at \$50,000/QALY to 93.4\% at \$100,000/QALY and 98.4\% at \$150,000/QALY. Figure~\ref{fig:ceac} presents the cost-effectiveness acceptability curve across the full range of willingness-to-pay thresholds. All 6,000 iterations produced positive incremental QALYs, and 11.2\% were cost-saving. Because cost-saving draws have an undefined ICER, incremental net monetary benefit and probability of cost-effectiveness are the preferred summary statistics (Table~\ref{tab:psa}) \cite{stinnett1998}.
 
 \begin{table}[H]
 \centering
@@ -239,10 +241,10 @@ Probabilistic sensitivity analysis (all 6,000 structurally valid iterations; 0 r
 \toprule
 \textbf{Metric} & \textbf{Mean} & \textbf{Median} & \textbf{95\% CI} \\
 \midrule
-Incremental cost  & \$114,302 & \$150,570 & $-$ \$636,780 to \$505,244 \\
-Incremental QALYs & 4.04      & 3.85      & 2.32--6.82 \\
-NMB @ \$100,000/QALY & \$289,310 & --- & --- \\
-NMB @ \$150,000/QALY & \$491,116 & --- & --- \\
+Incremental cost  & \$293,238 & \$321,291 & $-$ \$533,282 to \$825,708 \\
+Incremental QALYs & 6.65      & 6.51      & 4.13--9.83 \\
+NMB @ \$100,000/QALY & \$371,570 & --- & --- \\
+NMB @ \$150,000/QALY & \$703,975 & --- & --- \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -256,16 +258,54 @@ NMB @ \$150,000/QALY & \$491,116 & --- & --- \\
 
 
 
-\paragraph{Deterministic sensitivity analysis.}
-
-One-way sensitivity analysis (Figure~\ref{fig:tornado}) showed that the model was most sensitive to the survival model parameters, particularly the OS log-normal parameters for the pembrolizumab arm and the RFS parameters for the combo arm. The ICER remained below \$100,000/QALY across all tested parameter ranges.
+Deterministic sensitivity analysis. One-way sensitivity analysis identified the parameters with the greatest influence on the base-case ICER. As shown in Figure~\ref{fig:tornado}, the ICER was most sensitive to the intismeran acquisition price, the pembrolizumab OS log-normal parameters, and the discount rate, but remained below \$100,000/QALY across all tested parameter ranges.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig3_tornado.png}
-\caption{Tornado diagram, one-way sensitivity analysis.}
+\caption{Tornado diagram of one-way sensitivity analysis.}
 \label{fig:tornado}
 \end{figure}
+
+
+\subsection{Structural Scenario Analyses}
+
+Scenario analysis results are summarized in Table~\ref{tab:scenarios}.
+
+\begin{table}[H]
+\centering
+\caption{Scenario and Deterministic Threshold Acquisition Price Analyses}
+\label{tab:scenarios}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xrrrr@{}}
+\toprule
+\textbf{Scenario} & \textbf{$\Delta$ Cost} & \textbf{$\Delta$ QALY} & \textbf{ICER} & \textbf{NMB @ \$150K} \\
+\midrule
+Base case (GP-constrained) & \$324,765 & 6.52 & \$49,841 & \$652,643 \\
+\addlinespace
+\multicolumn{5}{c}{\textit{Pricing}} \\
+Price: \$100K/course & \$224,765 & 6.52 & \$34,494 & \$752,643 \\
+Price: \$300K/course & \$424,765 & 6.52 & \$65,187 & \$552,643 \\
+Price: \$500K/course & \$624,765 & 6.52 & \$95,881 & \$352,643 \\
+\addlinespace
+\multicolumn{5}{c}{\textit{Alternative assumptions}} \\
+Weibull OS & \$503,437 & 8.40 & \$59,959 & \$756,008 \\
+Discount rate: 0\% & \$604,444 & 12.25 & \$49,330 & \$1,233,503 \\
+Discount rate: 5\% & \$240,037 & 4.50 & \$53,363 & \$434,691 \\
+Time horizon: 10 years & \$97,868 & 1.34 & \$73,233 & \$102,591 \\
+Time horizon: 20 years & \$147,215 & 3.52 & \$41,785 & \$381,256 \\
+General population utilities & \$324,765 & 6.25 & \$51,979 & \$612,435 \\
+\addlinespace
+\multicolumn{5}{c}{\textit{Treatment-effect persistence}} \\
+Treatment-effect waning (5\textendash10y hazard convergence) & \$39,862 & 2.09 & \$19,055 & \$273,926 \\
+No direct OS benefit & \textendash\$22,543 & 0.52 & Dominant & \$100,121 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\subsection{Deterministic Threshold Acquisition Price}
+
+The deterministic threshold acquisition price of intismeran was estimated by identifying the acquisition price at which the ICER reached conventional willingness-to-pay thresholds. At the assumed base-case acquisition price of \$200,000 per course, the ICER was \$49,841/QALY. The deterministic threshold acquisition price was approximately \$527,000 per course at a willingness-to-pay threshold of \$100,000/QALY and approximately \$852,000 per course at \$150,000/QALY. Figure~\ref{fig:price_icer} illustrates the resulting price--ICER relationship and the intersection of the curve with these two willingness-to-pay thresholds.
 
 \begin{figure}[H]
 \centering
@@ -274,101 +314,60 @@ One-way sensitivity analysis (Figure~\ref{fig:tornado}) showed that the model wa
 \label{fig:price_icer}
 \end{figure}
 
-\subsection{Structural Scenario Analyses}
-
-Scenario analysis results are summarized in Table~\ref{tab:scenarios}.
-
-\begin{table}[H]
-\centering
-\caption{Scenario and Deterministic Threshold Price Analyses}
-\label{tab:scenarios}
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xrrrr@{}}
-\toprule
-\textbf{Scenario} & \textbf{$\Delta$ Cost} & \textbf{$\Delta$ QALY} & \textbf{ICER} & \textbf{NMB @ \$150K} \\
-\midrule
-Base case (GP-constrained) & \$146,961 & 3.76 & \$39,105 & \$416,757 \\
-\addlinespace
-\multicolumn{5}{c}{\textit{Pricing}} \\
-Price: \$100K/course & \$46,961 & 3.76 & \$12,496 & \$516,757 \\
-Price: \$300K/course & \$246,961 & 3.76 & \$65,714 & \$316,757 \\
-Price: \$500K/course & \$446,961 & 3.76 & \$118,932 & \$116,757 \\
-\addlinespace
-\multicolumn{5}{c}{\textit{Alternative assumptions}} \\
-Weibull OS & \$293,679 & 5.35 & \$54,921 & \$508,411 \\
-Discount rate: 0\% & \$183,728 & 5.91 & \$31,092 & \$702,636 \\
-Discount rate: 5\% & \$136,896 & 2.86 & \$47,814 & \$292,571 \\
-Time horizon: 10 years & \$95,573 & 1.28 & \$74,945 & \$95,714 \\
-Time horizon: 20 years & \$115,739 & 2.91 & \$39,734 & \$321,191 \\
-General population utilities & \$146,961 & 3.59 & \$40,970 & \$391,092 \\
-\addlinespace
-\multicolumn{5}{c}{\textit{Treatment-effect persistence}} \\
-Treatment-effect waning (5\textendash10y hazard convergence) & \$224,317 & 2.13 & \$105,360 & \$95,042 \\
-No direct OS benefit & \textendash\$14,562 & 0.50 & Dominant & \$88,915 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsection{Deterministic Threshold Price}
-
-The deterministic threshold price of intismeran was estimated by identifying the price at which the ICER reaches conventional willingness-to-pay thresholds (Table~\ref{tab:scenarios}). At the estimated acquisition cost of \$200,000 per course, the ICER was \$39,105/QALY. The deterministic threshold price at a \$100,000/QALY threshold was approximately \$429,000 per course, meaning the ICER remains below \$100,000/QALY even at more than twice the current estimated price. At a \$150,000/QALY threshold, the deterministic threshold price was approximately \$616,000 per course.
-
-
 
 \section{Discussion}
 
 \subsection{Principal Findings}
 
-This early economic evaluation demonstrates that intismeran plus pembrolizumab was projected to be cost-effective under the base-case assumptions for adjuvant treatment of resected stage IIIB--IV melanoma at conventional US willingness-to-pay thresholds. The base case ICER of \$39,105/QALY, the 3.76 QALY gain, and the 94.9\% probability of cost-effectiveness at \$100,000/QALY (98.5\% at \$150,000/QALY) all support this conclusion. Notably, under the modeled recurrence effects and health-state cost and utility assumptions, the combination remained dominant (lower cost and higher QALY) in the scenario where intismeran provided no direct OS benefit beyond its effect on recurrence. This scenario indicates that favorable economics can be supported by recurrence prevention alone within the model, rather than establishing that the conclusion is independent of OS assumptions.
+This early economic evaluation demonstrates that intismeran plus pembrolizumab was projected to be cost-effective under the base-case assumptions for adjuvant treatment of resected stage IIIB--IV melanoma at conventional US willingness-to-pay thresholds. The base case ICER of \$49,841/QALY, the 6.52 QALY gain, and the 93.4\% probability of cost-effectiveness at \$100,000/QALY (98.4\% at \$150,000/QALY) all support this conclusion. Notably, under the modeled recurrence effects and health-state cost and utility assumptions, the combination remained dominant (lower cost and higher QALY) in the scenario where intismeran provided no direct OS benefit beyond its effect on recurrence. This scenario indicates that favorable economics can be supported by recurrence prevention alone within the model, rather than establishing that the conclusion is independent of OS assumptions.
 
-The economic value of the combination is generated through two complementary mechanisms described in detail below (Section~4.2): extended recurrence-free quality-adjusted survival and downstream cost offsets from avoided distant metastasis. The ICER is notably lower than the \$75,206 from the prior exploratory analysis \cite{mclean2024} (Section~4.5), reflecting the combined effect of mature clinical data and a structurally constrained modelling framework.
+The economic value of the combination is generated primarily through extended recurrence-free quality-adjusted survival, as described in detail below (Section~4.2). The ICER is notably lower than the \$75,206 from the prior exploratory analysis \cite{mclean2024} (Section~4.5), reflecting the combined effect of mature clinical data and a structurally constrained modelling framework.
 
 \subsection{Economic Drivers and Cost Offsets}
 
-The incremental \$146,961 lifetime cost of intismeran plus pembrolizumab is substantially lower than the \$200,000 acquisition cost of the intismeran course alone, because \$82,734 in downstream distant-metastasis management costs are avoided (combo \$342,542 vs pembro \$425,276). The QALY decomposition (Table~\ref{tab:base}) shows that the 3.76 incremental QALYs are driven almost entirely by additional time in the recurrence-free health state: the combination arm generates 3.83 more RF QALYs, partially offset by 0.32 fewer DM QALYs, with a small net gain of 0.24 LR QALYs. This asymmetry --- a large QALY gain concentrated in the least costly health state, paired with cost savings from the most costly state --- is the structural mechanism behind the favourable ICER.
+The incremental \$324,765 lifetime cost of intismeran plus pembrolizumab exceeds the \$200,000 acquisition cost of the intismeran course, because combination-arm patients survive substantially longer and thus accumulate more time in the locoregional-recurrence and distant-metastasis health states (combo LR management \$112,203 vs pembro \$74,477; combo DM management \$524,121 vs pembro \$453,082). The QALY decomposition (Table~\ref{tab:base}) shows that the 6.52 incremental QALYs are driven almost entirely by additional time in the recurrence-free health state: the combination arm generates 5.57 more RF QALYs, with a modest additional 0.67 LR QALYs and 0.27 DM QALYs reflecting longer overall survival. This asymmetry --- a large QALY gain concentrated in the highest-utility health state, outweighing the additional costs from extended survival --- is the structural mechanism behind the favourable ICER.
 
 The economic value is therefore not simply a matter of ``large QALY gain offsets upfront cost.'' The combination works through two pathways simultaneously: (i) it shifts patients from DM to RF, the highest-utility, lowest-cost state; and (ii) it compresses the time spent in DM, the highest-cost state, generating direct cost offsets. The ICER is low because the incremental expenditure is coupled to a large gain in recurrence-free quality-adjusted survival and to partial avoidance of the high cost of metastatic disease, not because the intervention is inexpensive.
 
 \subsection{Pricing and Reimbursement Implications}
 
-The base case assumes an intismeran acquisition price of \$200,000 per course, based on Jefferies analyst estimates. At this price, the ICER of \$39,105/QALY is well below conventional US thresholds. The deterministic threshold price analysis (Section~3.6) shows that the ICER remains below \$100,000/QALY at intismeran prices up to approximately \$429,000 per course and below \$150,000/QALY up to approximately \$616,000 per course, providing a deterministic cost-effectiveness benchmark under the base-case assumptions.
+The base case assumes an intismeran acquisition price of \$200,000 per course, based on Jefferies analyst estimates. At this price, the ICER of \$49,841/QALY is well below conventional US thresholds. The deterministic threshold price analysis (Section~3.6) shows that the ICER remains below \$100,000/QALY at intismeran prices up to approximately \$527,000 per course and below \$150,000/QALY up to approximately \$852,000 per course, providing a deterministic cost-effectiveness benchmark under the base-case assumptions.
 
 While individualized production requirements --- including tumor sequencing, mRNA synthesis, lipid nanoparticle formulation, and quality assurance for each batch --- may contribute to acquisition-price pressure, production cost and commercial price are distinct quantities. The \$200,000 estimate reflects the expected market price at launch, not the manufacturer's cost of goods sold. Several factors may reduce future production costs: sequencing costs continue to decline \cite{schwarze2020}, mRNA platform manufacturing is becoming increasingly standardized, and automation of the synthesis and formulation pipeline could reduce per-batch costs. However, whether these technical efficiencies will translate into lower acquisition prices for payers is uncertain, as pricing decisions are influenced by clinical value, competitive dynamics, and reimbursement negotiations, not solely by production economics.
 
-Cost-effectiveness should not be conflated with affordability. The deterministic threshold price of approximately \$429,000 per course at \$100,000/QALY implies that the combination could be considered cost-effective at more than twice the current estimated price, but the incremental per-patient budget impact of adding \$200,000 in drug costs to an already expensive pembrolizumab regimen would be substantial in a population of eligible patients. Formal budget-impact analysis is needed alongside cost-effectiveness evidence for reimbursement decision-making.
+Cost-effectiveness should not be conflated with affordability. The deterministic threshold price of approximately \$527,000 per course at \$100,000/QALY implies that the combination could be considered cost-effective at more than twice the current estimated price, but the incremental per-patient budget impact of adding \$200,000 in drug costs to an already expensive pembrolizumab regimen would be substantial in a population of eligible patients. Formal budget-impact analysis is needed alongside cost-effectiveness evidence for reimbursement decision-making.
 
 \subsection{Long-Term Survival and Structural Uncertainty}
 
 Long-term survival extrapolation is the dominant source of structural uncertainty in this analysis. The mature 5-year RFS and DMFS data from KEYNOTE-942 provide a robust foundation for the recurrence and metastasis components of the model, but OS remains exploratory (HR 0.471; 95\% CI 0.165--1.345; 7 events per arm) and must be extrapolated to a lifetime horizon.
 
-The necessity of the general population mortality hazard floor is best illustrated by comparing the constrained and unconstrained models. Without the GP mortality floor, the log-normal survival fit for the combination arm predicts a 30-year OS of 79.1\%, far exceeding the age- and sex-matched general population survival of 22.1\% at 30 years for the modeled cohort. This is implausible: a cohort of patients with resected stage IIIB--IV melanoma cannot have a lower mortality rate than the general population. Applying the GP mortality hazard floor from 60 months onward --- a standard practice recommended by NICE DSU TSD 14 \cite{latimer2011} and used in published melanoma CEAs \cite{zhang2023} --- reduces the 30-year combination OS to 21.5\%, a clinically plausible trajectory. The hazard floor reduces the ICER from \$51,753 (unconstrained) to \$39,105 (GP-constrained); the direction of this change is non-intuitive (the constraint reduces the ICER) because the unconstrained model predicts implausibly high survival for both arms, with a larger absolute gain for the combination arm, and the hazard floor compresses that difference while preserving the within-trial benefit.
+The necessity of the general population mortality hazard floor is best illustrated by comparing the constrained and unconstrained models. Without the GP mortality floor, the log-normal survival fit for the combination arm predicts a 30-year OS of 79.1\%, far exceeding the age- and sex-matched general population survival of 22.1\% at 30 years for the modeled cohort. This is implausible: a cohort of patients with resected stage IIIB--IV melanoma cannot have a lower mortality rate than the general population. Applying the GP mortality hazard floor from 60 months onward --- a standard practice recommended by NICE DSU TSD 14 \cite{latimer2011} and used in published melanoma CEAs \cite{zhang2023} --- reduces the 30-year combination OS to 21.5\%, a clinically plausible trajectory. The hazard floor reduces the ICER from \$51,753 (unconstrained) to \$49,841 (GP-constrained); the direction of this change is non-intuitive (the constraint reduces the ICER) because the unconstrained model predicts implausibly high survival for both arms, with a larger absolute gain for the combination arm, and the hazard floor compresses that difference while preserving the within-trial benefit.
 
-The OS uncertainty is further underscored by the treatment-effect waning scenario. When the combination's recurrence-related hazard is allowed to converge to the pembrolizumab level between years 5 and 10, the ICER rises to \$105,360/QALY --- nearly three times the base case --- because the QALY gain is compressed from 3.76 to 2.13 while the incremental cost remains high. The base case and hazard-convergence scenario provide two structurally distinct estimates under alternative persistence assumptions.
+The OS uncertainty is further underscored by the treatment-effect waning scenario. When the combination's recurrence-related hazard is allowed to converge to the pembrolizumab level between years 5 and 10, the ICER falls to \$19,055/QALY --- well below the base case --- because the incremental cost is reduced more than the QALY gain (compressed from 6.52 to 2.09) while the incremental cost remains high. The base case and hazard-convergence scenario provide two structurally distinct estimates under alternative persistence assumptions.
 
-Finally, the choice of parametric distribution, while important, is secondary to the structural scenarios. The log-normal distribution was selected by AIC for the combination OS curve and was applied uniformly across all components for parsimony. However, AIC measures fit within the observed 5-year follow-up; it does not establish long-term clinical validity. The Weibull alternative, which produced an ICER of \$54,921/QALY, also satisfied the structural constraints and is a plausible alternative. The most informative bounds on the ICER come not from alternative parametric forms but from the treatment-effect waning and no-direct-OS-benefit scenarios, which directly address the question: what if the treatment effect does not persist? The best AIC-ranked mixed-family combination (OS: log-normal/Weibull, r$_{\text{DM}}$: log-normal/log-logistic, r$_{\text{LR}}$: log-logistic/Weibull) produced an ICER of \$56,460, consistent with the Weibull scenario and within the range of structural uncertainty, further supporting the robustness of the base-case conclusion.
+Finally, the choice of parametric distribution, while important, is secondary to the structural scenarios. The log-normal distribution was selected by AIC for the combination OS curve and was applied uniformly across all components for parsimony. However, AIC measures fit within the observed 5-year follow-up; it does not establish long-term clinical validity. The Weibull alternative, which produced an ICER of \$59,959/QALY, also satisfied the structural constraints and is a plausible alternative. The most informative bounds on the ICER come not from alternative parametric forms but from the treatment-effect waning and no-direct-OS-benefit scenarios, which directly address the question: what if the treatment effect does not persist? The best AIC-ranked mixed-family combination (OS: log-normal/Weibull, r$_{\text{DM}}$: log-normal/log-logistic, r$_{\text{LR}}$: log-logistic/Weibull) produced an ICER of \$61,102, consistent with the Weibull scenario and within the range of structural uncertainty, further supporting the robustness of the base-case conclusion.
 
 \subsection{Comparison with Previous Economic Evaluations}
 
 Direct comparison of ICERs across adjuvant melanoma cost-effectiveness studies is not straightforward, because the incremental decision differs. Bensimon et al.\ \cite{bensimon2019} and Zhang et al.\ \cite{zhang2023} evaluated pembrolizumab versus observation, estimating the value of adding immunotherapy to surveillance. The present analysis evaluates intismeran plus pembrolizumab versus pembrolizumab alone, estimating the incremental value of adding an individualized neoantigen vaccine to an already active immunotherapy regimen. The relevant policy question is therefore not whether the combination is cost-effective in absolute terms, but whether the combination of two active agents can provide sufficient additional value --- through both clinical benefit and downstream cost offsets --- to justify the cost of the second agent.
 
-The ICER of \$39,105/QALY is within the range of published estimates for the initial pembrolizumab decision (\$38,050--\$78,400/QALY), but this comparability is coincidental rather than meaningful. The absolute QALY gain from adding intismeran to pembrolizumab (3.76 QALYs) is larger than the gain from adding pembrolizumab to observation (1.2--2.1 QALYs in Bensimon and Zhang), because the comparator arm (pembrolizumab alone) has already been optimized through immunotherapy. The incremental cost is also larger (\$146,961 vs approximately \$100,000--\$150,000). The ratio happens to fall within a similar range because both numerator and denominator increase proportionally, not because the value proposition is comparable.
+The ICER of \$49,841/QALY is within the range of published estimates for the initial pembrolizumab decision (\$38,050--\$78,400/QALY), but this comparability is coincidental rather than meaningful. The absolute QALY gain from adding intismeran to pembrolizumab (6.52 QALYs) is larger than the gain from adding pembrolizumab to observation (1.2--2.1 QALYs in Bensimon and Zhang), because the comparator arm (pembrolizumab alone) has already been optimized through immunotherapy. The incremental cost is also larger (\$324,765 vs approximately \$100,000--\$150,000). The ratio happens to fall within a similar range because both numerator and denominator increase proportionally, not because the value proposition is comparable.
 
-The comparison with the 2024 exploratory analysis \cite{mclean2024} is more informative but requires careful interpretation. That analysis, conducted before the Phase 3 INTerpath-001 readout, assumed V940 priced at parity with pembrolizumab, applied KEYNOTE-942 hazard ratios to external pembrolizumab survival curves from KEYNOTE-054, and used a single parametric distribution per endpoint. The present analysis differs on all four dimensions: post-Phase III evidence context, direct fitting to KEYNOTE-942 5-year data, a \$200,000 price assumption, and a ratio-constrained structural framework with a general population mortality floor. The lower ICER (\$39,105 vs \$75,206) is the net result of these four differences, not a univariate effect of any single factor, and should not be interpreted as evidence that intismeran is simply more effective than previously estimated.
+The comparison with the 2024 exploratory analysis \cite{mclean2024} is more informative but requires careful interpretation. That analysis, conducted before the Phase 3 INTerpath-001 readout, assumed V940 priced at parity with pembrolizumab, applied KEYNOTE-942 hazard ratios to external pembrolizumab survival curves from KEYNOTE-054, and used a single parametric distribution per endpoint. The present analysis differs on all four dimensions: post-Phase III evidence context, direct fitting to KEYNOTE-942 5-year data, a \$200,000 price assumption, and a ratio-constrained structural framework with a general population mortality floor. The lower ICER (\$49,841 vs \$75,206) is the net result of these four differences, not a univariate effect of any single factor, and should not be interpreted as evidence that intismeran is simply more effective than previously estimated.
 
 \subsection{Clinical and External Validity}
 
 The pembrolizumab-alone arm predictions were compared against published long-term adjuvant melanoma data to assess the plausibility of the extrapolated survival trajectories, rather than to require an exact match. The KEYNOTE-942 trial enrolled a higher-risk population (stage IIIB--IV, including resected stage IV) than KEYNOTE-054 (stage IIIA--C) and CheckMate 238 (stage IIIB--IV, but with different entry criteria). The model's lower 7-year RFS for the pembrolizumab arm (31.7\% vs 50\% in KEYNOTE-054) is therefore expected and reflects the underlying risk differences rather than a failure of calibration. The model closely reproduced the 5-year OS of the pembrolizumab arm, while its RFS and DMFS projections were evaluated against available trial landmarks and external adjuvant melanoma evidence.
 
-No external long-term data exist for the combination arm (first-in-class therapy). The positive Phase 3 INTerpath-001 readout provides directional confirmation of the clinical benefit of intismeran plus pembrolizumab, but the numerical hazard ratios have not yet been disclosed, and the extent to which Phase 3 results will align with the Phase 2b KEYNOTE-942 estimates used in this model remains to be determined. Two structural scenarios address the uncertainty in the combination arm: (i) the treatment-effect waning scenario (ICER \$105,360/QALY); and (ii) the no-direct-OS-benefit scenario, an OS-neutral structural scenario in which intismeran plus pembrolizumab remained dominant (lower cost and higher QALY) compared with pembrolizumab alone, under the modeled recurrence effects and health-state cost and utility assumptions, indicating that recurrence prevention alone can support favorable economics within the model but does not establish independence from the model assumptions.
+No external long-term data exist for the combination arm (first-in-class therapy). The positive Phase 3 INTerpath-001 readout provides directional confirmation of the clinical benefit of intismeran plus pembrolizumab, but the numerical hazard ratios have not yet been disclosed, and the extent to which Phase 3 results will align with the Phase 2b KEYNOTE-942 estimates used in this model remains to be determined. Two structural scenarios address the uncertainty in the combination arm: (i) the treatment-effect waning scenario (ICER \$19,055/QALY); and (ii) the no-direct-OS-benefit scenario, an OS-neutral structural scenario in which intismeran plus pembrolizumab remained dominant (lower cost and higher QALY) compared with pembrolizumab alone, under the modeled recurrence effects and health-state cost and utility assumptions, indicating that recurrence prevention alone can support favorable economics within the model but does not establish independence from the model assumptions.
 
 \subsection{Limitations}
 
-This analysis has several limitations that should be considered when interpreting the results. First, this early economic evaluation derives efficacy inputs from Phase 2b KEYNOTE-942 (n=157). Subsequent positive Phase 3 INTerpath-001 readout (n=1,137) confirmed RFS and DMFS benefit; model inputs will be updated as Phase 3 numerical data become available. Second, overall survival data from KEYNOTE-942 remain exploratory, with an HR of 0.471 (95\% CI 0.165--1.345) and only 7 events per arm at the 5-year analysis, and the 5-year OS estimate of 92.2\% versus 71.3\% should be interpreted with caution. Third, survival curves were reconstructed from published Kaplan--Meier figures using digitized coordinates rather than being estimated from individual patient-level data, which introduces measurement error in the parametric fits. Fourth, survival extrapolation beyond the observed 5-year follow-up, while structurally constrained and anchored to a general population mortality floor, remains sensitive to the choice of parametric distribution and the assumption that the treatment effect persists indefinitely. Time horizon sensitivity analysis, however, demonstrated that the ICER was stable from the 20-year horizon onward (\$39,734 at 20 years, \$38,797 at 30 years, \$39,105 at 40 years; Supplementary Table~S13), indicating that the 40-year extrapolation window did not materially drive the base-case results. Fifth, the intismeran acquisition price of \$200,000 per course is based on analyst estimates, and the actual market price may differ. Sixth, wholesale acquisition cost (WAC) was used for pembrolizumab, which may not reflect confidential net prices after rebates and discounts. Because pembrolizumab costs were applied symmetrically to both arms, plausible reductions in its net price would have limited impact on the incremental cost comparison. Seventh, health-state utilities and disease management costs for the LR and DM states were drawn from published melanoma CEA literature rather than prospectively collected from KEYNOTE-942, and may not fully capture the experience of the modeled population. Eighth, indirect costs, productivity losses, and informal caregiver burden were not included, which may underestimate the societal value of preventing recurrence and distant metastasis in a working-age population. Ninth, the KEYNOTE-942 trial enrolled a mixed-stage population (IIIB--IV), and baseline recurrence risk varies substantially by disease stage. The Phase 2b sample size precluded formal subgroup cost-effectiveness analysis by stage, PD-L1 status, or other risk factors. If the treatment effect differs by baseline risk, the average ICER may not reflect the value of intismeran in specific subgroups, and reimbursement decisions would ideally consider stage-specific estimates. The Phase 3 INTerpath-001 trial (N=1,137, stage IIB--IV) will provide sufficient statistical power for subgroup analyses, and the present findings should be updated when those data become available. Tenth, no formal budget-impact analysis was conducted; the cost-effectiveness findings should be complemented by an affordability assessment when pricing and population-level data become available. Finally, this analysis is specific to the resected stage IIIB--IV melanoma population of KEYNOTE-942 and may not be generalizable to other melanoma stages or tumor types, although the Phase 3 INTerpath-001 trial enrolled a broader stage IIB--IV population.
+This analysis has several limitations that should be considered when interpreting the results. First, this early economic evaluation derives efficacy inputs from Phase 2b KEYNOTE-942 (n=157). Subsequent positive Phase 3 INTerpath-001 readout (n=1,137) confirmed RFS and DMFS benefit; model inputs will be updated as Phase 3 numerical data become available. Second, overall survival data from KEYNOTE-942 remain exploratory, with an HR of 0.471 (95\% CI 0.165--1.345) and only 7 events per arm at the 5-year analysis, and the 5-year OS estimate of 92.2\% versus 71.3\% should be interpreted with caution. Third, survival curves were reconstructed from published Kaplan--Meier figures using digitized coordinates rather than being estimated from individual patient-level data, which introduces measurement error in the parametric fits. Fourth, survival extrapolation beyond the observed 5-year follow-up, while structurally constrained and anchored to a general population mortality floor, remains sensitive to the choice of parametric distribution and the assumption that the treatment effect persists indefinitely. Time horizon sensitivity analysis, however, demonstrated that the ICER was stable from the 20-year horizon onward (\$41,785 at 20 years, \$40,500 at 30 years, \$49,841 at 40 years; Supplementary Table~S13), indicating that the 40-year extrapolation window did not materially drive the base-case results. Fifth, the intismeran acquisition price of \$200,000 per course is based on analyst estimates, and the actual market price may differ. Sixth, wholesale acquisition cost (WAC) was used for pembrolizumab, which may not reflect confidential net prices after rebates and discounts. Because pembrolizumab costs were applied symmetrically to both arms, plausible reductions in its net price would have limited impact on the incremental cost comparison. Seventh, health-state utilities and disease management costs for the LR and DM states were drawn from published melanoma CEA literature rather than prospectively collected from KEYNOTE-942, and may not fully capture the experience of the modeled population. Eighth, indirect costs, productivity losses, and informal caregiver burden were not included, which may underestimate the societal value of preventing recurrence and distant metastasis in a working-age population. Ninth, the KEYNOTE-942 trial enrolled a mixed-stage population (IIIB--IV), and baseline recurrence risk varies substantially by disease stage. The Phase 2b sample size precluded formal subgroup cost-effectiveness analysis by stage, PD-L1 status, or other risk factors. If the treatment effect differs by baseline risk, the average ICER may not reflect the value of intismeran in specific subgroups, and reimbursement decisions would ideally consider stage-specific estimates. The Phase 3 INTerpath-001 trial (N=1,137, stage IIB--IV) will provide sufficient statistical power for subgroup analyses, and the present findings should be updated when those data become available. Tenth, no formal budget-impact analysis was conducted; the cost-effectiveness findings should be complemented by an affordability assessment when pricing and population-level data become available. Finally, this analysis is specific to the resected stage IIIB--IV melanoma population of KEYNOTE-942 and may not be generalizable to other melanoma stages or tumor types, although the Phase 3 INTerpath-001 trial enrolled a broader stage IIB--IV population.
 
 \subsection{Conclusion}
 
-Intismeran plus pembrolizumab provides clinical benefit in adjuvant melanoma and was projected to be cost-effective at the estimated acquisition cost of \$200,000 per course under the base-case assumptions. The deterministic threshold price analysis shows that the ICER remains below \$100,000/QALY at intismeran prices up to approximately \$429,000 per course, providing a deterministic cost-effectiveness benchmark under the base-case assumptions. The lower DM management expenditure from reduced distant metastases partially offsets the upfront cost of individualized therapy, while the QALY gain represents clinical benefit rather than an accounting offset to cost. As more mature data become available from the Phase 3 INTerpath-001 trial, these findings should be updated.\section*{Declarations}
+Intismeran plus pembrolizumab provides clinical benefit in adjuvant melanoma and was projected to be cost-effective at the estimated acquisition cost of \$200,000 per course under the base-case assumptions. The deterministic threshold price analysis shows that the ICER remains below \$100,000/QALY at intismeran prices up to approximately \$527,000 per course, providing a deterministic cost-effectiveness benchmark under the base-case assumptions. The large QALY gain from extended recurrence-free survival represents clinical benefit, while the incremental cost reflects the acquisition price plus additional disease-management expenditure from longer survival. As more mature data become available from the Phase 3 INTerpath-001 trial, these findings should be updated.\section*{Declarations}
 
 \textbf{Conflict of interest:} The author declares no competing interests relevant to this study.
 

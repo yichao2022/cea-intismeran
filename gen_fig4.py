@@ -33,8 +33,8 @@ ax.text(14, 150_000 + 6000, "$150K/QALY", fontsize=8, color="dimgray")
 # Labels placed in three horizontal rows at different heights to avoid overlap
 vlines = [
     (200_000, "Base case price: $200K",         "solid",  "black",   204, 512_000),
-    (429_000, "$100K/QALY threshold price: $429K", "dashed", "dimgray", 433, 489_000),
-    (616_000, "$150K/QALY threshold price: $616K", "dotted", "dimgray", 620, 458_000),
+    (527_000, "$100K/QALY threshold price: $527K", "dashed", "dimgray", 531, 489_000),
+    (852_000, "$150K/QALY threshold price: $852K", "dotted", "dimgray", 856, 458_000),
 ]
 for x, label, ls, c, lx, ly in vlines:
     ax.axvline(x / 1000, color=c, linestyle=ls, linewidth=1.3, alpha=0.85)

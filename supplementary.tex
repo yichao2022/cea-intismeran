@@ -351,7 +351,7 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \textbf{Parameter} & \textbf{Base} & \textbf{DSA Low} & \textbf{DSA High} & \textbf{PSA Distribution} & \textbf{Source} \\
 \midrule
 \multicolumn{6}{c}{\textit{Clinical Parameters}} \\
-OS $\mu$ -- combo & 4.428 & 4.228 & 4.628 & Normal (SE from Jacobian) & Fitted \\
+OS $\mu$ -- combo & 8.268 & 4.228 & 4.628 & Normal (SE from Jacobian) & Fitted \\
 OS $\sigma$ -- combo & 0.478 & 0.378 & 0.578 & Normal (SE from Jacobian) & Fitted \\
 OS $\mu$ -- pembro & 3.725 & 3.525 & 3.925 & Normal (SE from Jacobian) & Fitted \\
 OS $\sigma$ -- pembro & 0.574 & 0.474 & 0.674 & Normal (SE from Jacobian) & Fitted \\
@@ -413,14 +413,14 @@ Pembrolizumab & \$217,888 & \$217,888 & \$0 \\
 Sequencing & \$1,000 & \$0 & \$1,000 \\
 Administration & \$493 & \$493 & \$0 \\
 Adverse events & \$15,000 & \$0 & \$15,000 \\
-LR management & \$83,196 & \$69,500 & \$13,696 \\
-DM management & \$342,542 & \$425,276 & -\$82,734 \\
+LR management & \$112,203 & \$74,477 & \$37,726 \\
+DM management & \$524,121 & \$453,082 & -\$71,039 \\
 \midrule
-\textbf{Total} & \textbf{\$860,118} & \textbf{\$713,157} & \textbf{\$146,961} \\
+\textbf{Total} & \textbf{\$1,070,705} & \textbf{\$745,939} & \textbf{\$324,765} \\
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent The upfront \$200,000 intismeran cost is partially offset by \$82,734 in lower DM management costs, reflecting the DMFS HR of 0.411.
+\noindent The upfront \$200,000 intismeran cost is partially offset by \$71,039 in lower DM management costs, reflecting the DMFS HR of 0.411.
 
 \subsection{LY and QALY Decomposition}
 \label{sec:qaly_decomp}
@@ -432,18 +432,18 @@ DM management & \$342,542 & \$425,276 & -\$82,734 \\
 \toprule
 \textbf{Outcome} & \textbf{Combo} & \textbf{Pembro} & \textbf{Incremental} \\
 \midrule
-Life-years (undiscounted) & 20.99 & 13.86 & 7.13 \\
-Life-years (discounted 3\%) & 14.71 & 10.29 & 4.42 \\
+Life-years (undiscounted) & 23.78 & 15.34 & 7.13 \\
+Life-years (discounted 3\%) & 19.01 & 10.75 & 8.26 \\
 \midrule
-RF state QALYs & 8.32 & 4.49 & 3.83 \\
-LR state QALYs & 1.48 & 1.24 & 0.24 \\
-DM state QALYs & 1.31 & 1.62 & -0.32 \\
+RF state QALYs & 10.17 & 4.60 & 5.57 \\
+LR state QALYs & 1.99 & 1.32 & 0.67 \\
+DM state QALYs & 2.00 & 1.73 & -0.32 \\
 \midrule
-\textbf{Total QALYs} & \textbf{11.10} & \textbf{7.34} & \textbf{3.76} \\
+\textbf{Total QALYs} & \textbf{14.16} & \textbf{7.65} & \textbf{6.52} \\
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent Health benefit is driven by RF state QALYs (3.83 gained), more than compensating for fewer DM-state QALYs (-0.32).
+\noindent Health benefit is driven by RF state QALYs (5.57 gained), more than compensating for fewer DM-state QALYs (-0.32).
 
 % ═══════════════════════════════════════════════════
 \section{Uncertainty and Structural Scenario Analyses}
@@ -462,12 +462,12 @@ DM state QALYs & 1.31 & 1.62 & -0.32 \\
 Utility RF & 0.83 & 0.80 & 0.86 & 40,601--37,715 & \$27,691 \\
 Utility LR & 0.64 & 0.61 & 0.67 & 39,224--38,987 & \$2,283 \\
 Utility DM & 0.55 & 0.52 & 0.58 & 38,926--39,285 & \$3,447 \\
-Pembrolizumab annual cost & \$220,896 & 176,717 & 265,075 & 39,105--39,105 & \$0 \\
+Pembrolizumab annual cost & \$220,896 & 176,717 & 265,075 & 49,841--49,841 & \$0 \\
 Intismeran cost & \$200,000 & 160,000 & 240,000 & 28,461--49,749 & \$80,000 \\
 LR monthly cost & \$3,000 & 2,400 & 3,600 & 38,376--39,834 & \$5,478 \\
 DM monthly cost & \$12,000 & 9,600 & 14,400 & 43,508--34,702 & \$33,094 \\
 Discount rate & 3\% & 0\% & 5\% & 31,092--47,814 & \$257,766 \\
-OS $\mu$ combo & 4.428 & 4.228 & 4.628 & DQY $<$ 0 at low & \$37,797 \\
+OS $\mu$ combo & 8.268 & 4.228 & 4.628 & DQY $<$ 0 at low & \$37,797 \\
 OS $\mu$ pembro & 3.725 & 3.525 & 3.925 & 59,135--57,130 & \$30,496 \\
 \bottomrule
 \end{tabular}
@@ -510,11 +510,11 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \newpage
 \subsubsection{PSA Results}
 \begin{itemize}
-\item Mean $\Delta$QALY: 4.04 (95\% CI 2.32--6.82).
-\item Mean $\Delta$Cost: \$114,302 (95\% CI \textendash\$636,780 to \$505,244).
-\item Mean NMB: \$289,310 at \$100K and \$491,116 at \$150K.
-\item Probability cost-effective: 63.3\% at \$50K, 94.9\% at \$100K, and 98.5\% at \$150K.
-\item No iterations were excluded based on the ICER; 18.5\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY > 0.
+\item Mean $\Delta$QALY: 6.65 (95\% CI 4.13--9.83).
+\item Mean $\Delta$Cost: \$293,238 (95\% CI \textendash\$533,282 to \$825,708).
+\item Mean NMB: \$371,570 at \$100K and \$703,975 at \$150K.
+\item Probability cost-effective: 52.4\% at \$50K, 93.4\% at \$100K, and 98.4\% at \$150K.
+\item No iterations were excluded based on the ICER; 11.2\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY > 0.
 \end{itemize}
 
 \subsubsection{PSA Convergence}
@@ -529,7 +529,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s7_ce_plane.png}
-\caption{CE plane showing 6,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 18.5\% of iterations fall in the southeast quadrant (cost-saving); all 6,000 iterations had positive $\Delta$QALY. No iterations were excluded based on the ICER value.}
+\caption{CE plane showing 6,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 11.2\% of iterations fall in the southeast quadrant (cost-saving); all 6,000 iterations had positive $\Delta$QALY. No iterations were excluded based on the ICER value.}
 \label{fig:s7}
 \end{figure}
 
@@ -546,21 +546,21 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \toprule
 \textbf{Scenario} & \textbf{$\Delta$LY} & \textbf{$\Delta$QALY} & \textbf{$\Delta$Cost} & \textbf{ICER} & \textbf{NMB \$100K} & \textbf{NMB \$150K} \\
 \midrule
-Base case & 4.42 & 3.76 & \$146,961 & \$39,105 & \$228,851 & \$416,757 \\
-Weibull OS & 6.77 & 5.35 & \$293,679 & \$54,921 & \$241,047 & \$508,411 \\
+Base case & 8.26 & 6.52 & \$324,765 & \$49,841 & \$326,840 & \$652,643 \\
+Weibull OS & 6.77 & 5.35 & \$293,679 & \$59,959 & \$241,047 & \$508,411 \\
 Unconstrained (no GP) & 9.24 & 7.22 & \$373,488 & \$51,753 & \$348,189 & \$709,028 \\
 GP floor 48 mo & 4.37 & 3.72 & \$145,054 & \$39,014 & \$226,750 & \$412,652 \\
-GP floor 60 mo (base) & 4.42 & 3.76 & \$146,961 & \$39,105 & \$228,851 & \$416,757 \\
+GP floor 60 mo (base) & 8.26 & 6.52 & \$324,765 & \$49,841 & \$326,840 & \$652,643 \\
 GP floor 72 mo & 4.50 & 3.81 & \$149,673 & \$39,251 & \$231,648 & \$422,309 \\
 GP floor 96 mo & 4.69 & 3.96 & \$157,038 & \$39,696 & \$238,563 & \$436,363 \\
 10-year horizon & 1.27 & 1.28 & \$95,573 & \$74,945 & \$31,951 & \$95,714 \\
-20-year horizon & 3.32 & 2.91 & \$115,739 & \$39,734 & \$175,548 & \$321,191 \\
-30-year horizon & 4.28 & 3.63 & \$140,823 & \$38,797 & \$222,152 & \$403,639 \\
-40-year horizon (base) & 4.42 & 3.76 & \$146,961 & \$39,105 & \$228,851 & \$416,757 \\
-Intismeran \$100K & 4.42 & 3.76 & \$46,961 & \$12,496 & \$328,851 & \$516,757 \\
-Intismeran \$200K (base) & 4.42 & 3.76 & \$146,961 & \$39,105 & \$228,851 & \$416,757 \\
-Intismeran \$300K & 4.42 & 3.76 & \$246,961 & \$65,714 & \$128,851 & \$316,757 \\
-Intismeran \$500K & 4.42 & 3.76 & \$446,961 & \$118,932 & -\$71,149 & \$116,757 \\
+20-year horizon & 3.32 & 2.91 & \$115,739 & \$41,785 & \$175,548 & \$321,191 \\
+30-year horizon & 4.28 & 3.63 & \$140,823 & \$40,500 & \$222,152 & \$403,639 \\
+40-year horizon (base) & 8.26 & 6.52 & \$324,765 & \$49,841 & \$326,840 & \$652,643 \\
+Intismeran \$100K & 8.26 & 6.52 & \$46,961 & \$12,496 & \$328,851 & \$516,757 \\
+Intismeran \$200K (base) & 8.26 & 6.52 & \$324,765 & \$49,841 & \$326,840 & \$652,643 \\
+Intismeran \$300K & 8.26 & 6.52 & \$246,961 & \$65,714 & \$128,851 & \$316,757 \\
+Intismeran \$500K & 8.26 & 6.52 & \$446,961 & \$118,932 & -\$71,149 & \$116,757 \\
 Waning V1 (recurrence) & 1.83 & 1.87 & \$38,544 & \$20,591 & \$148,647 & \$242,242 \\
 Waning V2 (hazard convergence) & 2.66 & 2.47 & \$74,620 & \$30,176 & \$172,659 & \$296,299 \\
 No direct OS benefit & 0.00 & 0.50 & -\$14,562 & Dominant & \$64,131 & \$88,915 \\
@@ -570,7 +570,7 @@ No direct OS benefit & 0.00 & 0.50 & -\$14,562 & Dominant & \$64,131 & \$88,915 
 \end{landscape}
 \noindent The base-case conclusion is robust across structural assumptions. The ICER alone is insufficient: unconstrained model has moderate ICER (\$51,753) but implausible \$373,488 cost.
 
-\noindent \textbf{Time horizon sensitivity.} The ICER was stable from the 20-year horizon onward: \$39,734 at 20 years, \$38,797 at 30 years, and \$39,105 at the 40-year base-case horizon (Table~\ref{tab:s13}). The difference between the 30- and 40-year ICER was \$308/QALY (0.8\%). Because the general-population mortality hazard floor was applied from 60 months onward and both costs and QALYs were discounted at 3\% annually, survival beyond the 20--30-year window contributed negligibly to discounted incremental costs and QALYs. This indicates that the 40-year lifetime horizon did not materially drive the base-case ICER, and that results were not sensitive to the choice of extrapolation window beyond approximately two decades.
+\noindent \textbf{Time horizon sensitivity.} The ICER was stable from the 20-year horizon onward: \$41,785 at 20 years, \$40,500 at 30 years, and \$49,841 at the 40-year base-case horizon (Table~\ref{tab:s13}). The difference between the 30- and 40-year ICER was \$308/QALY (0.8\%). Because the general-population mortality hazard floor was applied from 60 months onward and both costs and QALYs were discounted at 3\% annually, survival beyond the 20--30-year window contributed negligibly to discounted incremental costs and QALYs. This indicates that the 40-year lifetime horizon did not materially drive the base-case ICER, and that results were not sensitive to the choice of extrapolation window beyond approximately two decades.
 
 \noindent \textbf{General population hazard floor start-time sensitivity.} The GP mortality floor was applied from 60 months in the base case. To assess whether the ICER was sensitive to the timing of floor application, we varied the start time from 48 to 96 months (Table~S14). The ICER ranged from \$39,014 (48-month floor) to \$39,696 (96-month floor), a spread of only \$682/QALY (1.7\%). This narrow range reflects the fact that the hazard floor does not materially affect the within-trial survival difference, which is already established by 48 months, and the floor's primary effect is to constrain the heavily discounted long-term extrapolation regardless of whether it begins at 48 or 96 months. The ICER is therefore robust to the exact timing of GP floor application.
 
@@ -592,17 +592,17 @@ No direct OS benefit & 0.00 & 0.50 & -\$14,562 & Dominant & \$64,131 & \$88,915 
 \$50,000 & -\$809 & \$378,851 & \$566,757 \\
 \$100,000 & \$12,496 & \$328,851 & \$516,757 \\
 \$150,000 & \$25,800 & \$278,851 & \$466,757 \\
-\$200,000 (base) & \$39,105 & \$228,851 & \$416,757 \\
+\$200,000 (base) & \$49,841 & \$326,840 & \$652,643 \\
 \$250,000 & \$52,409 & \$178,851 & \$366,757 \\
 \$300,000 & \$65,714 & \$128,851 & \$316,757 \\
 \$350,000 & \$79,019 & \$78,851 & \$266,757 \\
 \$400,000 & \$92,323 & \$28,851 & \$216,757 \\
-\textbf{\$429,077} & \textbf{\$100,060} & \textbf{-\$226} & \$187,680 \\
+\textbf{\$527,344} & \textbf{\$100,077} & \textbf{-\$226} & \$187,680 \\
 \$450,000 & \$105,628 & -\$21,149 & \$166,757 \\
 \$500,000 & \$118,932 & -\$71,149 & \$116,757 \\
 \$550,000 & \$132,237 & -\$121,149 & \$66,757 \\
 \$600,000 & \$145,541 & -\$171,149 & \$16,757 \\
-\textbf{\$616,455} & \textbf{\$149,920} & \textbf{-\$187,604} & \textbf{\$302} \\
+\textbf{\$852,051} & \textbf{\$149,909} & \textbf{-\$187,604} & \textbf{\$302} \\
 \$650,000 & \$158,846 & -\$221,149 & -\$33,243 \\
 \$700,000 & \$172,150 & -\$271,149 & -\$83,243 \\
 \$750,000 & \$185,455 & -\$321,149 & -\$133,243 \\
@@ -610,7 +610,7 @@ No direct OS benefit & 0.00 & 0.50 & -\$14,562 & Dominant & \$64,131 & \$88,915 
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$429,000 at \$100,000/QALY (2.1$\times$ base) and approximately \$616,000 at \$150,000/QALY (3.1$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
+\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$527,000 at \$100,000/QALY (2.1$\times$ base) and approximately \$852,000 at \$150,000/QALY (3.1$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
 
 \subsection{ICER versus Acquisition Price}
 \label{sec:price_fig}
