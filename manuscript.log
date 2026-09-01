@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  1 SEP 2026 15:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.4.25)  1 SEP 2026 15:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -529,9 +529,9 @@ Here is how much of TeX's memory you used:
  42437 multiletter control sequences out of 15000+600000
  675299 words of font info for 109 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 75i,10n,79p,3503b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,3556b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/cary/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on manuscript.pdf (25 pages, 647577 bytes).
+Output written on manuscript.pdf (25 pages, 647637 bytes).
 PDF statistics:
  429 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams
