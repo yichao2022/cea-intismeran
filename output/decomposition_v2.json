@@ -1,28 +1,28 @@
 {
   "ly_qaly": {
     "combo": {
-      "ly_undisc": 31.1,
-      "ly_disc": 19.01,
-      "qaly_rf": 10.17,
-      "qaly_lr": 1.99,
-      "qaly_dm": 2.0,
-      "qaly_total": 14.16
+      "ly_undisc": 21.58,
+      "ly_disc": 15.06,
+      "qaly_rf": 8.49,
+      "qaly_lr": 1.52,
+      "qaly_dm": 1.35,
+      "qaly_total": 11.35
     },
     "pembro": {
-      "ly_undisc": 15.12,
-      "ly_disc": 10.75,
-      "qaly_rf": 4.6,
-      "qaly_lr": 1.32,
-      "qaly_dm": 1.73,
-      "qaly_total": 7.65
+      "ly_undisc": 13.81,
+      "ly_disc": 10.28,
+      "qaly_rf": 4.48,
+      "qaly_lr": 1.23,
+      "qaly_dm": 1.62,
+      "qaly_total": 7.33
     },
     "incremental": {
-      "ly_undisc": 15.98,
-      "ly_disc": 8.26,
-      "qaly_rf": 5.57,
-      "qaly_lr": 0.67,
-      "qaly_dm": 0.27,
-      "qaly_total": 6.51
+      "ly_undisc": 7.77,
+      "ly_disc": 4.78,
+      "qaly_rf": 4.01,
+      "qaly_lr": 0.29,
+      "qaly_dm": -0.27,
+      "qaly_total": 4.02
     }
   },
   "cost_decomp": {
@@ -32,9 +32,9 @@
       "sequencing": 1000,
       "administration": 493,
       "adverse_events": 15000,
-      "lr_management": 112203,
-      "dm_management": 524121,
-      "total": 1070705
+      "lr_management": 85455,
+      "dm_management": 354189,
+      "total": 874026
     },
     "pembro": {
       "pembrolizumab": 217888,
@@ -42,9 +42,9 @@
       "sequencing": 0,
       "administration": 493,
       "adverse_events": 0,
-      "lr_management": 74477,
-      "dm_management": 453082,
-      "total": 745939
+      "lr_management": 69341,
+      "dm_management": 424388,
+      "total": 712110
     },
     "incremental": {
       "pembrolizumab": 0,
@@ -52,9 +52,9 @@
       "sequencing": 1000,
       "administration": 0,
       "adverse_events": 15000,
-      "lr_management": 37726,
-      "dm_management": 71039,
-      "total": 324766
+      "lr_management": 16114,
+      "dm_management": -70199,
+      "total": 161916
     }
   }
 }

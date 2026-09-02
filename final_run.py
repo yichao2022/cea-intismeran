@@ -156,14 +156,11 @@ scenarios = [
 
 print(f"{'Scenario':<45s} {'ΔQALY':>8s} {'ΔCost':>10s} {'ICER':>10s}")
 for name, kwargs in scenarios:
-    pp = ModelParams(**kwargs)
-    extra = {}
-    if kwargs.get("no_direct_os_benefit"):
-        extra = {"no_direct_os_benefit": True}
+    extra = {k: v for k, v in kwargs.items() if k == "no_direct_os_benefit"}
+    pp = ModelParams(**{k: v for k, v in kwargs.items() if k != "no_direct_os_benefit"})
+    for k, v in extra.items():
+        setattr(pp, k, v)
     m = CEAModelV2(pp)
-    if extra:
-        for k, v in extra.items():
-            setattr(pp, k, v)
     r_sc = m.run()
     dq = r_sc["combo"]["qaly"] - r_sc["pembro"]["qaly"]
     dc = r_sc["combo"]["cost"] - r_sc["pembro"]["cost"]

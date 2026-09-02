@@ -1,27 +1,27 @@
 {
   "base_case": {
     "combo": {
-      "qaly": 14.16,
-      "cost": 1070705.0,
-      "ly": 19.01
+      "qaly": 11.35,
+      "cost": 874026.0,
+      "ly": 15.06
     },
     "pembro": {
-      "qaly": 7.65,
-      "cost": 745939.0,
-      "ly": 10.75
+      "qaly": 7.33,
+      "cost": 712110.0,
+      "ly": 10.28
     },
     "incremental": {
-      "dqaly": 6.52,
-      "dly": 8.26,
-      "dcost": 324765.0,
-      "icer": 49841,
-      "nmb_100k": 326840.0,
-      "nmb_150k": 652643.0
+      "dqaly": 4.02,
+      "dly": 4.78,
+      "dcost": 161916.0,
+      "icer": 40274,
+      "nmb_100k": 240123.0,
+      "nmb_150k": 441143.0
     },
     "precision": {
-      "dqaly_full": 6.516055,
-      "dcost_full": 324765.0796,
-      "icer_full": 49840.7493
+      "dqaly_full": 4.02039,
+      "dcost_full": 161915.7414,
+      "icer_full": 40273.6387
     }
   }
 }
