@@ -131,7 +131,7 @@ Survival extrapolation was validated along two dimensions: internal structural c
 
 Probabilistic sensitivity analysis (all 6,000 structurally valid iterations; 0 rejections) quantified joint uncertainty in survival, cost, and utility parameters. The mean incremental net monetary benefit (NMB) was $371,570 at the $100,000/QALY threshold and $703,975 at $150,000/QALY (Table 3; Figure 2). The probability that intismeran plus pembrolizumab was cost-effective was 52.4% at $50,000/QALY, 93.4% at $100,000/QALY, and 98.4% at $150,000/QALY. All 6,000 iterations showed positive QALY gains (ΔQALY > 0), and 11.2% of iterations showed net cost savings (ΔCost < 0, ΔQALY > 0). No iterations were excluded based on the ICER value.
 
-**Deterministic sensitivity analysis.** One-way sensitivity analysis (Figure 3) identified the intismeran acquisition price as the most influential parameter (ICER range $43,702--$55,979/QALY across $160,000--$240,000), followed by the discount rate ($49,330--$53,363/QALY across 0%--5%), with smaller contributions from the pembrolizumab OS parameter, downstream management costs, and utilities. The ICER remained below $61,000/QALY across all tested ranges.
+**Deterministic sensitivity analysis.** One-way sensitivity analysis (Figure 3) identified the pembrolizumab OS log-normal parameter and the intismeran acquisition price as the most influential parameters (ICER range $43,702--$55,979/QALY across $160,000--$240,000), followed by the discount rate ($49,330--$53,363/QALY across 0%--5%) and downstream disease-management costs. Across the tested ranges, the maximum finite ICER remained below $61,000/QALY; under the high pembrolizumab OS parameter value, the combination became dominant.
 
 ### 3.5 Structural Scenario Analyses
 
