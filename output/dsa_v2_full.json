@@ -1,7 +1,7 @@
 {
   "base_icer": 49841,
   "wtp": 150000,
-  "t11_rows": [
+  "t12_rows": [
     {
       "param": "UTIL_RF",
       "base": "0.83",
@@ -9,6 +9,8 @@
       "high_lbl": "0.86",
       "lo_icer": "51,431",
       "hi_icer": "48,346",
+      "lo_icer_raw": 51431,
+      "hi_icer_raw": 48346,
       "lo_nmb": "622,423",
       "hi_nmb": "682,864",
       "change_nmb": "60,441"
@@ -20,6 +22,8 @@
       "high_lbl": "0.67",
       "lo_icer": "50,082",
       "hi_icer": "49,601",
+      "lo_icer_raw": 50082,
+      "hi_icer_raw": 49601,
       "lo_nmb": "647,927",
       "hi_nmb": "657,359",
       "change_nmb": "9,431"
@@ -31,6 +35,8 @@
       "high_lbl": "0.58",
       "lo_icer": "49,954",
       "hi_icer": "49,728",
+      "lo_icer_raw": 49954,
+      "hi_icer_raw": 49728,
       "lo_nmb": "650,423",
       "hi_nmb": "654,863",
       "change_nmb": "4,440"
@@ -42,6 +48,8 @@
       "high_lbl": "$265,075",
       "lo_icer": "49,841",
       "hi_icer": "49,841",
+      "lo_icer_raw": 49841,
+      "hi_icer_raw": 49841,
       "lo_nmb": "652,643",
       "hi_nmb": "652,643",
       "change_nmb": "0"
@@ -53,6 +61,8 @@
       "high_lbl": "$240,000",
       "lo_icer": "43,702",
       "hi_icer": "55,979",
+      "lo_icer_raw": 43702,
+      "hi_icer_raw": 55979,
       "lo_nmb": "692,643",
       "hi_nmb": "612,643",
       "change_nmb": "80,000"
@@ -64,6 +74,8 @@
       "high_lbl": "$3,600",
       "lo_icer": "48,683",
       "hi_icer": "50,999",
+      "lo_icer_raw": 48683,
+      "hi_icer_raw": 50999,
       "lo_nmb": "660,188",
       "hi_nmb": "645,098",
       "change_nmb": "15,090"
@@ -75,6 +87,8 @@
       "high_lbl": "$14,400",
       "lo_icer": "47,660",
       "hi_icer": "52,021",
+      "lo_icer_raw": 47660,
+      "hi_icer_raw": 52021,
       "lo_nmb": "666,851",
       "hi_nmb": "638,435",
       "change_nmb": "28,416"
@@ -86,28 +100,34 @@
       "high_lbl": "5%",
       "lo_icer": "49,330",
       "hi_icer": "53,363",
+      "lo_icer_raw": 49330,
+      "hi_icer_raw": 53363,
       "lo_nmb": "1,233,503",
       "hi_nmb": "434,691",
       "change_nmb": "798,812"
     },
     {
       "param": "OS mu combo",
-      "base": "8.268",
+      "base": "8.396",
       "low_lbl": "-40%",
       "high_lbl": "+40%",
       "lo_icer": "51,465",
       "hi_icer": "49,690",
+      "lo_icer_raw": 51465,
+      "hi_icer_raw": 49690,
       "lo_nmb": "131,833",
       "hi_nmb": "759,457",
       "change_nmb": "627,624"
     },
     {
       "param": "OS mu pembro",
-      "base": "3.725",
+      "base": "4.841",
       "low_lbl": "-20%",
       "high_lbl": "+20%",
       "lo_icer": "60,695",
       "hi_icer": "Dominant",
+      "lo_icer_raw": 60695,
+      "hi_icer_raw": -14696,
       "lo_nmb": "900,567",
       "hi_nmb": "406,519",
       "change_nmb": "494,048"

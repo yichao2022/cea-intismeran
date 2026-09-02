@@ -1,5 +1,5 @@
-"""Full DSA — canonical source for Figure 3, Table S11, and main Results sentence.
-Runs V2 model over all Table S11 parameter ranges, writes JSON with ICER + NMB@150K.
+"""Full DSA — canonical source for Figure 3, Table S12, and main Results sentence.
+Runs V2 model over all Table S12 parameter ranges, writes JSON with ICER + NMB@150K.
 """
 import json
 import numpy as np
@@ -44,6 +44,8 @@ def to_row(param, base_disp, low_lbl, high_lbl, lo_dC, lo_dQ, hi_dC, hi_dQ):
         "low_lbl": low_lbl, "high_lbl": high_lbl,
         "lo_icer": "Dominant" if lo_icer is None or lo_icer < 0 else f"{round(lo_icer):,}",
         "hi_icer": "Dominant" if hi_icer is None or hi_icer < 0 else f"{round(hi_icer):,}",
+        "lo_icer_raw": None if lo_icer is None else round(lo_icer),
+        "hi_icer_raw": None if hi_icer is None else round(hi_icer),
         "lo_nmb": f"{round(lo_nmb):,}",
         "hi_nmb": f"{round(hi_nmb):,}",
         "change_nmb": f"{abs(round(hi_nmb - lo_nmb)):,}",
@@ -52,7 +54,7 @@ def to_row(param, base_disp, low_lbl, high_lbl, lo_dC, lo_dQ, hi_dC, hi_dQ):
     return row
 
 t12_rows = []
-print("=== Table S11 rows (V2) ===")
+print("=== Table S12 rows (V2) ===")
 
 # Utilities — beta ±0.03
 for key, base_disp, lo_v, hi_v, lo_lbl, hi_lbl in [
@@ -83,14 +85,14 @@ t12_rows.append(to_row("discount_rate", "3%", "0%", "5%", lo_dC, lo_dQ, hi_dC, h
 # OS mu combo ±40%
 lo_dC, lo_dQ = run_os_mu("combo", 0.6)
 hi_dC, hi_dQ = run_os_mu("combo", 1.4)
-t12_rows.append(to_row("OS mu combo", "8.268", "-40%", "+40%", lo_dC, lo_dQ, hi_dC, hi_dQ))
+t12_rows.append(to_row("OS mu combo", "8.396", "-40%", "+40%", lo_dC, lo_dQ, hi_dC, hi_dQ))
 
 # OS mu pembro ±20%
 lo_dC, lo_dQ = run_os_mu("pembro", 0.8)
 hi_dC, hi_dQ = run_os_mu("pembro", 1.2)
-t12_rows.append(to_row("OS mu pembro", "3.725", "-20%", "+20%", lo_dC, lo_dQ, hi_dC, hi_dQ))
+t12_rows.append(to_row("OS mu pembro", "4.841", "-20%", "+20%", lo_dC, lo_dQ, hi_dC, hi_dQ))
 
-out = {"base_icer": round(base_icer), "wtp": WTP, "t11_rows": t12_rows}
+out = {"base_icer": round(base_icer), "wtp": WTP, "t12_rows": t12_rows}
 with open("output/dsa_v2_full.json", "w") as f:
     json.dump(out, f, indent=2)
 print(f"\nSaved output/dsa_v2_full.json")
