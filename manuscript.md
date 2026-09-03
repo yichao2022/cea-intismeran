@@ -135,7 +135,7 @@ Probabilistic sensitivity analysis (all 6,000 structurally valid iterations; 0 r
 
 ### 3.5 Structural Scenario Analyses
 
-**Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $34,494/QALY. At $300,000 per course, the ICER increased to $65,187/QALY. At $500,000 per course, the ICER was $95,881/QALY.
+**Pricing:** Scenario analysis results are summarized in Table 4. At an intismeran cost of $100,000 per course, the ICER decreased to $15,400/QALY. At $300,000 per course, the ICER increased to $65,147/QALY. At $500,000 per course, the ICER was $114,893/QALY.
 
 **Discount rate:** At 0% discounting, the ICER was $49,330/QALY. At 5%, it was $53,363/QALY.
 
