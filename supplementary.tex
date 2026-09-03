@@ -20,6 +20,9 @@ versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB--IV Melan
 \date{}
 
 \begin{document}
+\tolerance=2000
+\emergencystretch=3em
+\hfuzz=1pt
 \maketitle
 \tableofcontents
 \newpage
@@ -38,7 +41,7 @@ versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB--IV Melan
 \toprule
 \textbf{State} & \textbf{Clinical Definition} & \textbf{Utility} & \textbf{Monthly Cost} \\
 \midrule
-RF & Recurrence-free after complete resection; receiving adjuvant pembrolizumab (up to 18 cycles) with or without intismeran (up to 9 doses) & 0.83 & \$0 \\
+RF & Recurrence-free after complete resection; receiving adjuvant \mbox{pembrolizumab} (up to 18 cycles) with or without intismeran (up to 9 doses) & 0.83 & \$0 \\
 LR & Confirmed locoregional recurrence without distant metastasis; includes salvage surgery, re-treatment, and surveillance & 0.64 & \$3,000 \\
 DM & Confirmed stage IV melanoma with distant metastasis; includes systemic therapy, palliative care, and monitoring & 0.55 & \$12,000 \\
 Death & All-cause mortality & 0 & \$0 \\
@@ -103,7 +106,7 @@ Survival probabilities were extracted from the published Kaplan--Meier curves (F
 
 \begin{table}[H]
 \centering
-\caption{Extracted KEYNOTE-942 Survival Probabilities (\%)}
+\caption{Extracted \mbox{KEYNOTE-942} Survival Probabilities (\%)}
 \label{tab:s2}
 \begin{tabular}{lcccccc}
 \toprule
@@ -129,7 +132,7 @@ Survival probabilities were extracted from the published Kaplan--Meier curves (F
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s2_survival_data.png}
-\caption{Digitized KEYNOTE-942 survival data (points) and fitted log-normal parametric curves (lines). Left panel: intismeran plus pembrolizumab arm. Right panel: pembrolizumab alone arm.}
+\caption{Digitized \mbox{KEYNOTE-942} survival data (points) and fitted log-normal parametric curves (lines). Left panel: intismeran plus \mbox{pembrolizumab} arm. Right panel: \mbox{pembrolizumab} alone arm.}
 \label{fig:s2}
 \end{figure}
 
@@ -239,7 +242,7 @@ A total of 4,096 distribution combinations were evaluated for structural validit
 The GP mortality hazard floor is applied to modeled OS from month 60 onward.
 
 \textbf{Life table source:} US 2019 period life tables (Arias et al., NVSS).
-\textbf{Baseline age:} 61 years (KEYNOTE-942 median). \textbf{Sex weighting:} 64\% male, 36\% female.
+\textbf{Baseline age:} 61 years (\mbox{KEYNOTE-942} median). \textbf{Sex weighting:} 64\% male, 36\% female.
 \textbf{Interpolation:} Annual life table survival linearly interpolated to monthly resolution; monthly hazards derived as $h_{\text{GP}}(t) = -\ln[S_{\text{GP}}(t{+}1)/S_{\text{GP}}(t)]$.
 \textbf{Constraint formula (mortality hazard floor):} from month 60 onward, the model mortality hazard is floored at the age- and sex-matched general-population hazard:
 \begin{equation}
@@ -321,14 +324,14 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent\textit{NR: Not reported.} CheckMate 238 evaluated nivolumab (not pembrolizumab). The model predicts lower RFS/DMFS versus external trials, reflecting the higher-risk KEYNOTE-942 population (stage IIIB--IV including resected stage IV melanoma vs IIIA--C in KEYNOTE-054 and IIIB--IV in CheckMate 238). Only published landmark values are included; no extrapolated estimates are used.\cite{eggermont2025, ascierto2025}
+\noindent\textit{NR: Not reported.} CheckMate 238 evaluated nivolumab (not \mbox{pembrolizumab}). The model predicts lower RFS/DMFS versus external trials, reflecting the higher-risk \mbox{KEYNOTE-942} population (stage IIIB--IV including resected stage IV melanoma vs IIIA--C in KEYNOTE-054 and IIIB--IV in CheckMate 238). Only published landmark values are included; no extrapolated estimates are used.\cite{eggermont2025, ascierto2025}
 
 \subsection{Longitudinal External Validation}
 \label{sec:external_fig}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s5_external_validation.png}
-\caption{External validation of pembrolizumab arm predictions. Gray line: model. Circles: KEYNOTE-942 observed data. Squares: KEYNOTE-054 (pembrolizumab, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
+\caption{External validation of \mbox{pembrolizumab} arm predictions. Gray line: model. Circles: \mbox{KEYNOTE-942} observed data. Squares: KEYNOTE-054 (\mbox{pembrolizumab}, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
 \label{fig:s5}
 \end{figure}
 
@@ -455,6 +458,7 @@ DM state QALYs & 1.35 & 1.62 & -0.27 \\
 \centering
 \caption{One-Way Deterministic Sensitivity Analysis}
 \label{tab:s11}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrr}
 \toprule
 \textbf{Parameter} & \textbf{Base} & \textbf{Low} & \textbf{High} & \textbf{ICER range} & \textbf{Change in NMB} \\
@@ -470,8 +474,9 @@ Discount rate & 3\% & 0\% & 5\% & 33,120--48,284 & \$434,030 \\
 OS $\mu$ combo & 8.396 & -40\% & +40\% & 19,875--40,684 & \$485,457 \\
 OS $\mu$ pembro & 4.841 & -20\% & +20\% & 57,434--Dominant & \$441,968 \\
 \end{tabular}
+}
 \end{table}
-\noindent The maximum finite ICER was \$57,434/QALY across the tested ranges; the combination became dominant when the pembrolizumab OS parameter was increased by 20\%.
+\noindent The maximum finite ICER was \$57,434/QALY across the tested ranges; the combination became dominant when the \mbox{pembrolizumab} OS parameter was increased by 20\%.
 
 \subsection{Probabilistic Sensitivity Analysis}
 \label{sec:psa}
@@ -659,9 +664,9 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 \centering
 \caption{CHEERS 2022 Checklist}
 \label{tab:cheers}
-\begin{tabular}{p{1cm}p{5cm}p{1.5cm}p{4cm}}
+\begin{tabularx}{\linewidth}{@{}p{0.7cm}X p{1.6cm}X@{}}
 \toprule
-\textbf{No.} & \textbf{Item} & \textbf{Reported} & \textbf{Location} \\
+\textbf{No.} & \textbf{Item} & {\scriptsize\textbf{Reported}} & \textbf{Location} \\
 \midrule
 1 & Title & Yes & Title page \\
 2 & Abstract & Yes & Abstract \\
@@ -692,7 +697,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 27 & Conflicts & Yes & Declarations \\
 28 & Reproducibility & Yes & Appendix \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \newpage

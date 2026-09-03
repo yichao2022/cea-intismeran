@@ -455,6 +455,7 @@ DM state QALYs & 1.35 & 1.62 & -0.27 \\
 \centering
 \caption{One-Way Deterministic Sensitivity Analysis}
 \label{tab:s11}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrr}
 \toprule
 \textbf{Parameter} & \textbf{Base} & \textbf{Low} & \textbf{High} & \textbf{ICER range} & \textbf{Change in NMB} \\
@@ -470,6 +471,7 @@ Discount rate & 3\% & 0\% & 5\% & 33,120--48,284 & \$434,030 \\
 OS $\mu$ combo & 8.396 & -40\% & +40\% & 19,875--40,684 & \$485,457 \\
 OS $\mu$ pembro & 4.841 & -20\% & +20\% & 57,434--Dominant & \$441,968 \\
 \end{tabular}
+}
 \end{table}
 \noindent The maximum finite ICER was \$57,434/QALY across the tested ranges; the combination became dominant when the pembrolizumab OS parameter was increased by 20\%.
 
@@ -659,9 +661,9 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 \centering
 \caption{CHEERS 2022 Checklist}
 \label{tab:cheers}
-\begin{tabular}{p{1cm}p{5cm}p{1.5cm}p{4cm}}
+\begin{tabularx}{\linewidth}{@{}p{0.7cm}X p{1.6cm}X@{}}
 \toprule
-\textbf{No.} & \textbf{Item} & \textbf{Reported} & \textbf{Location} \\
+\textbf{No.} & \textbf{Item} & {\scriptsize\textbf{Reported}} & \textbf{Location} \\
 \midrule
 1 & Title & Yes & Title page \\
 2 & Abstract & Yes & Abstract \\
@@ -692,7 +694,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 27 & Conflicts & Yes & Declarations \\
 28 & Reproducibility & Yes & Appendix \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \newpage
