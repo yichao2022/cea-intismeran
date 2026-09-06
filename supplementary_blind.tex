@@ -194,11 +194,11 @@ Generalized gamma & 3 param & -31.69 & 0.0231 & 4 \\
 
 \subsection{Joint Model Selection}
 \label{sec:joint}
-A total of 4,096 distribution combinations were evaluated for structural validity at 40 years. All 4,096 satisfied the RFS $\leq$ DMFS $\leq$ OS ordering constraint (0 crossing violations). The full results are available online (\texttt{output/survival\_combos\_4096.csv}).
+A total of 15,625 distribution combinations (5 distributions x 6 curves) were evaluated for structural validity at 40 years. All 15,625 satisfied the RFS $\leq$ DMFS $\leq$ OS ordering constraint (0 crossing violations). The full results are available online (\texttt{output/survival\_combos\_15625.csv}).
 
 \begin{table}[H]
 \centering
-\caption{Top 10 Joint Model Combinations by Total AIC}
+\caption{Top 10 Joint Model Combinations by Total AIC (5 distributions, 15,625 combinations)}
 \label{tab:s4}
 \begin{tabular}{lccccccc}
 \toprule
@@ -206,20 +206,20 @@ A total of 4,096 distribution combinations were evaluated for structural validit
 \cmidrule(lr){2-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-7}
  & C/P & C/P & C/P & & & \\
 \midrule
-1 & LN / W & LN / LL & LL / W & -222.61 & 76.3\% & 0.0\% \\
-2 & LN / W & LN / LL & LL / LL & -222.52 & 76.3\% & 0.0\% \\
-3 & LN / W & Exp / LL & LL / W & -222.47 & 76.3\% & 0.0\% \\
-4 & LLog / W & LN / LL & LL / W & -222.42 & 72.9\% & 0.0\% \\
-5 & LN / W & LN / LL & LN / W & -222.40 & 76.3\% & 0.0\% \\
-6 & LN / W & LN / LL & LL / LN & -222.39 & 76.3\% & 0.0\% \\
-7 & LN / W & Exp / LL & LL / LL & -222.38 & 76.3\% & 0.0\% \\
-8 & W / W & LN / LL & LL / W & -222.37 & 71.1\% & 0.0\% \\
-9 & LLog / W & LN / LL & LL / LL & -222.33 & 72.9\% & 0.0\% \\
-10 & LN / W & LN / LL & LN / LL & -222.31 & 76.3\% & 0.0\% \\
+1 & LN / W & LN / GG & LL / W & -224.76 & 76.3\% & 0.0\% \\
+2 & LN / W & LN / GG & LL / LL & -224.67 & 76.3\% & 0.0\% \\
+3 & LN / W & Exp / GG & LL / W & -224.62 & 76.3\% & 0.0\% \\
+4 & LLog / W & LN / GG & LL / W & -224.57 & 72.9\% & 0.0\% \\
+5 & LN / W & LN / GG & LN / W & -224.55 & 76.3\% & 0.0\% \\
+6 & LN / W & LN / GG & LL / LN & -224.53 & 76.3\% & 0.0\% \\
+7 & LN / W & Exp / GG & LL / LL & -224.53 & 76.3\% & 0.0\% \\
+8 & W / W & LN / GG & LL / W & -224.52 & 71.1\% & 0.0\% \\
+9 & LLog / W & LN / GG & LL / LL & -224.48 & 72.9\% & 0.0\% \\
+10 & LN / W & LN / GG & LN / LL & -224.46 & 76.3\% & 0.0\% \\
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent\textit{Distributions:} LN = log-normal, W = weibull, LLog = log-logistic, Exp = exponential. C/P = Combo/Pembro. All top-ranked combinations use log-normal OS for the combo arm, yielding OS40c = 71.1--76.3\% under unconstrained extrapolation, substantially higher than GP survival at age 101 (2.0\%). This motivated the GP mortality hazard floor (Section~\ref{sec:gp_impl}).
+\noindent\textit{Distributions:} LN = log-normal, W = weibull, LLog = log-logistic, Exp = exponential, GG = generalized gamma. C/P = Combo/Pembro. All top-ranked combinations use log-normal OS for the combo arm, yielding OS40c = 71.1--76.3\% under unconstrained extrapolation, substantially higher than GP survival at age 101 (2.0\%). This motivated the GP mortality hazard floor (Section~\ref{sec:gp_impl}).
 
 \subsection{Lifetime OS Extrapolation by Distribution}
 \label{sec:os_extrap}
@@ -644,10 +644,10 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
     \item \texttt{model.py} --- ModelParams, CEAModel (4-state PSM)
     \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-OS)
     \item \texttt{psa\_full.py} --- PSA with joint survival sampling
-    \item \texttt{survival\_model\_selection.py} --- 4,096-combination model selection
+    \item \texttt{survival\_model\_selection.py} --- 15,625-combination model selection
     \item \texttt{final\_run.py} / \texttt{threshold\_analysis.py} --- DSA, scenarios, pricing
     \item \texttt{figures.py} / \texttt{gen\_fig\_*.py} --- Figure generation scripts
-    \item \texttt{output/survival\_combos\_4096.csv} --- Full model selection results
+    \item \texttt{output/survival\_combos\_15625.csv} --- Full model selection results
 \end{itemize}
 
 \textbf{Data extraction:} Survival probabilities extracted from Figure~1 of Khattak et al. (2026) using WebPlotDigitizer v4.7. The digitized values are in Table~\ref{tab:s2}.
