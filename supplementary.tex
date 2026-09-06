@@ -68,7 +68,7 @@ The occupancy equations are derived from the ordering of these three events:
     \item The dead state is the complement of overall survival: $Dead = 1 - OS$.
 \end{itemize}
 
-The constraint $RFS \leq DMFS \leq OS$ is enforced at all time points to ensure non-negative state occupancy. This ordering is clinically meaningful: a patient cannot have distant metastasis without having had a recurrence event (RFS $\leq$ DMFS), and a patient cannot die without having both events (DMFS $\leq$ OS). The ratio-constrained structure $r_{\text{LR}} = RFS/DMFS$ and $r_{\text{DM}} = DMFS/OS$ guarantees this ordering by construction.
+The constraint $RFS \leq DMFS \leq OS$ is enforced at all time points to ensure non-negative state occupancy. This ordering reflects the endpoint definitions used in the clinical trials: DMFS counts either distant metastasis \textit{or death} as an event, so the probability of remaining alive and distant-metastasis-free cannot exceed overall survival (DMFS $\leq$ OS). Similarly, RFS counts recurrence \textit{or death}, so RFS $\leq$ DMFS. The ratio-constrained structure $r_{\text{LR}} = RFS/DMFS$ and $r_{\text{DM}} = DMFS/OS$ guarantees this ordering by construction.
 
 \subsection{Model Schematic}
 \label{sec:s1diagram}
