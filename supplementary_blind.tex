@@ -497,7 +497,7 @@ r$_{\text{DM}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 7.113 / 2.480 & 0
 r$_{\text{DM}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 7.042 / 5.000 & 2.278 / 3.130 & 0.995 & Joint \\
 r$_{\text{LR}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 8.874 / 5.000 & 2.039 / 1.928 & 0.997 & Joint \\
 r$_{\text{LR}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 5.913 / 2.674 & 0.757 / 0.879 & 0.984 & Joint \\
-Intismeran cost & Gamma (CV=0.2) & \$200,000 & --- & --- & Independent \\
+Intismeran cost & Fixed & \$200,000 & --- & --- & Fixed (not sampled) \\
 Pembrolizumab annual cost & Gamma (CV=0.2) & \$220,896 & --- & --- & Independent \\
 LR monthly cost & Gamma (CV=0.2) & \$3,000 & --- & --- & Independent \\
 DM monthly cost & Gamma (CV=0.2) & \$12,000 & --- & --- & Independent \\
@@ -510,11 +510,11 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \newpage
 \subsubsection{PSA Results}
 \begin{itemize}
-\item Mean $\Delta$QALY: 4.28 (95\% CI 2.51--7.07).
-\item Mean $\Delta$Cost: \$129,304 (95\% CI \textendash\$621,369 to \$524,631).
-\item Mean NMB: \$299,026 at \$100K and \$513,190 at \$150K.
-\item Probability cost-effective: 62.7\% at \$50K, 95.0\% at \$100K, and 98.5\% at \$150K.
-\item No iterations were excluded based on the ICER; 17.1\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY $>$ 0.
+\item Mean $\Delta$QALY: 4.32 (95\% CI 2.53--7.04).
+\item Mean $\Delta$Cost: \$127,711 (95\% CI \textendash\$668,394 to \$520,672).
+\item Mean NMB: \$304,291 at \$100K and \$520,293 at \$150K.
+\item Probability cost-effective: 63.8\% at \$50K, 95.3\% at \$100K, and 98.7\% at \$150K.
+\item No iterations were excluded based on the ICER; 16.7\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY $>$ 0.
 \end{itemize}
 
 \subsubsection{PSA Convergence}
@@ -529,7 +529,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s7_ce_plane.png}
-\caption{CE plane showing 6,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 17.1\% of iterations fall in the southeast quadrant (cost-saving); all 6,000 iterations had positive $\Delta$QALY. No iterations were excluded based on the ICER value.}
+\caption{CE plane showing 6,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 16.7\% of iterations fall in the southeast quadrant (cost-saving); all 6,000 iterations had positive $\Delta$QALY. No iterations were excluded based on the ICER value.}
 \label{fig:s7}
 \end{figure}
 

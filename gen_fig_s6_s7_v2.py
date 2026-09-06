@@ -45,7 +45,7 @@ print("Saved Figure S6")
 
 # ── Figure S7: CE plane ──
 fig, ax = plt.subplots(figsize=(7, 6))
-ax.scatter(dq, dc, s=5, alpha=0.3, color="#2166ac", label="PSA iterations (n=2000)")
+ax.scatter(dq, dc, s=5, alpha=0.3, color="#2166ac", label="PSA iterations (n=6000)")
 ax.axhline(0, color="gray", ls=":", alpha=0.5)
 ax.axvline(0, color="gray", ls=":", alpha=0.5)
 for wtp, color, ls in [(50_000, "#e41a1c", "-"), (100_000, "#4daf4a", "-"), (150_000, "#984ea3", "-")]:
