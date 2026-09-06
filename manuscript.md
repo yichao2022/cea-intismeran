@@ -77,7 +77,7 @@ Lifetime horizon (40 years), 3% annual discounting for costs and QALYs [22]. Eva
 
 ### 2.8 Scenario Analyses
 
-Three structural scenarios: (1) recurrence-convergence waning (5→8y); (2) hazard-convergence waning (5→10y); (3) no direct OS benefit. See Supplementary Section 9.3 for technical implementation definitions.
+Three structural scenarios: (1) OS-survival convergence waning (5→20y); (2) hazard-convergence waning (5→10y); (3) no direct OS benefit. See Supplementary Section 9.3 for technical implementation definitions.
 
 ---
 
@@ -103,7 +103,7 @@ Over 480 monthly cycles, no violations of RFS ≤ DMFS ≤ OS were observed. The
 
 ### 3.5 Structural Scenario Analyses
 
-- Recurrence-convergence waning (5→8y): $21,514/QALY (ΔQALY 1.93, ΔCost $41,571)
+- OS-survival convergence waning (5→20y): $21,514/QALY (ΔQALY 1.93, ΔCost $41,571)
 - Hazard-convergence waning (5→10y): $104,852/QALY (ΔQALY 2.17, ΔCost $227,542)
 - No direct OS benefit: Dominant (ΔQALY 0.50, ΔCost −$14,330)
 
@@ -131,7 +131,7 @@ ICER remains below $100,000/QALY up to ~$440,000 per course, more than twice the
 
 Without the GP mortality floor, the log-normal fit predicts 30-year combo OS of 79.1%, exceeding the age-matched general population survival of 23.1% — implausible for resected stage IIIB–IV melanoma. The GP hazard floor reduces this to 22.2% and lowers the ICER from $51,753 (unconstrained) to $40,274 (constrained). The hazard floor compresses the absolute survival difference while preserving the within-trial benefit.
 
-The treatment-effect waning scenarios bracket the plausible ICER range: $21,514 (recurrence-convergence) to $104,852 (hazard-convergence). The Weibull alternative yields $54,925/QALY. The best AIC-ranked mixed-family combination yields $61,102.
+The treatment-effect waning scenarios bracket the plausible ICER range: $21,514 (OS-survival convergence) to $104,852 (hazard-convergence). The Weibull alternative yields $54,925/QALY. The best AIC-ranked mixed-family combination yields $61,102.
 
 ### 4.5 Comparison with Previous Economic Evaluations
 
@@ -222,7 +222,7 @@ Intismeran plus pembrolizumab provides clinical benefit in adjuvant melanoma and
 | Time horizon: 10 years | $96,400 | 1.30 | $74,305 | $33,335 |
 | Time horizon: 20 years | $123,974 | 3.08 | $40,293 | $337,545 |
 | **Treatment-effect persistence** | | | | |
-| Recurrence convergence (5→8y) | $41,571 | 1.93 | $21,514 | $248,268 |
+| OS-survival convergence (5→20y) | $41,571 | 1.93 | $21,514 | $248,268 |
 | Hazard convergence (5→10y) | $227,542 | 2.17 | $104,852 | $97,975 |
 | No direct OS benefit | −$14,330 | 0.50 | Dominant | $89,330 |
 
