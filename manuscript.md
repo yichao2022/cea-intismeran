@@ -97,7 +97,7 @@ Over 480 monthly cycles, no violations of RFS ≤ DMFS ≤ OS were observed. The
 
 ### 3.4 Probabilistic and Deterministic Uncertainty
 
-**PSA:** 6,000 valid iterations. P(CE): 63.8% at $50,000/QALY, 95.3% at $100,000/QALY, 98.7% at $150,000/QALY. Mean ΔQALY 4.28, ΔCost $129,304, NMB $299,026 at $100K. 16.7% cost-saving.
+**PSA:** 6,000 valid iterations. P(CE): 63.8% at $50,000/QALY, 95.3% at $100,000/QALY, 98.7% at $150,000/QALY. Mean ΔQALY 4.32, ΔCost $127,711, NMB $304,291 at $100K. 16.7% cost-saving.
 
 **DSA:** Largest NMB changes from pembro OS parameter ($57,434 to dominant), combo OS parameter ($19,875–$40,684), discount rate ($33,120–$48,284). Max finite ICER $57,434/QALY.
 
@@ -201,10 +201,10 @@ Intismeran plus pembrolizumab provides clinical benefit in adjuvant melanoma and
 
 | Metric | Mean | Median | 95% CI |
 |:---|:---:|:---:|:---|
-| Incremental cost | $129,304 | $164,040 | −$621,369 to $524,631 |
-| Incremental QALYs | 4.28 | 4.11 | 2.51–7.07 |
-| NMB @ $100,000/QALY | $299,026 | — | — |
-| NMB @ $150,000/QALY | $513,190 | — | — |
+| Incremental cost | $127,711 | $165,479 | −$668,394 to $520,672 |
+| Incremental QALYs | 4.32 | 4.15 | 2.53–7.04 |
+| NMB @ $100,000/QALY | $304,291 | — | — |
+| NMB @ $150,000/QALY | $520,293 | — | — |
 
 ### Table 4. Scenario and Deterministic Threshold Price Analyses
 
