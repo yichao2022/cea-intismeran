@@ -1,4 +1,4 @@
-"""Generate Table S4 — Joint model selection: 4,096 combinations, top 20 by total AIC + structural validity."""
+"""Generate Table S4 — Joint model selection: 15,625 combinations, top 20 by total AIC + structural validity."""
 import sys
 sys.path.insert(0, "/Users/cary/cea-intismeran")
 import numpy as np
