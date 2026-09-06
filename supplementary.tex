@@ -344,7 +344,7 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \begin{landscape}
 \begin{table}[p]
 \centering
-\caption{Full Model Parameter Inventory}
+\caption{Full Model Parameter Inventory. \textit{Note:} DSA ranges are based on fixed percentage perturbations ($\pm20\%$ or $\pm40\%$) of the base-case fitted values to explore parameter sensitivity. PSA distributions use Normal sampling with standard errors derived from the nonlinear least-squares Jacobian covariance, reflecting curve-fit uncertainty rather than the full sampling uncertainty of the original censored trial data.}
 \label{tab:s8}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -354,18 +354,18 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \textbf{Parameter} & \textbf{Base} & \textbf{DSA Low} & \textbf{DSA High} & \textbf{PSA Distribution} & \textbf{Source} \\
 \midrule
 \multicolumn{6}{c}{\textit{Clinical Parameters}} \\
-OS $\mu$ -- combo & 8.396 & 5.038 & 11.754 & Normal (SE from Jacobian) & Fitted \\
-OS $\sigma$ -- combo & 3.096 & 2.896 & 3.296 & Normal (SE from Jacobian) & Fitted \\
-OS $\mu$ -- pembro & 4.841 & 3.873 & 5.809 & Normal (SE from Jacobian) & Fitted \\
-OS $\sigma$ -- pembro & 1.131 & 0.931 & 1.331 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\mu$ -- combo & 7.113 & 6.913 & 7.313 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\sigma$ -- combo & 2.480 & 2.280 & 2.680 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\mu$ -- pembro & 7.042 & 6.842 & 7.242 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000 & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\mu$ -- combo & 8.874 & 8.674 & 9.074 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\sigma$ -- combo & 5.000 & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\mu$ -- pembro & 5.913 & 5.713 & 6.113 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\sigma$ -- pembro & 2.674 & 2.474 & 2.874 & Normal (SE from Jacobian) & Fitted \\
+OS $\mu$ -- combo & 8.396 & 5.038 ($-40\%$) & 11.754 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+OS $\sigma$ -- combo & 3.096 & 1.858 ($-40\%$) & 4.334 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+OS $\mu$ -- pembro & 4.841 & 3.873 ($-20\%$) & 5.809 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+OS $\sigma$ -- pembro & 1.131 & 0.905 ($-20\%$) & 1.357 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\mu$ -- combo & 7.113 & 4.268 ($-40\%$) & 9.958 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- combo & 2.480 & 1.488 ($-40\%$) & 3.472 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\mu$ -- pembro & 7.042 & 5.634 ($-20\%$) & 8.450 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000 & 3.000 ($-40\%$) & 7.000 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\mu$ -- combo & 8.874 & 5.324 ($-40\%$) & 12.424 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- combo & 5.000 & 3.000 ($-40\%$) & 7.000 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\mu$ -- pembro & 5.913 & 4.730 ($-20\%$) & 7.096 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- pembro & 2.674 & 1.604 ($-40\%$) & 3.744 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
 Treatment duration (pembro) & 18 cycles (2 yr) & 9 & 24 & Fixed & \cite{khattak2026} \\
 Treatment duration (intismeran) & 9 doses (1 yr) & 6 & 12 & Fixed & \cite{khattak2026} \\
 Baseline age & 61 years & 55 & 67 & Fixed & \cite{khattak2026} \\
