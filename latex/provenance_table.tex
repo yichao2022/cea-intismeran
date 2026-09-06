@@ -1,0 +1,109 @@
+% ═══════════════════════════════════════════════════
+\section{Clinical Input Provenance}
+% ═══════════════════════════════════════════════════
+\label{sec:provenance}
+
+Table~\ref{tab:provenance} summarizes the provenance of all clinical inputs used in the model. The evidence status column classifies each input into one of five categories:
+
+\begin{itemize}
+    \item \textbf{Published:} The value is directly reported in the cited source.
+    \item \textbf{Digitized:} The value was extracted from a published Kaplan--Meier curve using WebPlotDigitizer v4.7.
+    \item \textbf{Derived:} The value is mathematically derived from other inputs (e.g., ratio of survival functions).
+    \item \textbf{Modeled:} The value is produced by the model's parametric extrapolation (e.g., long-term survival beyond observed data).
+    \item \textbf{Topline only:} The source reports a statistically significant result but the numerical hazard ratio or landmark survival probabilities have not yet been disclosed.
+\end{itemize}
+
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{5cm}p{2.2cm}p{2.4cm}p{4cm}}
+\caption{Clinical Input Provenance}\\
+\label{tab:provenance}\\
+\toprule
+\textbf{Input} & \textbf{Value} & \textbf{Evidence} & \textbf{Source} \\
+& & \textbf{Status} & \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Input} & \textbf{Value} & \textbf{Evidence} & \textbf{Source} \\
+& & \textbf{Status} & \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\toprule
+\textbf{Input} & \textbf{Value} & \textbf{Evidence} & \textbf{Source} \\
+& & \textbf{Status} & \\
+\midrule
+\multicolumn{4}{c}{\textit{KEYNOTE-942 (Phase 2b, 5-year follow-up)}} \\
+\midrule
+\multicolumn{4}{l}{\textbf{Recurrence-Free Survival (RFS)}} \\
+\quad 18-month RFS, combo & 80.4\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 24-month RFS, combo & 78.3\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 36-month RFS, combo & 73.8\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 48-month RFS, combo & 72.4\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 60-month RFS, combo & 68.8\% & Published & Khattak 2026 \\
+\quad 60-month RFS, combo 95\% CI & 56.3--78.3\% & Published & Khattak 2026 \\
+\quad 18-month RFS, pembro & 62.2\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 24-month RFS, pembro & 60.0\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 36-month RFS, pembro & 55.6\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 48-month RFS, pembro & 49.1\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 60-month RFS, pembro & 49.1\% & Published & Khattak 2026 \\
+\quad 60-month RFS, pembro 95\% CI & 33.3--63.0\% & Published & Khattak 2026 \\
+\midrule
+\multicolumn{4}{l}{\textbf{Distant Metastasis-Free Survival (DMFS)}} \\
+\quad 18-month DMFS, combo & 92.0\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 24-month DMFS, combo & 90.8\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 36-month DMFS, combo & 85.6\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 48-month DMFS, combo & 83.9\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 60-month DMFS, combo & -- & Not reported & N/A \\
+\quad 18-month DMFS, pembro & 73.0\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 24-month DMFS, pembro & 70.6\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 36-month DMFS, pembro & 65.4\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 48-month DMFS, pembro & 65.4\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 60-month DMFS, pembro & -- & Not reported & N/A \\
+\midrule
+\multicolumn{4}{l}{\textbf{Overall Survival (OS)}} \\
+\quad 18-month OS, combo & 96.0\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 24-month OS, combo & 96.0\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 36-month OS, combo & 93.8\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 48-month OS, combo & 92.2\% & Published & Khattak 2026 \\
+\quad 60-month OS, combo & 92.2\% & Published & Khattak 2026 \\
+\quad 18-month OS, pembro & 93.4\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 24-month OS, pembro & 93.4\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 36-month OS, pembro & 85.6\% & Digitized & Fig.~1, Khattak 2026 \\
+\quad 48-month OS, pembro & 85.6\% & Published & Khattak 2026 \\
+\quad 60-month OS, pembro & 71.3\% & Published & Khattak 2026 \\
+\midrule
+\multicolumn{4}{l}{\textbf{Hazard Ratios}} \\
+\quad RFS HR (combo vs. pembro) & 0.510 & Published & Khattak 2026 \\
+\quad RFS HR 95\% CI & 0.294--0.887 & Published & Khattak 2026 \\
+\quad DMFS HR (combo vs. pembro) & 0.411 & Published & Khattak 2026 \\
+\quad DMFS HR 95\% CI & 0.200--0.843 & Published & Khattak 2026 \\
+\quad OS HR (combo vs. pembro) & 0.471 & Published & Khattak 2026 \\
+\quad OS HR 95\% CI & 0.165--1.345 & Published & Khattak 2026 \\
+\quad OS events & 14 (7 per arm) & Published & Khattak 2026 \\
+\midrule
+\multicolumn{4}{c}{\textit{INTerpath-001 (Phase 3, topline announcement)}} \\
+\midrule
+\quad RFS & Statistically significant & Topline only & Merck/Moderna 2026 \\
+\quad DMFS & Statistically significant & Topline only & Merck/Moderna 2026 \\
+\quad Numerical HR / KM curves & Not yet disclosed & Topline only & N/A \\
+\midrule
+\multicolumn{4}{c}{\textit{Modeled / Derived Values}} \\
+\midrule
+\multicolumn{4}{l}{\textbf{Fitted log-normal parameters}} \\
+\quad OS $\mu$ (combo), $\sigma$ (combo) & 8.396, 3.096 & Derived & Least-squares fit \\
+\quad OS $\mu$ (pembro), $\sigma$ (pembro) & 4.841, 1.131 & Derived & Least-squares fit \\
+\quad r\_DM $\mu$ (combo), $\sigma$ (combo) & 7.113, 2.480 & Derived & Ratio fit \\
+\quad r\_DM $\mu$ (pembro), $\sigma$ (pembro) & 7.042, 5.000 & Derived & Ratio fit \\
+\quad r\_LR $\mu$ (combo), $\sigma$ (combo) & 8.874, 5.000 & Derived & Ratio fit \\
+\quad r\_LR $\mu$ (pembro), $\sigma$ (pembro) & 5.913, 2.674 & Derived & Ratio fit \\
+\midrule
+\multicolumn{4}{l}{\textbf{Long-term extrapolation}} \\
+\quad 10-year OS, combo & 74.4\% & Modeled & Log-normal extrapolation \\
+\quad 10-year OS, pembro & 46.3\% & Modeled & Log-normal extrapolation \\
+\quad 20-year OS, combo (GP-constrained) & 18.3\% & Modeled & GP hazard floor \\
+\quad 20-year OS, pembro (GP-constrained) & 7.8\% & Modeled & GP hazard floor \\
+\quad 40-year OS, combo (GP-constrained) & 0.0\% & Modeled & GP hazard floor \\
+\bottomrule
+\bottomrule
+\end{longtable}

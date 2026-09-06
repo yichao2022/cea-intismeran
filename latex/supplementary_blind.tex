@@ -1,0 +1,701 @@
+% Supplementary Appendix
+% Cost-Effectiveness of Intismeran plus Pembrolizumab in Adjuvant Melanoma
+% Yichao Jin, PhD
+% PharmacoEconomics
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,graphicx,amsmath,hyperref,float,caption,tabularx,pdflscape,longtable}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\bibliographystyle{unsrtnat}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\title{Supplementary Appendix\\
+\large Cost-Effectiveness of Intismeran Autogene (mRNA-4157/V940) plus Pembrolizumab\\
+versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB--IV Melanoma}
+\author{Yichao Jin, Ph.D.}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% ═══════════════════════════════════════════════════
+\section{Model Structure and Assumptions}
+% ═══════════════════════════════════════════════════
+
+\subsection{Health-State Definitions}
+\label{sec:s1}
+\begin{table}[H]
+\centering
+\caption{Health-State Definitions, Clinical Interpretation, and Model Inputs}
+\label{tab:s1}
+\begin{tabular}{lp{5cm}cc}
+\toprule
+\textbf{State} & \textbf{Clinical Definition} & \textbf{Utility} & \textbf{Monthly Cost} \\
+\midrule
+RF & Recurrence-free after complete resection; receiving adjuvant pembrolizumab (up to 18 cycles) with or without intismeran (up to 9 doses) & 0.83 & \$0 \\
+LR & Confirmed locoregional recurrence without distant metastasis; includes salvage surgery, re-treatment, and surveillance & 0.64 & \$3,000 \\
+DM & Confirmed stage IV melanoma with distant metastasis; includes systemic therapy, palliative care, and monitoring & 0.55 & \$12,000 \\
+Death & All-cause mortality & 0 & \$0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\noindent\textit{Note:} Utilities and costs are drawn from published melanoma CEA literature \cite{bensimon2019, johnston2021, zhang2023}. Costs are in 2026 USD. See Supplementary Table~S9 for full PSA distribution parameters.
+
+\subsection{State Occupancy Equations}
+\label{sec:s2}
+State occupancy at each monthly cycle is determined by the partitioned survival model (PSM) approach, using three parametric survival functions:
+
+\begin{itemize}
+    \item \textbf{RFS(t)} --- Recurrence-free survival: probability of remaining alive and free of any recurrence (locoregional or distant) at time $t$.
+    \item \textbf{DMFS(t)} --- Distant metastasis-free survival: probability of remaining alive and free of distant metastasis at time $t$.
+    \item \textbf{OS(t)} --- Overall survival: probability of being alive at time $t$.
+\end{itemize}
+
+The occupancy equations are derived from the ordering of these three events:
+\begin{itemize}
+    \item All patients who are recurrence-free are also distant metastasis-free and alive: $RF = RFS$.
+    \item Patients who have had a locoregional recurrence but have not yet developed distant metastasis are those who are distant metastasis-free minus those who are recurrence-free: $LR = DMFS - RFS$.
+    \item Patients who are alive with distant metastasis are those who are alive minus those who are distant metastasis-free: $DM = OS - DMFS$.
+    \item The dead state is the complement of overall survival: $Dead = 1 - OS$.
+\end{itemize}
+
+The constraint $RFS \leq DMFS \leq OS$ is enforced at all time points to ensure non-negative state occupancy. This ordering is clinically meaningful: a patient cannot have distant metastasis without having had a recurrence event (RFS $\leq$ DMFS), and a patient cannot die without having both events (DMFS $\leq$ OS). The ratio-constrained structure $r_{\text{LR}} = RFS/DMFS$ and $r_{\text{DM}} = DMFS/OS$ guarantees this ordering by construction.
+
+\subsection{Model Schematic}
+\label{sec:s1diagram}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.5cm and 2cm,
+  box/.style={draw, rectangle, rounded corners, minimum width=3cm, minimum height=1cm, align=center, font=\small},
+  arrow/.style={-{Latex[length=3mm]}, thick},
+  label/.style={font=\small\itshape}
+]
+  \node[box,fill=green!10] (rf) {Recurrence-Free\\(RF)};
+  \node[box,fill=yellow!10,right=of rf] (lr) {Locoregional\\(LR)};
+  \node[box,fill=orange!10,right=of lr] (dm) {Distant Metastasis\\(DM)};
+  \node[box,fill=gray!10,below=2.5cm of dm] (dead) {Death};
+
+  \draw[arrow] (rf) -- node[above,label]{$r_{\text{LR}} = \frac{RFS}{DMFS}$} (lr);
+  \draw[arrow] (lr) -- node[above,label]{$r_{\text{DM}} = \frac{DMFS}{OS}$} (dm);
+  \draw[arrow] (rf) -- node[left,label]{$1 - OS$} (dead);
+  \draw[arrow] (lr) -- node[below left,label]{$1 - OS$} (dead);
+  \draw[arrow] (dm) -- node[below,label]{$1 - OS$} (dead);
+\end{tikzpicture}
+\caption{Partitioned survival model structure. The model uses four mutually exclusive health states. State occupancy is derived from three parametric survival functions (RFS, DMFS, OS) rather than from transition probabilities. Arrows denote the ratio-constrained relationship $RFS \leq DMFS \leq OS$.}
+\label{fig:s1}
+\end{figure}
+
+% ═══════════════════════════════════════════════════
+\section{Survival Data and Parametric Extrapolation}
+% ═══════════════════════════════════════════════════
+
+\subsection{Extracted Survival Probabilities}
+\label{sec:survival_data}
+
+Survival probabilities were extracted from the published Kaplan--Meier curves (Figure~1) of Khattak et al.\ (2026) \cite{khattak2026} using WebPlotDigitizer v4.7. Data were extracted at 18, 24, 36, 48, and 60 months for OS and RFS, and at 18, 24, 36, and 48 months for DMFS. The extracted values are reported in Table~\ref{tab:s2}.
+
+\begin{table}[H]
+\centering
+\caption{Extracted KEYNOTE-942 Survival Probabilities (\%)}
+\label{tab:s2}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Month} & \multicolumn{2}{c}{\textbf{RFS (\%)}} & \multicolumn{2}{c}{\textbf{DMFS (\%)}} & \multicolumn{2}{c}{\textbf{OS (\%)}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+ & Combo & Pembro & Combo & Pembro & Combo & Pembro \\
+\midrule
+18 & 80.4 & 62.2 & 92.0 & 73.0 & 96.0 & 93.4 \\
+24 & 78.3 & 60.0 & 90.8 & 70.6 & 96.0 & 93.4 \\
+36 & 73.8 & 55.6 & 85.6 & 65.4 & 93.8 & 85.6 \\
+48 & 72.4 & 49.1 & 83.9 & 65.4 & 92.2 & 85.6 \\
+60 & 68.8 & 49.1 & --- & --- & 92.2 & 71.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textbf{Digitization method:} WebPlotDigitizer v4.7, manual extraction. The 60-month landmark values match the published 5-year ASCO 2026 update \cite{khattak2026}. At earlier time points, the 18-month RFS rates from the primary analysis \cite{weber2024} differ from digitized values by 1.4 pp (combo) and 0.2 pp (pembro), consistent with typical digitization error. The 5-year RFS 95\% CIs: combo 56.3--78.3\%, pembro 33.3--63.0\%.
+
+\input{provenance_table.tex}
+
+\subsection{Observed vs.\ Fitted Survival Curves}
+\label{sec:obs_vs_fitted}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s2_survival_data.png}
+\caption{Digitized KEYNOTE-942 survival data (points) and fitted log-normal parametric curves (lines). Left panel: intismeran plus pembrolizumab arm. Right panel: pembrolizumab alone arm.}
+\label{fig:s2}
+\end{figure}
+
+% ═══════════════════════════════════════════════════
+\section{Survival Model Selection}
+% ═══════════════════════════════════════════════════
+
+\subsection{Component-Level Parametric Fit}
+\label{sec:s3}
+\begin{table}[H]
+\centering
+\caption{Component-Level Parametric Fit Across Five Distributions}
+\label{tab:s3}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Component} & \textbf{Distribution} & \textbf{AIC} & \textbf{RMSE} & \textbf{Rank} \\
+\midrule
+\multicolumn{5}{c}{\textit{OS -- Combo arm}} \\
+Exponential & 1 param & -45.49 & 0.0087 & 4 \\
+Weibull & 2 param & -49.84 & 0.0046 & 2 \\
+Log-normal & 2 param & -50.08 & 0.0045 & 1 \\
+Log-logistic & 2 param & -49.89 & 0.0046 & 3 \\
+Generalized gamma & 3 param & -47.97 & 0.0045 & 5 \\
+\midrule
+\multicolumn{5}{c}{\textit{OS -- Pembro arm}} \\
+Exponential & 1 param & -31.27 & 0.0359 & 4 \\
+Weibull & 2 param & -32.00 & 0.0273 & 1 \\
+Log-normal & 2 param & -31.16 & 0.0297 & 3 \\
+Log-logistic & 2 param & -31.69 & 0.0282 & 2 \\
+Generalized gamma & 3 param & -30.33 & 0.0264 & 5 \\
+\midrule
+\multicolumn{5}{c}{\textit{r$_{\text{DM}}$ -- Combo arm}} \\
+Exponential & 1 param & -36.79 & 0.0078 & 3 \\
+Weibull & 2 param & -36.53 & 0.0063 & 4 \\
+Log-normal & 2 param & -36.93 & 0.0060 & 1 \\
+Log-logistic & 2 param & -36.61 & 0.0062 & 2 \\
+Generalized gamma & 3 param & -34.74 & 0.0061 & 5 \\
+\midrule
+\multicolumn{5}{c}{\textit{r$_{\text{DM}}$ -- Pembro arm}} \\
+Exponential & 1 param & -19.41 & 0.0688 & 5 \\
+Weibull & 2 param & -28.43 & 0.0174 & 3 \\
+Log-normal & 2 param & -27.23 & 0.0202 & 4 \\
+Log-logistic & 2 param & -30.30 & 0.0137 & 2 \\
+Generalized gamma & 3 param & -32.45 & 0.0082 & 1 \\
+\midrule
+\multicolumn{5}{c}{\textit{r$_{\text{LR}}$ -- Combo arm}} \\
+Exponential & 1 param & -30.38 & 0.0392 & 5 \\
+Weibull & 2 param & -38.97 & 0.0136 & 3 \\
+Log-normal & 2 param & -39.49 & 0.0129 & 2 \\
+Log-logistic & 2 param & -39.70 & 0.0126 & 1 \\
+Generalized gamma & 3 param & -38.43 & 0.0118 & 4 \\
+\midrule
+\multicolumn{5}{c}{\textit{r$_{\text{LR}}$ -- Pembro arm}} \\
+Exponential & 1 param & -31.82 & 0.0340 & 5 \\
+Weibull & 2 param & -33.60 & 0.0233 & 1 \\
+Log-normal & 2 param & -33.37 & 0.0238 & 2 \\
+Log-logistic & 2 param & -33.51 & 0.0235 & 3 \\
+Generalized gamma & 3 param & -31.69 & 0.0231 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Joint Model Selection}
+\label{sec:joint}
+A total of 4,096 distribution combinations were evaluated for structural validity at 40 years. All 4,096 satisfied the RFS $\leq$ DMFS $\leq$ OS ordering constraint (0 crossing violations). The full results are available online (\texttt{output/survival\_combos\_4096.csv}).
+
+\begin{table}[H]
+\centering
+\caption{Top 10 Joint Model Combinations by Total AIC}
+\label{tab:s4}
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Rank} & \textbf{OS} & \textbf{r$_{\text{DM}}$} & \textbf{r$_{\text{LR}}$} & \textbf{Total AIC} & \textbf{OS40c} & \textbf{OS40p} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-7}
+ & C/P & C/P & C/P & & & \\
+\midrule
+1 & LN / W & LN / LL & LL / W & -222.61 & 76.3\% & 0.0\% \\
+2 & LN / W & LN / LL & LL / LL & -222.52 & 76.3\% & 0.0\% \\
+3 & LN / W & Exp / LL & LL / W & -222.47 & 76.3\% & 0.0\% \\
+4 & LLog / W & LN / LL & LL / W & -222.42 & 72.9\% & 0.0\% \\
+5 & LN / W & LN / LL & LN / W & -222.40 & 76.3\% & 0.0\% \\
+6 & LN / W & LN / LL & LL / LN & -222.39 & 76.3\% & 0.0\% \\
+7 & LN / W & Exp / LL & LL / LL & -222.38 & 76.3\% & 0.0\% \\
+8 & W / W & LN / LL & LL / W & -222.37 & 71.1\% & 0.0\% \\
+9 & LLog / W & LN / LL & LL / LL & -222.33 & 72.9\% & 0.0\% \\
+10 & LN / W & LN / LL & LN / LL & -222.31 & 76.3\% & 0.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+\noindent\textit{Distributions:} LN = log-normal, W = weibull, LLog = log-logistic, Exp = exponential. C/P = Combo/Pembro. All top-ranked combinations use log-normal OS for the combo arm, yielding OS40c = 71.1--76.3\% under unconstrained extrapolation, substantially higher than GP survival at age 101 (2.0\%). This motivated the GP mortality hazard floor (Section~\ref{sec:gp_impl}).
+
+\subsection{Lifetime OS Extrapolation by Distribution}
+\label{sec:os_extrap}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s3_os_extrapolation.png}
+\caption{Lifetime OS extrapolation by parametric distribution. Within-trial data (0--5 years) are shown to the left of the first vertical dotted line; beyond 10 years is pure extrapolation. The four distributions produce wildly divergent 40-year survival estimates (0\% to 76.3\%).}
+\label{fig:s3}
+\end{figure}
+
+% ═══════════════════════════════════════════════════
+\section{General-Population Mortality and Structural Validation}
+% ═══════════════════════════════════════════════════
+
+\subsection{GP Mortality Implementation}
+\label{sec:gp_impl}
+The GP mortality hazard floor is applied to modeled OS from month 60 onward.
+
+\textbf{Life table source:} US 2019 period life tables (Arias et al., NVSS).
+\textbf{Baseline age:} 61 years (KEYNOTE-942 median). \textbf{Sex weighting:} 64\% male, 36\% female.
+\textbf{Interpolation:} Annual life table survival linearly interpolated to monthly resolution; monthly hazards derived as $h_{\text{GP}}(t) = -\ln[S_{\text{GP}}(t{+}1)/S_{\text{GP}}(t)]$.
+\textbf{Constraint formula (mortality hazard floor):} from month 60 onward, the model mortality hazard is floored at the age- and sex-matched general-population hazard:
+\begin{equation}
+    h_{\text{model}}^{\text{con}}(t) = \max\left[h_{\text{param}}(t),\; h_{\text{GP}}(t)\right] \qquad t \geq 60 \text{ months},
+\end{equation}
+where $h_{\text{param}}(t) = -\ln[S_{\text{param}}(t{+}1)/S_{\text{param}}(t)]$ is the monthly hazard implied by the fitted parametric survival curve. The constrained survival is reconstructed as $S_{\text{model}}^{\text{con}}(t) = \exp[-\sum_{0}^{t} h^{\text{con}}(u)]$. This is a \textbf{hazard floor}, not a survival cap: a cohort that has already experienced elevated (cancer-related) mortality in the first 5 years remains below general-population survival at every subsequent time point, whereas a survival cap ($S = \min[S_{\text{param}}, S_{\text{GP}}]$) would incorrectly force the two curves to coincide whenever the parametric tail exceeded the general-population level. Both arms are subject to the same background mortality floor.
+
+\subsection{Long-Term Survival Diagnostics}
+\label{sec:longterm}
+\begin{table}[H]
+\centering
+\caption{Long-Term Survival Predictions vs.\ General Population. GP survival is conditional on being alive at baseline age 61 and is calculated as $S_{\mathrm{GP}}(t)=l_{61+t}/l_{61}$ using the sex-weighted 2019 US life tables (64\% male, 36\% female); the terminal $100+$ life-table value is used for the 40-year row.}
+\label{tab:s5}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Years from baseline} & \textbf{Attained age} & \textbf{Combo OS} & \textbf{Pembro OS} & \textbf{GP survival} \\
+\midrule
+5 & 66 & 91.6\% & 74.1\% & 94.1\% \\
+10 & 71 & 84.1\% & 51.6\% & 86.4\% \\
+15 & 76 & 74.0\% & 37.6\% & 76.1\% \\
+20 & 81 & 60.1\% & 28.5\% & 61.9\% \\
+30 & 91 & 22.2\% & 10.5\% & 23.1\% \\
+40 & 101 & 2.0\% & 0.9\% & 2.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{OS versus General-Population Survival}
+\label{sec:os_vs_gp}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s4_os_vs_gp.png}
+\caption{OS versus general population. Solid lines: GP-constrained model (hazard floor from 60 months). Dotted lines: unconstrained log-normal extrapolation. Dashed gray line: US GP survival from age 61. The constrained combo curve remains below the GP curve at all time points, reflecting the hazard-floor property: a cohort with prior excess mortality does not "catch up" to general-population survival.}
+\label{fig:s4}
+\end{figure}
+
+\subsection{Structural Quality Assurance}
+\label{sec:structural_qa}
+\begin{table}[H]
+\centering
+\caption{Structural Quality Assurance (480 Monthly Cycles)}
+\label{tab:s6}
+\begin{tabular}{lc}
+\toprule
+\textbf{Check} & \textbf{Result} \\
+\midrule
+Total cycles & 480 \\
+RFS $>$ DMFS violations & 0 \\
+DMFS $>$ OS violations & 0 \\
+Negative RF state probability & 0 \\
+Negative LR state probability & 0 \\
+Negative DM state probability & 0 \\
+Maximum state-sum error & $< 10^{-12}$ \\
+Clamp events (forced non-negative) & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ═══════════════════════════════════════════════════
+\section{External Validation}
+% ═══════════════════════════════════════════════════
+
+\subsection{External Validation Landmarks}
+\label{sec:external_landmarks}
+\begin{table}[H]
+\centering
+\caption{External Validation of Pembrolizumab Arm Predictions}
+\label{tab:s7}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Outcome} & \textbf{Year} & \textbf{Model (pembro)} & \textbf{KEYNOTE-054} & \textbf{CheckMate 238} \\
+\midrule
+RFS & 5 & 40.5\% & --- & 51\% \cite{ascierto2025} \\
+RFS & 7 & 31.9\% & 50\% \cite{eggermont2025} & 46\% \cite{ascierto2025} \\
+DMFS & 5 & 53.8\% & --- & 59\% \cite{ascierto2025} \\
+DMFS & 7 & 44.9\% & 54\% \cite{eggermont2025} & 55\% \cite{ascierto2025} \\
+OS & 5 & 74.5\% & NR & 76\% \cite{ascierto2023} \\
+OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
+\bottomrule
+\end{tabular}
+\end{table}
+\noindent\textit{NR: Not reported.} CheckMate 238 evaluated nivolumab (not pembrolizumab). The model predicts lower RFS/DMFS versus external trials, reflecting the higher-risk KEYNOTE-942 population (stage IIIB--IV including resected stage IV melanoma vs IIIA--C in KEYNOTE-054 and IIIB--IV in CheckMate 238). Only published landmark values are included; no extrapolated estimates are used.\cite{eggermont2025, ascierto2025}
+
+\subsection{Longitudinal External Validation}
+\label{sec:external_fig}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s5_external_validation.png}
+\caption{External validation of pembrolizumab arm predictions. Gray line: model. Circles: KEYNOTE-942 observed data. Squares: KEYNOTE-054 (pembrolizumab, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
+\label{fig:s5}
+\end{figure}
+
+% ═══════════════════════════════════════════════════
+\section{Model Inputs}
+% ═══════════════════════════════════════════════════
+\label{sec:inputs}
+
+\subsection{Complete Parameter Table}
+\begin{landscape}
+\begin{table}[p]
+\centering
+\caption{Full Model Parameter Inventory}
+\label{tab:s8}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xlll>{\raggedright\arraybackslash}Xl@{}}
+\toprule
+\textbf{Parameter} & \textbf{Base} & \textbf{DSA Low} & \textbf{DSA High} & \textbf{PSA Distribution} & \textbf{Source} \\
+\midrule
+\multicolumn{6}{c}{\textit{Clinical Parameters}} \\
+OS $\mu$ -- combo & 8.396 & 5.038 & 11.754 & Normal (SE from Jacobian) & Fitted \\
+OS $\sigma$ -- combo & 3.096 & 2.896 & 3.296 & Normal (SE from Jacobian) & Fitted \\
+OS $\mu$ -- pembro & 4.841 & 3.873 & 5.809 & Normal (SE from Jacobian) & Fitted \\
+OS $\sigma$ -- pembro & 1.131 & 0.931 & 1.331 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\mu$ -- combo & 7.113 & 6.913 & 7.313 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- combo & 2.480 & 2.280 & 2.680 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\mu$ -- pembro & 7.042 & 6.842 & 7.242 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000 & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\mu$ -- combo & 8.874 & 8.674 & 9.074 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- combo & 5.000 & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\mu$ -- pembro & 5.913 & 5.713 & 6.113 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- pembro & 2.674 & 2.474 & 2.874 & Normal (SE from Jacobian) & Fitted \\
+Treatment duration (pembro) & 18 cycles (2 yr) & 9 & 24 & Fixed & \cite{khattak2026} \\
+Treatment duration (intismeran) & 9 doses (1 yr) & 6 & 12 & Fixed & \cite{khattak2026} \\
+Baseline age & 61 years & 55 & 67 & Fixed & \cite{khattak2026} \\
+Male proportion & 64\% & -- & -- & Fixed & \cite{khattak2026} \\
+\midrule
+\multicolumn{6}{c}{\textit{Costs (2026 USD)}} \\
+Intismeran (one-time) & \$200,000 & \$160,000 & \$240,000 & Gamma (CV=0.2) & Assumed \\
+Pembrolizumab (annual) & \$220,896 & \$176,717 & \$265,075 & Gamma (CV=0.2) & WAC (CMS) \\
+Tumor sequencing & \$1,000 & \$500 & \$2,000 & Gamma (CV=0.2) & CMS \\
+Administration (per cycle) & \$500 & \$250 & \$750 & Gamma (CV=0.2) & CMS \\
+AE management (one-time) & \$15,000 & \$7,500 & \$22,500 & Gamma (CV=0.2) & \cite{zhang2023} \\
+LR management (monthly) & \$3,000 & \$2,400 & \$3,600 & Gamma (CV=0.2) & \cite{zhang2023} \\
+DM management (monthly) & \$12,000 & \$9,600 & \$14,400 & Gamma (CV=0.2) & \cite{bensimon2019} \\
+\midrule
+\multicolumn{6}{c}{\textit{Utilities}} \\
+RF state & 0.83 & 0.80 & 0.86 & Beta (SE=0.03) & \cite{johnston2021} \\
+LR state & 0.64 & 0.61 & 0.67 & Beta (SE=0.03) & \cite{johnston2021} \\
+DM state & 0.55 & 0.52 & 0.58 & Beta (SE=0.03) & \cite{johnston2021} \\
+AE disutility (one-time) & 0.05 & 0.00 & 0.10 & Beta (SE=0.02) & Assumed \\
+\midrule
+\multicolumn{6}{c}{\textit{Economic Parameters}} \\
+Discount rate (costs, effects) & 3\% & 0\% & 5\% & Fixed (DSA only) & \cite{sanders2016} \\
+Time horizon & 40 years & 10 & 20 & Fixed (scenario) & Assumed \\
+Willingness-to-pay threshold & \$100K--\$150K/QALY & \$50K & \$200K & Fixed (scenario) & \cite{neumann2014} \\
+Cost base year & 2026 USD & -- & -- & -- & Assumed \\
+GP mortality source & US 2019 Life Tables & -- & -- & -- & NVSS (Arias 2022) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{landscape}
+
+% ═══════════════════════════════════════════════════
+\section{Additional Results}
+% ═══════════════════════════════════════════════════
+
+\subsection{Lifetime Cost Decomposition}
+\label{sec:cost_decomp}
+\begin{table}[H]
+\centering
+\caption{Lifetime Cost Decomposition by Component (GP-constrained, 40-year horizon)}
+\label{tab:s9}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Component} & \textbf{Combo} & \textbf{Pembro} & \textbf{Incremental} \\
+\midrule
+Intismeran & \$200,000 & \$0 & \$200,000 \\
+Pembrolizumab & \$217,888 & \$217,888 & \$0 \\
+Sequencing & \$1,000 & \$0 & \$1,000 \\
+Administration & \$493 & \$493 & \$0 \\
+Adverse events & \$15,000 & \$0 & \$15,000 \\
+LR management & \$85,455 & \$69,341 & \$16,114 \\
+DM management & \$354,189 & \$424,388 & \$-70,199 \\
+\midrule
+\textbf{Total} & \textbf{\$874,026} & \textbf{\$712,110} & \textbf{\$161,916} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{LY and QALY Decomposition}
+\label{sec:qaly_decomp}
+\begin{table}[H]
+\centering
+\caption{Life-Year and QALY Decomposition by Health State}
+\label{tab:s10}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Outcome} & \textbf{Combo} & \textbf{Pembro} & \textbf{Incremental} \\
+\midrule
+Life-years (undiscounted) & 21.58 & 13.81 & 7.77 \\
+Life-years (discounted 3\%) & 15.06 & 10.28 & 4.78 \\
+\midrule
+RF state QALYs & 8.49 & 4.48 & 4.01 \\
+LR state QALYs & 1.52 & 1.23 & 0.29 \\
+DM state QALYs & 1.35 & 1.62 & -0.27 \\
+\midrule
+\textbf{Total QALYs} & \textbf{11.35} & \textbf{7.33} & \textbf{4.02} \\
+\bottomrule
+\end{tabular}
+\end{table}
+\noindent Health benefit is driven by RF state QALYs (4.01 gained), with a modest additional contribution from LR (+0.29) and a small reduction in DM state QALYs ($-$0.27) under the corrected mortality-constrained extrapolation.
+
+% ═══════════════════════════════════════════════════
+\section{Uncertainty and Structural Scenario Analyses}
+% ═══════════════════════════════════════════════════
+
+\subsection{Deterministic Sensitivity Analysis}
+\label{sec:dsa}
+\begin{table}[H]
+\centering
+\caption{One-Way Deterministic Sensitivity Analysis}
+\label{tab:s11}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Parameter} & \textbf{Base} & \textbf{Low} & \textbf{High} & \textbf{ICER range} & \textbf{Change in NMB} \\
+\midrule
+Utility RF & 0.83 & 0.80 & 0.86 & 41,777--38,875 & \$43,396 \\
+Utility LR & 0.64 & 0.61 & 0.67 & 40,409--40,140 & \$4,029 \\
+Utility DM & 0.55 & 0.52 & 0.58 & 40,128--40,421 & \$4,387 \\
+Pembrolizumab annual cost & \$220,896 & \$176,717 & \$265,075 & 40,274--40,274 & \$0 \\
+Intismeran cost & \$200,000 & \$160,000 & \$240,000 & 30,324--50,223 & \$80,000 \\
+LR monthly cost & \$3,000 & \$2,400 & \$3,600 & 39,472--41,075 & \$6,446 \\
+DM monthly cost & \$12,000 & \$9,600 & \$14,400 & 43,766--36,782 & \$28,079 \\
+Discount rate & 3\% & 0\% & 5\% & 33,120--48,284 & \$434,030 \\
+OS $\mu$ combo & 8.396 & -40\% & +40\% & 19,875--40,684 & \$485,457 \\
+OS $\mu$ pembro & 4.841 & -20\% & +20\% & 57,434--Dominant & \$441,968 \\
+\end{tabular}
+}
+\end{table}
+\noindent The maximum finite ICER was \$57,434/QALY across the tested ranges; the combination became dominant when the pembrolizumab OS parameter was increased by 20\%.
+
+\subsection{Probabilistic Sensitivity Analysis}
+\label{sec:psa}
+
+\subsubsection{PSA Implementation Details}
+PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$). Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
+
+\begin{landscape}
+\begin{table}[p]
+\centering
+\caption{PSA Parameter Distributions and Sampled Values}
+\label{tab:s12}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xlllll@{}}
+\toprule
+\textbf{Parameter} & \textbf{Distribution} & \textbf{Fitted mean} & \textbf{SE} & \textbf{Correlation} & \textbf{Sampling} \\
+\midrule
+OS $\mu$ / $\sigma$ -- combo & Bivariate normal & 8.396 / 3.096 & 0.793 / 0.522 & 0.996 & Joint \\
+OS $\mu$ / $\sigma$ -- pembro & Bivariate normal & 4.841 / 1.131 & 0.291 / 0.310 & 0.955 & Joint \\
+r$_{\text{DM}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 7.113 / 2.480 & 0.814 / 0.563 & 0.995 & Joint \\
+r$_{\text{DM}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 7.042 / 5.000 & 2.278 / 3.130 & 0.995 & Joint \\
+r$_{\text{LR}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 8.874 / 5.000 & 2.039 / 1.928 & 0.997 & Joint \\
+r$_{\text{LR}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 5.913 / 2.674 & 0.757 / 0.879 & 0.984 & Joint \\
+Intismeran cost & Fixed & \$200,000 & --- & --- & Fixed (not sampled) \\
+Pembrolizumab annual cost & Gamma (CV=0.2) & \$220,896 & --- & --- & Independent \\
+LR monthly cost & Gamma (CV=0.2) & \$3,000 & --- & --- & Independent \\
+DM monthly cost & Gamma (CV=0.2) & \$12,000 & --- & --- & Independent \\
+Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Independent \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{landscape}
+
+\newpage
+\subsubsection{PSA Results}
+\begin{itemize}
+\item Mean $\Delta$QALY: 4.32 (95\% CI 2.53--7.04).
+\item Mean $\Delta$Cost: \$127,711 (95\% CI \textendash\$668,394 to \$520,672).
+\item Mean NMB: \$304,291 at \$100K and \$520,293 at \$150K.
+\item Probability cost-effective: 63.8\% at \$50K, 95.3\% at \$100K, and 98.7\% at \$150K.
+\item No iterations were excluded based on the ICER; 16.7\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY $>$ 0.
+\end{itemize}
+
+\subsubsection{PSA Convergence}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s6_psa_convergence.png}
+\caption{PSA convergence across iteration counts (6,000 structurally valid iterations, 0 structural rejections, seed = 42). Cumulative means of $\Delta$QALY, $\Delta$Cost, NMB, and P(CE). Vertical dotted lines at 500, 1,000, 2,000, and 4,000 iterations. Estimates stable from $\sim$500 iterations.}
+\label{fig:s6}
+\end{figure}
+
+\subsubsection{Cost-Effectiveness Plane}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s7_ce_plane.png}
+\caption{CE plane showing 6,000 PSA iterations (blue), WTP lines (\$50K, \$100K, \$150K per QALY), and the deterministic base case (black diamond). 16.7\% of iterations fall in the southeast quadrant (cost-saving); all 6,000 iterations had positive $\Delta$QALY. No iterations were excluded based on the ICER value.}
+\label{fig:s7}
+\end{figure}
+
+\subsection{Structural Scenario Analyses}
+\label{sec:scenarios}
+\begin{landscape}
+\begin{table}[p]
+\centering
+\caption{Structural Scenario Analysis Results}
+\label{tab:s13}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xrrrrrr@{}}
+\toprule
+\textbf{Scenario} & \textbf{$\Delta$LY} & \textbf{$\Delta$QALY} & \textbf{$\Delta$Cost} & \textbf{ICER} & \textbf{NMB \$100K} & \textbf{NMB \$150K} \\
+\midrule
+Base case & 4.78 & 4.02 & \$161,916 & \$40,274 & \$240,123 & \$441,143 \\
+Weibull OS & 5.60 & 5.60 & \$307,578 & \$54,925 & \$252,422 & \$532,422 \\
+Unconstrained (no GP) & 9.24 & 7.22 & \$373,488 & \$51,753 & \$348,512 & \$709,512 \\
+GP floor 48 mo & 4.78 & 4.00 & \$160,954 & \$40,236 & \$239,046 & \$439,046 \\
+GP floor 60 mo (base) & 4.78 & 4.02 & \$161,916 & \$40,274 & \$240,123 & \$441,143 \\
+GP floor 72 mo & 4.78 & 4.05 & \$163,611 & \$40,351 & \$241,389 & \$443,889 \\
+GP floor 96 mo & 4.91 & 4.15 & \$168,745 & \$40,623 & \$246,255 & \$453,755 \\
+10-year horizon & 1.30 & 1.30 & \$96,400 & \$74,305 & \$33,600 & \$98,600 \\
+20-year horizon & 3.54 & 3.08 & \$123,974 & \$40,293 & \$183,705 & \$337,545 \\
+30-year horizon & 3.89 & 3.89 & \$155,242 & \$39,914 & \$233,758 & \$428,258 \\
+40-year horizon (base) & 4.78 & 4.02 & \$161,916 & \$40,274 & \$240,123 & \$441,143 \\
+Intismeran \$100K & 4.78 & 4.02 & \$61,916 & \$15,400 & \$340,123 & \$541,143 \\
+Intismeran \$200K (base) & 4.78 & 4.02 & \$161,916 & \$40,274 & \$240,123 & \$441,143 \\
+Intismeran \$300K & 4.78 & 4.02 & \$261,916 & \$65,147 & \$140,123 & \$341,143 \\
+Intismeran \$500K & 4.78 & 4.02 & \$461,916 & \$114,893 & -\$59,877 & \$141,143 \\
+Waning V1 (recurrence) & 1.91 & 1.93 & \$41,571 & \$21,514 & \$151,429 & \$248,929 \\
+Waning V2 (hazard convergence) & 2.72 & 2.17 & \$227,542 & \$104,852 & -\$10,530 & \$97,975 \\
+No direct OS benefit & 0.00 & 0.50 & -\$14,330 & Dominant & \$64,330 & \$89,330 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{landscape}
+\noindent The base-case conclusion is robust across structural assumptions. The ICER alone is insufficient: unconstrained model has moderate ICER (\$51,753) but implausible \$373,488 cost.
+
+\indent \textbf{Time horizon sensitivity.} The ICER remained below conventional US willingness-to-pay thresholds across 20-, 30-, and 40-year horizons, although the point estimate increased at the 40-year horizon: \$40,293 at 20 years, \$39,914 at 30 years, and \$40,274 at the 40-year base-case horizon (Table~\ref{tab:s13}). The 30-to-40-year increase of \$360/QALY (0.9\%) reflects the limited contribution of late discounted QALY gains beyond 30 years; the 10-year horizon produced a higher ICER of \$74,305/QALY, reflecting the incomplete capture of long-term QALY gains within a shorter window. Because the general-population mortality hazard floor was applied from 60 months onward and both costs and QALYs were discounted at 3\% annually, survival beyond the 20-year window contributed materially to discounted incremental costs and QALYs.
+
+\noindent \textbf{General population hazard floor start-time sensitivity.} The GP mortality floor was applied from 60 months in the base case. Varying the onset from 48 to 96 months produced no material change in the ICER (the ICERs ranged from \$40,236 to \$40,623/QALY across 48--96 months). This reflects the fact that the fitted hazard for the combination arm closely tracks the general-population mortality hazard in the post-trial period (both at approximately 0.0008--0.0009 monthly), leaving the floor with minimal additional constraining effect regardless of onset timing. The floor's binding is thus a near-numerical coincidence between the parametric extrapolation and US life-table mortality, not a model artifact.
+
+% ═══════════════════════════════════════════════════
+\section{Deterministic Threshold Acquisition Price}
+% ═══════════════════════════════════════════════════
+
+\subsection{Price Threshold Analysis}
+\label{sec:price_threshold}
+\begin{table}[H]
+\centering
+\caption{Price Threshold Analysis}
+\label{tab:s14}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Intismeran Price} & \textbf{ICER} & \textbf{NMB @ \$100K} & \textbf{NMB @ \$150K} \\
+\midrule
+\$0 & Dominant & \$440,123 & \$641,143 \\
+\$50,000 & \$2,964 & \$390,123 & \$591,143 \\
+\$100,000 & \$15,400 & \$340,123 & \$541,143 \\
+\$150,000 & \$27,837 & \$290,123 & \$491,143 \\
+\$200,000 (base) & \$40,274 & \$240,123 & \$441,143 \\
+\$250,000 & \$52,710 & \$190,123 & \$391,143 \\
+\$300,000 & \$65,147 & \$140,123 & \$341,143 \\
+\$350,000 & \$77,583 & \$90,123 & \$291,143 \\
+\$400,000 & \$90,020 & \$40,123 & \$241,143 \\
+\$450,000 & \$102,457 & -\$9,877 & \$191,143 \\
+\$500,000 & \$114,893 & -\$59,877 & \$141,143 \\
+\textbf{\$440,063} & \textbf{\$100,000} & \textbf{\$0} & \textbf{\$200,000} \\
+\$550,000 & \$127,330 & -\$109,877 & \$91,143 \\
+\$600,000 & \$139,766 & -\$159,877 & \$41,143 \\
+\$650,000 & \$152,203 & -\$209,877 & -\$8,857 \\
+\$700,000 & \$164,640 & -\$259,877 & -\$58,857 \\
+\$750,000 & \$177,076 & -\$309,877 & -\$108,857 \\
+\$800,000 & \$189,513 & -\$359,877 & -\$158,857 \\
+\textbf{\$640,869} & \textbf{\$150,000} & \textbf{-\$200,746} & \textbf{\$0} \\
+\end{tabular}
+\end{table}
+\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$440,063 at \$100,000/QALY (2.2$\times$ base) and approximately \$640,869 at \$150,000/QALY (3.2$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
+
+\subsection{ICER versus Acquisition Price}
+\label{sec:price_fig}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_s8_price_threshold.png}
+\caption{ICER as a function of intismeran acquisition price. Red/green dashed lines: \$100K/\$150K thresholds. Vertical dotted lines: threshold prices.}
+\label{fig:s8}
+\end{figure}
+
+% ═══════════════════════════════════════════════════
+\section{Reproducibility and Reporting}
+% ═══════════════════════════════════════════════════
+
+\subsection{Technical Reproducibility}
+\label{sec:tech_repro}
+All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26.6.2 (Apple Silicon). The full code repository is available at \url{https://github.com/yichao2022/cea-intismeran} (tag \texttt{v1.0-submission}).
+
+\textbf{Key dependencies:} NumPy 1.26.4, SciPy 1.14.1, Matplotlib 3.9.3, Pandas 2.2.3, LaTeX (TeX Live 2025, pdfLaTeX + BibTeX + natbib).
+
+\textbf{Model details:}
+\begin{itemize}
+    \item Cycle length: monthly (1/12 year); time horizon: 40 years (480 cycles)
+    \item Half-cycle correction: not applied (monthly cycles are sufficiently fine-grained)
+    \item Discounting: continuous-time exponential: $1/(1 + r)^t$ where $r = 0.03$
+    \item Random seed: 42 (PSA reproducibility)
+    \item GP mortality source: US 2019 period life tables (NVSS, Arias et al. 2022)
+\end{itemize}
+
+\textbf{Code structure:}
+\begin{itemize}
+    \item \texttt{model.py} --- ModelParams, CEAModel (4-state PSM)
+    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-OS)
+    \item \texttt{psa\_full.py} --- PSA with joint survival sampling
+    \item \texttt{survival\_model\_selection.py} --- 4,096-combination model selection
+    \item \texttt{final\_run.py} / \texttt{threshold\_analysis.py} --- DSA, scenarios, pricing
+    \item \texttt{figures.py} / \texttt{gen\_fig\_*.py} --- Figure generation scripts
+    \item \texttt{output/survival\_combos\_4096.csv} --- Full model selection results
+\end{itemize}
+
+\textbf{Data extraction:} Survival probabilities extracted from Figure~1 of Khattak et al. (2026) using WebPlotDigitizer v4.7. The digitized values are in Table~\ref{tab:s2}.
+
+\textbf{Reproducibility:} Running \texttt{python3 rerun\_primary.py} reproduces base-case results. \texttt{python3 psa\_full.py} reproduces PSA. GitHub tag \texttt{v1.0-submission} freezes the submission code.
+
+\subsection{CHEERS 2022 Checklist}
+\label{sec:cheers}
+\begin{table}[H]
+\centering
+\caption{CHEERS 2022 Checklist}
+\label{tab:cheers}
+\begin{tabularx}{\linewidth}{@{}p{0.7cm}X p{1.6cm}X@{}}
+\toprule
+\textbf{No.} & \textbf{Item} & {\scriptsize\textbf{Reported}} & \textbf{Location} \\
+\midrule
+1 & Title & Yes & Title page \\
+2 & Abstract & Yes & Abstract \\
+3 & Background & Yes & Introduction \\
+4 & Health economic analysis plan & No & This is a retrospective analysis, not a pre-specified HEAP \\
+5 & Model & Yes & Methods, Appendix A \\
+6 & Population & Yes & Methods \\
+7 & Setting & Yes & Methods \\
+8 & Comparators & Yes & Methods \\
+9 & Perspective & Yes & Methods \\
+10 & Time horizon & Yes & Methods \\
+11 & Discount rate & Yes & Methods \\
+12 & Outcomes & Yes & Methods \\
+13 & Health states & Yes & Appendix A \\
+14 & Measurement of outcomes & Yes & Methods \\
+15 & Resource use & Yes & Methods \\
+16 & Currency & Yes & Methods \\
+17 & Model choice & Yes & Methods \\
+18 & Assumptions & Yes & Methods ({\S}2.2--2.7) \\
+19 & Analytic methods & Yes & Methods ({\S}2.7) \\
+20 & Study parameters & Yes & Methods ({\S}2.4, 2.5), Appendix D \\
+21 & Incremental results & Yes & Results ({\S}3.1--3.2) \\
+22 & Uncertainty & Yes & Results ({\S}3.4--3.6), Supplement \\
+23 & Heterogeneity & Not assessed & Limitations ({\S}4.7, subgroup heterogeneity acknowledged) \\
+24 & Discussion & Yes & Discussion \\
+25 & Limitations & Yes & Discussion \\
+26 & Funding & Yes & Declarations \\
+27 & Conflicts & Yes & Declarations \\
+28 & Reproducibility & Yes & Appendix \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+\bibliography{refs}
+\end{document}
