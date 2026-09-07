@@ -371,11 +371,12 @@ def run_psa(n_iter: int = 1000) -> dict:
         rng = np.random.default_rng()
         pp = ModelParams()
 
-        # Gamma distributions for costs (CV=0.2)
-        for attr, val in [("cost_keytruda_annual", 220_896), ("cost_intismeran", 200_000),
+        # Gamma distributions for costs (CV=0.2) - intismeran held fixed per Methods
+        for attr, val in [("cost_keytruda_annual", 220_896),
                           ("cost_lr_monthly", 3_000), ("cost_dm_monthly", 12_000)]:
             cv = 0.2
             setattr(pp, attr, rng.gamma(1 / cv ** 2, val * cv ** 2))
+        # Intismeran price held fixed at $200,000 (price uncertainty explored in threshold analysis)
 
         # Beta distributions for utilities (simulated from SE=0.03)
         for attr, val in [("util_rf", 0.83), ("util_lr", 0.64), ("util_dm", 0.55)]:

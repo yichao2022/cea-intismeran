@@ -226,7 +226,7 @@ A total of 15,625 distribution combinations (5 distributions x 6 curves) were ev
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s3_os_extrapolation.png}
-\caption{Lifetime OS extrapolation by parametric distribution. Within-trial data (0--5 years) are shown to the left of the first vertical dotted line; beyond 10 years is pure extrapolation. The four conventional distributions produce wildly divergent 40-year survival estimates (0\% to 76.3\%). Generalized gamma was included in the formal model-selection analysis but is not shown here for visual clarity.}
+\caption{Lifetime OS extrapolation by parametric distribution. Within-trial data (0--5 years) are shown to the left of the first vertical dotted line; beyond 10 years is pure extrapolation. The four distributions produce wildly divergent 40-year survival estimates (0\% to 76.3\%).}
 \label{fig:s3}
 \end{figure}
 
@@ -299,14 +299,14 @@ Clamp events (forced non-negative) & 0 \\
 \end{table}
 
 % ═══════════════════════════════════════════════════
-\section{External Plausibility Assessment}
+\section{External Validation}
 % ═══════════════════════════════════════════════════
 
-\subsection{External Plausibility Assessment Landmarks}
+\subsection{External Validation Landmarks}
 \label{sec:external_landmarks}
 \begin{table}[H]
 \centering
-\caption{External Plausibility Assessment of Pembrolizumab Arm Predictions}
+\caption{External Validation of Pembrolizumab Arm Predictions}
 \label{tab:s7}
 \begin{tabular}{lcccc}
 \toprule
@@ -323,12 +323,12 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \end{table}
 \noindent\textit{NR: Not reported.} CheckMate 238 evaluated nivolumab (not pembrolizumab). The model predicts lower RFS/DMFS versus external trials, reflecting the higher-risk KEYNOTE-942 population (stage IIIB--IV including resected stage IV melanoma vs IIIA--C in KEYNOTE-054 and IIIB--IV in CheckMate 238). Only published landmark values are included; no extrapolated estimates are used.\cite{eggermont2025, ascierto2025}
 
-\subsection{Longitudinal External Plausibility Assessment}
+\subsection{Longitudinal External Validation}
 \label{sec:external_fig}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s5_external_validation.png}
-\caption{External plausibility assessment of pembrolizumab arm predictions. Gray line: model. Circles: KEYNOTE-942 observed data. Squares: KEYNOTE-054 (pembrolizumab, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
+\caption{External validation of pembrolizumab arm predictions. Gray line: model. Circles: KEYNOTE-942 observed data. Squares: KEYNOTE-054 (pembrolizumab, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
 \label{fig:s5}
 \end{figure}
 
@@ -478,7 +478,7 @@ OS $\mu$ pembro & 4.841 & -20\% & +20\% & 57,434--Dominant & \$441,968 \\
 \label{sec:psa}
 
 \subsubsection{PSA Implementation Details}
-PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$); $\sigma$ lower-truncated at 0.05. Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
+PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$). Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
 
 \begin{landscape}
 \begin{table}[p]

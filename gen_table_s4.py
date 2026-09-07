@@ -1,9 +1,9 @@
-"""Generate Table S4 — Joint model selection: 4,096 combinations, top 20 by total AIC + structural validity."""
+"""Generate Table S4 — Joint model selection: 15,625 combinations, top 20 by total AIC + structural validity."""
 import sys
 sys.path.insert(0, "/Users/cary/cea-intismeran")
 import numpy as np
 from scipy.optimize import least_squares
-from scipy.stats import norm
+from scipy.stats import norm, gengamma
 from model import ModelParams
 
 p = ModelParams()
@@ -33,7 +33,7 @@ CURVES = {
     "rDM_c": (t_dmfs, rd_c, 4), "rDM_p": (t_dmfs, rd_p, 4),
     "rLR_c": (t_rfs, rl_c, 5), "rLR_p": (t_rfs, rl_p, 5),
 }
-DISTS = ["exponential", "weibull", "lognormal", "loglogistic"]
+DISTS = ["exponential", "weibull", "lognormal", "loglogistic", "gengamma"]
 
 def s_expon(t, r): return np.exp(-r * t)
 def s_weibull(t, a, b): return np.exp(-(t / a) ** b)
@@ -59,6 +59,12 @@ def fit_dist(dist, t, s):
         sol = least_squares(lambda pp: s_loglog(t, pp[0], pp[1]) - s, x0=[1.5, 50.0], bounds=([0.05, 1], [15, 5000]))
         pred = lambda tt: s_loglog(np.array(tt, float), sol.x[0], sol.x[1])
         k = 2
+    elif dist == "gengamma":
+        sol = least_squares(lambda pp: gengamma.sf(t, a=np.exp(pp[0]), c=pp[1], scale=np.exp(pp[2])) - s,
+                            x0=[0.5, 1.0, np.log(50)], bounds=([-2, 0.1, 1], [5, 5, 300]),
+                            max_nfev=5000)
+        pred = lambda tt: gengamma.sf(np.array(tt, float), a=np.exp(sol.x[0]), c=sol.x[1], scale=np.exp(sol.x[2]))
+        k = 3
     sse = np.sum((pred(t) - s) ** 2)
     aic = n * np.log(sse / n) + 2 * k
     rmse = np.sqrt(sse / n)
@@ -145,11 +151,11 @@ print(f"  Total AIC: {next(r['total_aic'] for r in valid_sorted if r['combo'] ==
 
 # Save full results to CSV for GitHub
 import csv
-with open("/Users/cary/cea-intismeran/output/survival_combos_4096.csv", "w", newline="") as f:
+with open("/Users/cary/Documents/cea-intismeran/output/survival_combos_15625.csv", "w", newline="") as f:
     w = csv.writer(f)
     w.writerow(["rank", "OS_combo", "OS_pembro", "rDM_combo", "rDM_pembro", "rLR_combo", "rLR_pembro",
                 "total_AIC", "structurally_valid_40y", "OS40_combo", "OS40_pembro", "GP_plausible"])
     for i, r in enumerate(valid_sorted, 1):
         w.writerow([i, *r["combo"], round(r["total_aic"], 3), int(r["valid"]),
                     round(r["os40c"], 5), round(r["os40p"], 5), int(r["os40c"] < 0.10 and r["os40p"] < 0.10)])
-print(f"\nSaved full 4096-row results to output/survival_combos_4096.csv")
+print(f"\nSaved full 15625-row results to output/survival_combos_15625.csv")

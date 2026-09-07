@@ -98,10 +98,11 @@ def sample_params(rng):
             s = [mh + rng.normal(0, 0.1), max(sh + rng.normal(0, 0.05), 0.05)]
         setattr(pp, am, float(s[0]))
         setattr(pp, as_, float(max(s[1], 0.05)))
-    for attr, val in [("cost_keytruda_annual", 220_896), ("cost_intismeran", 200_000),
+    for attr, val in [("cost_keytruda_annual", 220_896),
                       ("cost_lr_monthly", 3_000), ("cost_dm_monthly", 12_000)]:
         cv = 0.2
         setattr(pp, attr, float(rng.gamma(1/cv**2, val*cv**2)))
+    # Intismeran cost held fixed at $200K per Methods (price uncertainty in threshold analysis)
     for attr, val in [("util_rf", 0.83), ("util_lr", 0.64), ("util_dm", 0.55)]:
         se = 0.03
         alpha = val * (val*(1-val)/se**2 - 1)
