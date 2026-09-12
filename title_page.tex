@@ -1,0 +1,76 @@
+% Title page — PharmacoEconomics (Gene and Cell Therapies collection)
+% Kept separate from manuscript.tex: Springer requires the author details and the
+% Declarations on the title page, not in the manuscript file.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\usepackage{parskip}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Cost-Effectiveness of Intismeran Autogene Plus Pembrolizumab in Resected Stage IIIB--IV Melanoma: An Early Economic Evaluation\par}
+\vspace{0.6em}
+{\normalsize Original Research Article\par}
+{\small Submitted to \textit{PharmacoEconomics} --- Gene and Cell Therapies collection\par}
+\end{center}
+
+\vspace{1.2em}
+\begin{center}
+{\large Yichao Jin, Ph.D.}\\[0.4em]
+School of Economic, Political and Policy Sciences\\
+University of Texas at Dallas, Richardson, TX, USA\\
+ORCID: 0009-0003-7667-5143\\
+\textbf{Corresponding author:} Yichao Jin --- \texttt{Yichao.Jin@UTDallas.edu}
+\end{center}
+
+\vspace{1.0em}
+\textbf{Manuscript metrics.} Abstract 211 words (structured: Background, Objective, Methods, Results, Conclusion);
+main text approximately 2{,}915 words excluding the abstract, tables, figure captions and references;
+4 figures; 4 tables; 26 references; 29 manuscript pages; supplementary appendix 25 pages
+(Tables S1--S17 and Figures S1--S7, including the CHEERS 2022 checklist).
+
+\vspace{1.0em}
+\textbf{Keywords.} cost-effectiveness analysis, intismeran, mRNA-4157, V940, melanoma, pembrolizumab,
+Keytruda, individualized neoantigen therapy, partitioned survival model.
+
+\vspace{1.2em}
+\textbf{Declarations}
+
+\textbf{Funding.} This study was conducted without external funding.
+
+\textbf{Competing interests.} The author declares no competing interests relevant to this study.
+
+\textbf{Ethics approval.} Not required: this is a model-based economic evaluation using previously published
+aggregate trial and literature data; no human participants, human tissue or identifiable personal data were involved.
+
+\textbf{Consent to participate / for publication.} Not applicable.
+
+\textbf{Data availability.} All data used in this analysis are derived from published sources cited in the references.
+The full model-selection results (15{,}625 distribution combinations) and all model outputs are available in the
+project repository at \url{https://github.com/yichao2022/cea-intismeran}, including
+\texttt{output/survival\_combos\_15625.csv} and \texttt{output/canonical\_results.json}.
+
+\textbf{Code availability.} The partitioned survival model was implemented in Python~3.12 and is available at
+\url{https://github.com/yichao2022/cea-intismeran} (tag \texttt{v1.0-submission}).
+Running \texttt{python3 results\_pipeline.py} reproduces every reported quantity (base case, decomposition,
+scenarios, one-way deterministic sensitivity analysis, price ladder and analytic threshold prices) from a single
+canonical model implementation, with algebraic consistency checks enforced before export;
+adding \texttt{-\/-psa} reproduces the probabilistic analysis.
+
+\textbf{Author contributions.} Yichao Jin conceived and designed the study, developed the model, conducted the
+analysis, and wrote the manuscript.
+
+\textbf{Acknowledgments.} None.
+
+\textbf{Reporting standard.} This study adheres to the Consolidated Health Economic Evaluation Reporting Standards
+2022 (CHEERS 2022; Husereau et al., \textit{Value in Health} 2022); the completed checklist is provided in the
+supplementary appendix.
+
+\end{document}
