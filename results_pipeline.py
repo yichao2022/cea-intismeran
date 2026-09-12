@@ -64,9 +64,12 @@ def build_params(**kw) -> ModelParams:
     if unknown:                     # a dropped kwarg silently yields the base case
         raise ValueError(f"unknown model parameter(s): {sorted(unknown)}")
     p = ModelParams(**{k: v for k, v in kw.items() if k in _FIELDS})
+    # ModelParams.__post_init__ refits every survival parameter from the landmark data
+    # and overwrites whatever the constructor was given, so re-apply every override
+    # afterwards (same trick psa_v2.py uses). Without this, os_mu_* / os_weibull_*
+    # perturbations are silently discarded and the DSA row is a no-op.
     for k, v in kw.items():
-        if k not in _FIELDS:
-            setattr(p, k, v)
+        setattr(p, k, v)
     return p
 
 
@@ -164,6 +167,13 @@ def run_case(label: str, model_cls=CEAModelV2, **kw) -> Case:
 
 
 # ---------------------------------------------------------------- scenario registry
+def os_dists(kw: dict) -> tuple:
+    """Effective (combo, pembro) OS distributions implied by a kwargs dict."""
+    shared = kw.get("os_distribution", "lognormal")
+    return (kw.get("os_distribution_combo", "") or shared,
+            kw.get("os_distribution_pembro", "") or shared)
+
+
 def rank1_params() -> dict:
     """Lowest total-AIC distribution combination from the 15,625-combination search."""
     cols = {"OS_combo": "os_distribution_combo", "OS_pembro": "os_distribution_pembro",
@@ -209,15 +219,22 @@ SCENARIOS = [
 ]
 
 DSA_UTILS = [
-    ("Utility RF", "util_rf", "0.83", 0.80, 0.86),
-    ("Utility LR", "util_lr", "0.64", 0.61, 0.67),
-    ("Utility DM", "util_dm", "0.55", 0.52, 0.58),
-    ("Pembrolizumab annual cost", "cost_keytruda_annual", "\\$220,896", 176_717, 265_075),
-    ("Intismeran cost", "cost_intismeran", "\\$200,000", 160_000, 240_000),
-    ("LR monthly cost", "cost_lr_monthly", "\\$3,000", 2_400, 3_600),
-    ("DM monthly cost", "cost_dm_monthly", "\\$12,000", 9_600, 14_400),
-    ("Discount rate", "discount_rate", "3\\%", 0.0, 0.05),
+    # label, attribute, base display, (low value, low display), (high value, high display)
+    ("Utility RF", "util_rf", "0.83", (0.80, "0.80"), (0.86, "0.86")),
+    ("Utility LR", "util_lr", "0.64", (0.61, "0.61"), (0.67, "0.67")),
+    ("Utility DM", "util_dm", "0.55", (0.52, "0.52"), (0.58, "0.58")),
+    ("Pembrolizumab annual cost", "cost_keytruda_annual", "\\$220,896",
+     (176_717, "\\$176,717"), (265_075, "\\$265,075")),
+    ("Intismeran cost", "cost_intismeran", "\\$200,000",
+     (160_000, "\\$160,000"), (240_000, "\\$240,000")),
+    ("LR monthly cost", "cost_lr_monthly", "\\$3,000", (2_400, "\\$2,400"),
+     (3_600, "\\$3,600")),
+    ("DM monthly cost", "cost_dm_monthly", "\\$12,000", (9_600, "\\$9,600"),
+     (14_400, "\\$14,400")),
+    ("Discount rate", "discount_rate", "3\\%", (0.0, "0\\%"), (0.05, "5\\%")),
 ]
+# Applied to both arms, so the incremental cost (and hence the ICER) cannot move.
+EXPECT_NO_CHANGE = {"Pembrolizumab annual cost"}
 
 
 # ---------------------------------------------------------------- builders
@@ -266,23 +283,39 @@ def build_deterministic() -> dict:
                 and abs(case.dqaly - base.dqaly) < 1e-9):
             FAILURES.append(f"scenario '{label}' is numerically identical to the base "
                             f"case (unimplemented switch or wrong parametrization)")
+        # A partial override is invisible to the check above: changing only the OS
+        # distribution used to leave dLY bit-identical to base while cost/QALY moved
+        # (CEAModelV2 read only p.os_distribution and ignored the per-arm fields).
+        if (isinstance(kw, dict) and os_dists(kw) != os_dists({})
+                and abs(case.dly - base.dly) < 1e-9):
+            FAILURES.append(f"scenario '{label}' overrides the OS distribution "
+                            f"({os_dists(kw)}) but discounted LY is unchanged from base "
+                            f"-> the override was ignored")
         scenario_rows.append(("-", label, definition, case))
 
     print("== DSA (one-way) ==")
     dsa_rows = []
-    for label, attr, base_disp, lo, hi in DSA_UTILS:
-        dsa_rows.append({"param": label, "base": base_disp, "low": lo, "high": hi,
-                         "low_case": run_case(f"dsa {label} lo", **{attr: lo}),
-                         "high_case": run_case(f"dsa {label} hi", **{attr: hi})})
+
+    def _dsa_row(label: str, base_disp: str, lo_val, lo_disp: str,
+                 hi_val, hi_disp: str, attr: str) -> None:
+        rows = {"low_case": run_case(f"dsa {label} lo", **{attr: lo_val}),
+                "high_case": run_case(f"dsa {label} hi", **{attr: hi_val})}
+        if label not in EXPECT_NO_CHANGE:
+            b = CASES["base"]
+            if (abs(rows["low_case"].icer - b.icer) < 1
+                    and abs(rows["high_case"].icer - b.icer) < 1):
+                FAILURES.append(f"DSA row '{label}' does not move the ICER in either "
+                                f"direction -> the perturbation was ignored")
+        dsa_rows.append({"param": label, "attr": attr, "base": base_disp, "low": lo_disp,
+                         "high": hi_disp, **rows})
+
+    for label, attr, base_disp, (lo, lo_disp), (hi, hi_disp) in DSA_UTILS:
+        _dsa_row(label, base_disp, lo, lo_disp, hi, hi_disp, attr)
     for which, lo_f, hi_f in (("combo", 0.6, 1.4), ("pembro", 0.8, 1.2)):
         mu = getattr(build_params(), f"os_mu_{which}")
-        dsa_rows.append({"param": f"OS $\\mu$ {which}",
-                         "base": f"{mu:.3f}",
-                         "low": f"-{100-100*lo_f:.0f}\\%", "high": f"+{100*hi_f-100:.0f}\\%",
-                         "low_case": run_case(f"dsa os_mu_{which} lo",
-                                              **{f"os_mu_{which}": mu * lo_f}),
-                         "high_case": run_case(f"dsa os_mu_{which} hi",
-                                               **{f"os_mu_{which}": mu * hi_f})})
+        _dsa_row(f"OS $\\mu$ {which}", f"{mu:.3f}", mu * lo_f,
+                 f"-{100 - 100 * lo_f:.0f}\\%", mu * hi_f, f"+{100 * hi_f - 100:.0f}\\%",
+                 f"os_mu_{which}")
 
     return {"base": base, "prices": price_cases, "thresholds": thresholds,
             "scenarios": scenario_rows, "dsa": dsa_rows}
@@ -449,9 +482,8 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
     dsa = []
     for row in deterministic["dsa"]:
         lo, hi = row["low_case"], row["high_case"]
-        fmt = lambda v: money(v) if isinstance(v, (int, float)) else v  # noqa: E731
         dnmb = abs(hi.nmb(150_000) - lo.nmb(150_000))
-        dsa.append(f"{row['param']} & {row['base']} & {fmt(row['low'])} & {fmt(row['high'])} "
+        dsa.append(f"{row['param']} & {row['base']} & {row['low']} & {row['high']} "
                    f"& {_ic(lo)}--{_ic(hi)} & {money(dnmb)} \\\\")
     w("tab_dsa_body.tex", "\n".join(dsa))
 
@@ -500,6 +532,22 @@ def sync_tex(frag_dir: str = "tables") -> None:
             with open(path, "w") as fh:
                 fh.write("\n".join(lines) + "\n")
         print(f"  synced {name} -> {', '.join(files)}")
+
+
+def export_dsa_json(deterministic: dict, out: str) -> None:
+    """DSV data for the tornado figure (Figure 3) -- same numbers as the DSA table."""
+    base = deterministic["base"]
+    rows = []
+    for r in deterministic["dsa"]:
+        lo, hi = r["low_case"].icer, r["high_case"].icer
+        rows.append({"param": r["attr"],
+                     "lo_icer": "Dominant" if lo <= 0 else f"{lo:,.0f}",
+                     "hi_icer": "Dominant" if hi <= 0 else f"{hi:,.0f}",
+                     "lo_icer_raw": None if lo <= 0 else lo,
+                     "hi_icer_raw": None if hi <= 0 else hi})
+    with open(out, "w") as fh:
+        json.dump({"base_icer": base.icer, "rows": rows}, fh, indent=1)
+    print(f"  wrote {out}")
 
 
 def export_json(deterministic: dict, psa: dict | None, out: str) -> None:
@@ -582,6 +630,7 @@ def main() -> int:
         export_prose(det, os.path.join(args.out_dir, "canonical_values.md"))
         export_tex(det, args.tex_dir)
         sync_tex(args.tex_dir)
+        export_dsa_json(det, os.path.join(args.out_dir, "dsa_canonical.json"))
 
     base = det["base"]
     print(f"\nbase: dCost ${base.dcost:,.0f}  dQALY {base.dqaly:.2f}  "

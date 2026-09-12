@@ -35,17 +35,34 @@ LT_hazard_monthly[-1] = LT_hazard_monthly[-2]
 class CEAModelV2(CEAModel):
     """V2: hazard-based GP mortality floor from 60 months, both arms."""
 
-    def _os_fn(self, mo: np.ndarray, arm: str) -> np.ndarray:
+    def _os_dist(self, arm: str) -> str:
+        """Effective OS distribution for an arm: per-arm override, else the shared field."""
         prefix = "combo" if arm == "combo" else "pembro"
-        # Base OS
-        if self.p.os_distribution == "weibull":
+        return getattr(self.p, f"os_distribution_{prefix}", "") or self.p.os_distribution
+
+    def _os_base(self, mo: np.ndarray, arm: str) -> np.ndarray:
+        """Fitted OS curve for one arm, before the GP floor / waning / no-direct-OS steps."""
+        prefix = "combo" if arm == "combo" else "pembro"
+        if self._os_dist(arm) == "weibull":
             scale = getattr(self.p, f"os_weibull_scale_{prefix}")
             shape = getattr(self.p, f"os_weibull_shape_{prefix}")
-            os_val = weibull_surv(mo, scale, shape)
-        else:
-            mu = getattr(self.p, f"os_mu_{prefix}")
-            sigma = getattr(self.p, f"os_sigma_{prefix}")
-            os_val = lognorm_surv(mo, mu, sigma)
+            return weibull_surv(mo, scale, shape)
+        mu = getattr(self.p, f"os_mu_{prefix}")
+        sigma = getattr(self.p, f"os_sigma_{prefix}")
+        return lognorm_surv(mo, mu, sigma)
+
+    def _pembro_os(self, mo: np.ndarray) -> np.ndarray:
+        """Pembro OS with the GP floor applied (the comparison curve for waning / no-direct-OS)."""
+        p_os = self._os_base(mo, "pembro")
+        if self.p.constraint_general_pop:
+            p_os = self._apply_gp_hazard_floor(p_os, mo)
+        return p_os
+
+    def _os_fn(self, mo: np.ndarray, arm: str) -> np.ndarray:
+        prefix = "combo" if arm == "combo" else "pembro"
+        # Base OS -- honours per-arm distribution overrides (os_distribution_combo /
+        # os_distribution_pembro); reading only p.os_distribution silently ignored them.
+        os_val = self._os_base(mo, arm)
 
         # GP mortality hazard floor from 60 months onward
         if self.p.constraint_general_pop:
@@ -53,40 +70,19 @@ class CEAModelV2(CEAModel):
 
         # Treatment-effect waning
         if self.p.treatment_waning and arm == "combo":
-            # Get pembro OS (with GP constraint if applicable)
-            p_prefix = "pembro"
-            if self.p.os_distribution == "weibull":
-                p_scale = getattr(self.p, f"os_weibull_scale_{p_prefix}")
-                p_shape = getattr(self.p, f"os_weibull_shape_{p_prefix}")
-                p_os = weibull_surv(mo, p_scale, p_shape)
-            else:
-                p_mu = getattr(self.p, f"os_mu_{p_prefix}")
-                p_sigma = getattr(self.p, f"os_sigma_{p_prefix}")
-                p_os = lognorm_surv(mo, p_mu, p_sigma)
-            if self.p.constraint_general_pop:
-                p_os = self._apply_gp_hazard_floor(p_os, mo)
+            p_os = self._pembro_os(mo)
             # Wane from full benefit at 5y to zero at 20y
             t_y = self.t[:len(mo)]
             wane = np.clip((t_y - 5) / (20 - 5), 0, 1)
             benefit = os_val - p_os
             os_val = p_os + benefit * (1 - wane)
 
-        # No direct OS benefit: set combo OS = pembro OS at ALL times
-        # (counterfactual: zero direct OS treatment effect, benefits only through recurrence prevention)
+        # No direct OS benefit: combo OS = pembro OS only BEYOND the 60-month observed
+        # window (the observed 5-year data are preserved), matching the supplement text:
+        # S_combo(t) = S_combo_obs(t) for t <= 60; S_combo(t) = S_pembro(t) for t > 60.
         if getattr(self.p, 'no_direct_os_benefit', False) and arm == "combo":
-            # Get pembro OS
-            p_prefix = "pembro"
-            if self.p.os_distribution == "weibull":
-                p_scale = getattr(self.p, f"os_weibull_scale_{p_prefix}")
-                p_shape = getattr(self.p, f"os_weibull_shape_{p_prefix}")
-                p_os = weibull_surv(mo, p_scale, p_shape)
-            else:
-                p_mu = getattr(self.p, f"os_mu_{p_prefix}")
-                p_sigma = getattr(self.p, f"os_sigma_{p_prefix}")
-                p_os = lognorm_surv(mo, p_mu, p_sigma)
-            if self.p.constraint_general_pop:
-                p_os = self._apply_gp_hazard_floor(p_os, mo)
-            os_val[:] = p_os
+            mask_post = mo > 60
+            os_val[mask_post] = self._pembro_os(mo)[mask_post]
 
         return os_val
 

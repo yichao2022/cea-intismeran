@@ -7,24 +7,24 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-with open("output/dsa_v2_full.json") as f:
+with open("output/dsa_canonical.json") as f:
     dsa = json.load(f)
 
 base_icer = dsa["base_icer"]
-rows = dsa["t12_rows"]
+rows = dsa["rows"]
 
-# Human-readable labels
+# Human-readable labels (keys are ModelParams attribute names)
 LABELS = {
-    "UTIL_RF": "Utility: recurrence-free",
-    "UTIL_LR": "Utility: locoregional recurrence",
-    "UTIL_DM": "Utility: distant metastasis",
+    "util_rf": "Utility: recurrence-free",
+    "util_lr": "Utility: locoregional recurrence",
+    "util_dm": "Utility: distant metastasis",
     "cost_keytruda_annual": "Pembrolizumab annual cost",
     "cost_intismeran": "Intismeran acquisition cost",
     "cost_lr_monthly": "LR management cost",
     "cost_dm_monthly": "DM management cost",
     "discount_rate": "Discount rate",
-    "OS mu combo": "OS log-mean, combination arm",
-    "OS mu pembro": "OS log-mean, pembrolizumab arm",
+    "os_mu_combo": "OS log-mean, combination arm",
+    "os_mu_pembro": "OS log-mean, pembrolizumab arm",
 }
 
 # Build tornado data: (label, low_delta, high_delta)

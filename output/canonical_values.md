@@ -16,7 +16,7 @@
 ## Scenario ICERs
 - Base case: 42,499 (dCost 196,357, dQALY 4.62)
 - Weibull OS: 56,945 (dCost 365,666, dQALY 6.42)
-- Rank #1 joint model: 56,503 (dCost 256,861, dQALY 4.55)
+- Rank #1 joint model: 61,165 (dCost 390,941, dQALY 6.39)
 - Unconstrained (no GP): 51,753 (dCost 373,488, dQALY 7.22)
 - GP floor 48 mo: 42,483 (dCost 195,854, dQALY 4.61)
 - GP floor 60 mo (base): 42,499 (dCost 196,357, dQALY 4.62)
@@ -28,6 +28,6 @@
 - 40-year horizon (base): 42,499 (dCost 196,357, dQALY 4.62)
 - Waning V1 (OS-survival convergence): 18,765 (dCost 37,098, dQALY 1.98)
 - Waning V2 (hazard convergence): 104,737 (dCost 239,400, dQALY 2.29)
-- No direct OS benefit: -39,502 (dCost -20,173, dQALY 0.51)
+- No direct OS benefit: -20,616 (dCost -14,967, dQALY 0.73)
 - 0% discount: 37,597 (dCost 292,108, dQALY 7.77)
 - 5% discount: 49,183 (dCost 167,066, dQALY 3.40)
