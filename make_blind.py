@@ -18,6 +18,9 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = pathlib.Path("/tmp/blind_build")
 REPLACEMENTS = {
+    # (pattern, replacement, required) — required=False tolerates patterns that a
+    # future revision removes from the source (e.g. the Declarations blocks were
+    # dropped once they moved to the title page).
     "manuscript.tex": [
         # author block -> anonymised
         (r"""\author{Yichao Jin, Ph.D. \\
@@ -25,20 +28,20 @@ REPLACEMENTS = {
   University of Texas at Dallas, Richardson, TX, USA \\
   \texttt{Yichao.Jin@UTDallas.edu} \\
   ORCID: 0009-0003-7667-5143}""",
-         r"\author{Blinded for peer review}"),
+         r"\author{Blinded for peer review}", True),
         # repository URL (appears in the data- and code-availability statements)
         (r"\url{https://github.com/yichao2022/cea-intismeran}",
-         r"\texttt{[repository URL withheld for double-blind review]}"),
+         r"\texttt{[repository URL withheld for double-blind review]}", False),
         (r"\textbf{Author contributions:} Yichao Jin conceived and designed the study, "
          r"developed the model, conducted the analysis, and wrote the manuscript.",
-         r"\textbf{Author contributions:} Withheld for double-blind review."),
+         r"\textbf{Author contributions:} Withheld for double-blind review.", False),
     ],
     "supplementary.tex": [
-        ("% Yichao Jin, PhD", "% Blinded for peer review"),
-        (r"\author{Yichao Jin, Ph.D.}", r"\author{Blinded for peer review}"),
+        ("% Yichao Jin, PhD", "% Blinded for peer review", True),
+        (r"\author{Yichao Jin, Ph.D.}", r"\author{Blinded for peer review}", True),
         (r"\url{https://github.com/yichao2022/cea-intismeran} (tag \texttt{v1.0-submission})",
          r"\texttt{[repository URL withheld for double-blind review]} "
-         r"(tag \texttt{v1.0-submission})"),
+         r"(tag \texttt{v1.0-submission})", True),
     ],
 }
 # patterns that must not survive into the blinded PDFs
@@ -57,10 +60,13 @@ def build() -> None:
 
     for name, pairs in REPLACEMENTS.items():
         text = (ROOT / name).read_text()
-        for old, new in pairs:
+        for old, new, required in pairs:
             n = text.count(old)
             if n == 0:
-                sys.exit(f"FAIL: pattern not found in {name}: {old[:60]}")
+                if required:
+                    sys.exit(f"FAIL: pattern not found in {name}: {old[:60]}")
+                print(f"  {name}: pattern absent, skipped -> {old[:50]}")
+                continue
             text = text.replace(old, new)
             print(f"  {name}: {n} anonymised -> {new[:60]}")
         (BUILD / name).write_text(text)
