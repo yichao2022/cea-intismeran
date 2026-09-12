@@ -36,7 +36,7 @@ for arm in ["combo", "pembro"]:
     keytruda = params.cost_keytruda_annual * disc[:12].sum() * params.cycle_length
     intismeran = params.cost_intismeran * disc[0] if arm == "combo" else 0
     sequencing = params.cost_sequencing * disc[0] if arm == "combo" else 0
-    admin = params.cost_admin_per_cycle * disc[:12].sum() * params.cycle_length
+    admin = params.cost_admin_per_cycle * disc[:13].sum()  # 18 infusions q3w
     lr_cost = float((lr * disc).sum() * params.cycle_length * params.cost_lr_monthly * 12)
     dm_cost = float((dm * disc).sum() * params.cycle_length * params.cost_dm_monthly * 12)
     ae_cost = params.cost_ae_incremental * disc[0] if arm == "combo" else 0
