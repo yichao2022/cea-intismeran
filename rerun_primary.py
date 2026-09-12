@@ -71,8 +71,8 @@ class CEAModelV2(CEAModel):
             benefit = os_val - p_os
             os_val = p_os + benefit * (1 - wane)
 
-        # No direct OS benefit: preserve observed OS through month 60,
-        # then equalize with pembro (no post-trial treatment effect on OS)
+        # No direct OS benefit: set combo OS = pembro OS at ALL times
+        # (counterfactual: zero direct OS treatment effect, benefits only through recurrence prevention)
         if getattr(self.p, 'no_direct_os_benefit', False) and arm == "combo":
             # Get pembro OS
             p_prefix = "pembro"
@@ -86,9 +86,7 @@ class CEAModelV2(CEAModel):
                 p_os = lognorm_surv(mo, p_mu, p_sigma)
             if self.p.constraint_general_pop:
                 p_os = self._apply_gp_hazard_floor(p_os, mo)
-            # Preserve observed combo OS for t <= 60 mo, equalize after
-            mask_post = mo > 60
-            os_val[mask_post] = p_os[mask_post]
+            os_val[:] = p_os
 
         return os_val
 
