@@ -1,13 +1,13 @@
 # Canonical prose values (do not hand-type; regenerate with results_pipeline.py)
 
-- Combo: 938,044 cost / 12.18 QALY / 16.21 discounted LY
-- Pembro: 741,687 cost / 7.55 QALY / 10.61 discounted LY
+- Combo: 940,510 cost / 12.18 QALY / 16.21 discounted LY
+- Pembro: 744,153 cost / 7.55 QALY / 10.61 discounted LY
 - Incremental: 196,357 cost / 4.62 QALY / 5.60 discounted LY / 9.68 undiscounted LY
 - ICER: 42,499 per QALY
 - NMB @100K: 265,669   @150K: 496,682
 - RF/LR/DM QALY (combo): 8.98 / 1.66 / 1.54
 - Incremental RF/LR/DM QALY: 4.41 / 0.36 / -0.15
-- Administration cost per arm: 6,404
+- Administration cost per arm: 8,869
 
 ## Analytic threshold prices
 - 100,000/QALY -> 465,668.83 per course

@@ -30,21 +30,21 @@
       "pembrolizumab": 217888,
       "intismeran": 200000,
       "sequencing": 1000,
-      "administration": 6404,
+      "administration": 8869,
       "adverse_events": 15000,
       "lr_management": 93301,
       "dm_management": 404452,
-      "total": 938044
+      "total": 940510
     },
     "pembro": {
       "pembrolizumab": 217888,
       "intismeran": 0,
       "sequencing": 0,
-      "administration": 6404,
+      "administration": 8869,
       "adverse_events": 0,
       "lr_management": 72936,
       "dm_management": 444460,
-      "total": 741687
+      "total": 744153
     },
     "incremental": {
       "pembrolizumab": 0,

@@ -15,7 +15,7 @@
     },
     "arm": {
       "combo": {
-        "cost": 938044.3936158754,
+        "cost": 940509.8087340291,
         "qaly": 12.175248339956639,
         "ly_disc": 16.214787459312923,
         "ly_undisc": 24.39193078586236,
@@ -23,7 +23,7 @@
           "Intismeran": 200000.0,
           "Pembrolizumab": 217887.58002621116,
           "Sequencing": 1000.0,
-          "Administration": 6403.507752275427,
+          "Administration": 8868.922870429109,
           "Adverse events": 15000.0,
           "LR management": 93301.4803101163,
           "DM management": 404451.82552727254
@@ -36,7 +36,7 @@
         }
       },
       "pembro": {
-        "cost": 741687.3526160782,
+        "cost": 744152.7677342319,
         "qaly": 7.554989628010802,
         "ly_disc": 10.612439502400388,
         "ly_undisc": 14.70796535604788,
@@ -44,7 +44,7 @@
           "Intismeran": 0.0,
           "Pembrolizumab": 217887.58002621116,
           "Sequencing": 0.0,
-          "Administration": 6403.507752275427,
+          "Administration": 8868.922870429109,
           "Adverse events": 0.0,
           "LR management": 72936.05987252766,
           "DM management": 444460.20496506395
@@ -78,7 +78,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 938044.3936158754,
+            "cost": 940509.8087340291,
             "qaly": 12.175248339956639,
             "ly_disc": 16.214787459312923,
             "ly_undisc": 24.39193078586236,
@@ -86,7 +86,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 93301.4803101163,
               "DM management": 404451.82552727254
@@ -99,7 +99,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -107,7 +107,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -143,7 +143,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 937927.895245461,
+            "cost": 940393.3103636147,
             "qaly": 12.17145070269646,
             "ly_disc": 16.20984767805681,
             "ly_undisc": 24.384987400945533,
@@ -151,7 +151,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 93278.72333813956,
               "DM management": 404358.0841288349
@@ -164,7 +164,7 @@
             }
           },
           "pembro": {
-            "cost": 572262.0820912803,
+            "cost": 574727.4972094339,
             "qaly": 5.750027136694958,
             "ly_disc": 7.937890686970741,
             "ly_undisc": 9.615968953766473,
@@ -172,7 +172,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 47293.560031431,
               "DM management": 300677.43428136274
@@ -213,7 +213,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 938781.330002205,
+            "cost": 941246.7451203587,
             "qaly": 12.171358953473234,
             "ly_disc": 16.214787459312923,
             "ly_undisc": 24.39193078586236,
@@ -221,7 +221,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 94038.41669644583,
               "DM management": 404451.82552727254
@@ -234,7 +234,7 @@
             }
           },
           "pembro": {
-            "cost": 547840.2627037384,
+            "cost": 550305.6778218921,
             "qaly": 5.779725562535305,
             "ly_disc": 7.937890686970741,
             "ly_undisc": 9.615968953766473,
@@ -242,7 +242,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 52630.093588726144,
               "DM management": 270919.08133652573
@@ -278,7 +278,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 1128021.771432697,
+            "cost": 1130487.1865508507,
             "qaly": 14.90300410027471,
             "ly_disc": 20.050338131628,
             "ly_undisc": 33.596488709820925,
@@ -286,7 +286,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 119206.73256133581,
               "DM management": 568523.9510928746
@@ -299,7 +299,7 @@
             }
           },
           "pembro": {
-            "cost": 754534.2209231234,
+            "cost": 756999.6360412771,
             "qaly": 7.686236652615097,
             "ly_disc": 10.808383824996847,
             "ly_undisc": 15.190919014397224,
@@ -307,7 +307,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 74858.08230531415,
               "DM management": 455385.0508393227
@@ -343,7 +343,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 937541.3448894579,
+            "cost": 940006.7600076116,
             "qaly": 12.165191181262855,
             "ly_disc": 16.201145753363704,
             "ly_undisc": 24.36942256190922,
@@ -351,7 +351,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 93215.28822730607,
               "DM management": 404034.9688836653
@@ -364,7 +364,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -372,7 +372,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -408,7 +408,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 938044.3936158754,
+            "cost": 940509.8087340291,
             "qaly": 12.175248339956639,
             "ly_disc": 16.214787459312923,
             "ly_undisc": 24.39193078586236,
@@ -416,7 +416,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 93301.4803101163,
               "DM management": 404451.82552727254
@@ -429,7 +429,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -437,7 +437,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -473,7 +473,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 939417.3886802671,
+            "cost": 941882.8037984208,
             "qaly": 12.201897838680864,
             "ly_disc": 16.251040243830364,
             "ly_undisc": 24.45289110959647,
@@ -481,7 +481,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 93532.66025012918,
               "DM management": 405593.6406516513
@@ -494,7 +494,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -502,7 +502,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -538,7 +538,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 944258.4464582605,
+            "cost": 946723.8615764142,
             "qaly": 12.29181797591348,
             "ly_disc": 16.373905056208052,
             "ly_undisc": 24.66610271647169,
@@ -546,7 +546,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 94326.00699189343,
               "DM management": 409641.3516878804
@@ -559,7 +559,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -567,7 +567,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -590,20 +590,20 @@
         "params": {
           "time_horizon_years": 10
         },
-        "dcost": 96739.61168951704,
+        "dcost": 96739.61168951698,
         "dqaly": 1.3064575163055583,
         "dly": 1.3089147634548262,
         "dly_undisc": 1.6121202433373858,
-        "icer": 74047.26941529669,
+        "icer": 74047.26941529664,
         "nmb": {
-          "$50,000": -31416.73587423913,
-          "$100,000": 33906.13994103878,
-          "$150,000": 99229.01575631669,
-          "$200,000": 164551.8915715946
+          "$50,000": -31416.73587423907,
+          "$100,000": 33906.13994103884,
+          "$150,000": 99229.01575631674,
+          "$200,000": 164551.89157159466
         },
         "arm": {
           "combo": {
-            "cost": 590889.4934992797,
+            "cost": 593354.9086174334,
             "qaly": 6.178990958984022,
             "ly_disc": 7.959104881060531,
             "ly_undisc": 9.167635846709977,
@@ -611,7 +611,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 39020.757685070144,
               "DM management": 111577.64803572292
@@ -624,7 +624,7 @@
             }
           },
           "pembro": {
-            "cost": 494149.8818097627,
+            "cost": 496615.2969279164,
             "qaly": 4.8725334426784634,
             "ly_disc": 6.650190117605705,
             "ly_undisc": 7.555515603372592,
@@ -632,7 +632,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 35469.67662870407,
               "DM management": 234389.11740257207
@@ -668,7 +668,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 772045.333401819,
+            "cost": 774510.7485199727,
             "qaly": 9.761616485867473,
             "ly_disc": 12.82566678023808,
             "ly_undisc": 16.711662154419543,
@@ -676,7 +676,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 70332.77257209655,
               "DM management": 261421.47305123584
@@ -689,7 +689,7 @@
             }
           },
           "pembro": {
-            "cost": 642950.5920283222,
+            "cost": 645416.0071464758,
             "qaly": 6.58696006307822,
             "ly_disc": 9.154457398245789,
             "ly_undisc": 11.406123665203019,
@@ -697,7 +697,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 57903.82909399757,
               "DM management": 360755.67515583796
@@ -720,20 +720,20 @@
         "params": {
           "time_horizon_years": 30
         },
-        "dcost": 174890.275730478,
+        "dcost": 174890.27573047788,
         "dqaly": 4.2382513776435,
         "dly": 5.083660684419074,
         "dly_undisc": 8.243836683546128,
-        "icer": 41264.724563770054,
+        "icer": 41264.724563770025,
         "nmb": {
-          "$50,000": 37022.29315169697,
-          "$100,000": 248934.86203387193,
-          "$150,000": 460847.43091604696,
-          "$200,000": 672759.9997982219
+          "$50,000": 37022.293151697086,
+          "$100,000": 248934.86203387205,
+          "$150,000": 460847.4309160471,
+          "$200,000": 672759.999798222
         },
         "arm": {
           "combo": {
-            "cost": 888978.999482715,
+            "cost": 891444.4146008687,
             "qaly": 11.537986324831131,
             "ly_disc": 15.30708887705568,
             "ly_undisc": 21.871716987340495,
@@ -741,7 +741,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 87084.61777672532,
               "DM management": 361603.2939275031
@@ -754,7 +754,7 @@
             }
           },
           "pembro": {
-            "cost": 714088.723752237,
+            "cost": 716554.1388703908,
             "qaly": 7.299734947187631,
             "ly_disc": 10.223428192636606,
             "ly_undisc": 13.627880303794367,
@@ -762,7 +762,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 68747.84815887075,
               "DM management": 421049.78781487973
@@ -798,7 +798,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 938044.3936158754,
+            "cost": 940509.8087340291,
             "qaly": 12.175248339956639,
             "ly_disc": 16.214787459312923,
             "ly_undisc": 24.39193078586236,
@@ -806,7 +806,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 93301.4803101163,
               "DM management": 404451.82552727254
@@ -819,7 +819,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -827,7 +827,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -863,7 +863,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 778785.6409203076,
+            "cost": 781251.0560384613,
             "qaly": 9.532018119018355,
             "ly_disc": 12.55996405964623,
             "ly_undisc": 17.309441176228166,
@@ -871,7 +871,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 69120.4591470095,
               "DM management": 269374.0939948115
@@ -884,7 +884,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -892,7 +892,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -930,7 +930,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 981087.3870025516,
+            "cost": 983552.8021207053,
             "qaly": 9.84071595747818,
             "ly_disc": 13.509931871371741,
             "ly_undisc": 19.26118921170377,
@@ -938,7 +938,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 95043.74084740433,
               "DM management": 445752.5583766606
@@ -951,7 +951,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -959,7 +959,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -995,7 +995,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 726720.3277089419,
+            "cost": 729185.7428270956,
             "qaly": 8.280984753586004,
             "ly_disc": 10.889781035590582,
             "ly_undisc": 15.020180765288083,
@@ -1003,7 +1003,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 1000.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 15000.0,
               "LR management": 58926.328493487934,
               "DM management": 227502.91143696726
@@ -1016,7 +1016,7 @@
             }
           },
           "pembro": {
-            "cost": 741687.3526160782,
+            "cost": 744152.7677342319,
             "qaly": 7.554989628010802,
             "ly_disc": 10.612439502400388,
             "ly_undisc": 14.70796535604788,
@@ -1024,7 +1024,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 217887.58002621116,
               "Sequencing": 0.0,
-              "Administration": 6403.507752275427,
+              "Administration": 8868.922870429109,
               "Adverse events": 0.0,
               "LR management": 72936.05987252766,
               "DM management": 444460.20496506395
@@ -1060,7 +1060,7 @@
         },
         "arm": {
           "combo": {
-            "cost": 1287051.385305407,
+            "cost": 1289551.385305407,
             "qaly": 18.112319552669334,
             "ly_disc": 24.39193078586236,
             "ly_undisc": 24.39193078586236,
@@ -1068,7 +1068,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 220896.0,
               "Sequencing": 1000.0,
-              "Administration": 6500.0,
+              "Administration": 9000.0,
               "Adverse events": 15000.0,
               "LR management": 146512.5917841069,
               "DM management": 697142.7935213001
@@ -1081,7 +1081,7 @@
             }
           },
           "pembro": {
-            "cost": 994943.814861413,
+            "cost": 997443.814861413,
             "qaly": 10.342982914447663,
             "ly_disc": 14.70796535604788,
             "ly_undisc": 14.70796535604788,
@@ -1089,7 +1089,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 220896.0,
               "Sequencing": 0.0,
-              "Administration": 6500.0,
+              "Administration": 9000.0,
               "Adverse events": 0.0,
               "LR management": 110402.27398579882,
               "DM management": 657145.5408756142
@@ -1112,20 +1112,20 @@
         "params": {
           "discount_rate": 0.05
         },
-        "dcost": 167066.08428814635,
+        "dcost": 167066.08428814646,
         "dqaly": 3.396830503743659,
         "dly": 4.035917868969186,
         "dly_undisc": 9.68396542981448,
-        "icer": 49182.932178694886,
+        "icer": 49182.932178694915,
         "nmb": {
-          "$50,000": 2775.440899036592,
-          "$100,000": 172616.96608621953,
-          "$150,000": 342458.49127340247,
-          "$200,000": 512300.0164605854
+          "$50,000": 2775.4408990364755,
+          "$100,000": 172616.9660862194,
+          "$150,000": 342458.49127340235,
+          "$200,000": 512300.0164605853
         },
         "arm": {
           "combo": {
-            "cost": 804346.4326366973,
+            "cost": 806789.1415701382,
             "qaly": 9.760370953127412,
             "ly_disc": 12.911869579153116,
             "ly_undisc": 24.39193078586236,
@@ -1133,7 +1133,7 @@
               "Intismeran": 200000.0,
               "Pembrolizumab": 215913.6970118725,
               "Sequencing": 1000.0,
-              "Administration": 6340.284883150848,
+              "Administration": 8782.993816591665,
               "Adverse events": 15000.0,
               "LR management": 72140.30967159275,
               "DM management": 293952.14107008127
@@ -1146,7 +1146,7 @@
             }
           },
           "pembro": {
-            "cost": 637280.348348551,
+            "cost": 639723.0572819917,
             "qaly": 6.363540449383753,
             "ly_disc": 8.87595171018393,
             "ly_undisc": 14.70796535604788,
@@ -1154,7 +1154,7 @@
               "Intismeran": 0.0,
               "Pembrolizumab": 215913.6970118725,
               "Sequencing": 0.0,
-              "Administration": 6340.284883150848,
+              "Administration": 8782.993816591665,
               "Adverse events": 0.0,
               "LR management": 57701.127256115244,
               "DM management": 357325.2391974124
@@ -1189,7 +1189,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 738044.3936158754,
+          "cost": 740509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1197,7 +1197,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1210,7 +1210,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1218,7 +1218,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1250,7 +1250,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 788044.3936158754,
+          "cost": 790509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1258,7 +1258,7 @@
             "Intismeran": 50000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1271,7 +1271,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1279,7 +1279,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1311,7 +1311,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 838044.3936158754,
+          "cost": 840509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1319,7 +1319,7 @@
             "Intismeran": 100000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1332,7 +1332,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1340,7 +1340,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1372,7 +1372,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 888044.3936158754,
+          "cost": 890509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1380,7 +1380,7 @@
             "Intismeran": 150000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1393,7 +1393,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1401,7 +1401,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1433,7 +1433,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 938044.3936158754,
+          "cost": 940509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1441,7 +1441,7 @@
             "Intismeran": 200000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1454,7 +1454,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1462,7 +1462,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1494,7 +1494,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 988044.3936158754,
+          "cost": 990509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1502,7 +1502,7 @@
             "Intismeran": 250000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1515,7 +1515,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1523,7 +1523,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1555,7 +1555,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1038044.3936158754,
+          "cost": 1040509.8087340291,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1563,7 +1563,7 @@
             "Intismeran": 300000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1576,7 +1576,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1584,7 +1584,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1616,7 +1616,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1088044.3936158754,
+          "cost": 1090509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1624,7 +1624,7 @@
             "Intismeran": 350000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1637,7 +1637,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1645,7 +1645,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1677,7 +1677,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1138044.3936158754,
+          "cost": 1140509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1685,7 +1685,7 @@
             "Intismeran": 400000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1698,7 +1698,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1706,7 +1706,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1738,7 +1738,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1188044.3936158754,
+          "cost": 1190509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1746,7 +1746,7 @@
             "Intismeran": 450000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1759,7 +1759,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1767,7 +1767,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1799,7 +1799,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1238044.3936158754,
+          "cost": 1240509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1807,7 +1807,7 @@
             "Intismeran": 500000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1820,7 +1820,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1828,7 +1828,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1860,7 +1860,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1288044.3936158754,
+          "cost": 1290509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1868,7 +1868,7 @@
             "Intismeran": 550000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1881,7 +1881,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1889,7 +1889,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1921,7 +1921,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1338044.3936158754,
+          "cost": 1340509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1929,7 +1929,7 @@
             "Intismeran": 600000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -1942,7 +1942,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -1950,7 +1950,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -1982,7 +1982,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1388044.3936158754,
+          "cost": 1390509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -1990,7 +1990,7 @@
             "Intismeran": 650000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -2003,7 +2003,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -2011,7 +2011,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -2043,7 +2043,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1438044.3936158754,
+          "cost": 1440509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -2051,7 +2051,7 @@
             "Intismeran": 700000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -2064,7 +2064,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -2072,7 +2072,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -2104,7 +2104,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1488044.3936158754,
+          "cost": 1490509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -2112,7 +2112,7 @@
             "Intismeran": 750000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -2125,7 +2125,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -2133,7 +2133,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -2165,7 +2165,7 @@
       },
       "arm": {
         "combo": {
-          "cost": 1538044.3936158754,
+          "cost": 1540509.808734029,
           "qaly": 12.175248339956639,
           "ly_disc": 16.214787459312923,
           "ly_undisc": 24.39193078586236,
@@ -2173,7 +2173,7 @@
             "Intismeran": 800000.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 1000.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 15000.0,
             "LR management": 93301.4803101163,
             "DM management": 404451.82552727254
@@ -2186,7 +2186,7 @@
           }
         },
         "pembro": {
-          "cost": 741687.3526160782,
+          "cost": 744152.7677342319,
           "qaly": 7.554989628010802,
           "ly_disc": 10.612439502400388,
           "ly_undisc": 14.70796535604788,
@@ -2194,7 +2194,7 @@
             "Intismeran": 0.0,
             "Pembrolizumab": 217887.58002621116,
             "Sequencing": 0.0,
-            "Administration": 6403.507752275427,
+            "Administration": 8868.922870429109,
             "Adverse events": 0.0,
             "LR management": 72936.05987252766,
             "DM management": 444460.20496506395
@@ -2212,56 +2212,5 @@
   "thresholds_analytic": {
     "100000": 465668.8301947865,
     "150000": 696681.7657920782
-  },
-  "psa": {
-    "summary": {
-      "n_draws": 6000,
-      "n_valid": 6000,
-      "rejection_reasons": {},
-      "seed": 42,
-      "dqaly": {
-        "mean": 4.913316178944927,
-        "median": 4.744788770908022,
-        "ci95": [
-          2.8485188128229764,
-          7.849079488108335
-        ]
-      },
-      "dcost": {
-        "mean": 163049.03383377005,
-        "median": 199707.56441047078,
-        "ci95": [
-          -673444.8371768,
-          607903.9945600039
-        ]
-      },
-      "dly": {
-        "mean": 5.939902209367067,
-        "median": 5.626656110037898
-      },
-      "nmb": {
-        "$50,000": {
-          "mean": 82616.77511347631,
-          "p_positive": 0.6098333333333333
-        },
-        "$100,000": {
-          "mean": 328282.5840607227,
-          "p_positive": 0.9483333333333334
-        },
-        "$150,000": {
-          "mean": 573948.393007969,
-          "p_positive": 0.9851666666666666
-        }
-      },
-      "pce": {
-        "$50,000": 0.6098333333333333,
-        "$100,000": 0.9483333333333334,
-        "$150,000": 0.9851666666666666
-      },
-      "frac_saving": 0.15816666666666668,
-      "frac_dominated": 0.0,
-      "frac_dcost_neg": 0.15816666666666668
-    },
-    "n_draws": 6000
   }
 }

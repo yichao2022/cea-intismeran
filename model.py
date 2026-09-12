@@ -19,6 +19,12 @@ from dataclasses import dataclass, field
 from typing import Tuple, Optional
 
 
+# ── Regimen definitions (Methods: pembrolizumab 200 mg every 3 weeks, up to 18
+#    cycles, at $500 per infusion) ──
+N_PEMBRO_DOSES = 18
+PEMBRO_CYCLE_WEEKS = 3
+
+
 # ── Parametric survival helpers ──
 
 def lognorm_surv(t: np.ndarray, mu: float, sigma: float) -> np.ndarray:
@@ -484,7 +490,14 @@ class CEAModel:
             keytruda_cost = p.cost_keytruda_annual * disc[:12].sum() * p.cycle_length
             intismeran_cost = p.cost_intismeran * disc[0] if arm_label == "combo" else 0
             sequencing_cost = p.cost_sequencing * disc[0] if arm_label == "combo" else 0
-            admin_cost = p.cost_admin_per_cycle * disc[:13].sum()  # 18 infusions q3w, months 0-12
+            # Administration: $500 per infusion, 18 pembrolizumab doses at 3-week
+            # intervals from baseline (Methods: "200 mg every 3 weeks for up to 18
+            # cycles"). Discounting each dose at its own administration time; the
+            # previous disc[:13].sum() counted 13 monthly cycles for 18 doses, which
+            # understated administration by ~$2,460 per arm.
+            dose_t_years = np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
+            admin_cost = p.cost_admin_per_cycle * float(
+                np.exp(-p.discount_rate * dose_t_years).sum())
             lr_cost = np.sum(s["lr"] * p.cost_lr_monthly * 12 * p.cycle_length * disc)
             dm_cost = np.sum(s["dm"] * p.cost_dm_monthly * 12 * p.cycle_length * disc)
             ae_cost = p.cost_ae_incremental * disc[0] if arm_label == "combo" else 0
