@@ -445,6 +445,11 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
     for st in ("RF", "LR", "DM"):
         lines.append(f"{st} state & {num(c['qaly_parts'][st], QDP)} & {num(b['qaly_parts'][st], QDP)} "
                      f"& {num(c['qaly_parts'][st] - b['qaly_parts'][st], QDP)} \\\\")
+    # The model subtracts a one-time adverse-event disutility from both arms; without
+    # this row the state components do not add up to the reported total (0.004 QALY).
+    ae = "AE disutility"
+    lines.append(f"{ae} & {num(c['qaly_parts'][ae], QDP)} & {num(b['qaly_parts'][ae], QDP)} "
+                 f"& {num(c['qaly_parts'][ae] - b['qaly_parts'][ae], QDP)} \\\\")
     lines += ["\\midrule",
               f"Total QALYs & {num(c['qaly'], QDP)} & {num(b['qaly'], QDP)} & {num(base.dqaly, QDP)} \\\\"]
     w("tab_base_body.tex", "\n".join(lines))
@@ -469,6 +474,10 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
         s12.append(f"{st} state QALYs & {num(c['qaly_parts'][st], QDP)} & "
                    f"{num(b['qaly_parts'][st], QDP)} "
                    f"& {num(c['qaly_parts'][st] - b['qaly_parts'][st], QDP)} \\\\")
+    ae = "AE disutility"
+    s12.append(f"{ae} (both arms) & {num(c['qaly_parts'][ae], QDP)} & "
+               f"{num(b['qaly_parts'][ae], QDP)} "
+               f"& {num(c['qaly_parts'][ae] - b['qaly_parts'][ae], QDP)} \\\\")
     s12 += ["\\midrule",
             f"\\textbf{{Total QALYs}} & \\textbf{{{num(c['qaly'], QDP)}}} & "
             f"\\textbf{{{num(b['qaly'], QDP)}}} & \\textbf{{{num(base.dqaly, QDP)}}} \\\\"]
@@ -607,6 +616,7 @@ def _decomp_prose(c: dict, b: dict, base: Case) -> tuple[str, str]:
     rf = c["qaly_parts"]["RF"] - b["qaly_parts"]["RF"]
     lr = c["qaly_parts"]["LR"] - b["qaly_parts"]["LR"]
     dm = c["qaly_parts"]["DM"] - b["qaly_parts"]["DM"]
+    ae = c["qaly_parts"]["AE disutility"]      # arm-level (identical in both arms)
     lrc, lrp = c["cost_parts"]["LR management"], b["cost_parts"]["LR management"]
     dmc, dmp = c["cost_parts"]["DM management"], b["cost_parts"]["DM management"]
     main = (
@@ -620,7 +630,8 @@ def _decomp_prose(c: dict, b: dict, base: Case) -> tuple[str, str]:
         f"QALYs). The incremental QALY gain of {num(base.dqaly, QDP)} was driven primarily by additional "
         f"time spent in the recurrence-free state ({num(rf, QDP)} RF QALYs gained), with a modest "
         f"additional {num(lr, QDP)} LR QALYs, partly offset by a {num(abs(dm), QDP)}-QALY reduction in "
-        f"the DM state."
+        f"the DM state; a one-time adverse-event disutility of {num(abs(ae), QDP)} QALYs is applied in "
+        f"both arms and therefore does not affect the increment."
     )
     supp = (
         f"Health benefit is driven by RF state QALYs ({num(rf, QDP)} gained), with a modest additional "
