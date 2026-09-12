@@ -738,45 +738,60 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 
 \subsection{CHEERS 2022 Checklist}
 \label{sec:cheers}
-\begin{table}[H]
-\centering
-\caption{CHEERS 2022 Checklist}
-\label{tab:cheers}
-\begin{tabularx}{\linewidth}{@{}p{0.7cm}X p{1.6cm}X@{}}
+\begin{longtable}{@{}p{0.5cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}
+\caption{CHEERS 2022 Checklist}\label{tab:cheers}\\
 \toprule
-\textbf{No.} & \textbf{Item} & {\scriptsize\textbf{Reported}} & \textbf{Location} \\
+\textbf{No.} & \textbf{Item} & \textbf{Reported} & \textbf{Location} \\
 \midrule
-1 & Title & Yes & Title page \\
-2 & Abstract & Yes & Abstract \\
-3 & Background & Yes & Introduction \\
-4 & Health economic analysis plan & No & This is a retrospective analysis, not a pre-specified HEAP \\
-5 & Model & Yes & Methods, Appendix A \\
-6 & Population & Yes & Methods \\
-7 & Setting & Yes & Methods \\
-8 & Comparators & Yes & Methods \\
-9 & Perspective & Yes & Methods \\
-10 & Time horizon & Yes & Methods \\
-11 & Discount rate & Yes & Methods \\
-12 & Outcomes & Yes & Methods \\
-13 & Health states & Yes & Appendix A \\
-14 & Measurement of outcomes & Yes & Methods \\
-15 & Resource use & Yes & Methods \\
-16 & Currency & Yes & Methods \\
-17 & Model choice & Yes & Methods \\
-18 & Assumptions & Yes & Methods ({\S}2.2--2.7) \\
-19 & Analytic methods & Yes & Methods ({\S}2.7) \\
-20 & Study parameters & Yes & Methods ({\S}2.4, 2.5), Appendix D \\
-21 & Incremental results & Yes & Results ({\S}3.1--3.2) \\
-22 & Uncertainty & Yes & Results ({\S}3.4--3.6), Supplement \\
-23 & Heterogeneity & Not assessed & Limitations ({\S}4.7, subgroup heterogeneity acknowledged) \\
-24 & Discussion & Yes & Discussion \\
-25 & Limitations & Yes & Discussion \\
-26 & Funding & Yes & Declarations \\
-27 & Conflicts & Yes & Declarations \\
-28 & Reproducibility & Yes & Appendix \\
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Item} & \textbf{Reported} & \textbf{Location} \\
+\midrule
+\endhead
 \bottomrule
-\end{tabularx}
-\end{table}
+\endfoot
+\multicolumn{4}{@{}l}{\textit{Title}} \\
+1 & Title & Yes & Title page \\
+\multicolumn{4}{@{}l}{\textit{Abstract}} \\
+2 & Abstract & Yes & Structured abstract \\
+\multicolumn{4}{@{}l}{\textit{Introduction}} \\
+3 & Background and objectives & Yes & {\S}1 (objectives {\S}1.4) \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Methods}} \\
+4 & Health economic analysis plan & No & No analysis plan was developed for this academic evaluation of published data \\
+5 & Study population & Yes & {\S}2.2 (resected stage IIIB--IV melanoma; KEYNOTE-942, n=157) \\
+6 & Setting and location & Yes & {\S}2.2, {\S}2.4 (United States) \\
+7 & Comparators & Yes & {\S}2.1, {\S}2.2 \\
+8 & Perspective & Yes & {\S}2.4 (US payer) \\
+9 & Time horizon & Yes & {\S}2.6 (lifetime, 40 years) \\
+10 & Discount rate & Yes & {\S}2.6 (3\% per year, both costs and outcomes) \\
+11 & Selection of outcomes & Yes & {\S}2.1, {\S}2.5 (life-years, QALYs) \\
+12 & Measurement of outcomes & Yes & {\S}2.2 (digitized Kaplan--Meier), {\S}2.3, {\S}2.5 \\
+13 & Valuation of outcomes & Yes & {\S}2.5 (published utility values) \\
+14 & Measurement and valuation of resources and costs & Yes & {\S}2.4 \\
+15 & Currency, price date, and conversion & Yes & {\S}2.4 (2025 US dollars; no currency conversion) \\
+16 & Rationale and description of model & Yes & {\S}2.1 (four-state partitioned survival model); model code, title page \\
+17 & Analytics and assumptions & Yes & {\S}2.2, {\S}2.3, {\S}2.6, {\S}2.7 \\
+18 & Characterizing heterogeneity & Not reported & No subgroup analyses were performed \\
+19 & Characterizing distributional effects & Not reported & Distributional effects were not modelled \\
+20 & Characterizing uncertainty & Yes & {\S}2.7; Supplement {\S}8--9 \\
+21 & Approach to engagement with patients and others affected by the study & Not applicable & No patient, public or stakeholder engagement was undertaken \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Results}} \\
+22 & Study parameters & Yes & {\S}2.2--2.5; Supplement {\S}6 (all analytic inputs and ranges) \\
+23 & Summary of main results & Yes & {\S}3.1, {\S}3.2 (Tables 2--3) \\
+24 & Effect of uncertainty & Yes & {\S}3.4--3.6 (DSA, PSA, structural scenarios, price thresholds); Supplement {\S}8--9 \\
+25 & Effect of engagement with patients and others affected by the study & Not applicable & No engagement was undertaken \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Discussion}} \\
+26 & Study findings, limitations, generalizability, and current knowledge & Yes & {\S}4.1, {\S}4.5, {\S}4.6 \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Other relevant information}} \\
+27 & Source of funding & Yes & Title page \\
+28 & Conflicts of interest & Yes & Title page \\
+\end{longtable}
+
+\noindent{\small Reported, Not applicable and Not reported are used as directed by the CHEERS 2022 statement \cite{husereau2022}. Locations refer to the manuscript unless a supplement section is named. No analysis plan was registered or published for this evaluation, no subgroup or distributional analyses were undertaken, and no patients or stakeholders were engaged, as this is a model-based evaluation of published aggregate trial data.}
 
 \newpage
 \bibliography{refs}
