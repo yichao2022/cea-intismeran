@@ -445,7 +445,7 @@ DM state & 0.55 & 0.52 & 0.58 & Beta (SE=0.03) & \cite{tran2021} \\
 \midrule
 \multicolumn{6}{c}{\textit{Economic Parameters}} \\
 Discount rate (costs, effects) & 3\% & 0\% & 5\% & Fixed (DSA only) & \cite{sanders2016} \\
-Time horizon & 40 years & 10 & 20 & Fixed (scenario) & Assumed \\
+Time horizon & 40 years (base case) & \multicolumn{2}{c}{10, 20, 30, 40 years (scenario)} & Fixed (scenario) & Assumed \\
 Willingness-to-pay threshold & \$100K--\$150K/QALY & \$50K & \$200K & Fixed (scenario) & \cite{neumann2014} \\
 Cost base year & 2026 USD & -- & -- & -- & Sources inflated to 2026 (medical-care CPI) \\
 GP mortality source & US 2019 Life Tables & -- & -- & -- & NVSS (Arias 2022) \\
@@ -482,6 +482,8 @@ DM management & \$407,465 & \$446,762 & $-$39,298 \\
 % <<< pipeline tab_cost_decomp_body
 \bottomrule
 \end{tabular}
+\vspace{2pt}
+{\footnotesize\raggedright Components are rounded independently; totals and incremental values are calculated from unrounded model outputs and may differ by \$1 from displayed-component arithmetic.\par}
 \end{table}
 
 \subsection{LY and QALY Decomposition}
@@ -751,7 +753,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 \bottomrule
 \endfoot
 \multicolumn{4}{@{}l}{\textit{Title}} \\
-1 & Title & Yes & Title page \\
+1 & Title & Yes & Title \\
 \multicolumn{4}{@{}l}{\textit{Abstract}} \\
 2 & Abstract & Yes & Structured abstract \\
 \multicolumn{4}{@{}l}{\textit{Introduction}} \\
@@ -770,7 +772,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 13 & Valuation of outcomes & Yes & {\S}2.5 (published utility values) \\
 14 & Measurement and valuation of resources and costs & Yes & {\S}2.4 \\
 15 & Currency, price date, and conversion & Yes & {\S}2.4 (2026 US dollars; unit costs from sources dated 2019--2026, no currency conversion) \\
-16 & Rationale and description of model & Yes & {\S}2.1 (four-state partitioned survival model); model code, title page \\
+16 & Rationale and description of model & Yes & {\S}2.1 (four-state partitioned survival model); model code, available with the separate title-page file \\
 17 & Analytics and assumptions & Yes & {\S}2.2, {\S}2.3, {\S}2.6, {\S}2.7 \\
 18 & Characterizing heterogeneity & Not reported & No subgroup analyses were performed \\
 19 & Characterizing distributional effects & Not reported & Distributional effects were not modelled \\
@@ -787,8 +789,8 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 26 & Study findings, limitations, generalizability, and current knowledge & Yes & {\S}4.1, {\S}4.5, {\S}4.6 \\
 \midrule
 \multicolumn{4}{@{}l}{\textit{Other relevant information}} \\
-27 & Source of funding & Yes & Title page \\
-28 & Conflicts of interest & Yes & Title page \\
+27 & Source of funding & Yes & Separate title-page file \\
+28 & Conflicts of interest & Yes & Separate title-page file \\
 \end{longtable}
 
 \noindent{\small Reported, Not applicable and Not reported are used as directed by the CHEERS 2022 statement \cite{husereau2022}. Locations refer to the manuscript unless a supplement section is named. No analysis plan was registered or published for this evaluation, no subgroup or distributional analyses were undertaken, and no patients or stakeholders were engaged, as this is a model-based evaluation of published aggregate trial data.}
