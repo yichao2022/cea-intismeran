@@ -402,8 +402,11 @@ def tex_esc(s: str) -> str:
 def _rows_scenarios(rows) -> str:
     out = []
     for _, label, _definition, c in rows:
+        # Standard CEA presentation: a scenario with lower cost and higher effect is
+        # dominant, not a negative ICER (matches Table 4, the DSA and the price table).
+        ic = "Dominant" if c.icer < 0 else money(c.icer)
         out.append(f"{tex_esc(label)} & {num(c.dly)} & {num(c.dqaly)} & {money(c.dcost)} & "
-                   f"{money(c.icer)} & {money(c.nmb(100_000))} & {money(c.nmb(150_000))} \\\\")
+                   f"{ic} & {money(c.nmb(100_000))} & {money(c.nmb(150_000))} \\\\")
     return "\n".join(out)
 
 
