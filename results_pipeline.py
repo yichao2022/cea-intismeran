@@ -258,6 +258,12 @@ DSA_UTILS = [
     # that would apply if the injection were charged like an infusion.
     ("Intismeran IM injection cost", "cost_admin_im_injection", "\\$13.91",
      (0.0, "\\$0"), (120.0, "\\$120")),
+    # Two combination-arm cost inputs that the PSA does not sample: vary them here so
+    # every cost input is exercised somewhere (previously these were varied nowhere).
+    ("Tumor sequencing", "cost_sequencing", "\\$1,000", (800, "\\$800"),
+     (1_200, "\\$1,200")),
+    ("AE management", "cost_ae_incremental", "\\$15,000", (12_000, "\\$12,000"),
+     (18_000, "\\$18,000")),
 ]
 # Applied to both arms, so the incremental cost (and hence the ICER) cannot move.
 EXPECT_NO_CHANGE = {"Pembrolizumab annual cost"}

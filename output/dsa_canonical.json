@@ -65,6 +65,20 @@
    "hi_icer_raw": 42615.646950326394
   },
   {
+   "param": "cost_sequencing",
+   "lo_icer": "42,369",
+   "hi_icer": "42,455",
+   "lo_icer_raw": 42368.868732242365,
+   "hi_icer_raw": 42454.82958789014
+  },
+  {
+   "param": "cost_ae_incremental",
+   "lo_icer": "41,767",
+   "hi_icer": "43,057",
+   "lo_icer_raw": 41767.14274270794,
+   "hi_icer_raw": 43056.55557742456
+  },
+  {
    "param": "os_mu_combo",
    "lo_icer": "28,283",
    "hi_icer": "42,814",

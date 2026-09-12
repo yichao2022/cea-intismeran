@@ -431,10 +431,10 @@ Male proportion & 64\% & -- & -- & Fixed & \cite{khattak2026} \\
 \multicolumn{6}{c}{\textit{Costs (2026 USD)}} \\
 Intismeran (one-time) & \$200,000 & \$160,000 & \$240,000 & Fixed (not sampled) & Assumed \\
 Pembrolizumab (annual) & \$220,896 & \$176,717 & \$265,075 & Gamma (CV=0.2) & WAC (CMS) \\
-Tumor sequencing & \$1,000 & \$500 & \$2,000 & Fixed (not sampled) & CMS \\
+Tumor sequencing & \$1,000 & \$800 & \$1,200 & Fixed (DSA only) & CMS \\
 Administration --- \mbox{pembrolizumab} IV infusion (CPT 96365) & \$57.91 & -- & -- & Fixed (not sampled; symmetric across arms) & CMS \\
-Administration --- intismeran IM injection (CPT 96372) & \$13.91 & \$0 & \$120 & Fixed (not sampled) & CMS \\
-AE management (one-time) & \$15,000 & \$7,500 & \$22,500 & Fixed (not sampled) & \cite{zhang2023} \\
+Administration --- intismeran IM injection (CPT 96372) & \$13.91 & \$0 & \$120 & Fixed (DSA only) & CMS \\
+AE management (one-time) & \$15,000 & \$12,000 & \$18,000 & Fixed (DSA only) & \cite{zhang2023} \\
 LR management (monthly) & \$3,000 & \$2,400 & \$3,600 & Gamma (CV=0.2) & \cite{zhang2023} \\
 DM management (monthly) & \$12,000 & \$9,600 & \$14,400 & Gamma (CV=0.2) & \cite{bensimon2019} \\
 \midrule
@@ -538,6 +538,8 @@ LR monthly cost & \$3,000 & \$2,400 & \$3,600 & 41,530--43,294 & \$8,211 \\
 DM monthly cost & \$12,000 & \$9,600 & \$14,400 & 44,101--40,723 & \$15,719 \\
 Discount rate & 3\% & 0\% & 5\% & 37,614--48,726 & \$522,985 \\
 Intismeran IM injection cost & \$13.91 & \$0 & \$120 & 42,385--42,616 & \$1,073 \\
+Tumor sequencing & \$1,000 & \$800 & \$1,200 & 42,369--42,455 & \$400 \\
+AE management & \$15,000 & \$12,000 & \$18,000 & 41,767--43,057 & \$6,000 \\
 OS $\mu$ combo & 8.396 & -40\% & +40\% & 28,283--42,814 & \$521,695 \\
 OS $\mu$ pembro & 4.841 & -20\% & +20\% & 58,503--Dominant & \$470,922 \\
 % <<< pipeline tab_dsa_body
@@ -576,6 +578,7 @@ Pembrolizumab annual cost & Gamma (CV=0.2) & \$220,896 & --- & --- & Independent
 LR monthly cost & Gamma (CV=0.2) & \$3,000 & --- & --- & Independent \\
 DM monthly cost & Gamma (CV=0.2) & \$12,000 & --- & --- & Independent \\
 Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Independent \\
+\multicolumn{6}{@{}l}{\footnotesize Held at base case (not sampled): intismeran acquisition price (price-threshold analysis), tumour sequencing, adverse-event management and the IM injection rate (one-way DSA), and the IV infusion rate (applied identically to both arms).} \\
 \bottomrule
 \multicolumn{6}{l}{\footnotesize $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the estimation window (5.0); the ratio curve is approximately constant. Jacobian covariance is approximate.} \\
 \end{tabularx}
