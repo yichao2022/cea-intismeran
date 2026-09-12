@@ -3,7 +3,7 @@ Comprehensive re-run of cea-intismeran with:
 1. GP mortality constraint: hazard floor from 60 months (primary)
 2. Unconstrained log-normal (methodological comparison)
 3. Treatment-effect waning (conservative)
-4. No direct OS benefit (strong conservative)
+4. No post-trial OS benefit (strong conservative)
 
 Structural integrity: RFS ≤ DMFS ≤ OS at every month, state sum = 1.0.
 """
@@ -78,10 +78,10 @@ class CEAModelV2(CEAModel):
             benefit = os_val - p_os
             os_val = p_os + benefit * (1 - wane)
 
-        # No direct OS benefit: combo OS = pembro OS only BEYOND the 60-month observed
+        # No post-trial OS benefit: combo OS = pembro OS only BEYOND the 60-month observed
         # window (the observed 5-year data are preserved), matching the supplement text:
         # S_combo(t) = S_combo_obs(t) for t <= 60; S_combo(t) = S_pembro(t) for t > 60.
-        if getattr(self.p, 'no_direct_os_benefit', False) and arm == "combo":
+        if getattr(self.p, 'no_post_trial_os_benefit', False) and arm == "combo":
             mask_post = mo > 60
             os_val[mask_post] = self._pembro_os(mo)[mask_post]
 
@@ -124,7 +124,7 @@ def run_diagnostics(scenario_name: str, p: ModelParams, extra_attrs: dict = None
     print(f"SCENARIO: {scenario_name}")
     print(f"GP constraint={p.constraint_general_pop}, "
           f"Waning={p.treatment_waning}, "
-          f"No direct OS={getattr(p, 'no_direct_os_benefit', False)}")
+          f"No post-trial OS={getattr(p, 'no_post_trial_os_benefit', False)}")
     print(f"{'='*80}")
 
     # ── Verifications ──
@@ -231,9 +231,9 @@ results.append(run_diagnostics("Unconstrained Log-Normal (methodological compari
 p = ModelParams(constraint_general_pop=True, treatment_waning=True)
 results.append(run_diagnostics("Treatment-Effect Waning (conservative)", p))
 
-# Scenario 4: No direct OS benefit
+# Scenario 4: No post-trial OS benefit
 p = ModelParams(constraint_general_pop=True)
-results.append(run_diagnostics("No Direct OS Benefit (strong conservative)", p, {"no_direct_os_benefit": True}))
+results.append(run_diagnostics("No Post-Trial OS Benefit (strong conservative)", p, {"no_post_trial_os_benefit": True}))
 
 # ── Summary table ──
 print(f"\n\n{'='*80}")

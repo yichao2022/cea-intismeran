@@ -85,11 +85,11 @@ for yr in [5, 7, 10]:
     rfs, dmfs, osv = surv_at(yr, "combo")
     print(f"  {yr}y: RFS={rfs*100:.1f}%  DMFS={dmfs*100:.1f}%  OS={osv*100:.1f}%")
 
-# No direct OS benefit scenario (already exists)
-print(f"\n'No direct OS benefit' scenario (OS benefit only through recurrence prevention):")
+# No post-trial OS benefit scenario (already exists)
+print(f"\n'No post-trial OS benefit' scenario (observed 5-year OS kept; combo OS = pembro OS thereafter):")
 p_ndos = ModelParams(constraint_general_pop=True)
 m_ndos = CEAModelV2(p_ndos)
-m_ndos.p.no_direct_os_benefit = True
+m_ndos.p.no_post_trial_os_benefit = True
 r_ndos = m_ndos.run()
 dc = r_ndos["combo"]["cost"] - r_ndos["pembro"]["cost"]
 dq = r_ndos["combo"]["qaly"] - r_ndos["pembro"]["qaly"]
@@ -122,11 +122,11 @@ model INFLATES the intismeran treatment effect (better baseline = worse
 pembro → larger combo benefit). This is addressed by:
 1. GP hazard floor (floors combo OS hazard at GP level from 60 months)
 2. Waning v2 (hazard convergence)
-3. No direct OS benefit (dominant even without OS gain)
+3. No post-trial OS benefit (dominant without any post-trial OS gain)
 
 Combo arm:
 - No external long-term data available (first-in-class)
 - Conservative scenarios: all ICERs remain acceptable
   - Waning v2: $105,360/QALY
-  - No direct OS benefit: DOMINANT
+  - No post-trial OS benefit: DOMINANT
 """)

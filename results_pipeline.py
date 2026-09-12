@@ -51,7 +51,7 @@ QDP = 3                     # QALY display precision; 2 dp is not row-additive
 
 _FIELDS = {f.name for f in fields(ModelParams)}
 # Attributes consumed by the model via getattr() but not declared on ModelParams
-DYNAMIC_KEYS = {"no_direct_os_benefit", "wane_start_month", "wane_end_month"}
+DYNAMIC_KEYS = {"no_post_trial_os_benefit", "wane_start_month", "wane_end_month"}
 # Scenarios that are identical to the base case by construction
 EXPECTED_EQUAL_TO_BASE = {"Base case", "GP floor 60 mo (base)", "40-year horizon (base)"}
 FAILURES: list[str] = []
@@ -233,7 +233,7 @@ SCENARIOS = [
     ("Waning V1 (OS-survival convergence)", dict(treatment_waning=True),
      "combo OS curve converges to pembro between 5 and 20 years"),
     ("Waning V2 (hazard convergence)", "V2", "monthly mortality hazard converges from month 60 to 120"),
-    ("No direct OS benefit", dict(no_direct_os_benefit=True),
+    ("No post-trial OS benefit", dict(no_post_trial_os_benefit=True),
      "combo OS set equal to pembro OS after month 60"),
     ("0% discount", dict(discount_rate=0.0), "undiscounted"),
     ("5% discount", dict(discount_rate=0.05), "5% annual discounting"),
@@ -504,7 +504,7 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
                          "OS-survival convergence (5\\textendash20y)"),
                         ("Waning V2 (hazard convergence)",
                          "Hazard convergence (5\\textendash10y)"),
-                        ("No direct OS benefit", "No direct OS benefit")):
+                        ("No post-trial OS benefit", "No post-trial OS benefit")):
         cs = by_label[label]
         ic = "Dominant" if cs.icer < 0 else money(cs.icer)
         dc = f"\\textendash{money(abs(cs.dcost))}" if cs.dcost < 0 else money(cs.dcost)

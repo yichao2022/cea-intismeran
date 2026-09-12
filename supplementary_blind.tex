@@ -614,7 +614,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 
 \textit{Hazard convergence (5\textendash10\,y, Waning V2).} On the \textbf{cause-specific mortality hazard scale}, the combo arm's monthly all-cause hazard is linearly blended toward the pembrolizumab arm's hazard from month 60 to month 120 (10 years). At each cycle: $h_{\text{combo}}^{\text{waned}}(t) = (1 - w(t))\,h_{\text{combo}}(t) + w(t)\,h_{\text{pembro}}(t)$, where $w(t) = \max\bigl(0,\; \min\bigl(\frac{t - 60}{60},\; 1\bigr)\bigr)$. The waned hazard is integrated forward to reconstruct the survival curve: $S_{\text{combo}}^{\text{waned}}(t+1) = S_{\text{combo}}^{\text{waned}}(t) \times \exp\bigl(-h_{\text{combo}}^{\text{waned}}(t)\bigr)$, with $S_{\text{combo}}^{\text{waned}}(t) = S_{\text{combo}}^{\text{base}}(t)$ for $t \leq 60$ months. In this scenario, $r_{\text{DM}}$ and $r_{\text{LR}}$ are also linearly converged to pembrolizumab-arm values on the probability scale (HR\,$\to$\,1 by 10 years), so that all three survival components reflect complete treatment-effect erosion. The GP hazard floor continues to apply.
 
-\textit{No direct OS benefit.} The combination arm's extrapolated OS curve (beyond the 60-month observed trial window) is set equal to the pembrolizumab arm's extrapolated OS curve, while the observed 5-year KEYNOTE-942 data are preserved unchanged. Formally, $S_{\text{combo}}(t) = S_{\text{combo}}^{\text{obs}}(t)$ for $t \leq 60$ months and $S_{\text{combo}}(t) = S_{\text{pembro}}(t)$ for $t > 60$ months. The recurrence ($r_{\text{DM}}$) and local-recurrence ($r_{\text{LR}}$) ratio functions retain their base-case values, so any incremental QALY gain arises solely from the improved disease-state trajectory (longer recurrence-free and distant-metastasis-free intervals) rather than from a modeled post-trial OS treatment effect.
+\textit{No post-trial OS benefit.} The combination arm's extrapolated OS curve (beyond the 60-month observed trial window) is set equal to the pembrolizumab arm's extrapolated OS curve, while the observed 5-year KEYNOTE-942 data are preserved unchanged. Formally, $S_{\text{combo}}(t) = S_{\text{combo}}^{\text{obs}}(t)$ for $t \leq 60$ months and $S_{\text{combo}}(t) = S_{\text{pembro}}(t)$ for $t > 60$ months. The recurrence ($r_{\text{DM}}$) and local-recurrence ($r_{\text{LR}}$) ratio functions retain their base-case values, so any incremental QALY gain arises solely from the improved disease-state trajectory (longer recurrence-free and distant-metastasis-free intervals) rather than from a modeled post-trial OS treatment effect.
 
 \begin{landscape}
 \begin{table}[p]
@@ -642,7 +642,7 @@ GP floor 96 mo & 5.81 & 4.77 & \$203,620 & \$42,681 & \$273,452 & \$511,989 \\
 40-year horizon (base) & 5.64 & 4.65 & \$197,354 & \$42,412 & \$267,974 & \$500,638 \\
 Waning V1 (OS-survival convergence) & 1.96 & 1.99 & \$36,514 & \$18,391 & \$162,023 & \$261,292 \\
 Waning V2 (hazard convergence) & 2.92 & 2.30 & \$240,389 & \$104,590 & $-$10,549 & \$104,371 \\
-No direct OS benefit & 0.28 & 0.73 & $-$15,803 & $-$21,688 & \$88,668 & \$125,100 \\
+No post-trial OS benefit & 0.28 & 0.73 & $-$15,803 & $-$21,688 & \$88,668 & \$125,100 \\
 0\% discount & 9.68 & 7.77 & \$292,233 & \$37,614 & \$484,701 & \$873,168 \\
 5\% discount & 4.11 & 3.46 & \$168,485 & \$48,726 & \$177,294 & \$350,183 \\
 % <<< pipeline tab_scenarios_body
@@ -718,7 +718,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 \textbf{Code structure:}
 \begin{itemize}
     \item \texttt{model.py} --- ModelParams, CEAModel (4-state PSM), discount\_factors
-    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-direct-OS)
+    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-post-trial-OS)
     \item \texttt{results\_pipeline.py} --- Canonical runner: base case, decomposition, scenarios, one-way DSA, price ladder, analytic thresholds, PSA delegation; enforces the consistency checks and exports the manuscript's tables
     \item \texttt{psa\_v2.py} --- Probabilistic analysis with joint survival sampling (invoked by \texttt{results\_pipeline.py -{}-psa})
     \item \texttt{survival\_model\_selection.py} --- 15,625-combination model selection

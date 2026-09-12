@@ -975,12 +975,12 @@
       }
     },
     {
-      "label": "No direct OS benefit",
+      "label": "No post-trial OS benefit",
       "definition": "combo OS set equal to pembro OS after month 60",
       "result": {
-        "label": "No direct OS benefit",
+        "label": "No post-trial OS benefit",
         "params": {
-          "no_direct_os_benefit": true
+          "no_post_trial_os_benefit": true
         },
         "dcost": -15802.866509397398,
         "dqaly": 0.7286468825690964,
