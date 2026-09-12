@@ -135,7 +135,7 @@ for cname, t_pts, s_obs, n in curves:
         pred, k, sse = res
         # RMSE
         rmse = np.sqrt(sse / n)
-        # AIC = n*ln(SSE/n) + 2k
+        # AIC = n*ln(SSE/n) + 2k (exploratory; landmarks are serially correlated)
         aic = n * np.log(sse / n) + 2 * k
         individual[(cname, dist)] = pred
         print(f"{dist:<16s} {rmse:>10.4f} {aic:>10.2f} {k:>6d}")

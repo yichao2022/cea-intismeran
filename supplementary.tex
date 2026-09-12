@@ -198,11 +198,11 @@ Generalized gamma & 3 param & -31.69 & 0.0231 & 4 \\
 
 \subsection{Joint Model Selection}
 \label{sec:joint}
-A total of 15,625 distribution combinations (5 distributions x 6 curves) were evaluated for structural validity at 40 years. All 15,625 satisfied the RFS $\leq$ DMFS $\leq$ OS ordering constraint (0 crossing violations). The full results are available online (\texttt{output/survival\_combos\_15625.csv}).
+A total of 15,625 distribution combinations (5 distributions x 6 curves) were evaluated for structural validity at 40 years. All 15,625 satisfied the RFS $\leq$ DMFS $\leq$ OS ordering constraint (0 crossing violations). The full results are available online (\texttt{output/survival\_combos\_15625.csv}).$^{\dagger}$ AIC is reported as an exploratory fit diagnostic; landmark probabilities from the same Kaplan--Meier curve are serially correlated, so standard AIC interpretation (which assumes independent observations) does not strictly apply.
 
 \begin{table}[H]
 \centering
-\caption{Top 10 Joint Model Combinations by Total AIC (5 distributions, 15,625 combinations)}
+\caption{Top 10 Joint Model Combinations by Total AIC$^{\dagger}$ (5 distributions, 15,625 combinations)}
 \label{tab:s4}
 \begin{tabular}{lccccccc}
 \toprule
@@ -223,6 +223,7 @@ A total of 15,625 distribution combinations (5 distributions x 6 curves) were ev
 \bottomrule
 \end{tabular}
 \end{table}
+\footnotetext{AIC is reported as an exploratory fit diagnostic. Landmark probabilities derived from the same Kaplan--Meier curve are serially correlated (each time point depends on the same censoring history), so the standard AIC assumption of independent observations does not strictly apply. Model selection was primarily guided by RMSE, visual fit, and clinical plausibility.}
 \noindent\textit{Distributions:} LN = log-normal, W = weibull, LLog = log-logistic, Exp = exponential, GG = generalized gamma. C/P = Combo/Pembro. All top-ranked combinations use log-normal OS for the combo arm, yielding OS40c = 71.1--76.3\% under unconstrained extrapolation, substantially higher than GP survival at age 101 (2.0\%). This motivated the GP mortality hazard floor (Section~\ref{sec:gp_impl}).
 
 \subsection{Lifetime OS Extrapolation by Distribution}
