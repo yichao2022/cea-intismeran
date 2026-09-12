@@ -89,7 +89,7 @@ for yr in [5, 7, 10]:
 print(f"\n'No post-trial OS benefit' scenario (observed 5-year OS kept; combo OS = pembro OS thereafter):")
 p_ndos = ModelParams(constraint_general_pop=True)
 m_ndos = CEAModelV2(p_ndos)
-m_ndos.p.no_post_trial_os_benefit = True
+m_ndos.p.no_os_hazard_benefit = True
 r_ndos = m_ndos.run()
 dc = r_ndos["combo"]["cost"] - r_ndos["pembro"]["cost"]
 dq = r_ndos["combo"]["qaly"] - r_ndos["pembro"]["qaly"]

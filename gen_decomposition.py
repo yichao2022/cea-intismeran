@@ -30,8 +30,7 @@ for arm in ["combo", "pembro"]:
     qaly_rf = float((rf * disc).sum() * params.cycle_length * params.util_rf)
     qaly_lr = float((lr * disc).sum() * params.cycle_length * params.util_lr)
     qaly_dm = float((dm * disc).sum() * params.cycle_length * params.util_dm)
-    qaly_ae = params.util_disutility_ae * disc[0] * params.cycle_length
-    total_qaly = qaly_rf + qaly_lr + qaly_dm - qaly_ae
+    total_qaly = qaly_rf + qaly_lr + qaly_dm
 
     keytruda = params.cost_keytruda_annual * disc[:12].sum() * params.cycle_length
     intismeran = params.cost_intismeran * disc[0] if arm == "combo" else 0

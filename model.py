@@ -153,7 +153,6 @@ class ModelParams:
     util_rf: float = 0.83
     util_lr: float = 0.64
     util_dm: float = 0.55
-    util_disutility_ae: float = 0.05
 
     # ── Model settings ──
     discount_rate: float = 0.03
@@ -496,8 +495,6 @@ class CEAModel:
             s = states[arm_label]
             qaly = (s["rf"] * p.util_rf + s["lr"] * p.util_lr + s["dm"] * p.util_dm) * disc
             total_qaly = np.sum(qaly) * p.cycle_length
-            ae_disutility = p.util_disutility_ae * disc[0] * p.cycle_length
-            total_qaly -= ae_disutility
 
             keytruda_cost = p.cost_keytruda_annual * disc[:12].sum() * p.cycle_length
             intismeran_cost = p.cost_intismeran * disc[0] if arm_label == "combo" else 0

@@ -78,12 +78,22 @@ class CEAModelV2(CEAModel):
             benefit = os_val - p_os
             os_val = p_os + benefit * (1 - wane)
 
-        # No post-trial OS benefit: combo OS = pembro OS only BEYOND the 60-month observed
-        # window (the observed 5-year data are preserved), matching the supplement text:
-        # S_combo(t) = S_combo_obs(t) for t <= 60; S_combo(t) = S_pembro(t) for t > 60.
-        if getattr(self.p, 'no_post_trial_os_benefit', False) and arm == "combo":
+        # No additional OS hazard benefit beyond the observed window: from month 60
+        # onward the combination arm takes the pembrolizumab mortality hazard, but the
+        # curve is integrated forward from the combination arm's own survival at month
+        # 60. Setting the curves equal outright (as before) would have dropped survival
+        # from ~92% to ~71% within one month -- an implausible discontinuity.
+        if getattr(self.p, 'no_os_hazard_benefit', False) and arm == "combo":
             mask_post = mo > 60
-            os_val[mask_post] = self._pembro_os(mo)[mask_post]
+            idx = np.nonzero(mask_post)[0]
+            if len(idx):
+                p_os = self._pembro_os(mo)
+                h_p = -np.log(np.clip(p_os[1:] / np.clip(p_os[:-1], 1e-12, None),
+                                      1e-12, None))
+                s = os_val[idx[0] - 1]
+                for i in idx:
+                    s *= float(np.exp(-h_p[i - 1]))
+                    os_val[i] = s
 
         return os_val
 
@@ -124,7 +134,7 @@ def run_diagnostics(scenario_name: str, p: ModelParams, extra_attrs: dict = None
     print(f"SCENARIO: {scenario_name}")
     print(f"GP constraint={p.constraint_general_pop}, "
           f"Waning={p.treatment_waning}, "
-          f"No post-trial OS={getattr(p, 'no_post_trial_os_benefit', False)}")
+          f"No post-trial OS={getattr(p, 'no_os_hazard_benefit', False)}")
     print(f"{'='*80}")
 
     # ── Verifications ──
@@ -233,7 +243,7 @@ results.append(run_diagnostics("Treatment-Effect Waning (conservative)", p))
 
 # Scenario 4: No post-trial OS benefit
 p = ModelParams(constraint_general_pop=True)
-results.append(run_diagnostics("No Post-Trial OS Benefit (strong conservative)", p, {"no_post_trial_os_benefit": True}))
+results.append(run_diagnostics("No Additional OS Hazard Benefit (strong conservative)", p, {"no_os_hazard_benefit": True}))
 
 # ── Summary table ──
 print(f"\n\n{'='*80}")

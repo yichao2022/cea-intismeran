@@ -56,8 +56,6 @@ def cost_decomposition(p: ModelParams, label: str):
     # QALYs
     qc = np.sum((states["combo"]["rf"]*p.util_rf + states["combo"]["lr"]*p.util_lr + states["combo"]["dm"]*p.util_dm) * disc) * cl
     qp = np.sum((states["pembro"]["rf"]*p.util_rf + states["pembro"]["lr"]*p.util_lr + states["pembro"]["dm"]*p.util_dm) * disc) * cl
-    qc -= p.util_disutility_ae * disc[0] * cl
-    qp -= p.util_disutility_ae * disc[0] * cl
 
     icer = total_inc / (qc - qp) if (qc - qp) > 0 else float('inf')
     print(f"\nCombo QALY: {qc:.2f} | Pembro QALY: {qp:.2f} | ΔQALY: {qc-qp:.2f}")

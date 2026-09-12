@@ -28,6 +28,6 @@
 - 40-year horizon (base): 42,412 (dCost 197,354, dQALY 4.65)
 - Waning V1 (OS-survival convergence): 18,391 (dCost 36,514, dQALY 1.99)
 - Waning V2 (hazard convergence): 104,590 (dCost 240,389, dQALY 2.30)
-- No post-trial OS benefit: -21,688 (dCost -15,803, dQALY 0.73)
+- No additional OS hazard benefit beyond 5 years: 20,824 (dCost 38,751, dQALY 1.86)
 - 0% discount: 37,614 (dCost 292,233, dQALY 7.77)
 - 5% discount: 48,726 (dCost 168,485, dQALY 3.46)

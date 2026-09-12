@@ -442,7 +442,6 @@ DM management (monthly) & \$12,000 & \$9,600 & \$14,400 & Gamma (CV=0.2) & \cite
 RF state & 0.83 & 0.80 & 0.86 & Beta (SE=0.03) & \cite{tran2021} \\
 LR state & 0.64 & 0.61 & 0.67 & Beta (SE=0.03) & \cite{tran2021} \\
 DM state & 0.55 & 0.52 & 0.58 & Beta (SE=0.03) & \cite{tran2021} \\
-AE disutility (one-time) & 0.05 & -- & -- & Fixed (not sampled; applied in both arms) & Assumed \\
 \midrule
 \multicolumn{6}{c}{\textit{Economic Parameters}} \\
 Discount rate (costs, effects) & 3\% & 0\% & 5\% & Fixed (DSA only) & \cite{sanders2016} \\
@@ -502,9 +501,8 @@ Life-years (discounted 3\%) & 16.30 & 10.66 & 5.64 \\
 RF state QALYs & 9.018 & 4.580 & 4.438 \\
 LR state QALYs & 1.669 & 1.304 & 0.365 \\
 DM state QALYs & 1.556 & 1.706 & -0.150 \\
-AE disutility (both arms) & -0.004 & -0.004 & 0.000 \\
 \midrule
-\textbf{Total QALYs} & \textbf{12.239} & \textbf{7.586} & \textbf{4.653} \\
+\textbf{Total QALYs} & \textbf{12.243} & \textbf{7.590} & \textbf{4.653} \\
 % <<< pipeline tab_ly_qaly_body
 \bottomrule
 \end{tabular}
@@ -591,7 +589,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 \item Mean $\Delta$QALY: 4.95 (95\% CI 2.87--7.90).
 \item Mean $\Delta$Cost: \$163,999 (95\% CI \textendash\$677,118 to \$612,309).
 \item Mean NMB: \$330,809 at \$100K and \$578,213 at \$150K.
-\item Probability cost-effective: 61.1\% at \$50K, 94.6\% at \$100K, and 98.5\% at \$150K.
+\item Probability cost-effective: 61.1\% at \$50K, 94.8\% at \$100K, and 98.5\% at \$150K.
 \item No iterations were excluded based on the ICER; 15.8\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY $>$ 0.
 \end{itemize}
 
@@ -620,7 +618,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 
 \textit{Hazard convergence (5\textendash10\,y, Waning V2).} On the \textbf{cause-specific mortality hazard scale}, the combo arm's monthly all-cause hazard is linearly blended toward the pembrolizumab arm's hazard from month 60 to month 120 (10 years). At each cycle: $h_{\text{combo}}^{\text{waned}}(t) = (1 - w(t))\,h_{\text{combo}}(t) + w(t)\,h_{\text{pembro}}(t)$, where $w(t) = \max\bigl(0,\; \min\bigl(\frac{t - 60}{60},\; 1\bigr)\bigr)$. The waned hazard is integrated forward to reconstruct the survival curve: $S_{\text{combo}}^{\text{waned}}(t+1) = S_{\text{combo}}^{\text{waned}}(t) \times \exp\bigl(-h_{\text{combo}}^{\text{waned}}(t)\bigr)$, with $S_{\text{combo}}^{\text{waned}}(t) = S_{\text{combo}}^{\text{base}}(t)$ for $t \leq 60$ months. In this scenario, $r_{\text{DM}}$ and $r_{\text{LR}}$ are also linearly converged to pembrolizumab-arm values on the probability scale (HR\,$\to$\,1 by 10 years), so that all three survival components reflect complete treatment-effect erosion. The GP hazard floor continues to apply.
 
-\textit{No post-trial OS benefit.} The combination arm's extrapolated OS curve (beyond the 60-month observed trial window) is set equal to the pembrolizumab arm's extrapolated OS curve, while the observed 5-year KEYNOTE-942 data are preserved unchanged. Formally, $S_{\text{combo}}(t) = S_{\text{combo}}^{\text{obs}}(t)$ for $t \leq 60$ months and $S_{\text{combo}}(t) = S_{\text{pembro}}(t)$ for $t > 60$ months. The recurrence ($r_{\text{DM}}$) and local-recurrence ($r_{\text{LR}}$) ratio functions retain their base-case values, so any incremental QALY gain arises solely from the improved disease-state trajectory (longer recurrence-free and distant-metastasis-free intervals) rather than from a modeled post-trial OS treatment effect.
+\textit{No additional OS hazard benefit beyond 5 years.} The combination arm follows its own extrapolated OS curve through the 60-month observed trial window, so the observed 5-year OS difference is preserved unchanged; beyond 60 months it takes the pembrolizumab arm's mortality hazard. Formally, $h_{\text{combo}}(t) = h_{\text{pembro}}(t)$ for $t > 60$ months, with the curve integrated forward from $S_{\text{combo}}(60)$, so no artificial survival discontinuity is introduced at month 60. The recurrence ($r_{\text{DM}}$) and local-recurrence ($r_{\text{LR}}$) ratio functions retain their base-case values, so any incremental QALY gain arises solely from the improved disease-state trajectory (longer recurrence-free and distant-metastasis-free intervals), scaled by the survival level already accrued during the observed period, rather than from any additional post-trial OS hazard benefit.
 
 \begin{landscape}
 \begin{table}[p]
@@ -648,7 +646,7 @@ GP floor 96 mo & 5.81 & 4.77 & \$203,620 & \$42,681 & \$273,452 & \$511,989 \\
 40-year horizon (base) & 5.64 & 4.65 & \$197,354 & \$42,412 & \$267,974 & \$500,638 \\
 Waning V1 (OS-survival convergence) & 1.96 & 1.99 & \$36,514 & \$18,391 & \$162,023 & \$261,292 \\
 Waning V2 (hazard convergence) & 2.92 & 2.30 & \$240,389 & \$104,590 & $-$10,549 & \$104,371 \\
-No post-trial OS benefit & 0.28 & 0.73 & $-$15,803 & Dominant & \$88,668 & \$125,100 \\
+No additional OS hazard benefit beyond 5 years & 1.81 & 1.86 & \$38,751 & \$20,824 & \$147,337 & \$240,381 \\
 0\% discount & 9.68 & 7.77 & \$292,233 & \$37,614 & \$484,701 & \$873,168 \\
 5\% discount & 4.11 & 3.46 & \$168,485 & \$48,726 & \$177,294 & \$350,183 \\
 % <<< pipeline tab_scenarios_body

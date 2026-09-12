@@ -10,7 +10,7 @@ Design rules
    exported as JSON + LaTeX fragments.
 3. Algebraic invariants are asserted BEFORE export; any failure aborts the run:
      sum(cost components)            == model total cost        (per arm)
-     sum(state QALYs) - AE disutility == model total QALY      (per arm)
+     sum(state QALYs) == model total QALY                     (per arm)
      ICER                            == dCost / dQALY
      NMB(W)                          == W*dQALY - dCost        (every WTP)
      dCost(P)                        == dCost(P0) + (P - P0)   (affine in price)
@@ -51,7 +51,7 @@ QDP = 3                     # QALY display precision; 2 dp is not row-additive
 
 _FIELDS = {f.name for f in fields(ModelParams)}
 # Attributes consumed by the model via getattr() but not declared on ModelParams
-DYNAMIC_KEYS = {"no_post_trial_os_benefit", "wane_start_month", "wane_end_month"}
+DYNAMIC_KEYS = {"no_os_hazard_benefit", "wane_start_month", "wane_end_month"}
 # Scenarios that are identical to the base case by construction
 EXPECTED_EQUAL_TO_BASE = {"Base case", "GP floor 60 mo (base)", "40-year horizon (base)"}
 FAILURES: list[str] = []
@@ -144,7 +144,6 @@ def run_case(label: str, model_cls=CEAModelV2, **kw) -> Case:
             "RF": float(np.sum(s["rf"] * p.util_rf * disc) * cl),
             "LR": float(np.sum(s["lr"] * p.util_lr * disc) * cl),
             "DM": float(np.sum(s["dm"] * p.util_dm * disc) * cl),
-            "AE disutility": -p.util_disutility_ae * disc[0] * cl,
         }
         # additivity: the exported table must reproduce the model's own totals
         check(f"{label}/{a} cost additivity", sum(cost_parts.values()), res[a]["cost"], 1e-6)
@@ -233,7 +232,7 @@ SCENARIOS = [
     ("Waning V1 (OS-survival convergence)", dict(treatment_waning=True),
      "combo OS curve converges to pembro between 5 and 20 years"),
     ("Waning V2 (hazard convergence)", "V2", "monthly mortality hazard converges from month 60 to 120"),
-    ("No post-trial OS benefit", dict(no_post_trial_os_benefit=True),
+    ("No additional OS hazard benefit beyond 5 years", dict(no_os_hazard_benefit=True),
      "combo OS set equal to pembro OS after month 60"),
     ("0% discount", dict(discount_rate=0.0), "undiscounted"),
     ("5% discount", dict(discount_rate=0.05), "5% annual discounting"),
@@ -454,11 +453,6 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
     for st in ("RF", "LR", "DM"):
         lines.append(f"{st} state & {num(c['qaly_parts'][st], QDP)} & {num(b['qaly_parts'][st], QDP)} "
                      f"& {num(c['qaly_parts'][st] - b['qaly_parts'][st], QDP)} \\\\")
-    # The model subtracts a one-time adverse-event disutility from both arms; without
-    # this row the state components do not add up to the reported total (0.004 QALY).
-    ae = "AE disutility"
-    lines.append(f"{ae} & {num(c['qaly_parts'][ae], QDP)} & {num(b['qaly_parts'][ae], QDP)} "
-                 f"& {num(c['qaly_parts'][ae] - b['qaly_parts'][ae], QDP)} \\\\")
     lines += ["\\midrule",
               f"Total QALYs & {num(c['qaly'], QDP)} & {num(b['qaly'], QDP)} & {num(base.dqaly, QDP)} \\\\"]
     w("tab_base_body.tex", "\n".join(lines))
@@ -483,10 +477,6 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
         s12.append(f"{st} state QALYs & {num(c['qaly_parts'][st], QDP)} & "
                    f"{num(b['qaly_parts'][st], QDP)} "
                    f"& {num(c['qaly_parts'][st] - b['qaly_parts'][st], QDP)} \\\\")
-    ae = "AE disutility"
-    s12.append(f"{ae} (both arms) & {num(c['qaly_parts'][ae], QDP)} & "
-               f"{num(b['qaly_parts'][ae], QDP)} "
-               f"& {num(c['qaly_parts'][ae] - b['qaly_parts'][ae], QDP)} \\\\")
     s12 += ["\\midrule",
             f"\\textbf{{Total QALYs}} & \\textbf{{{num(c['qaly'], QDP)}}} & "
             f"\\textbf{{{num(b['qaly'], QDP)}}} & \\textbf{{{num(base.dqaly, QDP)}}} \\\\"]
@@ -533,7 +523,7 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
                          "OS-survival convergence (5\\textendash20y)"),
                         ("Waning V2 (hazard convergence)",
                          "Hazard convergence (5\\textendash10y)"),
-                        ("No post-trial OS benefit", "No post-trial OS benefit")):
+                        ("No additional OS hazard benefit beyond 5 years", "No additional OS hazard benefit beyond 5 years")):
         cs = by_label[label]
         ic = "Dominant" if cs.icer < 0 else money(cs.icer)
         dc = f"\\textendash{money(abs(cs.dcost))}" if cs.dcost < 0 else money(cs.dcost)
@@ -628,7 +618,6 @@ def _decomp_prose(c: dict, b: dict, base: Case) -> tuple[str, str]:
     rf = c["qaly_parts"]["RF"] - b["qaly_parts"]["RF"]
     lr = c["qaly_parts"]["LR"] - b["qaly_parts"]["LR"]
     dm = c["qaly_parts"]["DM"] - b["qaly_parts"]["DM"]
-    ae = c["qaly_parts"]["AE disutility"]      # arm-level (identical in both arms)
     lrc, lrp = c["cost_parts"]["LR management"], b["cost_parts"]["LR management"]
     dmc, dmp = c["cost_parts"]["DM management"], b["cost_parts"]["DM management"]
     main = (
@@ -642,8 +631,7 @@ def _decomp_prose(c: dict, b: dict, base: Case) -> tuple[str, str]:
         f"QALYs). The incremental QALY gain of {num(base.dqaly, QDP)} was driven primarily by additional "
         f"time spent in the recurrence-free state ({num(rf, QDP)} RF QALYs gained), with a modest "
         f"additional {num(lr, QDP)} LR QALYs, partly offset by a {num(abs(dm), QDP)}-QALY reduction in "
-        f"the DM state; a one-time adverse-event disutility of {num(abs(ae), QDP)} QALYs is applied in "
-        f"both arms and therefore does not affect the increment."
+        f"the DM state."
     )
     supp = (
         f"Health benefit is driven by RF state QALYs ({num(rf, QDP)} gained), with a modest additional "
