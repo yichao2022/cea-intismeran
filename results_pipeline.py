@@ -168,14 +168,24 @@ def run_case(label: str, model_cls=CEAModelV2, **kw) -> Case:
 
 
 # ---------------------------------------------------------------- scenario registry
+def admin_iv_cost(p, arm: str) -> float:
+    """Pembrolizumab administration: 18 intravenous infusions (CPT 96365), both arms."""
+    t = np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
+    return p.cost_admin_iv_infusion * float(discount_factors(p.discount_rate, t).sum())
+
+
+def admin_im_cost(p, arm: str) -> float:
+    """Intismeran administration: 9 intramuscular injections (CPT 96372), combination
+    arm only -- intismeran is given intramuscularly, not as an intravenous infusion."""
+    if arm != "combo":
+        return 0.0
+    t = np.arange(N_INTISMERAN_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
+    return p.cost_admin_im_injection * float(discount_factors(p.discount_rate, t).sum())
+
+
 def admin_cost_for(p, arm: str) -> float:
-    """$500 per infusion: 18 pembrolizumab doses in every arm, plus the 9 intismeran
-    doses in the combination arm, each discounted at its own administration time."""
-    doses = [np.arange(N_PEMBRO_DOSES)]
-    if arm == "combo":
-        doses.append(np.arange(N_INTISMERAN_DOSES))
-    t = np.concatenate(doses) * (PEMBRO_CYCLE_WEEKS / 52)
-    return p.cost_admin_per_cycle * float(discount_factors(p.discount_rate, t).sum())
+    """Total administration: IV infusions in every arm plus IM injections in combo."""
+    return admin_iv_cost(p, arm) + admin_im_cost(p, arm)
 
 
 def os_dists(kw: dict) -> tuple:
@@ -243,6 +253,11 @@ DSA_UTILS = [
     ("DM monthly cost", "cost_dm_monthly", "\\$12,000", (9_600, "\\$9,600"),
      (14_400, "\\$14,400")),
     ("Discount rate", "discount_rate", "3\\%", (0.0, "0\\%"), (0.05, "5\\%")),
+    # Route-specific administration: intramuscular injection (intismeran) vs the
+    # intravenous infusion rate (pembrolizumab). Range spans $0 to the cost level
+    # that would apply if the injection were charged like an infusion.
+    ("Intismeran IM injection cost", "cost_admin_im_injection", "\\$13.91",
+     (0.0, "\\$0"), (120.0, "\\$120")),
 ]
 # Applied to both arms, so the incremental cost (and hence the ICER) cannot move.
 EXPECT_NO_CHANGE = {"Pembrolizumab annual cost"}
@@ -254,15 +269,20 @@ def build_deterministic() -> dict:
     CASES["base"] = run_case("base")
     base = CASES["base"]
 
-    # Administration must reflect the stated regimen: 18 pembrolizumab infusions in
-    # both arms, plus 9 intismeran infusions in the combination arm. The implied
-    # discounted dose counts have to sit just under those numbers.
-    for arm, n_doses in (("pembro", N_PEMBRO_DOSES),
-                         ("combo", N_PEMBRO_DOSES + N_INTISMERAN_DOSES)):
-        implied = admin_cost_for(build_params(), arm) / 500.0
-        if not n_doses - 1.0 <= implied <= n_doses:
-            FAILURES.append(f"{arm} administration implies {implied:.1f} discounted "
-                            f"infusions; the regimen states {n_doses}")
+    # Administration must reflect the stated regimen and route: 18 pembrolizumab IV
+    # infusions in both arms (CPT 96365) and 9 intismeran IM injections in the
+    # combination arm (CPT 96372). The implied discounted dose counts have to sit
+    # just under those numbers.
+    _bp = build_params()
+    for label, implied, n_doses, rate in (
+            ("pembrolizumab IV infusions", admin_iv_cost(_bp, "combo"),
+             N_PEMBRO_DOSES, _bp.cost_admin_iv_infusion),
+            ("intismeran IM injections", admin_im_cost(_bp, "combo"),
+             N_INTISMERAN_DOSES, _bp.cost_admin_im_injection)):
+        n_implied = implied / rate
+        if not n_doses - 1.0 <= n_implied <= n_doses:
+            FAILURES.append(f"{label}: implied discounted dose count {n_implied:.2f} "
+                            f"does not match the stated {n_doses}")
 
     print("== price ladder ==")
     price_cases = {}

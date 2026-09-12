@@ -140,7 +140,11 @@ class ModelParams:
     cost_keytruda_annual: float = 220_896
     cost_intismeran: float = 200_000
     cost_sequencing: float = 1_000
-    cost_admin_per_cycle: float = 500
+    # Administration, by route (CMS Physician Fee Schedule, CPT codes below).
+    # KEYNOTE-942: intismeran (mRNA-4157) 1 mg intramuscularly, maximum nine doses;
+    # pembrolizumab 200 mg intravenously, maximum 18 doses; both every 3 weeks.
+    cost_admin_iv_infusion: float = 57.91      # per IV infusion (pembrolizumab, CPT 96365)
+    cost_admin_im_injection: float = 13.91     # per IM injection (intismeran, CPT 96372)
     cost_lr_monthly: float = 3_000
     cost_dm_monthly: float = 12_000
     cost_ae_incremental: float = 15_000
@@ -498,16 +502,17 @@ class CEAModel:
             keytruda_cost = p.cost_keytruda_annual * disc[:12].sum() * p.cycle_length
             intismeran_cost = p.cost_intismeran * disc[0] if arm_label == "combo" else 0
             sequencing_cost = p.cost_sequencing * disc[0] if arm_label == "combo" else 0
-            # Administration: $500 per infusion. Both arms receive the 18 pembrolizumab
-            # doses; the combination arm additionally receives the 9 intismeran doses on
-            # the same 3-week schedule. Each dose is discounted at its own time.
-            dose_t_years = np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
-            dose_factors = discount_factors(p.discount_rate, dose_t_years)
+            # Administration, charged by route: the 18 pembrolizumab doses in both
+            # arms are intravenous infusions (CPT 96365); the combination arm's 9
+            # intismeran doses are intramuscular injections (CPT 96372, 1 mg) and are
+            # charged at the injection rate, not the infusion rate.
+            pembro_t = np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
+            admin_cost = p.cost_admin_iv_infusion * float(
+                discount_factors(p.discount_rate, pembro_t).sum())
             if arm_label == "combo":
                 ismeran_t = np.arange(N_INTISMERAN_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
-                dose_factors = np.concatenate(
-                    [dose_factors, discount_factors(p.discount_rate, ismeran_t)])
-            admin_cost = p.cost_admin_per_cycle * float(dose_factors.sum())
+                admin_cost += p.cost_admin_im_injection * float(
+                    discount_factors(p.discount_rate, ismeran_t).sum())
             lr_cost = np.sum(s["lr"] * p.cost_lr_monthly * 12 * p.cycle_length * disc)
             dm_cost = np.sum(s["dm"] * p.cost_dm_monthly * 12 * p.cycle_length * disc)
             ae_cost = p.cost_ae_incremental * disc[0] if arm_label == "combo" else 0

@@ -4,7 +4,7 @@ Single source of truth → output/decomposition_v2.json.
 """
 import json, sys, io
 import numpy as np
-from model import ModelParams
+from model import ModelParams, discount_factors
 from rerun_primary import CEAModelV2
 
 params = ModelParams(constraint_general_pop=True)
@@ -15,7 +15,7 @@ sur = m._survival()
 states = m._state_proportions(sur)
 sys.stdout = old
 
-# Match model.py line 336: disc = discount_factors(p.discount_rate, self.t)
+# Same discount convention as model.py (discrete annual discount_factors)
 disc = discount_factors(params.discount_rate, m.t)
 
 out = {"ly_qaly": {}, "cost_decomp": {}}
@@ -36,7 +36,9 @@ for arm in ["combo", "pembro"]:
     keytruda = params.cost_keytruda_annual * disc[:12].sum() * params.cycle_length
     intismeran = params.cost_intismeran * disc[0] if arm == "combo" else 0
     sequencing = params.cost_sequencing * disc[0] if arm == "combo" else 0
-    admin = params.cost_admin_per_cycle * float(discount_factors(params.discount_rate, np.arange(18) * (3 / 52)).sum())  # 18 infusions q3w
+    admin = params.cost_admin_iv_infusion * float(discount_factors(params.discount_rate, np.arange(18) * (3 / 52)).sum())  # 18 IV infusions q3w
+    if arm == "combo":   # 9 intismeran doses are IM injections, not infusions
+        admin += params.cost_admin_im_injection * float(discount_factors(params.discount_rate, np.arange(9) * (3 / 52)).sum())
     lr_cost = float((lr * disc).sum() * params.cycle_length * params.cost_lr_monthly * 12)
     dm_cost = float((dm * disc).sum() * params.cycle_length * params.cost_dm_monthly * 12)
     ae_cost = params.cost_ae_incremental * disc[0] if arm == "combo" else 0

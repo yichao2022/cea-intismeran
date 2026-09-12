@@ -31,7 +31,9 @@ def cost_decomposition(p: ModelParams, label: str):
         rows[arm]["Intismeran"] = (p.cost_intismeran * disc[0] * cl * 12) if arm == "combo" else 0.0
         rows[arm]["Pembrolizumab"] = p.cost_keytruda_annual * disc[:12].sum() * cl
         rows[arm]["Sequencing"] = (p.cost_sequencing * disc[0]) if arm == "combo" else 0.0
-        rows[arm]["Administration"] = p.cost_admin_per_cycle * float(discount_factors(p.discount_rate, np.arange(18) * (3 / 52)).sum())  # 18 infusions q3w
+        rows[arm]["Administration"] = p.cost_admin_iv_infusion * float(discount_factors(p.discount_rate, np.arange(18) * (3 / 52)).sum())  # 18 IV infusions q3w
+        if arm == "combo":   # 9 intismeran doses are IM injections, not infusions
+            rows[arm]["Administration"] += p.cost_admin_im_injection * float(discount_factors(p.discount_rate, np.arange(9) * (3 / 52)).sum())
         rows[arm]["Adverse events"] = (p.cost_ae_incremental * disc[0]) if arm == "combo" else 0.0
         rows[arm]["LR management"] = np.sum(s["lr"] * p.cost_lr_monthly * 12 * cl * disc)
         rows[arm]["DM management"] = np.sum(s["dm"] * p.cost_dm_monthly * 12 * cl * disc)
