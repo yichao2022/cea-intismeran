@@ -715,12 +715,12 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 
 \textbf{Code structure:}
 \begin{itemize}
-    \item \texttt{model.py} --- ModelParams, CEAModel (4-state PSM)
-    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-OS)
-    \item \texttt{psa\_full.py} --- PSA with joint survival sampling
+    \item \texttt{model.py} --- ModelParams, CEAModel (4-state PSM), discount\_factors
+    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-direct-OS)
+    \item \texttt{results\_pipeline.py} --- Canonical runner: base case, decomposition, scenarios, one-way DSA, price ladder, analytic thresholds, PSA delegation; enforces the consistency checks and exports the manuscript's tables
+    \item \texttt{psa\_v2.py} --- Probabilistic analysis with joint survival sampling (invoked by \texttt{results\_pipeline.py -{}-psa})
     \item \texttt{survival\_model\_selection.py} --- 15,625-combination model selection
-    \item \texttt{final\_run.py} / \texttt{threshold\_analysis.py} --- DSA, scenarios, pricing
-    \item \texttt{figures.py} / \texttt{gen\_fig\_*.py} --- Figure generation scripts
+    \item \texttt{figures.py}, \texttt{gen\_tornado.py}, \texttt{gen\_psa\_output.py}, \texttt{gen\_fig\_*.py} --- Figure generation
     \item \texttt{output/survival\_combos\_15625.csv} --- Full model selection results
 \end{itemize}
 
