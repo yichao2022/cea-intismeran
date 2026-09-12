@@ -137,14 +137,19 @@ class ModelParams:
     os_pembro_pct: list = field(default_factory=lambda: [93.4, 93.4, 85.6, 85.6, 71.3])
 
     # ── Costs (2026 USD) ──
+    # The two CMS fee-schedule amounts below are 2025 rates inflated to 2026 with the
+    # same medical-care CPI factor used for the other price years, so every cost in the
+    # model is expressed in 2026 US dollars (576.029 -> 592.116, factor 1.027926).
+    # Values published in earlier years were inflated to 2026 US dollars with the
+    # medical-care component of the Consumer Price Index (Methods, Costs section).
     cost_keytruda_annual: float = 220_896
     cost_intismeran: float = 200_000
     cost_sequencing: float = 1_000
     # Administration, by route (CMS Physician Fee Schedule, CPT codes below).
     # KEYNOTE-942: intismeran (mRNA-4157) 1 mg intramuscularly, maximum nine doses;
     # pembrolizumab 200 mg intravenously, maximum 18 doses; both every 3 weeks.
-    cost_admin_iv_infusion: float = 119.29     # per IV infusion (pembrolizumab, CPT 96413)
-    cost_admin_im_injection: float = 13.91     # per IM injection (intismeran; CPT 96372 proxy)
+    cost_admin_iv_infusion: float = 122.62     # per IV infusion (pembrolizumab, CPT 96413)
+    cost_admin_im_injection: float = 14.3     # per IM injection (intismeran; CPT 96372 proxy)
     cost_lr_monthly: float = 3_000
     cost_dm_monthly: float = 12_000
     cost_ae_incremental: float = 15_000

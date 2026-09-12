@@ -255,7 +255,7 @@ DSA_UTILS = [
     # Route-specific administration: intramuscular injection (intismeran) vs the
     # intravenous infusion rate (pembrolizumab). Range spans $0 to the cost level
     # that would apply if the injection were charged like an infusion.
-    ("Intismeran IM injection cost", "cost_admin_im_injection", "\\$13.91",
+    ("Intismeran IM injection cost", "cost_admin_im_injection", "\\$14.30",
      (0.0, "\\$0"), (120.0, "\\$120")),
     # Two combination-arm cost inputs that the PSA does not sample: vary them here so
     # every cost input is exercised somewhere (previously these were varied nowhere).
