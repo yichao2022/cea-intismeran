@@ -82,9 +82,15 @@ def build() -> None:
 
     subprocess.run(["pdfunite", "manuscript.pdf", "supplementary.pdf", "manuscript_full.pdf"],
                    cwd=BUILD, capture_output=True)
+    # The merged file that gets uploaded/shared lives at the canonical path
+    # (manuscript_full.pdf); the non-blinded merge is kept beside it for reference.
+    subprocess.run(["pdfunite", str(ROOT / "manuscript.pdf"), str(ROOT / "supplementary.pdf"),
+                    str(ROOT / "manuscript_full_unblinded.pdf")], capture_output=True)
     for src, dst in (("manuscript.pdf", "manuscript_blind.pdf"),
                      ("supplementary.pdf", "supplementary_blind.pdf"),
-                     ("manuscript_full.pdf", "manuscript_full_blind.pdf")):
+                     ("manuscript_full.pdf", "manuscript_full.pdf")):
+        if (ROOT / dst).exists() and dst != "manuscript_full.pdf":
+            (ROOT / dst).unlink()
         shutil.copy(BUILD / src, ROOT / dst)
         txt = subprocess.run(["pdftotext", str(ROOT / dst), "-"],
                              capture_output=True, text=True).stdout
