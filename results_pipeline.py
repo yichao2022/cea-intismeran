@@ -474,6 +474,15 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
             f"\\textbf{{{num(b['qaly'], QDP)}}} & \\textbf{{{num(base.dqaly, QDP)}}} \\\\"]
     w("tab_ly_qaly_body.tex", "\n".join(s12))
 
+    # Section 3.2 paragraph and the supplement's decomposition note, generated from
+    # the same values as Table 2 so the prose cannot lag the table.
+    main_par, supp_par = _decomp_prose(c, b, base)
+    with open(os.path.join(HERE, "tables", "para_decomp.tex"), "w") as fh:
+        fh.write(main_par + "\n")
+    with open(os.path.join(HERE, "tables", "para_decomp_supp.tex"), "w") as fh:
+        fh.write(supp_par + "\n")
+    print("  wrote tables/para_decomp.tex, tables/para_decomp_supp.tex")
+
     # S13 / Table 4: scenarios
     w("tab_scenarios_body.tex", _rows_scenarios(deterministic["scenarios"]))
 
@@ -530,6 +539,8 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
 
 
 TEX_SLOTS = {
+    "para_decomp": ["manuscript.tex"],
+    "para_decomp_supp": ["supplementary.tex", "supplementary_blind.tex"],
     "tab_base_body": ["manuscript.tex"],
     "tab_main_scenarios_body": ["manuscript.tex"],
     "tab_cost_decomp_body": ["supplementary.tex", "supplementary_blind.tex"],
@@ -589,6 +600,35 @@ def export_dsa_json(deterministic: dict, out: str) -> None:
     with open(out, "w") as fh:
         json.dump({"base_icer": base.icer, "rows": rows}, fh, indent=1)
     print(f"  wrote {out}")
+
+
+def _decomp_prose(c: dict, b: dict, base: Case) -> tuple[str, str]:
+    """Prose quoting the Table 2 decomposition, built from the same values."""
+    rf = c["qaly_parts"]["RF"] - b["qaly_parts"]["RF"]
+    lr = c["qaly_parts"]["LR"] - b["qaly_parts"]["LR"]
+    dm = c["qaly_parts"]["DM"] - b["qaly_parts"]["DM"]
+    lrc, lrp = c["cost_parts"]["LR management"], b["cost_parts"]["LR management"]
+    dmc, dmp = c["cost_parts"]["DM management"], b["cost_parts"]["DM management"]
+    main = (
+        f"The {money(c['cost_parts']['Intismeran'])} acquisition cost of intismeran contributed "
+        f"substantially to the incremental cost. Under the corrected general-population mortality "
+        f"inputs, the combination arm had {money(lrc - lrp)} higher locoregional-recurrence management "
+        f"costs ({money(lrc)} vs {money(lrp)}) but {money(abs(dmc - dmp))} lower distant-metastasis "
+        f"management costs ({money(dmc)} vs {money(dmp)}) than the \\mbox{{pembrolizumab}}-alone arm, "
+        f"because \\mbox{{pembrolizumab}}-alone patients spend more time in the DM state over the "
+        f"lifetime ({num(b['qaly_parts']['DM'], QDP)} vs {num(c['qaly_parts']['DM'], QDP)} discounted DM "
+        f"QALYs). The incremental QALY gain of {num(base.dqaly, QDP)} was driven primarily by additional "
+        f"time spent in the recurrence-free state ({num(rf, QDP)} RF QALYs gained), with a modest "
+        f"additional {num(lr, QDP)} LR QALYs, partly offset by a {num(abs(dm), QDP)}-QALY reduction in "
+        f"the DM state."
+    )
+    supp = (
+        f"Health benefit is driven by RF state QALYs ({num(rf, QDP)} gained), with a modest additional "
+        f"contribution from LR ({num(lr, QDP)}) and a small reduction in DM state QALYs "
+        f"({('$-$' + num(abs(dm), QDP)) if dm < 0 else num(dm, QDP)}) "
+        f"under the general-population mortality constraint."
+    )
+    return main, supp
 
 
 def export_json(deterministic: dict, psa: dict | None, out: str) -> None:
