@@ -20,8 +20,10 @@ from typing import Tuple, Optional
 
 
 # ── Regimen definitions (Methods: pembrolizumab 200 mg every 3 weeks, up to 18
-#    cycles, at $500 per infusion) ──
+#    cycles; intismeran autogene 9 doses on the same 3-week schedule; $500 per
+#    infusion) ──
 N_PEMBRO_DOSES = 18
+N_INTISMERAN_DOSES = 9
 PEMBRO_CYCLE_WEEKS = 3
 
 
@@ -490,14 +492,16 @@ class CEAModel:
             keytruda_cost = p.cost_keytruda_annual * disc[:12].sum() * p.cycle_length
             intismeran_cost = p.cost_intismeran * disc[0] if arm_label == "combo" else 0
             sequencing_cost = p.cost_sequencing * disc[0] if arm_label == "combo" else 0
-            # Administration: $500 per infusion, 18 pembrolizumab doses at 3-week
-            # intervals from baseline (Methods: "200 mg every 3 weeks for up to 18
-            # cycles"). Discounting each dose at its own administration time; the
-            # previous disc[:13].sum() counted 13 monthly cycles for 18 doses, which
-            # understated administration by ~$2,460 per arm.
+            # Administration: $500 per infusion. Both arms receive the 18 pembrolizumab
+            # doses; the combination arm additionally receives the 9 intismeran doses on
+            # the same 3-week schedule. Each dose is discounted at its own time.
             dose_t_years = np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
-            admin_cost = p.cost_admin_per_cycle * float(
-                np.exp(-p.discount_rate * dose_t_years).sum())
+            dose_factors = np.exp(-p.discount_rate * dose_t_years)
+            if arm_label == "combo":
+                ismeran_t = np.arange(N_INTISMERAN_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
+                dose_factors = np.concatenate(
+                    [dose_factors, np.exp(-p.discount_rate * ismeran_t)])
+            admin_cost = p.cost_admin_per_cycle * float(dose_factors.sum())
             lr_cost = np.sum(s["lr"] * p.cost_lr_monthly * 12 * p.cycle_length * disc)
             dm_cost = np.sum(s["dm"] * p.cost_dm_monthly * 12 * p.cycle_length * disc)
             ae_cost = p.cost_ae_incremental * disc[0] if arm_label == "combo" else 0

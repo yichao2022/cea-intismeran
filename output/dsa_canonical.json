@@ -1,74 +1,74 @@
 {
- "base_icer": 42499.14414794768,
+ "base_icer": 43466.40564732135,
  "rows": [
   {
    "param": "util_rf",
-   "lo_icer": "44,018",
-   "hi_icer": "41,082",
-   "lo_icer_raw": 44018.106153914836,
-   "hi_icer_raw": 41081.51697396712
+   "lo_icer": "45,020",
+   "hi_icer": "42,017",
+   "lo_icer_raw": 45019.93854869921,
+   "hi_icer_raw": 42016.51391335144
   },
   {
    "param": "util_lr",
-   "lo_icer": "42,656",
-   "hi_icer": "42,344",
-   "lo_icer_raw": 42655.82799137833,
-   "hi_icer_raw": 42343.60715742243
+   "lo_icer": "43,627",
+   "hi_icer": "43,307",
+   "lo_icer_raw": 43626.65554490116,
+   "hi_icer_raw": 43307.32870450577
   },
   {
    "param": "util_dm",
-   "lo_icer": "42,423",
-   "hi_icer": "42,576",
-   "lo_icer_raw": 42422.612539859714,
-   "hi_icer_raw": 42575.95238550916
+   "lo_icer": "43,388",
+   "hi_icer": "43,545",
+   "lo_icer_raw": 43388.13221408671,
+   "hi_icer_raw": 43544.9620059925
   },
   {
    "param": "cost_keytruda_annual",
-   "lo_icer": "42,499",
-   "hi_icer": "42,499",
-   "lo_icer_raw": 42499.14414794771,
-   "hi_icer_raw": 42499.14414794768
+   "lo_icer": "43,466",
+   "hi_icer": "43,466",
+   "lo_icer_raw": 43466.40564732137,
+   "hi_icer_raw": 43466.40564732135
   },
   {
    "param": "cost_intismeran",
-   "lo_icer": "33,842",
-   "hi_icer": "51,157",
-   "lo_icer_raw": 33841.62029618184,
-   "hi_icer_raw": 51156.66799971352
+   "lo_icer": "34,809",
+   "hi_icer": "52,124",
+   "lo_icer_raw": 34808.881795555535,
+   "hi_icer_raw": 52123.929499087186
   },
   {
    "param": "cost_lr_monthly",
-   "lo_icer": "41,618",
-   "hi_icer": "43,381",
-   "lo_icer_raw": 41617.57358199939,
-   "hi_icer_raw": 43380.71471389599
+   "lo_icer": "42,585",
+   "hi_icer": "44,348",
+   "lo_icer_raw": 42584.835081373036,
+   "hi_icer_raw": 44347.976213269656
   },
   {
    "param": "cost_dm_monthly",
-   "lo_icer": "44,231",
-   "hi_icer": "40,767",
-   "lo_icer_raw": 44231.011644213584,
-   "hi_icer_raw": 40767.27665168185
+   "lo_icer": "45,198",
+   "hi_icer": "41,735",
+   "lo_icer_raw": 45198.27314358723,
+   "hi_icer_raw": 41734.538151055516
   },
   {
    "param": "discount_rate",
-   "lo_icer": "37,597",
-   "hi_icer": "49,183",
-   "lo_icer_raw": 37597.491786744715,
-   "hi_icer_raw": 49182.932178694886
+   "lo_icer": "38,177",
+   "hi_icer": "50,493",
+   "lo_icer_raw": 38176.691814950726,
+   "hi_icer_raw": 50492.53497158223
   },
   {
    "param": "os_mu_combo",
-   "lo_icer": "29,314",
-   "hi_icer": "42,877",
-   "lo_icer_raw": 29314.38127713707,
-   "hi_icer_raw": 42876.815920788904
+   "lo_icer": "36,935",
+   "hi_icer": "43,689",
+   "lo_icer_raw": 36934.59806966171,
+   "hi_icer_raw": 43688.52008770527
   },
   {
    "param": "os_mu_pembro",
-   "lo_icer": "58,539",
+   "lo_icer": "59,090",
    "hi_icer": "Dominant",
-   "lo_icer_raw": 58538.74750188874,
+   "lo_icer_raw": 59090.30553066157,
    "hi_icer_raw": null
   }
  ]

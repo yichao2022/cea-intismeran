@@ -40,7 +40,8 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
-from model import ModelParams, N_PEMBRO_DOSES, PEMBRO_CYCLE_WEEKS   # noqa: E402
+from model import (ModelParams, N_PEMBRO_DOSES, N_INTISMERAN_DOSES,   # noqa: E402
+                   PEMBRO_CYCLE_WEEKS)
 from rerun_primary import CEAModelV2               # noqa: E402
 
 DEFAULT_PRICE = 200_000.0
@@ -134,9 +135,7 @@ def run_case(label: str, model_cls=CEAModelV2, **kw) -> Case:
             "Intismeran": p.cost_intismeran * disc[0] if a == "combo" else 0.0,
             "Pembrolizumab": p.cost_keytruda_annual * disc[:12].sum() * cl,
             "Sequencing": p.cost_sequencing * disc[0] if a == "combo" else 0.0,
-            "Administration": p.cost_admin_per_cycle * float(
-                np.exp(-p.discount_rate
-                       * np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)).sum()),
+            "Administration": admin_cost_for(p, a),
             "Adverse events": p.cost_ae_incremental * disc[0] if a == "combo" else 0.0,
             "LR management": float(np.sum(s["lr"] * p.cost_lr_monthly * 12 * cl * disc)),
             "DM management": float(np.sum(s["dm"] * p.cost_dm_monthly * 12 * cl * disc)),
@@ -169,6 +168,16 @@ def run_case(label: str, model_cls=CEAModelV2, **kw) -> Case:
 
 
 # ---------------------------------------------------------------- scenario registry
+def admin_cost_for(p, arm: str) -> float:
+    """$500 per infusion: 18 pembrolizumab doses in every arm, plus the 9 intismeran
+    doses in the combination arm, each discounted at its own administration time."""
+    doses = [np.arange(N_PEMBRO_DOSES)]
+    if arm == "combo":
+        doses.append(np.arange(N_INTISMERAN_DOSES))
+    t = np.concatenate(doses) * (PEMBRO_CYCLE_WEEKS / 52)
+    return p.cost_admin_per_cycle * float(np.exp(-p.discount_rate * t).sum())
+
+
 def os_dists(kw: dict) -> tuple:
     """Effective (combo, pembro) OS distributions implied by a kwargs dict."""
     shared = kw.get("os_distribution", "lognormal")
@@ -245,13 +254,15 @@ def build_deterministic() -> dict:
     CASES["base"] = run_case("base")
     base = CASES["base"]
 
-    # Administration must reflect the stated regimen (18 Q3W infusions at $500), not a
-    # monthly cycle count: the discounted implied dose count has to sit just under 18.
-    implied_doses = base.arm["combo"]["cost_parts"]["Administration"] / 500.0
-    if not 17.0 <= implied_doses <= 18.0:
-        FAILURES.append(f"administration cost implies {implied_doses:.1f} discounted "
-                        f"infusions; Methods states {N_PEMBRO_DOSES} cycles every "
-                        f"{PEMBRO_CYCLE_WEEKS} weeks at $500 per infusion")
+    # Administration must reflect the stated regimen: 18 pembrolizumab infusions in
+    # both arms, plus 9 intismeran infusions in the combination arm. The implied
+    # discounted dose counts have to sit just under those numbers.
+    for arm, n_doses in (("pembro", N_PEMBRO_DOSES),
+                         ("combo", N_PEMBRO_DOSES + N_INTISMERAN_DOSES)):
+        implied = admin_cost_for(build_params(), arm) / 500.0
+        if not n_doses - 1.0 <= implied <= n_doses:
+            FAILURES.append(f"{arm} administration implies {implied:.1f} discounted "
+                            f"infusions; the regimen states {n_doses}")
 
     print("== price ladder ==")
     price_cases = {}
