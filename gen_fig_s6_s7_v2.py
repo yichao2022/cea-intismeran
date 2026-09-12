@@ -12,10 +12,13 @@ from rerun_primary import CEAModelV2
 
 plt.rcParams.update({"font.family": "sans-serif", "font.size": 10, "figure.dpi": 300, "savefig.dpi": 300})
 
-# Load full draws from psa_v2.py
-data = np.load("/tmp/figures/psa_v2_draws.npz")
-dq = data["dq"]  # all 2000 draws
-dc = data["dc"]
+# Load the canonical draws written by psa_v2.py (via results_pipeline.py --psa)
+import json
+_HERE = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(_HERE, "output", "psa_v2_draws.json")) as _fh:
+    _draws = json.load(_fh)
+dq = np.array([r["dq"] for r in _draws])
+dc = np.array([r["dc"] for r in _draws])
 
 # ── Figure S6: PSA convergence ──
 fig, axes = plt.subplots(2, 2, figsize=(10, 7))
@@ -39,8 +42,8 @@ for ax, data, label, unit in [
     ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig("/tmp/figures/fig_s6_psa_convergence.png", dpi=300)
-plt.savefig("/tmp/figures/fig_s6_psa_convergence.pdf")
+plt.savefig(os.path.join(_HERE, "fig_s6_psa_convergence.png"), dpi=300)
+plt.savefig(os.path.join(_HERE, "output", "fig_s6_psa_convergence.png"), dpi=300)
 print("Saved Figure S6")
 
 # ── Figure S7: CE plane ──
@@ -65,6 +68,6 @@ ax.grid(True, alpha=0.3)
 ax.set_xlim(-2, 10)
 ax.set_ylim(-500_000, 800_000)
 plt.tight_layout()
-plt.savefig("/tmp/figures/fig_s7_ce_plane.png", dpi=300)
-plt.savefig("/tmp/figures/fig_s7_ce_plane.pdf")
+plt.savefig(os.path.join(_HERE, "fig_s7_ce_plane.png"), dpi=300)
+plt.savefig(os.path.join(_HERE, "output", "fig_s7_ce_plane.png"), dpi=300)
 print("Saved Figure S7")
