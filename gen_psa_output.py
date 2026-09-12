@@ -110,8 +110,8 @@ ax.annotate(f"${pce150*100:.1f}\\% @ \$150K", xy=(150, pce150*100),
             xytext=(170, pce150*100 - 5),
             arrowprops=dict(arrowstyle="->", color="gray"), fontsize=10)
 plt.tight_layout()
+plt.savefig("fig2_ceac.png", dpi=300)
 plt.savefig("output/fig2_ceac.png", dpi=300)
-plt.savefig("output/fig2_ceac.pdf")
 print("Saved output/fig2_ceac.png + output/fig2_ceac.pdf")
 
 # ── Console summary for manuscript.tex update ──

@@ -1,11 +1,12 @@
 % Supplementary Appendix
 % Cost-Effectiveness of Intismeran plus Pembrolizumab in Adjuvant Melanoma
-% Yichao Jin, PhD
+% Blinded for peer review
 % PharmacoEconomics
 
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{booktabs,graphicx,amsmath,hyperref,float,caption,tabularx,pdflscape,longtable}
+\usepackage{booktabs,graphicx,amsmath,float,caption,tabularx,pdflscape,longtable}
+\usepackage[hidelinks]{hyperref}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
@@ -16,10 +17,13 @@
 \title{Supplementary Appendix\\
 \large Cost-Effectiveness of Intismeran Autogene (mRNA-4157/V940) plus Pembrolizumab\\
 versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB--IV Melanoma}
-\author{Yichao Jin, Ph.D.}
+\author{Blinded for peer review}
 \date{}
 
 \begin{document}
+\tolerance=2000
+\emergencystretch=3em
+\hfuzz=1pt
 \maketitle
 \tableofcontents
 \newpage
@@ -38,7 +42,7 @@ versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB--IV Melan
 \toprule
 \textbf{State} & \textbf{Clinical Definition} & \textbf{Utility} & \textbf{Monthly Cost} \\
 \midrule
-RF & Recurrence-free after complete resection; receiving adjuvant pembrolizumab (up to 18 cycles) with or without intismeran (up to 9 doses) & 0.83 & \$0 \\
+RF & Recurrence-free after complete resection; receiving adjuvant \mbox{pembrolizumab} (up to 18 cycles) with or without intismeran (up to 9 doses) & 0.83 & \$0 \\
 LR & Confirmed locoregional recurrence without distant metastasis; includes salvage surgery, re-treatment, and surveillance & 0.64 & \$3,000 \\
 DM & Confirmed stage IV melanoma with distant metastasis; includes systemic therapy, palliative care, and monitoring & 0.55 & \$12,000 \\
 Death & All-cause mortality & 0 & \$0 \\
@@ -65,7 +69,7 @@ The occupancy equations are derived from the ordering of these three events:
     \item The dead state is the complement of overall survival: $Dead = 1 - OS$.
 \end{itemize}
 
-The constraint $RFS \leq DMFS \leq OS$ is enforced at all time points to ensure non-negative state occupancy. This ordering is clinically meaningful: a patient cannot have distant metastasis without having had a recurrence event (RFS $\leq$ DMFS), and a patient cannot die without having both events (DMFS $\leq$ OS). The ratio-constrained structure $r_{\text{LR}} = RFS/DMFS$ and $r_{\text{DM}} = DMFS/OS$ guarantees this ordering by construction.
+The constraint $RFS \leq DMFS \leq OS$ is enforced at all time points to ensure non-negative state occupancy. This ordering reflects the endpoint definitions used in the clinical trials: DMFS counts either distant metastasis \textit{or death} as an event, so the probability of remaining alive and distant-metastasis-free cannot exceed overall survival (DMFS $\leq$ OS). Similarly, RFS counts recurrence \textit{or death}, so RFS $\leq$ DMFS. The ratio-constrained structure $r_{\text{LR}} = RFS/DMFS$ and $r_{\text{DM}} = DMFS/OS$ guarantees this ordering by construction.
 
 \subsection{Model Schematic}
 \label{sec:s1diagram}
@@ -103,7 +107,7 @@ Survival probabilities were extracted from the published Kaplan--Meier curves (F
 
 \begin{table}[H]
 \centering
-\caption{Extracted KEYNOTE-942 Survival Probabilities (\%)}
+\caption{Extracted \mbox{KEYNOTE-942} Survival Probabilities (\%)}
 \label{tab:s2}
 \begin{tabular}{lcccccc}
 \toprule
@@ -129,7 +133,7 @@ Survival probabilities were extracted from the published Kaplan--Meier curves (F
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s2_survival_data.png}
-\caption{Digitized KEYNOTE-942 survival data (points) and fitted log-normal parametric curves (lines). Left panel: intismeran plus pembrolizumab arm. Right panel: pembrolizumab alone arm.}
+\caption{Digitized \mbox{KEYNOTE-942} survival data (points) and fitted log-normal parametric curves (lines). Left panel: intismeran plus \mbox{pembrolizumab} arm. Right panel: \mbox{pembrolizumab} alone arm.}
 \label{fig:s2}
 \end{figure}
 
@@ -295,7 +299,7 @@ RFS & Pembro & 60 & 49.1\% & 40.9\% & -8.2\% & 8.2\% & 16.7\% \\
 The GP mortality hazard floor is applied to modeled OS from month 60 onward.
 
 \textbf{Life table source:} US 2019 period life tables (Arias et al., NVSS).
-\textbf{Baseline age:} 61 years (KEYNOTE-942 median). \textbf{Sex weighting:} 64\% male, 36\% female.
+\textbf{Baseline age:} 61 years (\mbox{KEYNOTE-942} median). \textbf{Sex weighting:} 64\% male, 36\% female.
 \textbf{Interpolation:} Annual life table survival linearly interpolated to monthly resolution; monthly hazards derived as $h_{\text{GP}}(t) = -\ln[S_{\text{GP}}(t{+}1)/S_{\text{GP}}(t)]$.
 \textbf{Constraint formula (mortality hazard floor):} from month 60 onward, the model mortality hazard is floored at the age- and sex-matched general-population hazard:
 \begin{equation}
@@ -377,14 +381,14 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \bottomrule
 \end{tabular}
 \end{table}
-\noindent\textit{NR: Not reported.} CheckMate 238 evaluated nivolumab (not pembrolizumab). The model predicts lower RFS/DMFS versus external trials, reflecting the higher-risk KEYNOTE-942 population (stage IIIB--IV including resected stage IV melanoma vs IIIA--C in KEYNOTE-054 and IIIB--IV in CheckMate 238). Only published landmark values are included; no extrapolated estimates are used.\cite{eggermont2025, ascierto2025}
+\noindent\textit{NR: Not reported.} CheckMate 238 evaluated nivolumab (not \mbox{pembrolizumab}). The model predicts lower RFS/DMFS versus external trials, reflecting the higher-risk \mbox{KEYNOTE-942} population (stage IIIB--IV including resected stage IV melanoma vs IIIA--C in KEYNOTE-054 and IIIB--IV in CheckMate 238). Only published landmark values are included; no extrapolated estimates are used.\cite{eggermont2025, ascierto2025}
 
 \subsection{Longitudinal External Plausibility Assessment}
 \label{sec:external_fig}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{fig_s5_external_validation.png}
-\caption{External plausibility assessment of pembrolizumab arm predictions. Gray line: model. Circles: KEYNOTE-942 observed data. Squares: KEYNOTE-054 (pembrolizumab, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
+\caption{External plausibility assessment of \mbox{pembrolizumab} arm predictions. Gray line: model. Circles: \mbox{KEYNOTE-942} observed data. Squares: KEYNOTE-054 (\mbox{pembrolizumab}, 7-year). Triangles: CheckMate 238 (nivolumab, 5- and 7-year). Only published landmark values are shown.}
 \label{fig:s5}
 \end{figure}
 
@@ -397,7 +401,7 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \begin{landscape}
 \begin{table}[p]
 \centering
-\caption{Full Model Parameter Inventory}
+\caption{Full Model Parameter Inventory. \textit{Note:} DSA ranges are based on fixed percentage perturbations ($\pm20\%$ or $\pm40\%$) of the base-case fitted values to explore parameter sensitivity. PSA distributions use Normal sampling with standard errors derived from the nonlinear least-squares Jacobian covariance, reflecting curve-fit uncertainty rather than the full sampling uncertainty of the original censored trial data.}
 \label{tab:s8}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -407,18 +411,18 @@ OS & 7 & 64.2\% & NR & 71\% \cite{ascierto2025} \\
 \textbf{Parameter} & \textbf{Base} & \textbf{DSA Low} & \textbf{DSA High} & \textbf{PSA Distribution} & \textbf{Source} \\
 \midrule
 \multicolumn{6}{c}{\textit{Clinical Parameters}} \\
-OS $\mu$ -- combo & 8.396 & 5.038 & 11.754 & Normal (SE from Jacobian) & Fitted \\
-OS $\sigma$ -- combo & 3.096 & 2.896 & 3.296 & Normal (SE from Jacobian) & Fitted \\
-OS $\mu$ -- pembro & 4.841 & 3.873 & 5.809 & Normal (SE from Jacobian) & Fitted \\
-OS $\sigma$ -- pembro & 1.131 & 0.931 & 1.331 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\mu$ -- combo & 7.113 & 6.913 & 7.313 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\sigma$ -- combo & 2.480 & 2.280 & 2.680 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\mu$ -- pembro & 7.042 & 6.842 & 7.242 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000$^{\dagger}$ & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\mu$ -- combo & 8.874 & 8.674 & 9.074 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\sigma$ -- combo & 5.000$^{\dagger}$ & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\mu$ -- pembro & 5.913 & 5.713 & 6.113 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\sigma$ -- pembro & 2.674 & 2.474 & 2.874 & Normal (SE from Jacobian) & Fitted \\
+OS $\mu$ -- combo & 8.396 & 5.038 ($-40\%$) & 11.754 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+OS $\sigma$ -- combo & 3.096 & 1.858 ($-40\%$) & 4.334 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+OS $\mu$ -- pembro & 4.841 & 3.873 ($-20\%$) & 5.809 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+OS $\sigma$ -- pembro & 1.131 & 0.905 ($-20\%$) & 1.357 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\mu$ -- combo & 7.113 & 4.268 ($-40\%$) & 9.958 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- combo & 2.480 & 1.488 ($-40\%$) & 3.472 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\mu$ -- pembro & 7.042 & 5.634 ($-20\%$) & 8.450 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000$^{\dagger}$ & 3.000 ($-40\%$) & 7.000 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\mu$ -- combo & 8.874 & 5.324 ($-40\%$) & 12.424 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- combo & 5.000$^{\dagger}$ & 3.000 ($-40\%$) & 7.000 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\mu$ -- pembro & 5.913 & 4.730 ($-20\%$) & 7.096 ($+20\%$) & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- pembro & 2.674 & 1.604 ($-40\%$) & 3.744 ($+40\%$) & Normal (SE from Jacobian) & Fitted \\
 Treatment duration (pembro) & 18 cycles (1 yr) & 9 & 24 & Fixed & \cite{khattak2026} \\
 Treatment duration (intismeran) & 9 doses (1 yr) & 6 & 12 & Fixed & \cite{khattak2026} \\
 Baseline age & 61 years & 55 & 67 & Fixed & \cite{khattak2026} \\
@@ -535,7 +539,7 @@ OS $\mu$ pembro & 4.841 & -20\% & +20\% & 59,036--Dominant & \$470,922 \\
 \end{tabular}
 }
 \end{table}
-\noindent The maximum finite ICER was \$59,036/QALY across the tested ranges; the combination became dominant when the pembrolizumab OS parameter was increased by 20\%.
+\noindent The maximum finite ICER was \$59,036/QALY across the tested ranges; the combination became dominant when the \mbox{pembrolizumab} OS parameter was increased by 20\%.
 
 \subsection{Probabilistic Sensitivity Analysis}
 \label{sec:psa}
@@ -608,7 +612,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 
 \textit{Hazard convergence (5\textendash10\,y, Waning V2).} On the \textbf{cause-specific mortality hazard scale}, the combo arm's monthly all-cause hazard is linearly blended toward the pembrolizumab arm's hazard from month 60 to month 120 (10 years). At each cycle: $h_{\text{combo}}^{\text{waned}}(t) = (1 - w(t))\,h_{\text{combo}}(t) + w(t)\,h_{\text{pembro}}(t)$, where $w(t) = \max\bigl(0,\; \min\bigl(\frac{t - 60}{60},\; 1\bigr)\bigr)$. The waned hazard is integrated forward to reconstruct the survival curve: $S_{\text{combo}}^{\text{waned}}(t+1) = S_{\text{combo}}^{\text{waned}}(t) \times \exp\bigl(-h_{\text{combo}}^{\text{waned}}(t)\bigr)$, with $S_{\text{combo}}^{\text{waned}}(t) = S_{\text{combo}}^{\text{base}}(t)$ for $t \leq 60$ months. In this scenario, $r_{\text{DM}}$ and $r_{\text{LR}}$ are also linearly converged to pembrolizumab-arm values on the probability scale (HR\,$\to$\,1 by 10 years), so that all three survival components reflect complete treatment-effect erosion. The GP hazard floor continues to apply.
 
-\textit{No direct OS benefit.} This counterfactual scenario assigns zero direct OS treatment effect to intismeran: the combination arm's OS curve is set equal to the pembrolizumab arm's OS curve at all time points ($S_{\text{combo}}(t) = S_{\text{pembro}}(t)\;\forall\;t$). The recurrence ($r_{\text{DM}}$) and local-recurrence ($r_{\text{LR}}$) ratio functions retain their base-case values, so any incremental QALY gain arises solely from the improved disease-state trajectory (longer recurrence-free and distant-metastasis-free intervals) rather than from extended overall survival. RFS\,$\leq$\,DMFS\,$\leq$\,OS ordering is maintained trivially since both arms share the same OS curve.
+\textit{No direct OS benefit.} The combination arm's extrapolated OS curve (beyond the 60-month observed trial window) is set equal to the pembrolizumab arm's extrapolated OS curve, while the observed 5-year KEYNOTE-942 data are preserved unchanged. Formally, $S_{\text{combo}}(t) = S_{\text{combo}}^{\text{obs}}(t)$ for $t \leq 60$ months and $S_{\text{combo}}(t) = S_{\text{pembro}}(t)$ for $t > 60$ months. The recurrence ($r_{\text{DM}}$) and local-recurrence ($r_{\text{LR}}$) ratio functions retain their base-case values, so any incremental QALY gain arises solely from the improved disease-state trajectory (longer recurrence-free and distant-metastasis-free intervals) rather than from a modeled post-trial OS treatment effect.
 
 \begin{landscape}
 \begin{table}[p]
@@ -688,16 +692,7 @@ No direct OS benefit & 0.28 & 0.73 & $-$11,458 & $-$15,725 & \$84,322 & \$120,75
 % <<< pipeline tab_price_body
 \end{tabular}
 \end{table}
-\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$463,629 at \$100,000/QALY (2.3$\times$ base) and approximately \$696,293 at \$150,000/QALY (3.5$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
-
-\subsection{ICER versus Acquisition Price}
-\label{sec:price_fig}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{fig_s8_price_threshold.png}
-\caption{ICER as a function of intismeran acquisition price. Red/green dashed lines: \$100K/\$150K thresholds. Vertical dotted lines: threshold prices.}
-\label{fig:s8}
-\end{figure}
+\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$463,629 at \$100,000/QALY (2.2$\times$ base) and approximately \$696,293 at \$150,000/QALY (3.2$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
 
 % ═══════════════════════════════════════════════════
 \section{Reproducibility and Reporting}
@@ -731,7 +726,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 
 \textbf{Data extraction:} Survival probabilities extracted from Figure~1 of Khattak et al. (2026) using WebPlotDigitizer v4.7. The digitized values are in Table~\ref{tab:s2}.
 
-\textbf{Reproducibility:} Running \texttt{python3 rerun\_primary.py} reproduces base-case results. \texttt{python3 psa\_full.py} reproduces PSA. GitHub tag \texttt{v1.0-submission} freezes the submission code.
+\textbf{Reproducibility:} Running \texttt{python3 results\_pipeline.py} reproduces every reported quantity (base case, decomposition, scenarios, one-way DSA, price ladder and analytic threshold prices) from the single canonical model implementation, with algebraic consistency checks enforced before export; \texttt{python3 results\_pipeline.py -{}-psa} reproduces the probabilistic analysis. GitHub tag \texttt{v1.0-submission} freezes the submission code.
 
 \subsection{CHEERS 2022 Checklist}
 \label{sec:cheers}

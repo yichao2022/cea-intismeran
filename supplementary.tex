@@ -726,7 +726,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 
 \textbf{Data extraction:} Survival probabilities extracted from Figure~1 of Khattak et al. (2026) using WebPlotDigitizer v4.7. The digitized values are in Table~\ref{tab:s2}.
 
-\textbf{Reproducibility:} Running \texttt{python3 rerun\_primary.py} reproduces base-case results. \texttt{python3 psa\_full.py} reproduces PSA. GitHub tag \texttt{v1.0-submission} freezes the submission code.
+\textbf{Reproducibility:} Running \texttt{python3 results\_pipeline.py} reproduces every reported quantity (base case, decomposition, scenarios, one-way DSA, price ladder and analytic threshold prices) from the single canonical model implementation, with algebraic consistency checks enforced before export; \texttt{python3 results\_pipeline.py -{}-psa} reproduces the probabilistic analysis. GitHub tag \texttt{v1.0-submission} freezes the submission code.
 
 \subsection{CHEERS 2022 Checklist}
 \label{sec:cheers}
