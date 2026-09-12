@@ -496,7 +496,9 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
         fh.write(main_par + "\n")
     with open(os.path.join(HERE, "tables", "para_decomp_supp.tex"), "w") as fh:
         fh.write(supp_par + "\n")
-    print("  wrote tables/para_decomp.tex, tables/para_decomp_supp.tex")
+    with open(os.path.join(HERE, "tables", "para_thresholds.tex"), "w") as fh:
+        fh.write("\\noindent " + _threshold_prose(deterministic) + "\n")
+    print("  wrote tables/para_decomp*.tex, tables/para_thresholds.tex")
 
     # S13 / Table 4: scenarios
     w("tab_scenarios_body.tex", _rows_scenarios(deterministic["scenarios"]))
@@ -556,6 +558,7 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
 TEX_SLOTS = {
     "para_decomp": ["manuscript.tex"],
     "para_decomp_supp": ["supplementary.tex", "supplementary_blind.tex"],
+    "para_thresholds": ["supplementary.tex", "supplementary_blind.tex"],
     "tab_base_body": ["manuscript.tex"],
     "tab_main_scenarios_body": ["manuscript.tex"],
     "tab_cost_decomp_body": ["supplementary.tex", "supplementary_blind.tex"],
@@ -646,6 +649,21 @@ def _decomp_prose(c: dict, b: dict, base: Case) -> tuple[str, str]:
         f"under the general-population mortality constraint."
     )
     return main, supp
+
+
+def _threshold_prose(deterministic: dict) -> str:
+    """Supplement sentence quoting the analytic threshold prices and their multiple of
+    the assumed $200,000 acquisition price."""
+    thr = deterministic["thresholds"]
+    p100 = thr[100_000]
+    p150 = thr[150_000]
+    return (
+        f"Deterministic threshold prices (from Table~\\ref{{tab:s14}}): approximately "
+        f"{money(p100)} at \\$100,000/QALY ({p100 / DEFAULT_PRICE:.1f}$\\times$ base) and "
+        f"approximately {money(p150)} at \\$150,000/QALY ({p150 / DEFAULT_PRICE:.1f}$\\times$ base). "
+        f"These are model-based deterministic estimates; PSA uncertainty propagation and formal "
+        f"budget-impact analysis would be needed to inform payer negotiations."
+    )
 
 
 def export_json(deterministic: dict, psa: dict | None, out: str) -> None:
