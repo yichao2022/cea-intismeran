@@ -23,9 +23,17 @@ LABELS = {
     "cost_lr_monthly": "LR management cost",
     "cost_dm_monthly": "DM management cost",
     "discount_rate": "Discount rate",
+    "cost_sequencing": "Tumor sequencing cost",
+    "cost_ae_incremental": "AE management cost",
+    "cost_admin_im_injection": "Intismeran IM administration cost",
     "os_mu_combo": "OS log-mean, combination arm",
     "os_mu_pembro": "OS log-mean, pembrolizumab arm",
 }
+# A parameter without a label would be plotted under its internal name; fail loudly
+# instead of shipping code identifiers into the figure.
+_missing = [r["param"] for r in rows if r["param"] not in LABELS]
+if _missing:
+    raise SystemExit(f"gen_tornado: no display label for {_missing}")
 
 # Build tornado data: (label, low_delta, high_delta)
 items = []
