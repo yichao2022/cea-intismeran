@@ -41,7 +41,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 from model import (ModelParams, N_PEMBRO_DOSES, N_INTISMERAN_DOSES,   # noqa: E402
-                   PEMBRO_CYCLE_WEEKS)
+                   PEMBRO_CYCLE_WEEKS, discount_factors)
 from rerun_primary import CEAModelV2               # noqa: E402
 
 DEFAULT_PRICE = 200_000.0
@@ -125,7 +125,7 @@ def run_case(label: str, model_cls=CEAModelV2, **kw) -> Case:
     res = quiet(m.run)
     sur = m._survival()
     states = m._state_proportions(sur)
-    disc = np.exp(-p.discount_rate * m.t)
+    disc = discount_factors(p.discount_rate, m.t)
     cl = p.cycle_length
 
     arm = {}
@@ -175,7 +175,7 @@ def admin_cost_for(p, arm: str) -> float:
     if arm == "combo":
         doses.append(np.arange(N_INTISMERAN_DOSES))
     t = np.concatenate(doses) * (PEMBRO_CYCLE_WEEKS / 52)
-    return p.cost_admin_per_cycle * float(np.exp(-p.discount_rate * t).sum())
+    return p.cost_admin_per_cycle * float(discount_factors(p.discount_rate, t).sum())
 
 
 def os_dists(kw: dict) -> tuple:

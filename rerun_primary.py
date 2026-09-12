@@ -12,6 +12,7 @@ sys.path.insert(0, "/Users/cary/cea-intismeran")
 import numpy as np
 from scipy.stats import norm
 from model import ModelParams, CEAModel, lognorm_surv, weibull_surv, general_pop_surv
+from model import discount_factors  # noqa: E402
 
 # ── Life table monthly hazards (proper interpolation) ──
 with open("/tmp/life_table_surv.json") as f:
@@ -158,7 +159,7 @@ def run_diagnostics(scenario_name: str, p: ModelParams, extra_attrs: dict = None
             print(f"{yr:5d} {cos:>10.4f} {pos:>10.4f} {cos-pos:>10.4f}")
 
     # ── Discounted LY ──
-    disc = np.exp(-p.discount_rate * t)
+    disc = discount_factors(p.discount_rate, t)
     for arm, label in [("combo", "Combo"), ("pembro", "Pembro")]:
         ly_disc = np.sum(sur[f"os_{arm}"] * disc) * p.cycle_length
         res[arm]['ly_disc'] = ly_disc

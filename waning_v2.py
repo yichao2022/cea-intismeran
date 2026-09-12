@@ -11,6 +11,7 @@ import sys, os, json
 sys.path.insert(0, "/Users/cary/cea-intismeran")
 import numpy as np
 from model import ModelParams, CEAModel, lognorm_surv, weibull_surv
+from model import discount_factors  # noqa: E402
 from rerun_primary import CEAModelV2, LT_hazard_monthly
 
 
@@ -163,7 +164,7 @@ def run_v3_diagnostics(p: ModelParams, label: str):
             print(f"{yr:5d} {sur['os_combo'][idx]:>10.4f} {sur['os_pembro'][idx]:>10.4f} {sur['os_combo'][idx]-sur['os_pembro'][idx]:>10.4f}")
 
     # Cost decomposition
-    disc = np.exp(-p.discount_rate * t)
+    disc = discount_factors(p.discount_rate, t)
     cl = p.cycle_length
     comps = {}
     for a in ["combo", "pembro"]:

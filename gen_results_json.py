@@ -10,7 +10,7 @@ m = CEAModelV2(p)
 r = m.run()
 c, pn = r["combo"], r["pembro"]
 t = m.t
-disc = np.exp(-p.discount_rate * t)
+disc = discount_factors(p.discount_rate, t)
 cl = p.cycle_length
 sur = m._survival()
 

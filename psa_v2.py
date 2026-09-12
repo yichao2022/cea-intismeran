@@ -26,6 +26,7 @@ import json
 from scipy.optimize import least_squares
 from scipy.stats import norm, multivariate_normal
 from model import ModelParams
+from model import discount_factors  # noqa: E402
 from rerun_primary import CEAModelV2
 
 N_VALID = 6000
@@ -170,7 +171,7 @@ while len(results) < N_VALID:
     dc = r["combo"]["cost"] - r["pembro"]["cost"]
     sur = m._survival()
     t = m.t
-    disc = np.exp(-pp.discount_rate * t)
+    disc = discount_factors(pp.discount_rate, t)
     cl = pp.cycle_length
     dly = np.sum(sur["os_combo"] * disc * cl) - np.sum(sur["os_pembro"] * disc * cl)
     results.append((dq, dc, dly))

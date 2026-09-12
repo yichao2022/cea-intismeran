@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import least_squares
 from scipy.stats import norm, multivariate_normal, beta as beta_dist
 from model import ModelParams
+from model import discount_factors  # noqa: E402
 from rerun_primary import CEAModelV2, general_pop_surv, LT_hazard_monthly
 
 plt.rcParams.update({"font.family": "sans-serif", "font.size": 10, "figure.dpi": 300, "savefig.dpi": 300})
@@ -222,7 +223,7 @@ def run_scenario(**kwargs):
     # LY
     sur = m._survival()
     t = m.t
-    disc = np.exp(-p.discount_rate * t)
+    disc = discount_factors(p.discount_rate, t)
     cl = p.cycle_length
     ly_c = np.sum(sur["os_combo"] * disc * cl)
     ly_p = np.sum(sur["os_pembro"] * disc * cl)

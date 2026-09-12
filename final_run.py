@@ -8,6 +8,7 @@ import sys, os, json
 import numpy as np
 from scipy.stats import norm, gamma, beta
 from model import ModelParams, lognorm_surv, weibull_surv
+from model import discount_factors  # noqa: E402
 
 # ══════════════════════════════════════════
 # 1. Life table (updated: age 61, 64% male)
@@ -34,7 +35,7 @@ def run_base(p: ModelParams) -> dict:
     sur = m._survival()
     states = m._state_proportions(sur)
     res = m.run()
-    disc = np.exp(-p.discount_rate * t)
+    disc = discount_factors(p.discount_rate, t)
     for arm in ["combo", "pembro"]:
         ly_disc = np.sum(sur[f"os_{arm}"] * disc) * p.cycle_length
         res[arm]['ly_disc'] = ly_disc

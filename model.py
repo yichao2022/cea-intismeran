@@ -27,6 +27,12 @@ N_INTISMERAN_DOSES = 9
 PEMBRO_CYCLE_WEEKS = 3
 
 
+
+def discount_factors(rate: float, t) -> np.ndarray:
+    """Discrete annual discount factor (1+r)^-t, t in years (Second Panel reference case)."""
+    return (1.0 + rate) ** (-np.asarray(t, dtype=float))
+
+
 # ── Parametric survival helpers ──
 
 def lognorm_surv(t: np.ndarray, mu: float, sigma: float) -> np.ndarray:
@@ -479,7 +485,7 @@ class CEAModel:
         sur = self._survival()
         states = self._state_proportions(sur)
         p = self.p
-        disc = np.exp(-p.discount_rate * self.t)
+        disc = discount_factors(p.discount_rate, self.t)
 
         results = {}
         for arm_label in ["combo", "pembro"]:
@@ -496,11 +502,11 @@ class CEAModel:
             # doses; the combination arm additionally receives the 9 intismeran doses on
             # the same 3-week schedule. Each dose is discounted at its own time.
             dose_t_years = np.arange(N_PEMBRO_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
-            dose_factors = np.exp(-p.discount_rate * dose_t_years)
+            dose_factors = discount_factors(p.discount_rate, dose_t_years)
             if arm_label == "combo":
                 ismeran_t = np.arange(N_INTISMERAN_DOSES) * (PEMBRO_CYCLE_WEEKS / 52)
                 dose_factors = np.concatenate(
-                    [dose_factors, np.exp(-p.discount_rate * ismeran_t)])
+                    [dose_factors, discount_factors(p.discount_rate, ismeran_t)])
             admin_cost = p.cost_admin_per_cycle * float(dose_factors.sum())
             lr_cost = np.sum(s["lr"] * p.cost_lr_monthly * 12 * p.cycle_length * disc)
             dm_cost = np.sum(s["dm"] * p.cost_dm_monthly * 12 * p.cycle_length * disc)

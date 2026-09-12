@@ -6,6 +6,7 @@ import sys, os
 sys.path.insert(0, "/Users/cary/cea-intismeran")
 import numpy as np
 from model import ModelParams
+from model import discount_factors  # noqa: E402
 from rerun_primary import CEAModelV2
 
 def cost_decomposition(p: ModelParams, label: str):
@@ -14,7 +15,7 @@ def cost_decomposition(p: ModelParams, label: str):
     t = m.t
     sur = m._survival()
     states = m._state_proportions(sur)
-    disc = np.exp(-p.discount_rate * t)
+    disc = discount_factors(p.discount_rate, t)
     cl = p.cycle_length
 
     print(f"\n{'='*95}")
@@ -30,7 +31,7 @@ def cost_decomposition(p: ModelParams, label: str):
         rows[arm]["Intismeran"] = (p.cost_intismeran * disc[0] * cl * 12) if arm == "combo" else 0.0
         rows[arm]["Pembrolizumab"] = p.cost_keytruda_annual * disc[:12].sum() * cl
         rows[arm]["Sequencing"] = (p.cost_sequencing * disc[0]) if arm == "combo" else 0.0
-        rows[arm]["Administration"] = p.cost_admin_per_cycle * float(np.exp(-p.discount_rate * np.arange(18) * (3 / 52)).sum())  # 18 infusions q3w
+        rows[arm]["Administration"] = p.cost_admin_per_cycle * float(discount_factors(p.discount_rate, np.arange(18) * (3 / 52)).sum())  # 18 infusions q3w
         rows[arm]["Adverse events"] = (p.cost_ae_incremental * disc[0]) if arm == "combo" else 0.0
         rows[arm]["LR management"] = np.sum(s["lr"] * p.cost_lr_monthly * 12 * cl * disc)
         rows[arm]["DM management"] = np.sum(s["dm"] * p.cost_dm_monthly * 12 * cl * disc)
