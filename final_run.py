@@ -4,7 +4,7 @@ Then run PSA, DSA, scenarios, price threshold.
 No manuscript update until complete.
 """
 import sys, os, json
-sys.path.insert(0, "/Users/cary/cea-intismeran")
+# sys.path.insert(0, "/Users/cary/cea-intismeran")  # removed: using local model.py
 import numpy as np
 from scipy.stats import norm, gamma, beta
 from model import ModelParams, lognorm_surv, weibull_surv
@@ -149,6 +149,7 @@ scenarios = [
     ("0% discount rate", {"constraint_general_pop": True, "discount_rate": 0.0}),
     ("5% discount rate", {"constraint_general_pop": True, "discount_rate": 0.05}),
     ("Weibull OS", {"constraint_general_pop": True, "os_distribution": "weibull"}),
+    ("Rank #1 joint model (AIC)", {"constraint_general_pop": True, "os_distribution_pembro": "weibull", "rDM_distribution_pembro": "gengamma", "rLR_distribution_combo": "loglogistic", "rLR_distribution_pembro": "weibull"}),
     ("10-year horizon", {"constraint_general_pop": True, "time_horizon_years": 10}),
     ("20-year horizon", {"constraint_general_pop": True, "time_horizon_years": 20}),
     ("Waning + GP + 20y (most conservative)", {"constraint_general_pop": True, "treatment_waning": True, "time_horizon_years": 20}),

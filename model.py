@@ -144,7 +144,15 @@ class ModelParams:
     constraint_general_pop: bool = False  # scenario: general population mortality cap
     gp_floor_start_months: int = 60  # months after which GP floor applies
     treatment_waning: bool = False  # treatment effect waning after 5 years
-    os_distribution: str = "lognormal"  # "lognormal" or "weibull"
+    os_distribution: str = "lognormal"  # "lognormal" or "weibull" (applies to both arms unless per-arm overrides set)
+    os_distribution_combo: str = ""  # if non-empty, overrides os_distribution for combo arm
+    os_distribution_pembro: str = ""  # if non-empty, overrides os_distribution for pembro arm
+    rDM_distribution: str = "lognormal"  # "lognormal", "weibull", "loglogistic", "gengamma" (default for both arms)
+    rDM_distribution_combo: str = ""  # if non-empty, overrides rDM_distribution for combo arm
+    rDM_distribution_pembro: str = ""  # if non-empty, overrides rDM_distribution for pembro arm
+    rLR_distribution: str = "lognormal"  # "lognormal", "weibull", "loglogistic", "gengamma" (default for both arms)
+    rLR_distribution_combo: str = ""  # if non-empty, overrides rLR_distribution for combo arm
+    rLR_distribution_pembro: str = ""  # if non-empty, overrides rLR_distribution for pembro arm
 
     # ── Derived parameters ──
     os_mu_combo: float = 0.0
@@ -165,6 +173,46 @@ class ModelParams:
     os_weibull_shape_combo: float = 0.0
     os_weibull_scale_pembro: float = 0.0
     os_weibull_shape_pembro: float = 0.0
+
+    # Weibull rDM params
+    rd_weibull_scale_combo: float = 0.0
+    rd_weibull_shape_combo: float = 0.0
+    rd_weibull_scale_pembro: float = 0.0
+    rd_weibull_shape_pembro: float = 0.0
+
+    # Weibull rLR params
+    rl_weibull_scale_combo: float = 0.0
+    rl_weibull_shape_combo: float = 0.0
+    rl_weibull_scale_pembro: float = 0.0
+    rl_weibull_shape_pembro: float = 0.0
+
+    # Log-logistic rDM params
+    rd_loglogistic_shape_combo: float = 0.0
+    rd_loglogistic_scale_combo: float = 0.0
+    rd_loglogistic_shape_pembro: float = 0.0
+    rd_loglogistic_scale_pembro: float = 0.0
+
+    # Log-logistic rLR params
+    rl_loglogistic_shape_combo: float = 0.0
+    rl_loglogistic_scale_combo: float = 0.0
+    rl_loglogistic_shape_pembro: float = 0.0
+    rl_loglogistic_scale_pembro: float = 0.0
+
+    # GenGamma rDM params
+    rd_gengamma_a_combo: float = 0.0
+    rd_gengamma_c_combo: float = 0.0
+    rd_gengamma_b_combo: float = 0.0
+    rd_gengamma_a_pembro: float = 0.0
+    rd_gengamma_c_pembro: float = 0.0
+    rd_gengamma_b_pembro: float = 0.0
+
+    # GenGamma rLR params
+    rl_gengamma_a_combo: float = 0.0
+    rl_gengamma_c_combo: float = 0.0
+    rl_gengamma_b_combo: float = 0.0
+    rl_gengamma_a_pembro: float = 0.0
+    rl_gengamma_c_pembro: float = 0.0
+    rl_gengamma_b_pembro: float = 0.0
 
     def __post_init__(self):
         def pct(v): return np.array(v, dtype=float) / 100.0
@@ -205,6 +253,41 @@ class ModelParams:
         self.rd_mu_combo, self.rd_sigma_combo = fit_ratio_lognorm(self.dmfs_time_mo, r_dm_combo_obs)
         self.rd_mu_pembro, self.rd_sigma_pembro = fit_ratio_lognorm(self.dmfs_time_mo, r_dm_pembro_obs)
 
+        # Weibull rDM
+        self.rd_weibull_scale_combo, self.rd_weibull_shape_combo = _fit_weibull(self.dmfs_time_mo, r_dm_combo_obs)
+        self.rd_weibull_scale_pembro, self.rd_weibull_shape_pembro = _fit_weibull(self.dmfs_time_mo, r_dm_pembro_obs)
+
+        # Log-logistic rDM
+        def _fit_loglogistic(t, s):
+            from scipy.optimize import least_squares
+            def resid(p):
+                sh, sc = p
+                return loglogistic_surv(np.array(t, float), sh, sc) - np.array(s, float)
+            try:
+                sol = least_squares(resid, x0=[1.5, 50.0], bounds=([0.05, 1], [15, 5000]), xtol=1e-12, ftol=1e-12)
+                return float(sol.x[0]), float(sol.x[1])
+            except:
+                return (1.5, 50.0)
+
+        self.rd_loglogistic_shape_combo, self.rd_loglogistic_scale_combo = _fit_loglogistic(self.dmfs_time_mo, r_dm_combo_obs)
+        self.rd_loglogistic_shape_pembro, self.rd_loglogistic_scale_pembro = _fit_loglogistic(self.dmfs_time_mo, r_dm_pembro_obs)
+
+        # GenGamma rDM
+        def _fit_gengamma(t, s):
+            from scipy.optimize import least_squares
+            from scipy.stats import gengamma
+            def resid(p):
+                a, c, b = p
+                return gengamma.sf(np.array(t, float), a=np.exp(a), c=c, scale=np.exp(b)) - np.array(s, float)
+            try:
+                sol = least_squares(resid, x0=[0.5, 1.0, np.log(50)], bounds=([-2, 0.1, 1], [5, 5, 300]), xtol=1e-10, ftol=1e-10, max_nfev=5000)
+                return float(np.exp(sol.x[0])), float(sol.x[1]), float(np.exp(sol.x[2]))
+            except:
+                return (1.0, 1.0, 50.0)
+
+        self.rd_gengamma_a_combo, self.rd_gengamma_c_combo, self.rd_gengamma_b_combo = _fit_gengamma(self.dmfs_time_mo, r_dm_combo_obs)
+        self.rd_gengamma_a_pembro, self.rd_gengamma_c_pembro, self.rd_gengamma_b_pembro = _fit_gengamma(self.dmfs_time_mo, r_dm_pembro_obs)
+
         # 3. Fit ratios r_LR = RFS/DMFS
         def interp_dmfs(t_target, dmfs_t, dmfs_v):
             return np.interp(t_target, dmfs_t, dmfs_v)
@@ -218,6 +301,18 @@ class ModelParams:
         self.rl_mu_combo, self.rl_sigma_combo = fit_ratio_lognorm(self.rfs_time_mo, r_lr_combo_obs)
         self.rl_mu_pembro, self.rl_sigma_pembro = fit_ratio_lognorm(self.rfs_time_mo, r_lr_pembro_obs)
 
+        # Weibull rLR
+        self.rl_weibull_scale_combo, self.rl_weibull_shape_combo = _fit_weibull(self.rfs_time_mo, r_lr_combo_obs)
+        self.rl_weibull_scale_pembro, self.rl_weibull_shape_pembro = _fit_weibull(self.rfs_time_mo, r_lr_pembro_obs)
+
+        # Log-logistic rLR
+        self.rl_loglogistic_shape_combo, self.rl_loglogistic_scale_combo = _fit_loglogistic(self.rfs_time_mo, r_lr_combo_obs)
+        self.rl_loglogistic_shape_pembro, self.rl_loglogistic_scale_pembro = _fit_loglogistic(self.rfs_time_mo, r_lr_pembro_obs)
+
+        # GenGamma rLR
+        self.rl_gengamma_a_combo, self.rl_gengamma_c_combo, self.rl_gengamma_b_combo = _fit_gengamma(self.rfs_time_mo, r_lr_combo_obs)
+        self.rl_gengamma_a_pembro, self.rl_gengamma_c_pembro, self.rl_gengamma_b_pembro = _fit_gengamma(self.rfs_time_mo, r_lr_pembro_obs)
+
 
 # ── Model runner ──
 
@@ -230,7 +325,11 @@ class CEAModel:
     def _os_fn(self, mo: np.ndarray, arm: str) -> np.ndarray:
         """Compute OS curve for given arm."""
         prefix = "combo" if arm == "combo" else "pembro"
-        if self.p.os_distribution == "weibull":
+        # Determine distribution for this arm
+        arm_dist = getattr(self.p, f"os_distribution_{prefix}", "")
+        if not arm_dist:
+            arm_dist = self.p.os_distribution
+        if arm_dist == "weibull":
             scale = getattr(self.p, f"os_weibull_scale_{prefix}")
             shape = getattr(self.p, f"os_weibull_shape_{prefix}")
             os_val = weibull_surv(mo, scale, shape)
@@ -264,7 +363,10 @@ class CEAModel:
             # After 5 years, gradually wane combo OS toward pembro OS
             # Get pembro OS
             p_prefix = "pembro"
-            if self.p.os_distribution == "weibull":
+            p_arm_dist = getattr(self.p, f"os_distribution_{p_prefix}", "")
+            if not p_arm_dist:
+                p_arm_dist = self.p.os_distribution
+            if p_arm_dist == "weibull":
                 p_scale = getattr(self.p, f"os_weibull_scale_{p_prefix}")
                 p_shape = getattr(self.p, f"os_weibull_shape_{p_prefix}")
                 p_os = weibull_surv(mo, p_scale, p_shape)
@@ -297,15 +399,51 @@ class CEAModel:
             prefix = "combo" if arm == "combo" else "pembro"
 
             # r_DM = DMFS/OS
-            rd_mu = getattr(p, f"rd_mu_{prefix}")
-            rd_sigma = getattr(p, f"rd_sigma_{prefix}")
-            r_dm = lognorm_surv(mo, rd_mu, rd_sigma)
+            rdm_dist = getattr(p, f"rDM_distribution_{prefix}", "")
+            if not rdm_dist:
+                rdm_dist = p.rDM_distribution
+            if rdm_dist == "weibull":
+                rd_sc = getattr(p, f"rd_weibull_scale_{prefix}")
+                rd_sh = getattr(p, f"rd_weibull_shape_{prefix}")
+                r_dm = weibull_surv(mo, rd_sc, rd_sh)
+            elif rdm_dist == "loglogistic":
+                rd_sh = getattr(p, f"rd_loglogistic_shape_{prefix}")
+                rd_sc = getattr(p, f"rd_loglogistic_scale_{prefix}")
+                r_dm = loglogistic_surv(mo, rd_sh, rd_sc)
+            elif rdm_dist == "gengamma":
+                from scipy.stats import gengamma as gengamma_dist
+                rd_a = getattr(p, f"rd_gengamma_a_{prefix}")
+                rd_c = getattr(p, f"rd_gengamma_c_{prefix}")
+                rd_b = getattr(p, f"rd_gengamma_b_{prefix}")
+                r_dm = gengamma_dist.sf(mo, a=rd_a, c=rd_c, scale=rd_b)
+            else:
+                rd_mu = getattr(p, f"rd_mu_{prefix}")
+                rd_sigma = getattr(p, f"rd_sigma_{prefix}")
+                r_dm = lognorm_surv(mo, rd_mu, rd_sigma)
             sur[f"dmfs_{arm}"] = os_val * r_dm
 
             # r_LR = RFS/DMFS
-            rl_mu = getattr(p, f"rl_mu_{prefix}")
-            rl_sigma = getattr(p, f"rl_sigma_{prefix}")
-            r_lr = lognorm_surv(mo, rl_mu, rl_sigma)
+            rlr_dist = getattr(p, f"rLR_distribution_{prefix}", "")
+            if not rlr_dist:
+                rlr_dist = p.rLR_distribution
+            if rlr_dist == "weibull":
+                rl_sc = getattr(p, f"rl_weibull_scale_{prefix}")
+                rl_sh = getattr(p, f"rl_weibull_shape_{prefix}")
+                r_lr = weibull_surv(mo, rl_sc, rl_sh)
+            elif rlr_dist == "loglogistic":
+                rl_sh = getattr(p, f"rl_loglogistic_shape_{prefix}")
+                rl_sc = getattr(p, f"rl_loglogistic_scale_{prefix}")
+                r_lr = loglogistic_surv(mo, rl_sh, rl_sc)
+            elif rlr_dist == "gengamma":
+                from scipy.stats import gengamma as gengamma_dist
+                rl_a = getattr(p, f"rl_gengamma_a_{prefix}")
+                rl_c = getattr(p, f"rl_gengamma_c_{prefix}")
+                rl_b = getattr(p, f"rl_gengamma_b_{prefix}")
+                r_lr = gengamma_dist.sf(mo, a=rl_a, c=rl_c, scale=rl_b)
+            else:
+                rl_mu = getattr(p, f"rl_mu_{prefix}")
+                rl_sigma = getattr(p, f"rl_sigma_{prefix}")
+                r_lr = lognorm_surv(mo, rl_mu, rl_sigma)
             sur[f"rfs_{arm}"] = sur[f"dmfs_{arm}"] * r_lr
 
         return sur
