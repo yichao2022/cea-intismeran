@@ -560,15 +560,15 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
 
 TEX_SLOTS = {
     "para_decomp": ["manuscript.tex"],
-    "para_decomp_supp": ["supplementary.tex", "supplementary_blind.tex"],
-    "para_thresholds": ["supplementary.tex", "supplementary_blind.tex"],
+    "para_decomp_supp": ["supplementary.tex"],
+    "para_thresholds": ["supplementary.tex"],
     "tab_base_body": ["manuscript.tex"],
     "tab_main_scenarios_body": ["manuscript.tex"],
-    "tab_cost_decomp_body": ["supplementary.tex", "supplementary_blind.tex"],
-    "tab_ly_qaly_body": ["supplementary.tex", "supplementary_blind.tex"],
-    "tab_scenarios_body": ["supplementary.tex", "supplementary_blind.tex"],
-    "tab_dsa_body": ["supplementary.tex", "supplementary_blind.tex"],
-    "tab_price_body": ["supplementary.tex", "supplementary_blind.tex"],
+    "tab_cost_decomp_body": ["supplementary.tex"],
+    "tab_ly_qaly_body": ["supplementary.tex"],
+    "tab_scenarios_body": ["supplementary.tex"],
+    "tab_dsa_body": ["supplementary.tex"],
+    "tab_price_body": ["supplementary.tex"],
 }
 
 
