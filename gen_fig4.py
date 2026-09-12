@@ -15,8 +15,24 @@ def icer_at_price(price):
     dq = r["combo"]["qaly"] - r["pembro"]["qaly"]
     return dc, dq, dc / dq
 
+def find_price_for_icer(target, low=0, high=5_000_000, tol=100):
+    """Binary search for price that yields target ICER."""
+    for _ in range(60):
+        mid = (low + high) / 2
+        icer = icer_at_price(mid)[2]
+        if abs(icer - target) < tol:
+            break
+        if icer < target:
+            low = mid
+        else:
+            high = mid
+    return mid
+
 prices = np.linspace(0, 900_000, 181)
 icers = np.array([icer_at_price(pr)[2] for pr in prices])
+
+p100 = find_price_for_icer(100_000)
+p150 = find_price_for_icer(150_000)
 
 fig, ax = plt.subplots(figsize=(8, 5.4))
 
@@ -33,8 +49,8 @@ ax.text(14, 150_000 + 6000, "$150K/QALY", fontsize=8, color="dimgray")
 # Labels placed in three horizontal rows at different heights to avoid overlap
 vlines = [
     (200_000, "Base case price: $200K",         "solid",  "black",   204, 512_000),
-    (527_000, "$100K/QALY threshold price: $527K", "dashed", "dimgray", 531, 489_000),
-    (852_000, "$150K/QALY threshold price: $852K", "dotted", "dimgray", 856, 458_000),
+    (p100,    "$100K/QALY threshold price",     "dashed", "dimgray", 531, 489_000),
+    (p150,    "$150K/QALY threshold price",     "dotted", "dimgray", 856, 458_000),
 ]
 for x, label, ls, c, lx, ly in vlines:
     ax.axvline(x / 1000, color=c, linestyle=ls, linewidth=1.3, alpha=0.85)
