@@ -3,7 +3,7 @@ Comprehensive re-run of cea-intismeran with:
 1. GP mortality constraint: hazard floor from 60 months (primary)
 2. Unconstrained log-normal (methodological comparison)
 3. Treatment-effect waning (conservative)
-4. No post-trial OS benefit (strong conservative)
+4. No additional OS hazard benefit beyond 5 years (strong conservative)
 
 Structural integrity: RFS ≤ DMFS ≤ OS at every month, state sum = 1.0.
 """
@@ -134,7 +134,7 @@ def run_diagnostics(scenario_name: str, p: ModelParams, extra_attrs: dict = None
     print(f"SCENARIO: {scenario_name}")
     print(f"GP constraint={p.constraint_general_pop}, "
           f"Waning={p.treatment_waning}, "
-          f"No post-trial OS={getattr(p, 'no_os_hazard_benefit', False)}")
+          f"No additional OS hazard benefit={getattr(p, 'no_os_hazard_benefit', False)}")
     print(f"{'='*80}")
 
     # ── Verifications ──
@@ -241,9 +241,9 @@ results.append(run_diagnostics("Unconstrained Log-Normal (methodological compari
 p = ModelParams(constraint_general_pop=True, treatment_waning=True)
 results.append(run_diagnostics("Treatment-Effect Waning (conservative)", p))
 
-# Scenario 4: No post-trial OS benefit
+# Scenario 4: No additional OS hazard benefit beyond 5 years
 p = ModelParams(constraint_general_pop=True)
-results.append(run_diagnostics("No Additional OS Hazard Benefit (strong conservative)", p, {"no_os_hazard_benefit": True}))
+results.append(run_diagnostics("No additional OS hazard benefit beyond 5 years (strong conservative)", p, {"no_os_hazard_benefit": True}))
 
 # ── Summary table ──
 print(f"\n\n{'='*80}")

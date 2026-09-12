@@ -724,7 +724,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 \textbf{Code structure:}
 \begin{itemize}
     \item \texttt{model.py} --- ModelParams, CEAModel (4-state PSM), discount\_factors
-    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, waning, no-post-trial-OS)
+    \item \texttt{rerun\_primary.py} --- CEAModelV2 (hazard-based GP floor, treatment-effect waning, no additional OS hazard benefit beyond 5 years)
     \item \texttt{results\_pipeline.py} --- Canonical runner: base case, decomposition, scenarios, one-way DSA, price ladder, analytic thresholds, PSA delegation; enforces the consistency checks and exports the manuscript's tables
     \item \texttt{psa\_v2.py} --- Probabilistic analysis with joint survival sampling (invoked by \texttt{results\_pipeline.py -{}-psa})
     \item \texttt{survival\_model\_selection.py} --- 15,625-combination model selection
