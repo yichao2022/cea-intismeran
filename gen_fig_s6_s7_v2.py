@@ -61,6 +61,7 @@ r = m.run()
 base_dq = r["combo"]["qaly"] - r["pembro"]["qaly"]
 base_dc = r["combo"]["cost"] - r["pembro"]["cost"]
 ax.scatter([base_dq], [base_dc], s=80, color="black", marker="D", zorder=10, label="Base case")
+print(f"Figure S7 base-case diamond plotted at dQALY={base_dq:.4f}, dCost=${base_dc:,.2f}")
 ax.set_xlabel("Incremental QALYs")
 ax.set_ylabel("Incremental Cost (USD)")
 ax.legend(fontsize=8, loc="upper left")
