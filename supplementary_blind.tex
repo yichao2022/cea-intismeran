@@ -414,12 +414,12 @@ OS $\sigma$ -- pembro & 1.131 & 0.931 & 1.331 & Normal (SE from Jacobian) & Fitt
 r$_{\text{DM}}$ $\mu$ -- combo & 7.113 & 6.913 & 7.313 & Normal (SE from Jacobian) & Fitted \\
 r$_{\text{DM}}$ $\sigma$ -- combo & 2.480 & 2.280 & 2.680 & Normal (SE from Jacobian) & Fitted \\
 r$_{\text{DM}}$ $\mu$ -- pembro & 7.042 & 6.842 & 7.242 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000 & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{DM}}$ $\sigma$ -- pembro & 5.000$^{\dagger}$ & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
 r$_{\text{LR}}$ $\mu$ -- combo & 8.874 & 8.674 & 9.074 & Normal (SE from Jacobian) & Fitted \\
-r$_{\text{LR}}$ $\sigma$ -- combo & 5.000 & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
+r$_{\text{LR}}$ $\sigma$ -- combo & 5.000$^{\dagger}$ & 4.800 & 5.200 & Normal (SE from Jacobian) & Fitted \\
 r$_{\text{LR}}$ $\mu$ -- pembro & 5.913 & 5.713 & 6.113 & Normal (SE from Jacobian) & Fitted \\
 r$_{\text{LR}}$ $\sigma$ -- pembro & 2.674 & 2.474 & 2.874 & Normal (SE from Jacobian) & Fitted \\
-Treatment duration (pembro) & 18 cycles (2 yr) & 9 & 24 & Fixed & \cite{khattak2026} \\
+Treatment duration (pembro) & 18 cycles (1 yr) & 9 & 24 & Fixed & \cite{khattak2026} \\
 Treatment duration (intismeran) & 9 doses (1 yr) & 6 & 12 & Fixed & \cite{khattak2026} \\
 Baseline age & 61 years & 55 & 67 & Fixed & \cite{khattak2026} \\
 Male proportion & 64\% & -- & -- & Fixed & \cite{khattak2026} \\
@@ -446,6 +446,7 @@ Willingness-to-pay threshold & \$100K--\$150K/QALY & \$50K & \$200K & Fixed (sce
 Cost base year & 2026 USD & -- & -- & -- & Assumed \\
 GP mortality source & US 2019 Life Tables & -- & -- & -- & NVSS (Arias 2022) \\
 \bottomrule
+\multicolumn{6}{l}{\footnotesize $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the estimation window (5.0); the ratio curve is approximately constant. Jacobian covariance is approximate.} \\
 \end{tabularx}
 \end{table}
 \end{landscape}
@@ -536,6 +537,8 @@ OS $\mu$ pembro & 4.841 & -20\% & +20\% & 57,434--Dominant & \$441,968 \\
 \subsubsection{PSA Implementation Details}
 PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$); $\sigma$ lower-truncated at 0.05. Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
 
+\noindent\textbf{Note on boundary solutions:} Two $\sigma$ parameters ($r_{\text{DM}}$--pembrolizumab and $r_{\text{LR}}$--combo) reach the upper bound of the estimation window (Table~\ref{tab:s12}). This occurs because the corresponding ratio curves are approximately constant over the observed time points (pembrolizumab $r_{\text{DM}}$: 0.78, 0.76, 0.76, 0.76; combo $r_{\text{LR}}$: 0.87, 0.86, 0.86, 0.86, 0.82), and a log-normal distribution with very large $\sigma$ approximates a constant function. The Jacobian-based covariance matrices for these two parameter pairs are therefore approximate, as the true Fisher information matrix is not well-defined at a boundary solution. In PSA, samples are drawn from a bivariate normal distribution truncated at the upper bound; this truncation is conservative in that it limits the sampled $\sigma$ values to the estimation window, preventing extreme tail behavior that could produce structurally invalid survival curves. Sensitivity analyses using alternative distributions (Weibull, log-logistic; Supplementary Table~S5) yield ICERs in the range of $\$40,000$--$\$60,000$/QALY, suggesting that the cost-effectiveness conclusion is robust to the choice of distribution specification for these components.
+
 \begin{landscape}
 \begin{table}[p]
 \centering
@@ -550,8 +553,8 @@ PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $
 OS $\mu$ / $\sigma$ -- combo & Bivariate normal & 8.396 / 3.096 & 0.793 / 0.522 & 0.996 & Joint \\
 OS $\mu$ / $\sigma$ -- pembro & Bivariate normal & 4.841 / 1.131 & 0.291 / 0.310 & 0.955 & Joint \\
 r$_{\text{DM}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 7.113 / 2.480 & 0.814 / 0.563 & 0.995 & Joint \\
-r$_{\text{DM}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 7.042 / 5.000 & 2.278 / 3.130 & 0.995 & Joint \\
-r$_{\text{LR}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 8.874 / 5.000 & 2.039 / 1.928 & 0.997 & Joint \\
+r$_{\text{DM}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 7.042 / 5.000$^{\dagger}$ & 2.278 / 3.130 & 0.995 & Joint \\
+r$_{\text{LR}}$ $\mu$ / $\sigma$ -- combo & Bivariate normal & 8.874 / 5.000$^{\dagger}$ & 2.039 / 1.928 & 0.997 & Joint \\
 r$_{\text{LR}}$ $\mu$ / $\sigma$ -- pembro & Bivariate normal & 5.913 / 2.674 & 0.757 / 0.879 & 0.984 & Joint \\
 Intismeran cost & Fixed & \$200,000 & --- & --- & Fixed (not sampled) \\
 Pembrolizumab annual cost & Gamma (CV=0.2) & \$220,896 & --- & --- & Independent \\
@@ -559,6 +562,7 @@ LR monthly cost & Gamma (CV=0.2) & \$3,000 & --- & --- & Independent \\
 DM monthly cost & Gamma (CV=0.2) & \$12,000 & --- & --- & Independent \\
 Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Independent \\
 \bottomrule
+\multicolumn{6}{l}{\footnotesize $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the estimation window (5.0); the ratio curve is approximately constant. Jacobian covariance is approximate.} \\
 \end{tabularx}
 \end{table}
 \end{landscape}
