@@ -143,8 +143,8 @@ class ModelParams:
     # Administration, by route (CMS Physician Fee Schedule, CPT codes below).
     # KEYNOTE-942: intismeran (mRNA-4157) 1 mg intramuscularly, maximum nine doses;
     # pembrolizumab 200 mg intravenously, maximum 18 doses; both every 3 weeks.
-    cost_admin_iv_infusion: float = 57.91      # per IV infusion (pembrolizumab, CPT 96365)
-    cost_admin_im_injection: float = 13.91     # per IM injection (intismeran, CPT 96372)
+    cost_admin_iv_infusion: float = 119.29     # per IV infusion (pembrolizumab, CPT 96413)
+    cost_admin_im_injection: float = 13.91     # per IM injection (intismeran; CPT 96372 proxy)
     cost_lr_monthly: float = 3_000
     cost_dm_monthly: float = 12_000
     cost_ae_incremental: float = 15_000
