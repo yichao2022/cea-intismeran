@@ -713,7 +713,7 @@ All analyses were performed using Python 3.12.7 (Apple Clang 15.0.0) on macOS 26
 \begin{itemize}
     \item Cycle length: monthly (1/12 year); time horizon: 40 years (480 cycles)
     \item Half-cycle correction: not applied (monthly cycles are sufficiently fine-grained)
-    \item Discounting: continuous-time exponential: $1/(1 + r)^t$ where $r = 0.03$
+    \item Discounting: continuous exponential, discount factor $\exp(-rt)$ with $r = 0.03$ per year and $t$ measured in years
     \item Random seed: 42 (PSA reproducibility)
     \item GP mortality source: US 2019 period life tables (NVSS, Arias et al. 2022)
 \end{itemize}
