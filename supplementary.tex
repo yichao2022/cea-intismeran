@@ -450,7 +450,7 @@ Willingness-to-pay threshold & \$100K--\$150K/QALY & \$50K & \$200K & Fixed (sce
 Cost base year & 2026 USD & -- & -- & -- & Sources inflated to 2026 (medical-care CPI) \\
 GP mortality source & US 2019 Life Tables & -- & -- & -- & NVSS (Arias 2022) \\
 \bottomrule
-\multicolumn{6}{l}{\footnotesize $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the estimation window (5.0); the ratio curve is approximately constant. Jacobian covariance is approximate.} \\
+\multicolumn{6}{@{}p{\linewidth}@{}}{\footnotesize $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the fit-optimisation window (5.0), which is not a sampling restriction; the ratio curve is approximately constant. Jacobian covariance is approximate.} \\
 \end{tabularx}
 \end{table}
 \end{landscape}
@@ -552,9 +552,9 @@ OS $\mu$ pembro & 4.841 & -20\% & +20\% & 58,503--Dominant & \$470,922 \\
 \label{sec:psa}
 
 \subsubsection{PSA Implementation Details}
-PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$); $\sigma$ lower-truncated at 0.05. Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
+PSA with 6,000 Monte Carlo iterations (seed = 42). Survival parameters ($\mu$, $\sigma$ for 6 curves) drawn jointly from bivariate normal via Jacobian covariance ($r > 0.95$); $\sigma$ lower-truncated at 0.05. No upper truncation is applied at sampling. Costs: gamma (CV=0.2). Utilities: beta (SE=0.03). Structural constraints (RFS $\leq$ DMFS $\leq$ OS, monotonicity, survival within [0,1]) verified every cycle; all 6,000 draws were structurally valid (0 rejections). No iterations were excluded on the basis of the ICER value.
 
-\noindent\textbf{Note on boundary solutions:} Two $\sigma$ parameters ($r_{\text{DM}}$--pembrolizumab and $r_{\text{LR}}$--combo) reach the upper bound of the estimation window (Table~\ref{tab:s12}). This occurs because the corresponding ratio curves are approximately constant over the observed time points (pembrolizumab $r_{\text{DM}}$: 0.78, 0.76, 0.76, 0.76; combo $r_{\text{LR}}$: 0.87, 0.86, 0.86, 0.86, 0.82), and a log-normal distribution with very large $\sigma$ approximates a constant function. The Jacobian-based covariance matrices for these two parameter pairs are therefore approximate, as the true Fisher information matrix is not well-defined at a boundary solution. In PSA, samples are drawn from a bivariate normal distribution truncated at the upper bound; this truncation is conservative in that it limits the sampled $\sigma$ values to the estimation window, preventing extreme tail behavior that could produce structurally invalid survival curves. Sensitivity analyses using alternative distributions (Weibull OS, rank-1 joint specification; Supplementary Table~S15) yield ICERs in the range of $\$43,000$--$\$62,000$/QALY, suggesting that the cost-effectiveness conclusion is robust to the choice of distribution specification for these components.
+\noindent\textbf{Note on boundary solutions:} Two $\sigma$ parameters ($r_{\text{DM}}$--pembrolizumab and $r_{\text{LR}}$--combo) reach the upper bound of the estimation window (Table~\ref{tab:s12}). This occurs because the corresponding ratio curves are approximately constant over the observed time points (pembrolizumab $r_{\text{DM}}$: 0.78, 0.76, 0.76, 0.76; combo $r_{\text{LR}}$: 0.87, 0.86, 0.86, 0.86, 0.82), and a log-normal distribution with very large $\sigma$ approximates a constant function. The Jacobian-based covariance matrices for these two parameter pairs are therefore approximate, as the true Fisher information matrix is not well-defined at a boundary solution. In PSA, samples are drawn from the bivariate normal distribution without an upper truncation; the only constraint applied is a lower truncation of $\sigma$ at 0.05, so sampled $\sigma$ values are not restricted to the estimation window. For the two boundary-solution parameters the lower truncation binds in 6.1\% ($r_{\text{DM}}$--pembrolizumab) and 0.6\% ($r_{\text{LR}}$--combo) of iterations; across the 6,000 iterations, 404 (6.7\%) had at least one $\sigma$ reset to 0.05. All 6,000 draws nevertheless satisfied the structural validity criteria, so no iterations were discarded on this basis. Sensitivity analyses using alternative distributions (Weibull OS, rank-1 joint specification; Supplementary Table~S15) yield ICERs in the range of $\$43,000$--$\$62,000$/QALY, suggesting that the cost-effectiveness conclusion is robust to the choice of distribution specification for these components.
 
 \begin{landscape}
 \begin{table}[p]
@@ -586,7 +586,7 @@ Utility RF / LR / DM & Beta (SE=0.03) & 0.83 / 0.64 / 0.55 & --- & --- & Indepen
 Held at base case (not sampled): intismeran acquisition price (price-threshold analysis), tumour sequencing, adverse-event management and the IM injection rate (one-way DSA), and the IV infusion rate (applied identically to both arms).
 
 \vspace{2pt}
-$^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the estimation window (5.0); the ratio curve is approximately constant. Jacobian covariance is approximate.
+$^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the fit-optimisation window (5.0), which is not a sampling restriction; the ratio curve is approximately constant. Jacobian covariance is approximate.
 \end{minipage}
 \end{table}
 \end{landscape}
