@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import hashlib
 import io
 import json
 import os
@@ -672,6 +673,11 @@ def export_json(deterministic: dict, psa: dict | None, out: str) -> None:
         "prices": {str(k): ser(v) for k, v in deterministic["prices"].items()},
         "thresholds_analytic": {str(k): v for k, v in deterministic["thresholds"].items()},
     }
+    # Fingerprint the survival table: if data/life_table_surv.json changes without a
+    # rerun, this hash no longer matches the committed one and the drift is visible.
+    lt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "life_table_surv.json")
+    doc["inputs"] = {"life_table_sha256": hashlib.sha256(open(lt, "rb").read()).hexdigest()[:16],
+                     "life_table_path": os.path.relpath(lt, os.path.dirname(os.path.abspath(__file__)))}
     if psa:
         doc["psa"] = {"summary": psa["summary"], "n_draws": psa["n_draws"]}
     with open(out, "w") as fh:

@@ -15,6 +15,7 @@ Robustness features:
 
 import numpy as np
 import json
+import os
 from dataclasses import dataclass, field
 from typing import Tuple, Optional
 
@@ -52,13 +53,18 @@ def loglogistic_surv(t: np.ndarray, shape: float, scale: float) -> np.ndarray:
 
 
 # ── General population survival ──
+# Repo copy first (data/life_table_surv.json); /tmp kept as a legacy fallback.
+_LT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "data", "life_table_surv.json")
+if not os.path.exists(_LT_PATH):
+    _LT_PATH = "/tmp/life_table_surv.json"
 
-with open('/tmp/life_table_surv.json') as f:
+with open(_LT_PATH) as f:
     _LT = json.load(f)
 
 
 def general_pop_surv(t_years: np.ndarray) -> np.ndarray:
-    """Age-matched general population survival from age 59 (US 2019 Life Tables).
+    """Age-matched general population survival from baseline age 61 (US 2019 Life Tables).
 
     Returns log-linear interpolated survival at requested years (floats allowed).
     """
@@ -69,6 +75,22 @@ def general_pop_surv(t_years: np.ndarray) -> np.ndarray:
     y = np.log(np.maximum(surv_year, 1e-12))
     log_surv = np.interp(np.asarray(t_years, dtype=float), x, y)
     return np.exp(log_surv)
+
+
+def survival_at_month(surv: np.ndarray, month: float) -> float:
+    """S(month) from a monthly survival array whose index i is month i.
+
+    Single entry point for every landmark read (Supplementary Tables S5-S9, all
+    figures): the array index equals the month number, so a landmark labelled
+    "60 months" reads index 60. Values beyond the array are clamped to the last
+    point (the model's projection horizon).
+    """
+    m = int(round(float(month)))
+    if m < 0:
+        raise ValueError(f"month must be >= 0, got {month!r}")
+    if len(surv) == 0:
+        raise ValueError("empty survival array")
+    return float(surv[min(m, len(surv) - 1)])
 
 
 # ── Fitting ──
@@ -374,7 +396,8 @@ class CEAModel:
                 gp_h[i] = -np.log(max(gp_surv[min(i+1, len(gp_surv)-1)] / max(gp_surv[i], 1e-12), 1e-12))
             h_final = np.where(mask, np.maximum(h_model, gp_h), h_model)
             h_final[-1] = h_final[-2]
-            cum_h = np.cumsum(h_final)
+            # Reconstruct S(i) = exp(-sum_{j<i} h_j): index i is month i.
+            cum_h = np.concatenate([[0.0], np.cumsum(h_final[:-1])])
             os_val = np.exp(-cum_h)
             # Ensure monotonic
             for i in range(1, n):

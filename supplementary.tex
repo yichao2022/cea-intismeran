@@ -229,11 +229,11 @@ A total of 15,625 distribution combinations (5 distributions x 6 curves) were ev
 \subsection{Observed versus Fitted Landmark Probabilities}
 \label{sec:obs_fitted}
 
-Table~\ref{tab:s15} reports the base-case log-normal model predictions at each KEYNOTE-942 landmark time point, together with residuals (fitted minus observed). The mean absolute error (MAE) across all 27 landmark points is 1.98 percentage points, and the root mean squared error (RMSE) is 2.79 percentage points.
+Table~\ref{tab:s15} reports the base-case log-normal model predictions at each KEYNOTE-942 landmark time point, together with residuals (fitted minus observed). The mean absolute error (MAE) across all 28 landmark points is 1.86 percentage points, and the root mean squared error (RMSE) is 2.77 percentage points.
 
-The largest residual is at the pembrolizumab-arm RFS 60-month landmark (observed 49.1\%, fitted 40.9\%, residual $-8.2$ percentage points). This reflects two structural features of the model: (i) the ratio-based construction fits $r_{\text{LR}} = \text{RFS}/\text{DMFS}$ as a separate parametric curve, so residuals at the RFS level compound errors from both the DMFS and $r_{\text{LR}}$ components; and (ii) the observed pembrolizumab RFS is identical at 48 and 60 months (both 49.1\%), creating a flat plateau that no standard parametric survival distribution can reproduce---this plateau may reflect sparse event accumulation and sampling variability in the small pembrolizumab arm ($n=52$). The DMFS pembrolizumab 48-month landmark also shows a notable residual ($-5.6$ percentage points) for the same reason.
+The largest residual is at the pembrolizumab-arm RFS 60-month landmark (observed 49.1\%, fitted 40.5\%, residual $-8.6$ percentage points). This reflects two structural features of the model: (i) the ratio-based construction fits $r_{\text{LR}} = \text{RFS}/\text{DMFS}$ as a separate parametric curve, so residuals at the RFS level compound errors from both the DMFS and $r_{\text{LR}}$ components; and (ii) the observed pembrolizumab RFS is identical at 48 and 60 months (both 49.1\%), creating a flat plateau that no standard parametric survival distribution can reproduce---this plateau may reflect sparse event accumulation and sampling variability in the small pembrolizumab arm ($n=52$). The DMFS pembrolizumab 48-month landmark also shows a notable residual ($-6.1$ percentage points) for the same reason.
 
-Despite these local deviations, the model provides a reasonable parametric representation of the overall survival trajectory: 22 of 27 landmarks have absolute residuals below 3 percentage points, and the combo-arm curves (which drive the incremental survival benefit and hence the ICER) are well-fitted across all time points (maximum absolute residual 1.5 percentage points for RFS, 1.4 percentage points for DMFS, 0.7 percentage points for OS). The extrapolated long-term survival predictions are consistent with external trial evidence (Section~\ref{sec:external}) and general population mortality constraints (Section~\ref{sec:gp_impl}).
+Despite these local deviations, the model provides a reasonable parametric representation of the overall survival trajectory: 21 of 28 landmarks have absolute residuals below 3 percentage points, and the combo-arm curves (which drive the incremental survival benefit and hence the ICER) are well-fitted across all time points (maximum absolute residual 1.8 percentage points for RFS, 1.1 percentage points for DMFS, 0.6 percentage points for OS). The extrapolated long-term survival predictions are consistent with external trial evidence (Section~\ref{sec:external}) and general population mortality constraints (Section~\ref{sec:gp_impl}).
 
 \begin{table}[H]
 \centering
@@ -244,42 +244,42 @@ Despite these local deviations, the model provides a reasonable parametric repre
 \toprule
 \textbf{Endpoint} & \textbf{Arm} & \textbf{Month} & \textbf{Observed} & \textbf{Fitted} & \textbf{Residual} & \textbf{$|$Residual$|$} & \textbf{Rel.\ Error} \\
 \midrule
-OS & Combo & 18 & 96.0\% & 96.4\% & +0.4\% & 0.4\% & 0.4\% \\
-OS & Combo & 24 & 96.0\% & 95.5\% & -0.5\% & 0.5\% & 0.5\% \\
-OS & Combo & 36 & 93.8\% & 94.1\% & +0.3\% & 0.3\% & 0.3\% \\
-OS & Combo & 48 & 92.2\% & 92.9\% & +0.7\% & 0.7\% & 0.8\% \\
-OS & Combo & 60 & 92.2\% & 91.8\% & -0.4\% & 0.4\% & 0.4\% \\
-OS & Pembro & 18 & 93.4\% & 96.2\% & +2.8\% & 2.8\% & 3.0\% \\
-OS & Pembro & 24 & 93.4\% & 93.4\% & +0.0\% & 0.0\% & 0.0\% \\
-OS & Pembro & 36 & 85.6\% & 87.2\% & +1.6\% & 1.6\% & 1.9\% \\
-OS & Pembro & 48 & 85.6\% & 81.0\% & -4.6\% & 4.6\% & 5.4\% \\
-OS & Pembro & 60 & 71.3\% & 75.0\% & +3.7\% & 3.7\% & 5.2\% \\
-DMFS & Combo & 18 & 92.0\% & 92.3\% & +0.3\% & 0.3\% & 0.3\% \\
-DMFS & Combo & 24 & 90.8\% & 90.3\% & -0.5\% & 0.5\% & 0.5\% \\
-DMFS & Combo & 36 & 85.6\% & 87.0\% & +1.4\% & 1.4\% & 1.6\% \\
-DMFS & Combo & 48 & 83.9\% & 84.1\% & +0.2\% & 0.2\% & 0.3\% \\
-DMFS & Pembro & 18 & 73.0\% & 77.0\% & +4.0\% & 4.0\% & 5.4\% \\
-DMFS & Pembro & 24 & 70.6\% & 73.1\% & +2.5\% & 2.5\% & 3.6\% \\
-DMFS & Pembro & 36 & 65.4\% & 66.0\% & +0.6\% & 0.6\% & 1.0\% \\
-DMFS & Pembro & 48 & 65.4\% & 59.8\% & -5.6\% & 5.6\% & 8.6\% \\
-RFS & Combo & 18 & 80.4\% & 81.8\% & +1.4\% & 1.4\% & 1.8\% \\
-RFS & Combo & 24 & 78.3\% & 79.0\% & +0.7\% & 0.7\% & 0.9\% \\
-RFS & Combo & 36 & 73.8\% & 74.5\% & +0.7\% & 0.7\% & 0.9\% \\
-RFS & Combo & 48 & 72.4\% & 70.9\% & -1.5\% & 1.5\% & 2.1\% \\
-RFS & Combo & 60 & 68.8\% & 67.9\% & -0.9\% & 0.9\% & 1.3\% \\
-RFS & Pembro & 18 & 62.2\% & 67.4\% & +5.2\% & 5.2\% & 8.3\% \\
-RFS & Pembro & 24 & 60.0\% & 62.2\% & +2.2\% & 2.2\% & 3.6\% \\
-RFS & Pembro & 36 & 55.6\% & 53.6\% & -2.0\% & 2.0\% & 3.7\% \\
-RFS & Pembro & 48 & 49.1\% & 46.6\% & -2.5\% & 2.5\% & 5.1\% \\
-RFS & Pembro & 60 & 49.1\% & 40.9\% & -8.2\% & 8.2\% & 16.7\% \\
+OS & Combo & 18 & 96.0\% & 96.2\% & +0.2\% & 0.2\% & 0.2\% \\
+OS & Combo & 24 & 96.0\% & 95.4\% & -0.6\% & 0.6\% & 0.6\% \\
+OS & Combo & 36 & 93.8\% & 94.0\% & +0.2\% & 0.2\% & 0.2\% \\
+OS & Combo & 48 & 92.2\% & 92.8\% & +0.6\% & 0.6\% & 0.7\% \\
+OS & Combo & 60 & 92.2\% & 91.8\% & -0.4\% & 0.4\% & 0.5\% \\
+OS & Pembro & 18 & 93.4\% & 95.8\% & +2.4\% & 2.4\% & 2.5\% \\
+OS & Pembro & 24 & 93.4\% & 92.9\% & -0.5\% & 0.5\% & 0.5\% \\
+OS & Pembro & 36 & 85.6\% & 86.7\% & +1.1\% & 1.1\% & 1.3\% \\
+OS & Pembro & 48 & 85.6\% & 80.4\% & -5.2\% & 5.2\% & 6.0\% \\
+OS & Pembro & 60 & 71.3\% & 74.5\% & +3.2\% & 3.2\% & 4.6\% \\
+DMFS & Combo & 18 & 92.0\% & 92.0\% & -0.0\% & 0.0\% & 0.0\% \\
+DMFS & Combo & 24 & 90.8\% & 90.0\% & -0.8\% & 0.8\% & 0.9\% \\
+DMFS & Combo & 36 & 85.6\% & 86.7\% & +1.1\% & 1.1\% & 1.3\% \\
+DMFS & Combo & 48 & 83.9\% & 83.9\% & +0.0\% & 0.0\% & 0.0\% \\
+DMFS & Pembro & 18 & 73.0\% & 76.3\% & +3.3\% & 3.3\% & 4.5\% \\
+DMFS & Pembro & 24 & 70.6\% & 72.5\% & +1.9\% & 1.9\% & 2.7\% \\
+DMFS & Pembro & 36 & 65.4\% & 65.5\% & +0.1\% & 0.1\% & 0.1\% \\
+DMFS & Pembro & 48 & 65.4\% & 59.3\% & -6.1\% & 6.1\% & 9.3\% \\
+RFS & Combo & 18 & 80.4\% & 81.3\% & +0.9\% & 0.9\% & 1.1\% \\
+RFS & Combo & 24 & 78.3\% & 78.6\% & +0.3\% & 0.3\% & 0.3\% \\
+RFS & Combo & 36 & 73.8\% & 74.1\% & +0.3\% & 0.3\% & 0.5\% \\
+RFS & Combo & 48 & 72.4\% & 70.6\% & -1.8\% & 1.8\% & 2.5\% \\
+RFS & Combo & 60 & 68.8\% & 67.7\% & -1.1\% & 1.1\% & 1.6\% \\
+RFS & Pembro & 18 & 62.2\% & 66.5\% & +4.3\% & 4.3\% & 6.8\% \\
+RFS & Pembro & 24 & 60.0\% & 61.4\% & +1.4\% & 1.4\% & 2.3\% \\
+RFS & Pembro & 36 & 55.6\% & 52.9\% & -2.7\% & 2.7\% & 4.8\% \\
+RFS & Pembro & 48 & 49.1\% & 46.1\% & -3.0\% & 3.0\% & 6.1\% \\
+RFS & Pembro & 60 & 49.1\% & 40.5\% & -8.6\% & 8.6\% & 17.6\% \\
 \midrule
-\multicolumn{4}{r}{\textbf{MAE}} & \multicolumn{4}{l}{\textbf{1.98 percentage points}} \\
-\multicolumn{4}{r}{\textbf{RMSE}} & \multicolumn{4}{l}{\textbf{2.79 percentage points}} \\
-\multicolumn{4}{r}{\textbf{Max $|$Residual$|$}} & \multicolumn{4}{l}{\textbf{8.2 percentage points}} \\
+\multicolumn{4}{r}{\textbf{MAE}} & \multicolumn{4}{l}{\textbf{1.86 percentage points}} \\
+\multicolumn{4}{r}{\textbf{RMSE}} & \multicolumn{4}{l}{\textbf{2.77 percentage points}} \\
+\multicolumn{4}{r}{\textbf{Max $|$Residual$|$}} & \multicolumn{4}{l}{\textbf{8.6 percentage points}} \\
 \bottomrule
 \end{tabular*}
 \end{table}
-\noindent\textit{Note:} Fitted values are from the base-case log-normal partitioned survival model at observed KEYNOTE-942 landmark time points. Residuals are fitted minus observed; positive values indicate model overprediction. The maximum absolute residual (8.2 percentage points) occurs for RFS at 60 months in the pembrolizumab arm.
+\noindent\textit{Note:} Fitted values are from the base-case log-normal partitioned survival model at observed KEYNOTE-942 landmark time points. Residuals are fitted minus observed; positive values indicate model overprediction. The maximum absolute residual (8.6 percentage points) occurs for RFS at 60 months in the pembrolizumab arm.
 
 \subsection{Lifetime OS Extrapolation by Distribution}
 \label{sec:os_extrap}
@@ -317,11 +317,11 @@ where $h_{\text{param}}(t) = -\ln[S_{\text{param}}(t{+}1)/S_{\text{param}}(t)]$ 
 \toprule
 \textbf{Years from baseline} & \textbf{Attained age} & \textbf{Combo OS} & \textbf{Pembro OS} & \textbf{GP survival} \\
 \midrule
-5 & 66 & 91.6\% & 74.1\% & 94.1\% \\
-10 & 71 & 84.1\% & 51.6\% & 86.4\% \\
-15 & 76 & 74.0\% & 37.6\% & 76.1\% \\
-20 & 81 & 60.1\% & 28.5\% & 61.9\% \\
-30 & 91 & 22.2\% & 10.5\% & 23.1\% \\
+5 & 66 & 91.8\% & 74.5\% & 94.1\% \\
+10 & 71 & 84.3\% & 51.9\% & 86.5\% \\
+15 & 76 & 74.3\% & 37.8\% & 76.2\% \\
+20 & 81 & 60.5\% & 28.6\% & 62.1\% \\
+30 & 91 & 22.7\% & 10.7\% & 23.3\% \\
 40 & 101 & 2.0\% & 0.9\% & 2.0\% \\
 \bottomrule
 \end{tabular*}
@@ -475,10 +475,10 @@ Pembrolizumab & \$217,931 & \$217,931 & \$0 \\
 Sequencing & \$1,000 & \$0 & \$1,000 \\
 Administration & \$2,303 & \$2,175 & \$128 \\
 Adverse events & \$15,000 & \$0 & \$15,000 \\
-LR management & \$93,867 & \$73,340 & \$20,527 \\
-DM management & \$407,465 & \$446,762 & $-$39,298 \\
+LR management & \$86,330 & \$70,146 & \$16,184 \\
+DM management & \$358,736 & \$429,100 & $-$70,365 \\
 \midrule
-\textbf{Total} & \textbf{\$937,567} & \textbf{\$740,209} & \textbf{\$197,358} \\
+\textbf{Total} & \textbf{\$881,300} & \textbf{\$719,353} & \textbf{\$161,947} \\
 % <<< pipeline tab_cost_decomp_body
 \bottomrule
 \end{tabular*}
@@ -497,20 +497,20 @@ DM management & \$407,465 & \$446,762 & $-$39,298 \\
 \textbf{Outcome} & \textbf{Combo} & \textbf{Pembro} & \textbf{Incremental} \\
 \midrule
 % >>> pipeline tab_ly_qaly_body
-Life-years (undiscounted) & 24.39 & 14.71 & 9.68 \\
-Life-years (discounted 3\%) & 16.30 & 10.66 & 5.64 \\
+Life-years (undiscounted) & 21.70 & 13.90 & 7.79 \\
+Life-years (discounted 3\%) & 15.20 & 10.38 & 4.82 \\
 \midrule
-RF state QALYs & 9.018 & 4.580 & 4.438 \\
-LR state QALYs & 1.669 & 1.304 & 0.365 \\
-DM state QALYs & 1.556 & 1.706 & -0.150 \\
+RF state QALYs & 8.554 & 4.522 & 4.032 \\
+LR state QALYs & 1.535 & 1.247 & 0.288 \\
+DM state QALYs & 1.370 & 1.639 & -0.269 \\
 \midrule
-\textbf{Total QALYs} & \textbf{12.243} & \textbf{7.590} & \textbf{4.653} \\
+\textbf{Total QALYs} & \textbf{11.459} & \textbf{7.408} & \textbf{4.051} \\
 % <<< pipeline tab_ly_qaly_body
 \bottomrule
 \end{tabular*}
 \end{table}
 % >>> pipeline para_decomp_supp
-Health benefit is driven by RF state QALYs (4.438 gained), with a modest additional contribution from LR (0.365) and a small reduction in DM state QALYs ($-$0.150) under the general-population mortality constraint.
+Health benefit is driven by RF state QALYs (4.032 gained), with a modest additional contribution from LR (0.288) and a small reduction in DM state QALYs ($-$0.269) under the general-population mortality constraint.
 % <<< pipeline para_decomp_supp
 
 % ═══════════════════════════════════════════════════
@@ -529,19 +529,19 @@ Health benefit is driven by RF state QALYs (4.438 gained), with a modest additio
 \textbf{Parameter} & \textbf{Base} & \textbf{Low} & \textbf{High} & \textbf{ICER range} & \textbf{Change in NMB} \\
 \midrule
 % >>> pipeline tab_dsa_body
-Utility RF & 0.83 & 0.80 & 0.86 & 43,927--40,999 & \$48,128 \\
-Utility LR & 0.64 & 0.61 & 0.67 & 42,569--42,257 & \$5,132 \\
-Utility DM & 0.55 & 0.52 & 0.58 & 42,338--42,487 & \$2,456 \\
-Pembrolizumab annual cost & \$220,896 & \$176,717 & \$265,075 & 42,413--42,413 & \$0 \\
-Intismeran cost & \$200,000 & \$160,000 & \$240,000 & 33,817--51,009 & \$80,000 \\
-LR monthly cost & \$3,000 & \$2,400 & \$3,600 & 41,530--43,295 & \$8,211 \\
-DM monthly cost & \$12,000 & \$9,600 & \$14,400 & 44,102--40,724 & \$15,719 \\
-Discount rate & 3\% & 0\% & 5\% & 37,614--48,727 & \$522,984 \\
-Intismeran IM injection cost & \$14.30 & \$0 & \$120 & 42,385--42,616 & \$1,073 \\
-Tumor sequencing & \$1,000 & \$800 & \$1,200 & 42,370--42,456 & \$400 \\
-AE management & \$15,000 & \$12,000 & \$18,000 & 41,768--43,057 & \$6,000 \\
-OS $\mu$ combo & 8.396 & -40\% & +40\% & 28,289--42,815 & \$521,695 \\
-OS $\mu$ pembro & 4.841 & -20\% & +20\% & 58,503--Dominant & \$470,922 \\
+Utility RF & 0.83 & 0.80 & 0.86 & 41,467--38,587 & \$43,722 \\
+Utility LR & 0.64 & 0.61 & 0.67 & 40,109--39,843 & \$4,046 \\
+Utility DM & 0.55 & 0.52 & 0.58 & 39,831--40,121 & \$4,398 \\
+Pembrolizumab annual cost & \$220,896 & \$176,717 & \$265,075 & 39,976--39,976 & \$0 \\
+Intismeran cost & \$200,000 & \$160,000 & \$240,000 & 30,102--49,849 & \$80,000 \\
+LR monthly cost & \$3,000 & \$2,400 & \$3,600 & 39,177--40,775 & \$6,473 \\
+DM monthly cost & \$12,000 & \$9,600 & \$14,400 & 43,449--36,502 & \$28,146 \\
+Discount rate & 3\% & 0\% & 5\% & 33,050--47,535 & \$430,185 \\
+Intismeran IM injection cost & \$14.30 & \$0 & \$120 & 39,944--40,209 & \$1,073 \\
+Tumor sequencing & \$1,000 & \$800 & \$1,200 & 39,926--40,025 & \$400 \\
+AE management & \$15,000 & \$12,000 & \$18,000 & 39,235--40,716 & \$6,000 \\
+OS $\mu$ combo & 8.396 & -40\% & +40\% & 13,725--40,486 & \$486,125 \\
+OS $\mu$ pembro & 4.841 & -20\% & +20\% & 57,365--Dominant & \$441,797 \\
 % <<< pipeline tab_dsa_body
 \end{tabular}
 }
@@ -596,8 +596,8 @@ $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the fit-opti
 \begin{itemize}
 \item Mean $\Delta$QALY: 4.95 (95\% CI 2.87--7.90).
 \item Mean $\Delta$Cost: \$164,003 (95\% CI \textendash\$677,115 to \$612,313).
-\item Mean NMB: \$330,805 at \$100K and \$578,209 at \$150K.
-\item Probability cost-effective: 61.1\% at \$50K, 94.8\% at \$100K, and 98.5\% at \$150K.
+\item Mean NMB: \$307,014 at \$100K and \$524,979 at \$150K.
+\item Probability cost-effective: 61.1\% at \$50K, 95.3\% at \$100K, and 98.7\% at \$150K.
 \item No iterations were excluded based on the ICER; 15.8\% of draws were cost-saving, and all 6,000 draws had $\Delta$QALY $>$ 0.
 \end{itemize}
 
@@ -640,23 +640,23 @@ $^{\dagger}$ Boundary solution: $\sigma$ reaches the upper bound of the fit-opti
 \textbf{Scenario} & \textbf{$\Delta$LY} & \textbf{$\Delta$QALY} & \textbf{$\Delta$Cost} & \textbf{ICER} & \textbf{NMB \$100K} & \textbf{NMB \$150K} \\
 \midrule
 % >>> pipeline tab_scenarios_body
-Base case & 5.64 & 4.65 & \$197,358 & \$42,413 & \$267,970 & \$500,634 \\
-Weibull OS & 8.34 & 6.47 & \$368,256 & \$56,911 & \$278,815 & \$602,350 \\
-Rank \#1 joint model & 8.34 & 6.44 & \$393,709 & \$61,129 & \$250,358 & \$572,392 \\
+Base case & 4.82 & 4.05 & \$161,947 & \$39,976 & \$243,167 & \$445,724 \\
+Weibull OS & 7.17 & 4.82 & \$308,820 & \$54,745 & \$255,288 & \$537,342 \\
+Rank \#1 joint model & 7.17 & 5.61 & \$334,543 & \$59,624 & \$226,549 & \$507,095 \\
 Unconstrained (no GP) & 9.33 & 7.28 & \$376,791 & \$51,741 & \$351,437 & \$715,551 \\
-GP floor 48 mo & 5.63 & 4.64 & \$196,851 & \$42,396 & \$267,465 & \$499,623 \\
-GP floor 60 mo (base) & 5.64 & 4.65 & \$197,358 & \$42,413 & \$267,970 & \$500,634 \\
-GP floor 72 mo & 5.68 & 4.68 & \$198,742 & \$42,465 & \$269,270 & \$503,276 \\
-GP floor 96 mo & 5.81 & 4.77 & \$203,624 & \$42,682 & \$273,449 & \$511,985 \\
-10-year horizon & 1.31 & 1.31 & \$96,677 & \$73,794 & \$34,333 & \$99,838 \\
-20-year horizon & 3.69 & 3.19 & \$129,271 & \$40,518 & \$189,775 & \$349,299 \\
-30-year horizon & 5.12 & 4.27 & \$175,566 & \$41,159 & \$250,986 & \$464,261 \\
-40-year horizon (base) & 5.64 & 4.65 & \$197,358 & \$42,413 & \$267,970 & \$500,634 \\
-Waning V1 (OS-survival convergence) & 1.96 & 1.99 & \$36,517 & \$18,393 & \$162,020 & \$261,288 \\
-Waning V2 (hazard convergence) & 2.92 & 2.30 & \$240,392 & \$104,591 & $-$10,553 & \$104,367 \\
-No additional OS hazard benefit beyond 5 years & 1.81 & 1.86 & \$38,754 & \$20,826 & \$147,334 & \$240,378 \\
-0\% discount & 9.68 & 7.77 & \$292,236 & \$37,614 & \$484,697 & \$873,164 \\
-5\% discount & 4.11 & 3.46 & \$168,489 & \$48,727 & \$177,290 & \$350,180 \\
+GP floor 48 mo & 4.79 & 4.03 & \$161,018 & \$39,937 & \$242,165 & \$443,756 \\
+GP floor 60 mo (base) & 4.82 & 4.05 & \$161,947 & \$39,976 & \$243,167 & \$445,724 \\
+GP floor 72 mo & 4.86 & 4.08 & \$163,614 & \$40,055 & \$244,858 & \$449,094 \\
+GP floor 96 mo & 5.00 & 4.18 & \$168,709 & \$40,334 & \$249,571 & \$458,711 \\
+10-year horizon & 1.28 & 1.29 & \$95,047 & \$73,937 & \$33,505 & \$97,780 \\
+20-year horizon & 3.54 & 3.08 & \$122,804 & \$39,848 & \$185,381 & \$339,474 \\
+30-year horizon & 4.64 & 3.91 & \$154,949 & \$39,587 & \$236,467 & \$432,175 \\
+40-year horizon (base) & 4.82 & 4.05 & \$161,947 & \$39,976 & \$243,167 & \$445,724 \\
+Waning V1 (OS-survival convergence) & 1.90 & 1.93 & \$39,319 & \$20,398 & \$153,436 & \$249,814 \\
+Waning V2 (hazard convergence) & 2.70 & 2.16 & \$226,421 & \$104,971 & $-$10,723 & \$97,126 \\
+No additional OS hazard benefit beyond 5 years & 1.68 & 1.76 & \$37,783 & \$21,491 & \$138,030 & \$225,936 \\
+0\% discount & 7.79 & 6.39 & \$211,207 & \$33,050 & \$427,852 & \$747,382 \\
+5\% discount & 3.62 & 3.10 & \$147,152 & \$47,535 & \$162,414 & \$317,197 \\
 % <<< pipeline tab_scenarios_body
 \bottomrule
 \end{tabularx}
@@ -665,7 +665,7 @@ No additional OS hazard benefit beyond 5 years & 1.81 & 1.86 & \$38,754 & \$20,8
 \end{landscape}
 \noindent The base-case conclusion is robust across structural assumptions. The ICER alone is insufficient: unconstrained model has moderate ICER (\$51,741) but implausible \$376,791 cost.
 
-\indent \textbf{Time horizon sensitivity.} The ICER remained below conventional US willingness-to-pay thresholds across 20-, 30-, and 40-year horizons, although the point estimate increased at the 40-year horizon: \$40,518 at 20 years, \$41,159 at 30 years, and \$42,413 at the 40-year base-case horizon (Table~\ref{tab:s13}). The 30-to-40-year increase of \$1,234/QALY (3.0\%) reflects the limited contribution of late discounted QALY gains beyond 30 years; the 10-year horizon produced a higher ICER of \$73,794/QALY, reflecting the incomplete capture of long-term QALY gains within a shorter window. Because the general-population mortality hazard floor was applied from 60 months onward and both costs and QALYs were discounted at 3\% annually, survival beyond the 20-year window contributed materially to discounted incremental costs and QALYs.
+\indent \textbf{Time horizon sensitivity.} The ICER remained below conventional US willingness-to-pay thresholds across 20-, 30-, and 40-year horizons, although the point estimate increased at the 40-year horizon: \$39,848 at 20 years, \$39,587 at 30 years, and \$39,976 at the 40-year base-case horizon (Table~\ref{tab:s13}). The 30-to-40-year increase of \$1,234/QALY (3.0\%) reflects the limited contribution of late discounted QALY gains beyond 30 years; the 10-year horizon produced a higher ICER of \$73,794/QALY, reflecting the incomplete capture of long-term QALY gains within a shorter window. Because the general-population mortality hazard floor was applied from 60 months onward and both costs and QALYs were discounted at 3\% annually, survival beyond the 20-year window contributed materially to discounted incremental costs and QALYs.
 
 \noindent \textbf{General population hazard floor start-time sensitivity.} The GP mortality floor was applied from 60 months in the base case. Varying the onset from 48 to 96 months produced no material change in the ICER (the ICERs ranged from \$42,396 to \$42,682/QALY across 48--96 months). This reflects the fact that the fitted hazard for the combination arm closely tracks the general-population mortality hazard in the post-trial period (both at approximately 0.0008--0.0009 monthly), leaving the floor with minimal additional constraining effect regardless of onset timing. The floor's binding is thus a near-numerical coincidence between the parametric extrapolation and US life-table mortality, not a model artifact.
 
@@ -684,30 +684,30 @@ No additional OS hazard benefit beyond 5 years & 1.81 & 1.86 & \$38,754 & \$20,8
 \textbf{Intismeran Price} & \textbf{ICER} & \textbf{NMB @ \$100K} & \textbf{NMB @ \$150K} \\
 \midrule
 % >>> pipeline tab_price_body
-\$0 & Dominant & \$467,970 & \$700,634 \\
-\$50,000 & \$10,177 & \$417,970 & \$650,634 \\
-\$100,000 & \$20,922 & \$367,970 & \$600,634 \\
-\$150,000 & \$31,667 & \$317,970 & \$550,634 \\
-\$200,000 (base) & \$42,413 & \$267,970 & \$500,634 \\
-\$250,000 & \$53,158 & \$217,970 & \$450,634 \\
-\$300,000 & \$63,903 & \$167,970 & \$400,634 \\
-\$350,000 & \$74,648 & \$117,970 & \$350,634 \\
-\$400,000 & \$85,393 & \$67,970 & \$300,634 \\
-\$450,000 & \$96,138 & \$17,970 & \$250,634 \\
-\textbf{\$467,970} & \textbf{\$100,000} & \textbf{\$0} & \textbf{\$232,664} \\
-\$500,000 & \$106,883 & $-$32,030 & \$200,634 \\
-\$550,000 & \$117,628 & $-$82,030 & \$150,634 \\
-\$600,000 & \$128,373 & $-$132,030 & \$100,634 \\
-\$650,000 & \$139,119 & $-$182,030 & \$50,634 \\
-\$700,000 & \$149,864 & $-$232,030 & \$634 \\
-\textbf{\$700,634} & \textbf{\$150,000} & \textbf{$-$232,664} & \textbf{\$0} \\
-\$750,000 & \$160,609 & $-$282,030 & $-$49,366 \\
-\$800,000 & \$171,354 & $-$332,030 & $-$99,366 \\
+\$0 & Dominant & \$443,167 & \$645,724 \\
+\$50,000 & \$2,949 & \$393,167 & \$595,724 \\
+\$100,000 & \$15,291 & \$343,167 & \$545,724 \\
+\$150,000 & \$27,633 & \$293,167 & \$495,724 \\
+\$200,000 (base) & \$39,976 & \$243,167 & \$445,724 \\
+\$250,000 & \$52,318 & \$193,167 & \$395,724 \\
+\$300,000 & \$64,660 & \$143,167 & \$345,724 \\
+\$350,000 & \$77,002 & \$93,167 & \$295,724 \\
+\$400,000 & \$89,344 & \$43,167 & \$245,724 \\
+\textbf{\$443,167} & \textbf{\$100,000} & \textbf{\$0} & \textbf{\$202,557} \\
+\$450,000 & \$101,687 & $-$6,833 & \$195,724 \\
+\$500,000 & \$114,029 & $-$56,833 & \$145,724 \\
+\$550,000 & \$126,371 & $-$106,833 & \$95,724 \\
+\$600,000 & \$138,713 & $-$156,833 & \$45,724 \\
+\textbf{\$645,724} & \textbf{\$150,000} & \textbf{$-$202,557} & \textbf{\$0} \\
+\$650,000 & \$151,055 & $-$206,833 & $-$4,276 \\
+\$700,000 & \$163,398 & $-$256,833 & $-$54,276 \\
+\$750,000 & \$175,740 & $-$306,833 & $-$104,276 \\
+\$800,000 & \$188,082 & $-$356,833 & $-$154,276 \\
 % <<< pipeline tab_price_body
 \end{tabular*}
 \end{table}
 % >>> pipeline para_thresholds
-\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$467,970 at \$100,000/QALY (2.3$\times$ base) and approximately \$700,634 at \$150,000/QALY (3.5$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
+\noindent Deterministic threshold prices (from Table~\ref{tab:s14}): approximately \$443,167 at \$100,000/QALY (2.2$\times$ base) and approximately \$645,724 at \$150,000/QALY (3.2$\times$ base). These are model-based deterministic estimates; PSA uncertainty propagation and formal budget-impact analysis would be needed to inform payer negotiations.
 % <<< pipeline para_thresholds
 
 % ═══════════════════════════════════════════════════

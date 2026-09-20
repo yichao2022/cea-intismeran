@@ -1,60 +1,60 @@
 {
   "ly_qaly": {
     "combo": {
-      "ly_undisc": 24.39,
-      "ly_disc": 16.21,
-      "qaly_rf": 8.98,
-      "qaly_lr": 1.66,
-      "qaly_dm": 1.54,
-      "qaly_total": 12.18
+      "ly_undisc": 21.7,
+      "ly_disc": 15.2,
+      "qaly_rf": 8.55,
+      "qaly_lr": 1.53,
+      "qaly_dm": 1.37,
+      "qaly_total": 11.46
     },
     "pembro": {
-      "ly_undisc": 14.71,
-      "ly_disc": 10.61,
-      "qaly_rf": 4.56,
-      "qaly_lr": 1.3,
-      "qaly_dm": 1.7,
-      "qaly_total": 7.55
+      "ly_undisc": 13.9,
+      "ly_disc": 10.38,
+      "qaly_rf": 4.52,
+      "qaly_lr": 1.25,
+      "qaly_dm": 1.64,
+      "qaly_total": 7.41
     },
     "incremental": {
-      "ly_undisc": 9.68,
-      "ly_disc": 5.6,
-      "qaly_rf": 4.42,
-      "qaly_lr": 0.36,
-      "qaly_dm": -0.16,
-      "qaly_total": 4.63
+      "ly_undisc": 7.8,
+      "ly_disc": 4.82,
+      "qaly_rf": 4.03,
+      "qaly_lr": 0.28,
+      "qaly_dm": -0.27,
+      "qaly_total": 4.05
     }
   },
   "cost_decomp": {
     "combo": {
-      "pembrolizumab": 217888,
+      "pembrolizumab": 217931,
       "intismeran": 200000,
       "sequencing": 1000,
-      "administration": 8869,
+      "administration": 2303,
       "adverse_events": 15000,
-      "lr_management": 93301,
-      "dm_management": 404452,
-      "total": 940510
+      "lr_management": 86330,
+      "dm_management": 358736,
+      "total": 881300
     },
     "pembro": {
-      "pembrolizumab": 217888,
+      "pembrolizumab": 217931,
       "intismeran": 0,
       "sequencing": 0,
-      "administration": 8869,
+      "administration": 2175,
       "adverse_events": 0,
-      "lr_management": 72936,
-      "dm_management": 444460,
-      "total": 744153
+      "lr_management": 70146,
+      "dm_management": 429100,
+      "total": 719353
     },
     "incremental": {
       "pembrolizumab": 0,
       "intismeran": 200000,
       "sequencing": 1000,
-      "administration": 0,
+      "administration": 128,
       "adverse_events": 15000,
-      "lr_management": 20365,
-      "dm_management": -40008,
-      "total": 196357
+      "lr_management": 16184,
+      "dm_management": -70364,
+      "total": 161947
     }
   }
 }

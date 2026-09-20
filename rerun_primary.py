@@ -15,7 +15,13 @@ from model import ModelParams, CEAModel, lognorm_surv, weibull_surv, general_pop
 from model import discount_factors  # noqa: E402
 
 # ── Life table monthly hazards (proper interpolation) ──
-with open("/tmp/life_table_surv.json") as f:
+# Repo copy first (data/life_table_surv.json); /tmp kept as a legacy fallback.
+_LT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "data", "life_table_surv.json")
+if not os.path.exists(_LT_PATH):
+    _LT_PATH = "/tmp/life_table_surv.json"
+
+with open(_LT_PATH) as f:
     LT = json.load(f)
 LT_surv_year = np.array([LT["survival_by_year"].get(str(y), 0.0) for y in range(0, 43)])
 # Monthly GP survival: linearly interpolate survival (or use hazard interpolation)
@@ -109,8 +115,8 @@ class CEAModelV2(CEAModel):
         gp_h = np.interp(np.arange(n), np.arange(480), LT_hazard_monthly)
         h_final = np.where(mask, np.maximum(h_model, gp_h), h_model)
         h_final[-1] = h_final[-2]  # last point
-        # Reconstruct survival
-        cum_h = np.cumsum(h_final)
+        # Reconstruct survival S(i) = exp(-sum_{j<i} h_j): index i is month i.
+        cum_h = np.concatenate([[0.0], np.cumsum(h_final[:-1])])
         new_os = np.exp(-cum_h)
         # Ensure monotonic
         for i in range(1, n):

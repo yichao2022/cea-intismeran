@@ -7,7 +7,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from scipy.optimize import least_squares
 from scipy.stats import norm, gengamma
-from model import ModelParams
+from model import ModelParams, survival_at_month
 def pct(v): return np.array(v, dtype=float) / 100.0
 
 plt.rcParams.update({
@@ -82,10 +82,10 @@ for arm_name, t_pts, s_obs, ax, label in [
         ax.plot(t_fine, s_pred, color=color, ls=ls, lw=1.5, label=dist)
         data_table[arm_name][dist] = {
             "params": [round(float(p), 3) for p in params],
-            "os5": round(float(s_pred[60]), 4),
-            "os10": round(float(s_pred[120]), 4),
-            "os20": round(float(s_pred[240]), 4),
-            "os40": round(float(s_pred[480]), 4),
+            "os5": round(survival_at_month(s_pred, 60), 4),
+            "os10": round(survival_at_month(s_pred, 120), 4),
+            "os20": round(survival_at_month(s_pred, 240), 4),
+            "os40": round(survival_at_month(s_pred, 480), 4),
         }
 
     ax.set_xlim(0, 40)
