@@ -42,7 +42,8 @@ MONEY = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d])")
 DECIMAL = re.compile(r"(?<![\d.,])\d+\.\d{1,3}(?![\d])")
 
 flag = {}
-for f in ("manuscript.tex", "supplementary.tex"):
+for f in ("manuscript.tex", "supplementary.tex", "cover_letter_pharmacoeconomics.tex",
+          "title_page.tex"):
     for i, line in enumerate(open(f), 1):
         if line.lstrip().startswith("%"):
             continue
