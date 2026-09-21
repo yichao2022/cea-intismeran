@@ -1,20 +1,104 @@
-"""Guard: the model's monthly survival arrays must be indexed by month.
+"""Guard: the model's monthly survival arrays must be indexed by month, and every
+survival value printed in the supplementary tables must reproduce from them.
 
 Regression for the cycle-indexing drift that made Supplementary Table S6 read
 S(month-1), the long-term table S5 read S(month+1) and the text read S(month).
+
+Covers: index == month for the curves read through survival_at_month(); the
+published 60-month text values; the observed-vs-fitted landmark table (tab:s15),
+the external plausibility table (tab:s7) and the long-term table (tab:s5) -- the
+last two are hand-maintained in supplementary.tex, so this is their only guard.
 
 Run:  python check_survival_indexing.py
 """
 import hashlib
 import json
 import os
+import re
 import sys
 
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model import ModelParams, lognorm_surv, survival_at_month  # noqa: E402
+from model import (ModelParams, general_pop_surv, lognorm_surv,  # noqa: E402
+                   survival_at_month)
 from rerun_primary import CEAModelV2  # noqa: E402
+
+TEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "supplementary.tex")
+CURVE = {"OS": "os", "DMFS": "dmfs", "RFS": "rfs"}
+ARM = {"Combo": "combo", "Pembro": "pembro"}
+
+
+def table_rows(label: str) -> list:
+    """Lines between \\label{<label>} and that table's \\end{table}."""
+    rows, inside = [], False
+    for line in open(TEX):
+        if f"\\label{{{label}}}" in line:
+            inside = True
+            continue
+        if inside:
+            if line.startswith("\\end{table}"):
+                break
+            rows.append(line)
+    assert rows, f"table {label} not found in {os.path.basename(TEX)}"
+    return rows
+
+
+def pct(tok: str):
+    """'74.5\\%' -> 74.5; '---' / 'NR' -> None."""
+    tok = tok.strip().replace("\\%", "").replace("$", "").replace("{", "").replace("}", "")
+    return float(tok) if re.fullmatch(r"\d+(\.\d+)?", tok) else None
+
+
+def check_tables(sur: dict) -> None:
+    """Every printed survival value must come back out of the model."""
+    fails = []
+    checked = 0
+
+    for line in table_rows("tab:s15"):  # observed vs fitted landmark table
+        m = re.match(r"\s*(OS|DMFS|RFS)\s*&\s*(Combo|Pembro)\s*&\s*(\d+)\s*&([^&]+)&([^&]+)&", line)
+        if not m:
+            continue
+        endpoint, arm, month, fitted = m.group(1), m.group(2), int(m.group(3)), pct(m.group(5))
+        if fitted is None:
+            continue
+        want = 100 * survival_at_month(sur[f"{CURVE[endpoint]}_{ARM[arm]}"], month)
+        checked += 1
+        if abs(want - fitted) > 0.06:
+            fails.append(f"tab:s15 {endpoint} {arm} {month}m: table {fitted}% vs model {want:.2f}%")
+
+    for line in table_rows("tab:s7"):  # external plausibility, model column
+        m = re.match(r"\s*(OS|DMFS|RFS)\s*&\s*(\d+)\s*&([^&]+)&", line)
+        if not m:
+            continue
+        endpoint, year, model_val = m.group(1), int(m.group(2)), pct(m.group(3))
+        if model_val is None:
+            continue
+        want = 100 * survival_at_month(sur[f"{CURVE[endpoint]}_pembro"], 12 * year)
+        checked += 1
+        if abs(want - model_val) > 0.06:
+            fails.append(f"tab:s7 {endpoint} {year}y: table {model_val}% vs model {want:.2f}%")
+
+    for line in table_rows("tab:s5"):  # long-term OS vs general population
+        m = re.match(r"\s*(\d+)\s*&\s*\d+\s*&([^&]+)&([^&]+)&([^&]+)\\\\", line)
+        if not m:
+            continue
+        year, combo, pembro, gp = int(m.group(1)), pct(m.group(2)), pct(m.group(3)), pct(m.group(4))
+        for arm, printed in (("combo", combo), ("pembro", pembro)):
+            if printed is None:
+                continue
+            want = 100 * survival_at_month(sur[f"os_{arm}"], 12 * year)
+            checked += 1
+            if abs(want - printed) > 0.06:
+                fails.append(f"tab:s5 {year}y os_{arm}: table {printed}% vs model {want:.2f}%")
+        if gp is not None:
+            want_gp = 100 * float(general_pop_surv(np.array([float(year)]))[0])
+            checked += 1
+            if abs(want_gp - gp) > 0.06:
+                fails.append(f"tab:s5 {year}y GP: table {gp}% vs life table {want_gp:.2f}%")
+
+    assert not fails, "printed values do not reproduce from the model:\n  " + "\n  ".join(fails)
+    print(f"  {checked} printed table values reproduce from the model  OK")
 
 
 def analytic(month: float, mu: float, sigma: float) -> float:
@@ -51,6 +135,8 @@ def main() -> int:
         assert abs(got - published) <= 0.15, (
             f"{curve}[{month}] = {got:.2f}%, published {published}%")
         print(f"  {curve}@{month}m = {got:.2f}%  (text {published}%)  OK")
+
+    check_tables(sur)
 
     # The committed canonical results must belong to the survival table on disk.
     root = os.path.dirname(os.path.abspath(__file__))

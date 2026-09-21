@@ -12,6 +12,11 @@ import sys
 canon = json.load(open("output/canonical_results.json"))
 dec = json.load(open("output/decomposition_v2.json"))
 dsa = json.load(open("output/dsa_canonical.json"))
+psa = json.load(open("output/psa_v2_results.json"))
+
+# every canonical output the manuscript draws on — a token missing here is hand-typed
+CANON_FILES = ["output/canonical_results.json", "output/decomposition_v2.json",
+               "output/dsa_canonical.json", "output/psa_v2_results.json"]
 
 
 def walk(o, out):
@@ -28,7 +33,7 @@ def walk(o, out):
 
 
 vals = []
-for doc in (canon, dec, dsa):
+for doc in (canon, dec, dsa, psa):
     walk(doc, vals)
 nums = [v for v in vals if isinstance(v, float)]
 
@@ -40,6 +45,12 @@ for v in nums:
 
 MONEY = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d])")
 DECIMAL = re.compile(r"(?<![\d.,])\d+\.\d{1,3}(?![\d])")
+
+# Numbers reach the .tex from three shapes the walker above misses: string values,
+# dict keys, and already-formatted strings. Scan the raw JSON text so a token that
+# really is in a canonical output never gets flagged (2026-09-21: 58/58 were this).
+for _f in CANON_FILES:
+    known.update(MONEY.findall(open(_f).read()))
 
 flag = {}
 for f in ("manuscript.tex", "supplementary.tex", "cover_letter_pharmacoeconomics.tex",
