@@ -25,6 +25,7 @@ from model import (ModelParams, general_pop_surv, lognorm_surv,  # noqa: E402
 from rerun_primary import CEAModelV2  # noqa: E402
 
 TEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "supplementary.tex")
+MANUSCRIPT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manuscript.tex")
 CURVE = {"OS": "os", "DMFS": "dmfs", "RFS": "rfs"}
 ARM = {"Combo": "combo", "Pembro": "pembro"}
 
@@ -54,18 +55,22 @@ def check_tables(sur: dict) -> None:
     """Every printed survival value must come back out of the model."""
     fails = []
     checked = 0
+    residuals = []  # (obs, fitted) from tab:s15 -- the source of the quoted MAE/RMSE
 
     for line in table_rows("tab:s15"):  # observed vs fitted landmark table
-        m = re.match(r"\s*(OS|DMFS|RFS)\s*&\s*(Combo|Pembro)\s*&\s*(\d+)\s*&([^&]+)&([^&]+)&", line)
+        m = re.match(r"\s*(OS|DMFS|RFS)\s*&\s*(Combo|Pembro)\s*&\s*(\d+)\s*&([^&]+)&([^&]+)&([^&]+)&", line)
         if not m:
             continue
-        endpoint, arm, month, fitted = m.group(1), m.group(2), int(m.group(3)), pct(m.group(5))
+        endpoint, arm, month = m.group(1), m.group(2), int(m.group(3))
+        observed, fitted = pct(m.group(4)), pct(m.group(5))
         if fitted is None:
             continue
         want = 100 * survival_at_month(sur[f"{CURVE[endpoint]}_{ARM[arm]}"], month)
         checked += 1
         if abs(want - fitted) > 0.06:
             fails.append(f"tab:s15 {endpoint} {arm} {month}m: table {fitted}% vs model {want:.2f}%")
+        if observed is not None:
+            residuals.append((observed, fitted))
 
     for line in table_rows("tab:s7"):  # external plausibility, model column
         m = re.match(r"\s*(OS|DMFS|RFS)\s*&\s*(\d+)\s*&([^&]+)&", line)
@@ -98,6 +103,25 @@ def check_tables(sur: dict) -> None:
                 fails.append(f"tab:s5 {year}y GP: table {gp}% vs life table {want_gp:.2f}%")
 
     assert not fails, "printed values do not reproduce from the model:\n  " + "\n  ".join(fails)
+
+    # The manuscript prose quotes summary statistics derived from that table --
+    # recompute them from the table itself and require the sentence to agree.
+    # (This is what went stale: 1.98/2.79/27 survived one cycle after the
+    # supplement was regenerated to 1.86/2.77/28.)
+    if residuals:
+        errs = [fitted - observed for observed, fitted in residuals]
+        mae = sum(abs(e) for e in errs) / len(errs)
+        rmse = (sum(e * e for e in errs) / len(errs)) ** 0.5
+        prose = " ".join(open(MANUSCRIPT).read().split())
+        quoted = (f"mean absolute error of {mae:.2f} percentage points",
+                  f"RMSE of {rmse:.2f} percentage points",
+                  f"across all {len(errs)} observed landmark probabilities",
+                  f"{max(abs(e) for e in errs):.1f}")  # largest residual, any phrasing
+        stale = [q for q in quoted if q not in prose]
+        assert not stale, ("manuscript prose does not match the landmark table: "
+                           + "; ".join(stale))
+        print(f"  manuscript MAE {mae:.2f} / RMSE {rmse:.2f} over {len(errs)} landmarks  OK")
+
     print(f"  {checked} printed table values reproduce from the model  OK")
 
 
