@@ -26,6 +26,7 @@ from rerun_primary import CEAModelV2  # noqa: E402
 
 TEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "supplementary.tex")
 MANUSCRIPT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manuscript.tex")
+DSA_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output", "dsa_canonical.json")
 CURVE = {"OS": "os", "DMFS": "dmfs", "RFS": "rfs"}
 ARM = {"Combo": "combo", "Pembro": "pembro"}
 
@@ -49,6 +50,32 @@ def pct(tok: str):
     """'74.5\\%' -> 74.5; '---' / 'NR' -> None."""
     tok = tok.strip().replace("\\%", "").replace("$", "").replace("{", "").replace("}", "")
     return float(tok) if re.fullmatch(r"\d+(\.\d+)?", tok) else None
+
+
+def check_dsa_nmb() -> None:
+    """The DSA table's printed "Change in NMB" column must equal dsa_canonical.json.
+
+    That column (abs(NMB@150K(high) - NMB@150K(low)) per parameter) is the one the
+    manuscript's driver ranking rests on and used to be computed ad hoc, so nothing
+    verified it; the values live in the json since export_dsa_json() was extended.
+    """
+    js = json.load(open(DSA_JSON))
+    norm = lambda s: str(s).replace("$", "").replace("\\", "").strip()  # noqa: E731
+    want = sorted(norm(r["nmb_150k"]["delta_formatted"]) for r in js["rows"])
+    got, inside = [], False
+    for line in open(TEX):
+        if ">>> pipeline tab_dsa_body" in line:
+            inside = True
+            continue
+        if "<<< pipeline tab_dsa_body" in line:
+            break
+        if inside and "&" in line:
+            tok = line.split("&")[-1].replace("\\\\", "").replace("\\$", "").replace("$", "").strip()
+            got.append(tok)
+    got.sort()
+    assert got == want, ("DSA table NMB column does not match output/dsa_canonical.json:\n"
+                         f"  table: {got}\n  json : {want}")
+    print(f"  DSA table NMB column matches dsa_canonical.json ({len(got)} rows)  OK")
 
 
 def check_tables(sur: dict) -> None:
@@ -161,6 +188,7 @@ def main() -> int:
         print(f"  {curve}@{month}m = {got:.2f}%  (text {published}%)  OK")
 
     check_tables(sur)
+    check_dsa_nmb()
 
     # The committed canonical results must belong to the survival table on disk.
     root = os.path.dirname(os.path.abspath(__file__))

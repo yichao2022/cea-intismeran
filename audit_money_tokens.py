@@ -5,6 +5,7 @@ Usage: python audit_money_tokens.py [--decimals]
   --decimals  also scan plain decimal tokens (x.xx / x.x%) outside money strings
 """
 import json
+import glob
 import os
 import re
 import sys
@@ -40,7 +41,10 @@ nums = [v for v in vals if isinstance(v, float)]
 known = set()
 for v in nums:
     for fmt in (f"{v:,.0f}", f"{v:.2f}", f"{v:.1f}", f"{v:.3f}",
-                f"{100 * v:.1f}", f"{100 * v:.2f}"):
+                f"{100 * v:.1f}", f"{100 * v:.2f}",
+                # magnitudes too: a .tex prints "$-$671,440" as two tokens, so the
+                # signed value never matches the printed one
+                f"{abs(v):,.0f}"):
         known.add(fmt)
 
 MONEY = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d])")
@@ -51,6 +55,18 @@ DECIMAL = re.compile(r"(?<![\d.,])\d+\.\d{1,3}(?![\d])")
 # really is in a canonical output never gets flagged (2026-09-21: 58/58 were this).
 for _f in CANON_FILES:
     known.update(MONEY.findall(open(_f).read()))
+
+# Declared inputs: amounts the manuscript legitimately states as parameters that no
+# output JSON reproduces -- drug prices, administration and management costs, the life
+# table. They are read from where they are declared, and reported as their own class so
+# an unattributed amount is not buried among them.
+INPUT_FILES = sorted(glob.glob("*.py")) + sorted(glob.glob("data/*.json"))
+inputs = set()
+for _f in INPUT_FILES:
+    for _m in re.finditer(r"\d[\d_]*(?:\.\d+)?", open(_f).read()):
+        _v = float(_m.group(0).replace("_", ""))
+        if _v >= 1000:
+            inputs.add(f"{_v:,.0f}")
 
 flag = {}
 for f in ("manuscript.tex", "supplementary.tex", "cover_letter_pharmacoeconomics.tex",
@@ -72,6 +88,10 @@ for f in ("manuscript.tex", "supplementary.tex", "cover_letter_pharmacoeconomics
                     continue
                 flag.setdefault(tok, []).append(f"{f}:{i}")
 
-print(f"canonical scalars: {len(nums)} | flagged tokens: {len(flag)}")
+print(f"canonical scalars: {len(nums)} | declared-input amounts: {len(inputs)} | "
+      f"flagged tokens: {len(flag)} "
+      f"({sum(1 for t in flag if t in inputs)} are declared inputs, "
+      f"{sum(1 for t in flag if t not in inputs)} unattributed)")
 for tok, where in sorted(flag.items(), key=lambda kv: -len(kv[1])):
-    print(f"  {tok:<12} x{len(where):<3} {where[0]}")
+    tag = "input" if tok in inputs else "UNATTRIBUTED"
+    print(f"  {tok:<12} x{len(where):<3} {tag:<12} {where[0]}")

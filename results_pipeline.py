@@ -599,16 +599,33 @@ def sync_tex(frag_dir: str = "tables") -> None:
 
 
 def export_dsa_json(deterministic: dict, out: str) -> None:
-    """DSV data for the tornado figure (Figure 3) -- same numbers as the DSA table."""
+    """DSV data for the tornado figure (Figure 3) -- same numbers as the DSA table.
+
+    Carries the net monetary benefit at both willingness-to-pay thresholds for each
+    parameter's low and high value. The DSA table's "Change in NMB" column is
+    abs(NMB@150K(high) - NMB@150K(low)); storing it here is what makes those
+    printed amounts traceable to a canonical output (audit_money_tokens.py).
+    """
     base = deterministic["base"]
     rows = []
     for r in deterministic["dsa"]:
-        lo, hi = r["low_case"].icer, r["high_case"].icer
+        lo_case, hi_case = r["low_case"], r["high_case"]
+        lo, hi = lo_case.icer, hi_case.icer
+        nmb = {}
+        for w in (100_000, 150_000):
+            lo_n, hi_n = lo_case.nmb(w), hi_case.nmb(w)
+            nmb[f"nmb_{w // 1000}k"] = {
+                "lo": lo_n,
+                "hi": hi_n,
+                "delta": abs(hi_n - lo_n),
+                "delta_formatted": money(abs(hi_n - lo_n)).replace("\\", "").replace("$", ""),
+            }
         rows.append({"param": r["attr"],
                      "lo_icer": "Dominant" if lo <= 0 else f"{lo:,.0f}",
                      "hi_icer": "Dominant" if hi <= 0 else f"{hi:,.0f}",
                      "lo_icer_raw": None if lo <= 0 else lo,
-                     "hi_icer_raw": None if hi <= 0 else hi})
+                     "hi_icer_raw": None if hi <= 0 else hi,
+                     **nmb})
     with open(out, "w") as fh:
         json.dump({"base_icer": base.icer, "rows": rows}, fh, indent=1)
     print(f"  wrote {out}")
@@ -680,6 +697,18 @@ def export_json(deterministic: dict, psa: dict | None, out: str) -> None:
                      "life_table_path": os.path.relpath(lt, os.path.dirname(os.path.abspath(__file__)))}
     if psa:
         doc["psa"] = {"summary": psa["summary"], "n_draws": psa["n_draws"]}
+    elif os.path.exists(out):
+        # A deterministic-only run must not silently drop a previously computed PSA
+        # block: recomputing it needs --psa (slow), and losing it would leave the
+        # artifact disagreeing with the manuscript's probabilistic results.
+        try:
+            prev = json.load(open(out))
+            if prev.get("psa") and prev.get("inputs", {}).get("life_table_sha256") == \
+                    doc["inputs"]["life_table_sha256"]:
+                doc["psa"] = prev["psa"]
+                print("  carried the existing PSA block forward (use --psa to recompute)")
+        except (json.JSONDecodeError, OSError):
+            pass
     with open(out, "w") as fh:
         json.dump(doc, fh, indent=2)
     print(f"  wrote {out}")

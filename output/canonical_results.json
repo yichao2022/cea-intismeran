@@ -2143,6 +2143,10 @@
     "100000": 443167.150354233,
     "150000": 645724.0622560405
   },
+  "inputs": {
+    "life_table_sha256": "2696dba7915f52e0",
+    "life_table_path": "data/life_table_surv.json"
+  },
   "psa": {
     "summary": {
       "n_draws": 6000,
@@ -2193,9 +2197,5 @@
       "frac_dcost_neg": 0.1675
     },
     "n_draws": 6000
-  },
-  "inputs": {
-    "life_table_sha256": "2696dba7915f52e0",
-    "life_table_path": "data/life_table_surv.json"
   }
 }
