@@ -32,6 +32,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import subprocess
 import sys
 from dataclasses import dataclass, fields
@@ -598,6 +599,24 @@ def sync_tex(frag_dir: str = "tables") -> None:
         print(f"  synced {name} -> {', '.join(files)}")
 
 
+def export_printed_values(frag_dir: str, out: str) -> None:
+    """Record every money amount the pipeline prints.
+
+    Some amounts a reader sees are derived on the way to the page (a threshold-price
+    difference, a cost delta) and live in no metric field, so audit_money_tokens.py
+    cannot attribute them. This artifact is the record of what the pipeline itself
+    printed, which is exactly the provenance those tokens need.
+    """
+    money_re = re.compile(r"\d{1,3}(?:,\d{3})+")
+    doc = {}
+    for f in sorted(os.listdir(frag_dir)):
+        if f.endswith(".tex"):
+            doc[f] = sorted(set(money_re.findall(open(os.path.join(frag_dir, f)).read())))
+    with open(out, "w") as fh:
+        json.dump(doc, fh, indent=1)
+    print(f"  wrote {out}")
+
+
 def export_dsa_json(deterministic: dict, out: str) -> None:
     """DSV data for the tornado figure (Figure 3) -- same numbers as the DSA table.
 
@@ -773,6 +792,7 @@ def main() -> int:
         export_tex(det, args.tex_dir)
         sync_tex(args.tex_dir)
         export_dsa_json(det, os.path.join(args.out_dir, "dsa_canonical.json"))
+        export_printed_values(args.tex_dir, os.path.join(args.out_dir, "printed_values.json"))
 
     base = det["base"]
     print(f"\nbase: dCost ${base.dcost:,.0f}  dQALY {base.dqaly:.2f}  "

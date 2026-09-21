@@ -28,9 +28,6 @@ MANUSCRIPT = [
      "Incremental cost  & \\$128,915 & \\$166,863 & $-$\\$671,440 to \\$524,694"),
     ("Incremental QALYs & 4.95      & 4.78      & 2.87--7.90",
      "Incremental QALYs & 4.36      & 4.18      & 2.56--7.10"),
-    # DM management cost difference, rounded to the exact delta
-    ("but \\$70,365 lower distant-metastasis management costs",
-     "but \\$70,364 lower distant-metastasis management costs"),
     # one-way DSA prose: ranking AND values both moved with the rerun
     ("the largest NMB changes arose from the discount rate (\\$37,614--\\$48,727/QALY "
      "across 0\\%--5\\%), the combination-arm OS parameter (\\$28,283--\\$42,814/QALY "
@@ -60,16 +57,26 @@ SUPPLEMENT = [
 ]
 
 changed = 0
+unresolved = []
 for path, pairs in (("manuscript.tex", MANUSCRIPT), ("supplementary.tex", SUPPLEMENT)):
     text = open(path).read()
     for old, new in pairs:
+        if new in text:
+            continue  # already synced
         n = text.count(old)
         if n == 0:
-            continue  # already synced, or value never appeared in this file
+            # Neither the old nor the new string is present: the anchor drifted (the
+            # sentence was reworded or regenerated). Failing here is the point -- a
+            # silently skipped pair is how a stale hand-typed number survives a rerun.
+            unresolved.append(f"{path}: {old[:70]!r}")
+            continue
         assert n == 1, f"{path}: anchor matched {n} times: {old[:60]}"
         text = text.replace(old, new)
         changed += 1
         print(f"{path}: {old[:58]}... -> {new[:44]}...")
     open(path, "w").write(text)
+
+if unresolved:
+    print("DRIFTED anchors (fix the pair or the sentence):", *unresolved, sep="\n  ")
+    sys.exit(1)
 print(f"{changed} replacement(s)")
-sys.exit(0)

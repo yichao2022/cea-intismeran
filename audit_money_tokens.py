@@ -17,7 +17,8 @@ psa = json.load(open("output/psa_v2_results.json"))
 
 # every canonical output the manuscript draws on — a token missing here is hand-typed
 CANON_FILES = ["output/canonical_results.json", "output/decomposition_v2.json",
-               "output/dsa_canonical.json", "output/psa_v2_results.json"]
+               "output/dsa_canonical.json", "output/psa_v2_results.json",
+               "output/printed_values.json"]
 
 
 def walk(o, out):
@@ -68,6 +69,21 @@ for _f in INPUT_FILES:
         if _v >= 1000:
             inputs.add(f"{_v:,.0f}")
 
+# Amounts that are not model outputs: literature values, external price lists, and
+# counts the money regex happens to match. Each entry names its provenance, and the
+# audit prints them as their own class -- a value that needs an entry here but has no
+# source is a manuscript problem, not an allowlist entry.
+EXTERNAL = {
+    "75,206": "prior exploratory analysis ICER (Discussion comparison)",
+    "75,000": "published interim-data ICER (Discussion comparison)",
+    "1,137": "INTerpath-001 enrolment (literature)",
+    "443,000": "break-even price rounded from the analytic threshold 443,167",
+    "12,336": "pembrolizumab WAC per 200 mg dose (external price list)",
+    "38,050": "published pembrolizumab CEA ICER, lower bound (literature)",
+    "78,400": "published pembrolizumab CEA ICER, upper bound (literature)",
+    "4,000": "iteration count in a figure caption, not an amount",
+}
+
 flag = {}
 for f in ("manuscript.tex", "supplementary.tex", "cover_letter_pharmacoeconomics.tex",
           "title_page.tex"):
@@ -88,10 +104,21 @@ for f in ("manuscript.tex", "supplementary.tex", "cover_letter_pharmacoeconomics
                     continue
                 flag.setdefault(tok, []).append(f"{f}:{i}")
 
+def klass(tok: str) -> str:
+    if tok in inputs:
+        return "input"
+    if tok in EXTERNAL:
+        return "external"
+    return "UNATTRIBUTED"
+
+
+counts = {k: sum(1 for t in flag if klass(t) == k) for k in ("input", "external", "UNATTRIBUTED")}
 print(f"canonical scalars: {len(nums)} | declared-input amounts: {len(inputs)} | "
-      f"flagged tokens: {len(flag)} "
-      f"({sum(1 for t in flag if t in inputs)} are declared inputs, "
-      f"{sum(1 for t in flag if t not in inputs)} unattributed)")
+      f"flagged tokens: {len(flag)} ({counts['input']} declared inputs, "
+      f"{counts['external']} external, {counts['UNATTRIBUTED']} unattributed)")
 for tok, where in sorted(flag.items(), key=lambda kv: -len(kv[1])):
-    tag = "input" if tok in inputs else "UNATTRIBUTED"
-    print(f"  {tok:<12} x{len(where):<3} {tag:<12} {where[0]}")
+    k = klass(tok)
+    note = f"  # {EXTERNAL[tok]}" if k == "external" else ""
+    print(f"  {tok:<12} x{len(where):<3} {k:<12} {where[0]}{note}")
+if counts["UNATTRIBUTED"]:
+    sys.exit(1)  # an amount nobody can source is a failure, not a warning
