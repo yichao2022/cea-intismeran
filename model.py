@@ -188,6 +188,7 @@ class ModelParams:
     constraint_general_pop: bool = False  # scenario: general population mortality cap
     gp_floor_start_months: int = 60  # months after which GP floor applies
     treatment_waning: bool = False  # treatment effect waning after 5 years
+    os_hr_scaling: float = 1.0  # Scale OS hazard ratio (1.0 = base HR 0.471; 0.35 = lower bound HR 0.165; 2.86 = upper bound HR 1.345)
     os_distribution: str = "lognormal"  # "lognormal" or "weibull" (applies to both arms unless per-arm overrides set)
     os_distribution_combo: str = ""  # if non-empty, overrides os_distribution for combo arm
     os_distribution_pembro: str = ""  # if non-empty, overrides os_distribution for pembro arm
@@ -261,10 +262,34 @@ class ModelParams:
     def __post_init__(self):
         def pct(v): return np.array(v, dtype=float) / 100.0
 
+        # Adjust OS combo data for HR sensitivity (before fitting)
+        # Base HR = 0.471; target HR = base_HR * os_hr_scaling
+        os_combo_pct_adj = list(self.os_combo_pct)  # copy
+        if abs(self.os_hr_scaling - 1.0) > 0.01:
+            # Convert pembro survival to hazard, apply scaled HR to get combo hazard, back to survival
+            base_hr = 0.471
+            target_hr = base_hr * self.os_hr_scaling
+            # Use log-normal approximation: if S_pembro(t) = Φ((μ_p - ln(t))/σ_p),
+            # then hazard ratio ≈ exp( (μ_c - μ_p)/σ ) for same σ
+            # We need to find μ_c such that HR = target_hr
+            # S_c(t) = S_p(t) ^ (hazard_ratio) approx
+            for i, t_mo in enumerate(self.os_time_mo):
+                t_yr = t_mo / 12.0
+                s_pembro = pct(self.os_pembro_pct)[i]
+                # Approximate: S_combo = S_pembro ^ (target_HR / base_HR_effect)
+                # But base case already has S_combo, so we scale relative to base
+                s_combo_base = pct(self.os_combo_pct)[i]
+                # New combo survival: scale hazard
+                # h_new = h_base * (target_hr / 0.471)
+                # S_new = exp(-H_new) = exp(-H_base * target_hr / 0.471) = S_base ^ (target_hr / 0.471)
+                hr_ratio = target_hr / 0.471
+                s_combo_new = s_combo_base ** hr_ratio
+                os_combo_pct_adj[i] = s_combo_new * 100.0
+
         # 1. Fit OS
         # Log-normal
         t_os = self.os_time_mo
-        self.os_mu_combo, self.os_sigma_combo = fit_lognorm_os(t_os, pct(self.os_combo_pct))
+        self.os_mu_combo, self.os_sigma_combo = fit_lognorm_os(t_os, pct(os_combo_pct_adj))
         self.os_mu_pembro, self.os_sigma_pembro = fit_lognorm_os(t_os, pct(self.os_pembro_pct))
 
         # Weibull (for alternative scenario)
@@ -428,6 +453,24 @@ class CEAModel:
             wane = np.clip((t_y - 5) / (20 - 5), 0, 1)
             benefit = os_val - p_os
             os_val = p_os + benefit * (1 - wane)
+
+        # OS HR sensitivity (clinical efficacy uncertainty)
+        # Scale hazard ratio: os_hr_scaling = test_HR / base_HR
+        # base HR = 0.471; lower bound = 0.165 (scale = 0.35); upper bound = 1.345 (scale = 2.86)
+        if arm == "combo" and abs(self.p.os_hr_scaling - 1.0) > 0.01:
+            # Convert survival to hazard, scale, then back to survival
+            n = len(os_val)
+            h_model = np.zeros(n)
+            for i in range(n - 1):
+                h_model[i] = -np.log(max(os_val[i + 1] / max(os_val[i], 1e-12), 1e-12))
+            # Apply HR scaling to combo arm hazard (higher scale = worse survival)
+            h_model = h_model * self.p.os_hr_scaling
+            # Reconstruct survival
+            cum_h = np.concatenate([[0.0], np.cumsum(h_model[:-1])])
+            os_val = np.exp(-cum_h)
+            # Ensure monotonic
+            for i in range(1, n):
+                os_val[i] = min(os_val[i], os_val[i-1])
 
         return os_val
 
@@ -663,6 +706,21 @@ def run_scenarios():
     m = CEAModel(p)
     r = m.run()
     print(f"{'Waning + GP + 20y horizon (most conservative)':40s} {r['combo']['qaly']:>10.2f} {r['pembro']['qaly']:>10.2f} {r['combo']['qaly']-r['pembro']['qaly']:>10.2f} ${r['combo']['cost']-r['pembro']['cost']:>9,.0f} ${m.icer(r):>8,.0f}")
+
+    # OS HR sensitivity (clinical efficacy uncertainty bounds)
+    # HR 95% CI: 0.165 (better) to 1.345 (worse/no benefit)
+    print()
+    print("OS HR sensitivity (clinical efficacy uncertainty):")
+    # Lower bound (HR=0.165, better survival)
+    p = ModelParams(os_hr_scaling=0.35, constraint_general_pop=True)
+    m = CEAModel(p)
+    r = m.run()
+    print(f"{'  OS HR lower bound (0.165, better)':40s} {r['combo']['qaly']:>10.2f} {r['pembro']['qaly']:>10.2f} {r['combo']['qaly']-r['pembro']['qaly']:>10.2f} ${r['combo']['cost']-r['pembro']['cost']:>9,.0f} ${m.icer(r):>8,.0f}")
+    # Upper bound (HR=1.345, no benefit)
+    p = ModelParams(os_hr_scaling=2.86, constraint_general_pop=True)
+    m = CEAModel(p)
+    r = m.run()
+    print(f"{'  OS HR upper bound (1.345, no benefit)':40s} {r['combo']['qaly']:>10.2f} {r['pembro']['qaly']:>10.2f} {r['combo']['qaly']-r['pembro']['qaly']:>10.2f} ${r['combo']['cost']-r['pembro']['cost']:>9,.0f} ${m.icer(r):>8,.0f}")
 
 
 if __name__ == "__main__":
