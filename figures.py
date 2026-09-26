@@ -30,19 +30,24 @@ def plot_survival():
         sur = model._survival()
     t = model.t
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4.5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 4.5))
     for arm_name in ["combo", "pembro"]:
         label = "Intismeran + Pembro" if arm_name == "combo" else "Pembrolizumab"
         ax1.plot(t, sur[f"rfs_{arm_name}"], color=C[arm_name], label=label)
-        ax2.plot(t, sur[f"os_{arm_name}"], color=C[arm_name], label=label)
+        ax2.plot(t, sur[f"dmfs_{arm_name}"], color=C[arm_name], label=label)
+        ax3.plot(t, sur[f"os_{arm_name}"], color=C[arm_name], label=label)
 
     # 5-year KEYNOTE-942 landmarks
     ax1.plot(5, 0.688, "o", color=C["combo"], ms=6)
     ax1.plot(5, 0.491, "o", color=C["pembro"], ms=6)
-    ax2.plot(5, 0.922, "o", color=C["combo"], ms=6)
-    ax2.plot(5, 0.713, "o", color=C["pembro"], ms=6)
+    ax2.plot(5, 0.922, "o", color=C["combo"], ms=6)  # DMFS ~92% at 5y
+    ax2.plot(5, 0.713, "o", color=C["pembro"], ms=6)  # DMFS ~71% at 5y
+    ax3.plot(5, 0.922, "o", color=C["combo"], ms=6)
+    ax3.plot(5, 0.713, "o", color=C["pembro"], ms=6)
 
-    for ax, title in [(ax1, "Recurrence-Free Survival"), (ax2, "Overall Survival")]:
+    for ax, title in [(ax1, "Recurrence-Free Survival"), 
+                      (ax2, "Distant Metastasis-Free Survival"), 
+                      (ax3, "Overall Survival")]:
         ax.set_xlabel("Years"); ax.set_ylabel("Survival Probability")
         ax.set_title(title); ax.legend(fontsize=9)
         ax.set_xlim(0, 40); ax.set_ylim(0, 1); ax.grid(alpha=0.3)
