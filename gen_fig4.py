@@ -1,6 +1,6 @@
 """Regenerate fig4_price_icer.png — journal style, no in-figure title."""
 import sys
-sys.path.insert(0, "/Users/cary/cea-intismeran")
+sys.path.insert(0, "/Users/cary/Documents/cea-intismeran")
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
