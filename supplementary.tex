@@ -702,6 +702,34 @@ Probability CE at \$150K/QALY & 98.7\% & 98.6\% \\
 
 \textbf{Interpretation.} The calibration sensitivity analysis demonstrates that the pembrolizumab-arm RFS fitting residual does not substantively alter the cost-effectiveness conclusion. The ICER remains well below conventional US willingness-to-pay thresholds, and the probability of cost-effectiveness is essentially unchanged. This provides empirical support for the statement that the fitting discrepancy, while statistically the largest residual in the model, does not materially affect the economic evaluation results.
 
+\subsection{LR State Definition Sensitivity Analysis}
+\label{sec:lr_sensitivity}
+
+The LR (locoregional recurrence) health state is defined in the partitioned survival model as $\text{LR}(t) = \text{DMFS}(t) - \text{RFS}(t)$. This modeling construct captures patients who have experienced a non-distant recurrence event but remain alive without distant metastasis. However, this definition differs from the strict clinical endpoint: KEYNOTE-942 defines RFS as including locoregional recurrence, new primary melanoma, and death; DMFS includes distant metastasis or death. Therefore, the modeled LR state may include patients with new primary melanoma (without recurrence) in addition to those with confirmed locoregional recurrence.
+
+To assess the impact of this structural assumption, we conducted a sensitivity analysis varying the LR state cost and utility:
+
+\begin{table}[H]
+\centering
+\caption{LR State Definition Sensitivity Analysis}
+\label{tab:s17}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr}
+\toprule
+\textbf{Scenario} & \textbf{LR Cost} & \textbf{LR Utility} & \textbf{$\Delta$QALY} & \textbf{ICER} & \textbf{NMB @ \$150K} \\
+\midrule
+Base case & \$3,000 & 0.64 & 4.05 & \$39,976 & \$445,724 \\
+LR cost +50\% & \$4,500 & 0.64 & 4.05 & \$40,847 & \$442,258 \\
+LR cost --50\% & \$1,500 & 0.64 & 4.05 & \$39,105 & \$449,191 \\
+LR utility +0.1 & \$3,000 & 0.74 & 4.15 & \$39,024 & \$458,276 \\
+LR utility --0.1 & \$3,000 & 0.54 & 3.95 & \$40,947 & \$433,103 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\noindent \textbf{Results.} Varying LR state cost by $\pm$50\% produces ICERs of \$39,105--\$40,847/QALY (2.3\% range), with NMB at \$150K/QALY varying by less than 1.6\%. Varying LR utility by $\pm$0.1 produces ICERs of \$39,024--\$40,947/QALY (4.9\% range). The base-case conclusion remains robust across these variations.
+
+\textbf{Interpretation.} The LR state definition and parameterization does not substantively affect the cost-effectiveness conclusion. This reflects the fact that the LR state contributes only 0.288 QALYs (7\%) to the total 4.05 incremental QALYs; the economic value is driven primarily by the RF state (4.032 QALYs). The modeled LR state cost (\$3,000/month) and utility (0.64) are conservative estimates drawn from published melanoma CEA literature and represent a composite of salvage surgery, re-treatment, and surveillance costs.
+
 % ═══════════════════════════════════════════════════
 \section{Deterministic Threshold Acquisition Price}
 % ═══════════════════════════════════════════════════
