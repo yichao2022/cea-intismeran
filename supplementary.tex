@@ -672,6 +672,36 @@ No additional OS hazard benefit beyond 5 years & 1.68 & 1.76 & \$37,783 & \$21,4
 
 \noindent \textbf{General population hazard floor start-time sensitivity.} The GP mortality floor was applied from 60 months in the base case. Varying the onset from 48 to 96 months produced no material change in the ICER (the ICERs ranged from \$39,937 to \$40,334/QALY across 48--96 months). This reflects the fact that the fitted hazard for the combination arm closely tracks the general-population mortality hazard in the post-trial period (both at approximately 0.0008--0.0009 monthly), leaving the floor with minimal additional constraining effect regardless of onset timing. The floor's binding is thus a near-numerical coincidence between the parametric extrapolation and US life-table mortality, not a model artifact.
 
+\subsection{Calibration Sensitivity Analysis: Pembrolizumab-Arm RFS Anchor}
+\label{sec:rfs_anchor}
+
+The base-case model exhibits its largest residual at the pembrolizumab-arm RFS 60-month landmark: observed 49.1\%, fitted 40.5\%, residual $-8.6$ percentage points (Table~\ref{tab:s15}). This discrepancy arises because the log-normal parametric curve cannot reproduce the flat KM plateau observed at 48--60 months (both 49.1\%). To assess whether this fitting discrepancy materially affects the cost-effectiveness conclusion, we conducted a calibration sensitivity analysis that constrains the pembrolizumab-arm RFS to match the observed 49.1\% at 60 months.
+
+\textbf{Implementation.} The pembrolizumab-arm $r_{\text{LR}}$ ratio curve was adjusted to achieve RFS(60) = 49.1\% while preserving the fitted DMFS and OS curves. Specifically, the $r_{\text{LR}}$ curve was shifted proportionally such that $\text{RFS}(60) = \text{DMFS}(60) \times r_{\text{LR}}^{\text{adj}}(60) = 49.1\%$, where DMFS(60) = 59.3\% remains unchanged from the base case. This yields $r_{\text{LR}}^{\text{adj}}(60) = 0.828$ versus the base-case fitted value of 0.683. The adjustment preserves the ratio-based model structure and maintains internal consistency (RFS $\leq$ DMFS $\leq$ OS).
+
+\begin{table}[H]
+\centering
+\caption{Calibration Sensitivity Analysis: Pembrolizumab-Arm RFS Anchored to Observed 5-Year Landmark}
+\label{tab:s16}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrr}
+\toprule
+\textbf{Outcome} & \textbf{Base Case} & \textbf{RFS-Anchored} \\
+\midrule
+Pembrolizumab-arm RFS at 60 months & 40.5\% & 49.1\% (observed) \\
+Incremental life-years & 4.78 & 4.65 \\
+Incremental QALYs & 4.05 & 3.97 \\
+Incremental cost (USD) & \$161,947 & \$163,847 \\
+ICER (USD/QALY) & \$39,976 & \$41,247 (+3.2\%) \\
+Probability CE at \$100K/QALY & 95.3\% & 95.1\% \\
+Probability CE at \$150K/QALY & 98.7\% & 98.6\% \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\noindent \textbf{Results.} Anchoring the pembrolizumab-arm RFS to the observed 5-year landmark produces an ICER of \$41,247/QALY, representing a 3.2\% increase from the base-case ICER of \$39,976/QALY (Table~\ref{tab:s16}). The incremental QALYs decrease from 4.05 to 3.97 (a 2.0\% reduction), reflecting the shorter time spent in the recurrence-free state in the pembrolizumab arm when RFS is higher. The probability of cost-effectiveness remains above 95\% at both \$100,000/QALY (95.1\%) and \$150,000/QALY (98.6\%).
+
+\textbf{Interpretation.} The calibration sensitivity analysis demonstrates that the pembrolizumab-arm RFS fitting residual does not substantively alter the cost-effectiveness conclusion. The ICER remains well below conventional US willingness-to-pay thresholds, and the probability of cost-effectiveness is essentially unchanged. This provides empirical support for the statement that the fitting discrepancy, while statistically the largest residual in the model, does not materially affect the economic evaluation results.
+
 % ═══════════════════════════════════════════════════
 \section{Deterministic Threshold Acquisition Price}
 % ═══════════════════════════════════════════════════
