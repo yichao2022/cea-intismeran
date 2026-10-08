@@ -307,6 +307,8 @@ The GP mortality hazard floor is applied to modeled OS from month 60 onward.
 \end{equation}
 where $h_{\text{param}}(t) = -\ln[S_{\text{param}}(t{+}1)/S_{\text{param}}(t)]$ is the monthly hazard implied by the fitted parametric survival curve. The constrained survival is reconstructed as $S_{\text{model}}^{\text{con}}(t) = \exp[-\sum_{0}^{t} h^{\text{con}}(u)]$. This is a \textbf{hazard floor}, not a survival cap: a cohort that has already experienced elevated (cancer-related) mortality in the first 5 years remains below general-population survival at every subsequent time point, whereas a survival cap ($S = \min[S_{\text{param}}, S_{\text{GP}}]$) would incorrectly force the two curves to coincide whenever the parametric tail exceeded the general-population level. Both arms are subject to the same background mortality floor.
 
+\noindent \textbf{Important limitation.} The GP mortality hazard floor ensures that modeled survival does not exceed general-population levels, but it \textit{cannot validate} whether cancer-related excess mortality beyond the observed trial period is correctly estimated. The constrained long-term survival predictions (e.g., 40-year combo OS of 2.0\%) are \textit{consistent with the imposed structural constraint}, not clinically validated estimates of survival to age 101. The GP floor prevents implausible extrapolation (e.g., 30-year OS 79.1\% without constraint vs 23.3\% GP survival), but it does not establish that the fitted parametric tail correctly captures true melanoma-specific mortality patterns beyond 5 years. Long-term clinical validation requires mature Phase 3 data from INTerpath-001 and real-world evidence.
+
 \subsection{Long-Term Survival Diagnostics}
 \label{sec:longterm}
 \begin{table}[H]
