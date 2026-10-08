@@ -8,7 +8,7 @@ Comprehensive re-run of cea-intismeran with:
 Structural integrity: RFS ≤ DMFS ≤ OS at every month, state sum = 1.0.
 """
 import sys, os, json
-sys.path.insert(0, "/Users/cary/cea-intismeran")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from scipy.stats import norm
 from model import ModelParams, CEAModel, lognorm_surv, weibull_surv, general_pop_surv
@@ -251,9 +251,14 @@ results.append(run_diagnostics("Treatment-Effect Waning (conservative)", p))
 p = ModelParams(constraint_general_pop=True)
 results.append(run_diagnostics("No additional OS hazard benefit beyond 5 years (strong conservative)", p, {"no_os_hazard_benefit": True}))
 
+# Scenario 5: RFS Calibration (anchor pembrolizumab RFS to 49.1% at 60 months)
+# Scale factor = 0.828 / 0.683 ≈ 1.212 to achieve RFS(60) = 49.1%
+p = ModelParams(constraint_general_pop=True, rLR_pembro_scale=1.212)
+results.append(run_diagnostics("RFS Calibration (pembro anchored to 49.1%)", p))
+
 # ── Summary table ──
 print(f"\n\n{'='*80}")
-print("FINAL SUMMARY: ALL 4 SCENARIOS")
+print("FINAL SUMMARY: ALL 5 SCENARIOS")
 print(f"{'='*80}")
 print(f"{'Scenario':<40s} {'Combo LY':>8s} {'Pembro LY':>8s} {'ΔLY':>8s} {'Combo Q':>8s} {'Pembro Q':>8s} {'ΔQALY':>8s} {'ΔCost':>10s} {'ICER':>10s}")
 print("-" * 100)

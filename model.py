@@ -199,6 +199,9 @@ class ModelParams:
     rLR_distribution_combo: str = ""  # if non-empty, overrides rLR_distribution for combo arm
     rLR_distribution_pembro: str = ""  # if non-empty, overrides rLR_distribution for pembro arm
 
+    # Calibration: scale factor for pembrolizumab r_LR ratio (for RFS anchoring sensitivity)
+    rLR_pembro_scale: float = 1.0  # Scale r_LR ratio for pembro arm (1.0 = base; 0.828/0.683 ≈ 1.212 for 49.1% RFS anchor)
+
     # ── Derived parameters ──
     os_mu_combo: float = 0.0
     os_sigma_combo: float = 0.0
@@ -532,6 +535,12 @@ class CEAModel:
                 rl_mu = getattr(p, f"rl_mu_{prefix}")
                 rl_sigma = getattr(p, f"rl_sigma_{prefix}")
                 r_lr = lognorm_surv(mo, rl_mu, rl_sigma)
+            
+            # Apply calibration scaling for pembrolizumab r_LR (RFS anchoring sensitivity)
+            if prefix == "pembro" and hasattr(p, 'rLR_pembro_scale') and p.rLR_pembro_scale != 1.0:
+                r_lr = r_lr * p.rLR_pembro_scale
+                r_lr = np.minimum(r_lr, 1.0)  # Ensure r_LR ≤ 1
+            
             sur[f"rfs_{arm}"] = sur[f"dmfs_{arm}"] * r_lr
 
         return sur
