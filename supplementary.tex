@@ -43,7 +43,7 @@ versus Pembrolizumab Alone as Adjuvant Therapy for Resected Stage IIIB--IV Melan
 \textbf{State} & \textbf{Clinical Definition} & \textbf{Utility} & \textbf{Monthly Cost} \\
 \midrule
 RF & Recurrence-free after complete resection; receiving adjuvant \mbox{pembrolizumab} (up to 18 cycles) with or without intismeran (up to 9 doses) & 0.83 & \$0 \\
-LR & Confirmed locoregional recurrence without distant metastasis; includes salvage surgery, re-treatment, and surveillance & 0.64 & \$3,000 \\
+LR & Modeled non-distant recurrence state ($\text{DMFS} - \text{RFS}$); includes locoregional recurrence, new primary melanoma, and surveillance & 0.64 & \$3,000 \\
 DM & Confirmed stage IV melanoma with distant metastasis; includes systemic therapy, palliative care, and monitoring & 0.55 & \$12,000 \\
 Death & All-cause mortality & 0 & \$0 \\
 \bottomrule
@@ -717,7 +717,7 @@ To assess the impact of this structural assumption, we conducted a sensitivity a
 
 \begin{table}[H]
 \centering
-\caption{LR State Definition Sensitivity Analysis}
+\caption{LR State Cost and Utility Sensitivity Analysis}
 \label{tab:s17}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr}
 \toprule
@@ -734,7 +734,7 @@ LR utility --0.1 & \$3,000 & 0.54 & 4.01 & \$40,424 & \$435,395 \\
 
 \noindent \textbf{Results.} Varying LR state cost by $\pm$50\% produces ICERs of \$37,978--\$41,973/QALY (10.0\% range), with incremental costs changing by approximately \$8,091 (consistent with the algebraic expectation of 50\% of the \$16,184 incremental LR cost). Varying LR utility by $\pm$0.1 produces ICERs of \$39,537--\$40,424/QALY (2.2\% range), with incremental QALYs changing by approximately 0.05 (consistent with the expected impact on time spent in the LR state). The base-case conclusion remains robust across these variations.
 
-\textbf{Interpretation.} The LR state definition and parameterization does not substantively affect the cost-effectiveness conclusion. This reflects the fact that the LR state contributes only 0.288 QALYs (7\%) to the total 4.05 incremental QALYs; the economic value is driven primarily by the RF state (4.032 QALYs). The modeled LR state cost (\$3,000/month) and utility (0.64) are conservative estimates drawn from published melanoma CEA literature and represent a composite of salvage surgery, re-treatment, and surveillance costs.
+\textbf{Interpretation.} This analysis tests parameter uncertainty in the LR state cost and utility, not structural uncertainty in the state definition itself. The LR state is a modeling construct defined as $\text{LR}(t) = \text{DMFS}(t) - \text{RFS}(t)$, which may include patients with new primary melanoma in addition to those with confirmed locoregional recurrence (see \S\ref{sec:state_definitions}). The LR state parameterization does not substantively affect the cost-effectiveness conclusion because the LR state contributes only 0.288 QALYs (7\%) to the total 4.05 incremental QALYs; the economic value is driven primarily by the RF state (4.032 QALYs).
 
 % ═══════════════════════════════════════════════════
 \section{Deterministic Threshold Acquisition Price}
