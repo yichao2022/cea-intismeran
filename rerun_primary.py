@@ -256,6 +256,22 @@ results.append(run_diagnostics("No additional OS hazard benefit beyond 5 years (
 p = ModelParams(constraint_general_pop=True, rLR_pembro_scale=1.212)
 results.append(run_diagnostics("RFS Calibration (pembro anchored to 49.1%)", p))
 
+# Scenario 6: LR cost +50%
+p = ModelParams(constraint_general_pop=True, cost_lr_monthly=4_500)
+results.append(run_diagnostics("LR cost +50%", p))
+
+# Scenario 7: LR cost -50%
+p = ModelParams(constraint_general_pop=True, cost_lr_monthly=1_500)
+results.append(run_diagnostics("LR cost -50%", p))
+
+# Scenario 8: LR utility +0.1
+p = ModelParams(constraint_general_pop=True, util_lr=0.74)
+results.append(run_diagnostics("LR utility +0.1", p))
+
+# Scenario 9: LR utility -0.1
+p = ModelParams(constraint_general_pop=True, util_lr=0.54)
+results.append(run_diagnostics("LR utility -0.1", p))
+
 # ── Summary table ──
 print(f"\n\n{'='*80}")
 print("FINAL SUMMARY: ALL 5 SCENARIOS")
