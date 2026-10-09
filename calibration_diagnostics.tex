@@ -4,7 +4,7 @@
 \subsection{Calibration Diagnostics}
 \label{sec:calibration_diagnostics}
 
-\paragraph{Structural validation.} The calibration scenario applies a proportional scaling factor $k=1.2131$ (derived from unrounded model outputs) to the pembrolizumab-arm $r_{LR}$ ratio curve while preserving DMFS and OS curves. Structural integrity checks over all 480 months confirm:
+\paragraph{Structural validation.} The calibration scenario applies a proportional scaling factor $k=1.212$ (based on the reported 5-year RFS target of 49.1\% and base case RFS of 40.5\%) to the pembrolizumab-arm $r_{LR}$ ratio curve while preserving DMFS and OS curves. Structural integrity checks over all 480 months confirm:
 \begin{itemize}
     \item RFS $\leq$ DMFS: 0 violations (max excess: $0.00 \\times 10^{-10}$)
     \item DMFS $\leq$ OS: 0 violations (max excess: $0.00 \\times 10^{-10}$)
@@ -12,7 +12,7 @@
     \item DMFS and OS unchanged: max $|$\Delta$|$ $< 10^{-15}$
 \end{itemize}
 
-\paragraph{Landmark fit comparison.} Table~S16 reports the calibration anchored to 49.1\% RFS at 60 months. The exact scale factor $k=1.2131$ yields RFS(60)=49.06\% (rounded to 49.1\% in text). Key timepoints:
+\paragraph{Landmark fit comparison.} Table~S16 reports the calibration anchored to 49.1\% RFS at 60 months. The scale factor $k=1.212$ yields RFS(60)=49.06\% (rounded to 49.1\% in text). Key timepoints:
 
 \begin{table}[H]
 \centering
@@ -36,8 +36,8 @@ Fit quality (observed timepoints): Base case MAE=54.9pp, RMSE=54.9pp; Calibrated
 \begin{itemize}
     \item $\Delta$LY: 4.82 (unchanged, OS preserved)
     \item $\Delta$QALY: 3.87 (vs 4.05 base)
-    \item $\Delta$Cost: \$197,299 (vs \$161,947 base)
-    \item ICER: \$51,053/QALY (rounded to \$51,006 in Table~S16)
+    \item $\Delta$Cost: \$197,154 (vs \$161,947 base)
+    \item ICER: \$51,006/QALY (reported in Table~S16)
 \end{itemize}
 
 \paragraph{Interpretation.} This calibration is a \textbf{local anchor stress test}, not a globally better-fitting curve. It improves the 60-month RFS fit (largest model residual: $-8.6$pp) while maintaining structural validity, but trades off fit quality at 18--48 months. The ICER increases by 27.6\%, demonstrating that the base-case conclusion is robust to this specific fitting discrepancy.
