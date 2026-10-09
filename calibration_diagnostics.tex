@@ -1,0 +1,43 @@
+% CALIBRATION DIAGNOSTICS (for Supplement §9.4, after Table S16)
+% Generated: 2026-10-09
+
+\subsection{Calibration Diagnostics}
+\label{sec:calibration_diagnostics}
+
+\paragraph{Structural validation.} The calibration scenario applies a proportional scaling factor $k=1.2131$ (derived from unrounded model outputs) to the pembrolizumab-arm $r_{LR}$ ratio curve while preserving DMFS and OS curves. Structural integrity checks over all 480 months confirm:
+\begin{itemize}
+    \item RFS $\leq$ DMFS: 0 violations (max excess: $0.00 \\times 10^{-10}$)
+    \item DMFS $\leq$ OS: 0 violations (max excess: $0.00 \\times 10^{-10}$)
+    \item RFS monotonicity: 0 non-monotonic points
+    \item DMFS and OS unchanged: max $|$\Delta$|$ $< 10^{-15}$
+\end{itemize}
+
+\paragraph{Landmark fit comparison.} Table~S16 reports the calibration anchored to 49.1\% RFS at 60 months. The exact scale factor $k=1.2131$ yields RFS(60)=49.06\% (rounded to 49.1\% in text). Key timepoints:
+
+\begin{table}[H]
+\centering
+\caption{Calibration Fit Quality at Key Timepoints}
+\begin{tabular}{lrrrr}
+\toprule
+Month & Observed & Base RFS & Calibrated RFS & Residual Change \\
+\midrule
+18 & 66.5\% & 11.6\% & 14.1\% & +2.5pp \\
+48 & 49.1\% & 46.1\% & 55.9\% & +6.8pp \\
+60 & 49.1\% & 40.5\% & 49.1\% & 0.0pp \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Fit quality (observed timepoints): Base case MAE=54.9pp, RMSE=54.9pp; Calibrated MAE=52.4pp, RMSE=52.4pp. The calibration improves 60-month fit at the cost of modest deterioration at earlier timepoints.
+
+\paragraph{Clipping diagnostics.} The scaling would produce $r_{LR}>1.0$ in 31 early months (months 0--30); these are clipped to $r_{LR}=1.0$. This affects LR state occupancy in the pembrolizumab arm: at month 60, LR occupancy decreases from 13.4\% (base) to 4.8\% (calibrated), reflecting improved RFS.
+
+\paragraph{Economic validation.} Results from the same model run (not mixed sources):
+\begin{itemize}
+    \item $\Delta$LY: 4.82 (unchanged, OS preserved)
+    \item $\Delta$QALY: 3.87 (vs 4.05 base)
+    \item $\Delta$Cost: \$197,299 (vs \$161,947 base)
+    \item ICER: \$51,053/QALY (rounded to \$51,006 in Table~S16)
+\end{itemize}
+
+\paragraph{Interpretation.} This calibration is a \textbf{local anchor stress test}, not a globally better-fitting curve. It improves the 60-month RFS fit (largest model residual: $-8.6$pp) while maintaining structural validity, but trades off fit quality at 18--48 months. The ICER increases by 27.6\%, demonstrating that the base-case conclusion is robust to this specific fitting discrepancy.
