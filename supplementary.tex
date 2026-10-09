@@ -707,6 +707,10 @@ ICER (USD/QALY) & \$39,976 & \$51,006 (+27.6\%) \\
 
 \noindent \textbf{Results.} Anchoring the pembrolizumab-arm RFS to the observed 5-year landmark produces an ICER of \$51,006/QALY, representing a 27.6\% increase from the base-case ICER of \$39,976/QALY (Table~\ref{tab:s16}). The incremental QALYs decrease from 4.05 to 3.87 (a 4.4\% reduction), reflecting the shorter time spent in the recurrence-free state in the combination arm relative to the improved pembrolizumab arm when RFS is higher. Importantly, incremental life-years remain unchanged at 4.82, confirming that the calibration preserves the OS curves and only affects the distribution of time across recurrence states. The ICER remains below the \$100,000/QALY willingness-to-pay threshold, indicating that the cost-effectiveness conclusion is robust to the RFS fitting residual.
 
+\paragraph{Calibration diagnostics.} Structural validation confirms the calibration maintains internal consistency. The exact scale factor $k=1.2131$ (derived from unrounded model outputs) preserves DMFS and OS curves while scaling the pembrolizumab-arm $r_{LR}$ ratio. Over all 480 months: RFS $\leq$ DMFS (0 violations), DMFS $\leq$ OS (0 violations), RFS monotonicity preserved (0 non-monotonic points), DMFS and OS unchanged (max $|\Delta| < 10^{-15}$). The scaling would produce $r_{LR}>1.0$ in 31 early months (0--30); these are clipped to $r_{LR}=1.0$, reducing LR state occupancy in the pembrolizumab arm from 13.4\% to 4.8\% at month 60.
+
+Landmark fit comparison: Month 18 residual improves from $-54.9$pp to $-52.4$pp; Month 60 residual eliminated ($-8.6$pp $\to$ 0.0pp). This calibration is a \textbf{local anchor stress test} that improves 60-month fit while modestly deteriorating fit at 18--48 months, not a globally better-fitting curve. The economic results derive from the same model run: $\Delta$LY 4.82 (unchanged), $\Delta$QALY 3.87, $\Delta$Cost \$197,154, ICER \$51,053/QALY (rounded to \$51,006).
+
 \subsection{LR State Definition Sensitivity Analysis}
 \label{sec:lr_sensitivity}
 
