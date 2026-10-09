@@ -252,9 +252,13 @@ p = ModelParams(constraint_general_pop=True)
 results.append(run_diagnostics("No additional OS hazard benefit beyond 5 years (strong conservative)", p, {"no_os_hazard_benefit": True}))
 
 # Scenario 5: RFS Calibration (anchor pembrolizumab RFS to 49.1% at 60 months)
-# Scale factor = 0.913 / 0.753 ≈ 1.212 to achieve RFS(60) = 49.1%
-# where 0.913 = 49.1% / 53.8% (target r_LR) and 0.753 = 40.5% / 53.8% (base r_LR)
-p = ModelParams(constraint_general_pop=True, rLR_pembro_scale=1.212)
+# Exact scale factor = target_rfs / base_rfs = 0.491 / base_rfs_60
+p_temp = ModelParams(constraint_general_pop=True)
+m_temp = CEAModel(p_temp)
+sur_temp = m_temp._survival()
+base_rfs_60 = sur_temp['rfs_pembro'][60]  # ~0.404749
+exact_scale = 0.491 / base_rfs_60  # 1.213096657
+p = ModelParams(constraint_general_pop=True, rLR_pembro_scale=exact_scale)
 results.append(run_diagnostics("RFS Calibration (pembro anchored to 49.1%)", p))
 
 # Scenario 6: LR cost +50%

@@ -435,44 +435,38 @@ def _rows_price(price_cases, thresholds) -> str:
 def _rows_s16(deterministic: dict) -> str:
     """Generate Table S16: Calibration sensitivity analysis from model outputs.
     
-    Uses scale factor 1.212 (approximate) to match manuscript values:
-    - ICER $51,006 (not $51,053 with exact calculation)
-    - ΔCost $197,154 (not $197,299)
-    - ΔQALY 3.87 (not 3.86)
+    Uses exact scale factor k=1.213096657 (target_rfs/base_rfs) for precise anchoring:
+    - Month 60 RFS = 49.10%
+    - ICER $51,053/QALY (+27.7%)
+    - ΔCost $197,299
+    - ΔQALY 3.8646
     """
     from model import ModelParams, CEAModel
     
     base = deterministic["base"]
     
-    # Use the approximate scale factor from the manuscript (1.212)
-    # rather than exact calculation (1.21309667) to match published values
-    SCALE_FACTOR = 1.212
-    
-    # Find or run calibration scenario with manuscript scale
-    cal_case = None
-    for _, label, _, c in deterministic["scenarios"]:
-        if "RFS anchored" in label.lower() or "calibration" in label.lower():
-            cal_case = c
-            break
-    
-    if cal_case is None:
-        # Run calibration scenario with manuscript scale
-        cal_case = run_case("Calibration", constraint_general_pop=True, rLR_pembro_scale=SCALE_FACTOR)
-    
-    # Get base RFS for display
+    # Calculate exact scale factor from unrounded model outputs
+    # k = target_rfs / base_rfs = 0.491 / 0.404749 = 1.213096657
     p_base = ModelParams(constraint_general_pop=True)
     m_base = CEAModel(p_base)
     sur_base = m_base._survival()
-    rfs_base_60 = sur_base['rfs_pembro'][60]
+    rfs_base_60 = sur_base['rfs_pembro'][60]  # ~0.404749
     
-    # Verify actual RFS
+    target_rfs = 0.491  # 49.1% observed
+    SCALE_FACTOR = target_rfs / rfs_base_60  # Exact: 1.213096657
+    
+    # Always run calibration scenario with exact scale factor
+    # (do not use cached results to ensure precision)
+    cal_case = run_case("Calibration", constraint_general_pop=True, rLR_pembro_scale=SCALE_FACTOR)
+    
+    # Verify actual RFS with exact scale
     p_cal = ModelParams(constraint_general_pop=True, rLR_pembro_scale=SCALE_FACTOR)
     m_cal = CEAModel(p_cal)
     sur_cal = m_cal._survival()
     actual_rfs_60 = sur_cal['rfs_pembro'][60]
     
     lines = [
-        f"Pembrolizumab-arm RFS at 60 months & {rfs_base_60*100:.1f}\\% & {actual_rfs_60*100:.1f}\\% (observed) \\\\",
+        f"Pembrolizumab-arm RFS at 60 months & {rfs_base_60*100:.2f}\\% & {actual_rfs_60*100:.2f}\\% (target 49.1\\%) \\\\",
         f"Incremental life-years & {base.dly:.2f} & {cal_case.dly:.2f} \\\\",
         f"Incremental QALYs & {base.dqaly:.2f} & {cal_case.dqaly:.2f} \\\\",
         f"Incremental cost (USD) & {money(base.dcost)} & {money(cal_case.dcost)} \\\\",
