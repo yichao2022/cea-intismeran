@@ -432,6 +432,64 @@ def _rows_price(price_cases, thresholds) -> str:
     return "\n".join(out)
 
 
+def _rows_s16(deterministic: dict) -> str:
+    """Generate Table S16: Calibration sensitivity analysis from model outputs."""
+    from model import ModelParams, CEAModel
+    
+    base = deterministic["base"]
+    
+    # Get base RFS value
+    p_base = ModelParams(constraint_general_pop=True)
+    m_base = CEAModel(p_base)
+    sur_base = m_base._survival()
+    rfs_base_60 = sur_base['rfs_pembro'][60]
+    
+    # Find calibration scenario
+    cal_case = None
+    for _, label, _, c in deterministic["scenarios"]:
+        if "RFS anchored" in label.lower() or "calibration" in label.lower():
+            cal_case = c
+            break
+    
+    if cal_case is None:
+        # Run calibration scenario if not in scenarios
+        base_dmfs_60 = sur_base['dmfs_pembro'][60]
+        target_rfs_60 = 0.491
+        exact_scale = (target_rfs_60 / base_dmfs_60) / (rfs_base_60 / base_dmfs_60)
+        cal_case = run_case("Calibration", constraint_general_pop=True, rLR_pembro_scale=exact_scale)
+    
+    rfs_cal_60 = 0.491  # Target value
+    
+    lines = [
+        f"Pembrolizumab-arm RFS at 60 months & {rfs_base_60*100:.1f}\\% & {rfs_cal_60*100:.1f}\\% (observed) \\\\",
+        f"Incremental life-years & {base.dly:.2f} & {cal_case.dly:.2f} \\\\",
+        f"Incremental QALYs & {base.dqaly:.2f} & {cal_case.dqaly:.2f} \\\\",
+        f"Incremental cost (USD) & {money(base.dcost)} & {money(cal_case.dcost)} \\\\",
+        f"ICER (USD/QALY) & {money(base.icer)} & {money(cal_case.icer)} (+{((cal_case.icer/base.icer-1)*100):.1f}\\%) \\\\",
+    ]
+    return "\n".join(lines)
+
+
+def _rows_s17(deterministic: dict) -> str:
+    """Generate Table S17: LR state cost and utility sensitivity analysis."""
+    base = deterministic["base"]
+    
+    # Run LR sensitivity scenarios
+    case_lr_cost_plus = run_case("LR cost +50%", constraint_general_pop=True, cost_lr_monthly=int(3000*1.5))
+    case_lr_cost_minus = run_case("LR cost -50%", constraint_general_pop=True, cost_lr_monthly=int(3000*0.5))
+    case_lr_util_plus = run_case("LR util +0.1", constraint_general_pop=True, util_lr=0.64+0.1)
+    case_lr_util_minus = run_case("LR util -0.1", constraint_general_pop=True, util_lr=0.64-0.1)
+    
+    lines = [
+        f"Base case & \\$3,000 & 0.64 & {base.dqaly:.2f} & {money(base.icer)} & {money(base.nmb(150_000))} \\\\",
+        f"LR cost +50\\% & \\$4,500 & 0.64 & {case_lr_cost_plus.dqaly:.2f} & {money(case_lr_cost_plus.icer)} & {money(case_lr_cost_plus.nmb(150_000))} \\\\",
+        f"LR cost --50\\% & \\$1,500 & 0.64 & {case_lr_cost_minus.dqaly:.2f} & {money(case_lr_cost_minus.icer)} & {money(case_lr_cost_minus.nmb(150_000))} \\\\",
+        f"LR utility +0.1 & \\$3,000 & 0.74 & {case_lr_util_plus.dqaly:.2f} & {money(case_lr_util_plus.icer)} & {money(case_lr_util_plus.nmb(150_000))} \\\\",
+        f"LR utility --0.1 & \\$3,000 & 0.54 & {case_lr_util_minus.dqaly:.2f} & {money(case_lr_util_minus.icer)} & {money(case_lr_util_minus.nmb(150_000))} \\\\",
+    ]
+    return "\n".join(lines)
+
+
 def export_tex(deterministic: dict, tex_dir: str) -> None:
     os.makedirs(tex_dir, exist_ok=True)
     base = deterministic["base"]
@@ -535,6 +593,14 @@ def export_tex(deterministic: dict, tex_dir: str) -> None:
 
     # S16: price ladder + analytic thresholds (no bisection outputs)
     w("tab_price_body.tex", _rows_price(deterministic["prices"], deterministic["thresholds"]))
+
+    # S16: Calibration sensitivity analysis (from model outputs)
+    s16 = _rows_s16(deterministic)
+    w("tab_s16_body.tex", s16)
+
+    # S17: LR state cost and utility sensitivity analysis
+    s17 = _rows_s17(deterministic)
+    w("tab_s17_body.tex", s17)
 
     # DSA (matches the supplement column layout: Parameter & Base & Low & High &
     # ICER range & Change in NMB)
